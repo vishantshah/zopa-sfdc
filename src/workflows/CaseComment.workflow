@@ -51,17 +51,6 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
-        <fullName>New Comment Added by Tech</fullName>
-        <actions>
-            <name>Tech_Comment_Status_New</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <formula>AND(OR(CreatedBy.UserRoleId = &apos;00E20000001nJDc&apos;,CreatedBy.UserRoleId = &apos;00E20000001nJDc&apos;),
- NOT(ISPICKVAL(  Parent.Status  , &apos;Closed&apos;)) )</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
         <fullName>New Comment by CS on Escalated</fullName>
         <actions>
             <name>Set_Status_as_Escalated</name>

@@ -36,7 +36,7 @@
         <ruleEntry>
             <assignedTo>Tech_Support</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+            <booleanFilter>(1 AND (2 OR 3)) OR 4</booleanFilter>
             <criteriaItems>
                 <field>Case.Origin</field>
                 <operation>equals</operation>
@@ -52,7 +52,12 @@
                 <operation>contains</operation>
                 <value>Callcredit,Call Credit,Equifax,Experian,Broker Portal,Toby,Sunila,Bolaji,Rapid returns</value>
             </criteriaItems>
-            <team>Tech Support</team>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Tech Support Email,Appsupport.IT,Data.IT</value>
+            </criteriaItems>
+            
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Dealer_Invoices_Priority_1</assignedTo>
@@ -72,16 +77,6 @@
                 <operation>equals</operation>
                 <value>Zopian.IT</value>
             </criteriaItems>
-        </ruleEntry>
-        <ruleEntry>
-            <assignedTo>Tech_Support</assignedTo>
-            <assignedToType>Queue</assignedToType>
-            <criteriaItems>
-                <field>Case.Origin</field>
-                <operation>equals</operation>
-                <value>Tech Support Email,Appsupport.IT,Data.IT</value>
-            </criteriaItems>
-            <team>Tech Support</team>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Case_Prep_Emails</assignedTo>
@@ -109,7 +104,6 @@
                 <operation>equals</operation>
                 <value>Recoveries Email</value>
             </criteriaItems>
-            <team>Recoveries</team>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Lenders</assignedTo>
