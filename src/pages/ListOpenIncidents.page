@@ -1,0 +1,8 @@
+<apex:page standardController="Incident__c" recordSetVar="ListIncidents">
+  <apex:pageBlock title="List of Active Incidents">
+      <apex:pageBlockTable value="{!ListIncidents}" var="a">
+          <apex:column value="{!a.Name}" />
+          <apex:column value="{!a.Summary__c}" />
+      </apex:pageBlockTable>
+  </apex:pageBlock>
+</apex:page>

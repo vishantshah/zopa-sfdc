@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LiveChatButton xmlns="http://soap.sforce.com/2006/04/metadata">
+    <animation>Appear</animation>
+    <deployments>
+        <deployment>LiveChat</deployment>
+    </deployments>
+    <enableQueue>true</enableQueue>
+    <inviteEndPosition>Right</inviteEndPosition>
+    <isActive>true</isActive>
+    <label>Come and Talk</label>
+    <optionsCustomRoutingIsEnabled>false</optionsCustomRoutingIsEnabled>
+    <optionsHasChasitorIdleTimeout>false</optionsHasChasitorIdleTimeout>
+    <optionsHasInviteAfterAccept>false</optionsHasInviteAfterAccept>
+    <optionsHasInviteAfterReject>false</optionsHasInviteAfterReject>
+    <optionsHasRerouteDeclinedRequest>false</optionsHasRerouteDeclinedRequest>
+    <optionsIsAutoAccept>false</optionsIsAutoAccept>
+    <optionsIsInviteAutoRemove>false</optionsIsInviteAutoRemove>
+    <perAgentQueueLength>2</perAgentQueueLength>
+    <routingType>Choice</routingType>
+    <skills>
+        <skill>Everything</skill>
+    </skills>
+    <type>Invite</type>
+    <windowLanguage>en_US</windowLanguage>
+</LiveChatButton>

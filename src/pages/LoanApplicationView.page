@@ -1,0 +1,117 @@
+<apex:page standardController="Loan_Application__c" extensions="LoanAppViewExtension">
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+    <script type="text/javascript">
+        function openPageInSubtab(url, tab_name) {
+            if (sforce.console.isInConsole()) {
+                var openConcreteSubTab = function (primaryTab, url, tab_name) {
+                    sforce.console.openSubtab(primaryTab.id, url, true, tab_name);
+                }
+
+                sforce.console.getEnclosingPrimaryTabId(function (primaryTab) {
+                    openConcreteSubTab(primaryTab, url, tab_name)
+                });
+            } else {
+                window.top.location = url;
+            }
+        }
+
+        function openCloneTab(){
+            var loan_app_id = '{!Loan_Application__c.Id}'.substring(0,15);
+            openPageInSubtab('/{!Loan_Application__c.Id}/e?clone=1&retURL=%2F{!Loan_Application__c.Id}', 'Clone');
+        }
+
+        function openViewDocumentsTab(){
+            openPageInSubtab('/apex/DocumentsManagement?id={!Loan_Application__c.Id}', 'View Documents');
+        }
+
+        function openLogACall(){
+            openPageInSubtab('/flow/Case_Prep_Flow?varPassedCaseID={!IdLoanApplicationCase}', 'Log a Call');
+        }
+
+        function openLink(url){
+            window.open(url, '_blank');
+        }
+    </script>
+    <apex:form >
+        <apex:pageblock Title="Loan Application Detail">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton action="{!edit}" value="Edit" />
+                <apex:commandButton action="{!delete}" value="Delete" />
+                <apex:commandButton onclick="openCloneTab()" value="Clone"/>
+                <apex:commandButton oncomplete="openViewDocumentsTab()" value="View Documents"/>
+                <apex:commandButton oncomplete="openLogACall()" value="Log a Call"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection collapsible="false">
+                <apex:outputField value="{!Loan_Application__c.Name}"/>
+                <apex:outputField value="{!Loan_Application__c.Outstanding_Balance__c}"/>
+                <apex:outputField value="{!Loan_Application__c.Customer_Account__c}"/>
+                <apex:outputField value="{!Loan_Application__c.Loan_Application_Amount__c}"/>
+                <apex:outputField value="{!Loan_Application__c.Loan_Application_Date__c}"/>
+                <apex:outputField value="{!Loan_Application__c.First_Payment__c}"/>
+                <apex:outputField value="{!Loan_Application__c.Purpose__c}"/>
+                <apex:outputField value="{!Loan_Application__c.Monthly_Repayment_Amount__c}"/>
+                <apex:outputField value="{!Loan_Application__c.Rate__c}"/>
+                <apex:outputField value="{!Loan_Application__c.Fee__c}"/>
+                <apex:outputField value="{!Loan_Application__c.Payment_Day__c}"/>
+                <apex:outputField value="{!Loan_Application__c.Term__c}"/>
+                <apex:outputField value="{!Loan_Application__c.QuickPay__c}"/>
+                <apex:outputField value="{!Loan_Application__c.APR__c}"/>
+                <apex:outputField value="{!Loan_Application__c.Residential_Status__c}"/>
+                <apex:outputField value="{!Loan_Application__c.Loan_Application_Status__c}"/>
+                <apex:outputField value="{!Loan_Application__c.Institution__c}"/>
+                <apex:outputField value="{!Loan_Application__c.Market__c}"/>
+                <apex:outputField value="{!Loan_Application__c.Employment_Status__c}"/>
+                <apex:outputField value="{!Loan_Application__c.Broker__c}"/>
+                <apex:outputField value="{!Loan_Application__c.Cancel_Decline_Reason__c}" rendered="{!showCancelDeclineReasonField}"/>
+                <apex:outputField value="{!Loan_Application__c.Fraud_Retro__c}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Created By" for="createdBy"/>
+                    <apex:outputLink id="createdBy" value="/{!Loan_Application__c.CreatedBy.Id}">{!Loan_Application__c.CreatedBy.Name}</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Last Modified By" for="lastModifiedBy"/>
+                    <apex:outputLink id="lastModifiedBy" value="/{!Loan_Application__c.LastModifiedBy.Id}">{!Loan_Application__c.LastModifiedBy.Name}</apex:outputLink>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection collapsible="false">
+               <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Custom Links" for="usWebEquifax"/>
+                    <apex:outputLink id="usWebEquifax" onclick="openLink('http://underwriting.dca.zopa.com/case/details/{!Loan_Application__c.Loan_ID__c}#CreditDataTab')">Underwriting Web Equifax Page</apex:outputLink>
+               </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="" for="callCreadit"/>
+                    <apex:outputLink id="callCreadit" onclick="openLink('http://underwriting.dca.zopa.com/CallCredit/Details/{!Loan_Application__c.Loan_ID__c}')">Underwriting Web Call Report Page</apex:outputLink>
+               </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form>
+    <div style="margin: 15px 0">
+        <c:AddressDetailsView LoanApplicationId="{!Loan_Application__c.Loan_ID__c}"/>
+        <apex:outputPanel rendered="{!$Permission.Loan_View_Bureau_Details && FeatureSwitch80Enabled}">
+            <c:CreditBureauLinks LoanApplicationRecordId="{!Loan_Application__c.Id}" LoanApplicationName="{!Loan_Application__c.Name}"/>
+        </apex:outputPanel>
+        <c:LoanConsolidationCandidates LoanApplicationId="{!Loan_Application__c.Loan_ID__c}"/>
+        <c:PaymentHistoryView LoanApplicationId="{!Loan_Application__c.Loan_ID__c}"/>
+        <c:CifaDetailsView LoanApplicationId="{!Loan_Application__c.Loan_ID__c}"/>
+        <c:CountyCourtJudgmentView LoanApplicationId="{!Loan_Application__c.Loan_ID__c}"/>
+        <c:AffordabilityDetailsView LoanApplicationId="{!Loan_Application__c.Loan_ID__c}" loanSalesforceId="{!Loan_Application__c.Id}" LoanApplicationStatus="{!Loan_Application__c.Loan_Application_Status__c}"/>
+        
+        <c:EmploymentDetailsView LoanApplicationId="{!Loan_Application__c.Loan_ID__c}"/>
+        <c:BankDetailsSection LoanApplicationId="{!Loan_Application__c.Loan_ID__c}"/>
+
+        <c:LoanActivityHistory LoanId="{!Loan_Application__c.Id}" LoanApplication="{!Loan_Application__c}"/>
+
+        <apex:relatedList title="Cases" subject="{!Loan_Application__c}" list="Cases__r" />
+
+        <c:DocumentListLoanApplication loanapplicationid="{!Loan_Application__c.Loan_ID__c}" loanSalesforceId="{!Loan_Application__c.Id}" />
+
+        <c:ElectoralRollAddressesView LoanApplicationId="{!Loan_Application__c.Loan_ID__c}"/>
+        <c:TelephoneMatchView LoanApplicationId="{!Loan_Application__c.Loan_ID__c}"/>
+        <c:CaseCodeSection LoanTriggeredRCCodes="{!Loan_Application__c.Triggered_Referral_Codes__c}"
+                           LoanAbortedRCCodes="{!Loan_Application__c.Aborted_Referral_Codes__c}"
+                           LoanErroredRCCodes="{!Loan_Application__c.Errored_Referral_Codes__c}"/>
+
+        <c:SetConsoleTabTitle title="{!'Loan Application:' +Loan_Application__c.Name}" iconurl="{!$Resource.icon_loan_16}" />
+    </div>
+</apex:page>

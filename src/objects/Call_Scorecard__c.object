@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Answer_all_queries_correctly__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Answer all the customer’s queries correctly</inlineHelpText>
+        <label>Answer all queries correctly</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Scorecard</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Appropriate_pace__c</fullName>
+        <externalId>false</externalId>
+        <label>Appropriate pace and tone for Customer</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Scorecard</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Avoid_giving_financial_advice__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Avoid giving financial advice</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Avoid_long_pauses__c</fullName>
+        <externalId>false</externalId>
+        <label>Avoid long pauses and hesitation</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Scorecard</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Call Scorecards</relationshipLabel>
+        <relationshipName>Call_Scorecards</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Close_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Close Comments</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Close_Percent__c</fullName>
+        <externalId>false</externalId>
+        <formula>( 
+if(ispickval(  Close_the_call__c  , &quot;2&quot;), 1, if(ispickval(  Close_the_call__c  , &quot;1&quot;),0.5,0)) + 
+if(ispickval( additional_assistance__c  , &quot;2&quot;), 1, if(ispickval(additional_assistance__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval( realistic_timescales__c  , &quot;2&quot;), 1, if(ispickval(realistic_timescales__c  , &quot;1&quot;),0.5,0))  
+) 
+/ 
+( 
+if(ispickval(  Close_the_call__c  , &quot;N/A&quot;),0,1)+ 
+if(ispickval(additional_assistance__c , &quot;N/A&quot;),0,1)+ 
+if(ispickval( realistic_timescales__c  , &quot;N/A&quot;),0,1)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Close Percent</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Close_the_call__c</fullName>
+        <externalId>false</externalId>
+        <label>Close the call appropriately</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Scorecard</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Company_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Mention the Company Name</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Scorecard</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Compliance_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Compliance Comments</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Confident_Explanations__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Provide the customer with clear and confident explanations delivered in sections</inlineHelpText>
+        <label>Provide Clear and Confident Explanations</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Scorecard</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Demonstrate_understanding__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Demonstrates understanding to the customer</inlineHelpText>
+        <label>Demonstrate understanding</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Scorecard</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Display_Total_Percent__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Percent__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Display Total Percent</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Don_t_Interrupt__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Don’t interrupt the customer or talk over them</inlineHelpText>
+        <label>Don&apos;t Interrupt or Talk over Customer</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Scorecard</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Education_Understanding_Percent__c</fullName>
+        <externalId>false</externalId>
+        <formula>(
+if(ispickval( Confident_Explanations__c , &quot;2&quot;), 1, if(ispickval(Confident_Explanations__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval( Answer_all_queries_correctly__c , &quot;2&quot;), 1, if(ispickval(Answer_all_queries_correctly__c, &quot;1&quot;),0.5,0)) + 
+if(ispickval( customer_understands__c  , &quot;2&quot;), 1, if(ispickval(customer_understands__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval( Provide_a_Solution__c , &quot;2&quot;), 1, if(ispickval( Provide_a_Solution__c, &quot;1&quot;),0.5,0))
+)
+/ 
+(
+if(ispickval(Confident_Explanations__c , &quot;N/A&quot;),0,1)+if(ispickval(Answer_all_queries_correctly__c, &quot;N/A&quot;),0,1)+ 
+if(ispickval( customer_understands__c , &quot;N/A&quot;),0,1)+if(ispickval(Provide_a_Solution__c, &quot;N/A&quot;),0,1)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Education &amp; Understanding Percent</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Fact_Finding_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Fact Finding Comments</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Fact_Finding_Percent__c</fullName>
+        <externalId>false</externalId>
+        <formula>(if(ispickval( reason_for_the_call__c , &quot;2&quot;), 1, if(ispickval(reason_for_the_call__c, &quot;1&quot;),0.5,0)) + 
+if(ispickval( Open_and_closed__c , &quot;2&quot;), 1, if(ispickval(Open_and_closed__c, &quot;1&quot;),0.5,0)) + 
+if(ispickval( Use_verbal_nods__c , &quot;2&quot;), 1, if(ispickval(Use_verbal_nods__c, &quot;1&quot;),0.5,0)) +  
+if(ispickval( Demonstrate_understanding__c , &quot;2&quot;), 1, if(ispickval( Demonstrate_understanding__c, &quot;1&quot;),0.5,0)))/ 
+(if(ispickval(reason_for_the_call__c, &quot;N/A&quot;),0,1)+if(ispickval(Open_and_closed__c, &quot;N/A&quot;),0,1)+ 
+if(ispickval( Demonstrate_understanding__c, &quot;N/A&quot;),0,1)+if(ispickval(Use_verbal_nods__c, &quot;N/A&quot;),0,1))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Fact Finding Percent</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Make_relevant_notes__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Make relevant notes</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Mention_your_name__c</fullName>
+        <externalId>false</externalId>
+        <label>Mention your name</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Scorecard</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Obtain_consent_to_change_personal_info__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Obtain consent to change personal info</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Open_and_closed__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>In order to confirm details</inlineHelpText>
+        <label>Ask open and closed questions</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Scorecard</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Opening_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Opening Comments</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Opening_Percent__c</fullName>
+        <externalId>false</externalId>
+        <formula>(if(ispickval(Use_Appropriate_Greeting__c, &quot;2&quot;), 1, if(ispickval(Use_Appropriate_Greeting__c, &quot;1&quot;),0.5,0)) +
+if(ispickval(Company_Name__c, &quot;2&quot;), 1, if(ispickval(Company_Name__c, &quot;1&quot;),0.5,0)) +
+if(ispickval(Mention_your_name__c, &quot;2&quot;), 1, if(ispickval(Mention_your_name__c, &quot;1&quot;),0.5,0)))/
+(if(ispickval(Use_Appropriate_Greeting__c, &quot;N/A&quot;),0,1)+if(ispickval(Company_Name__c, &quot;N/A&quot;),0,1)+
+if(ispickval(Mention_your_name__c, &quot;N/A&quot;),0,1))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opening Percent</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Perform_necessary_DPA_checks__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DPA Compliant</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Polite_and_Professional__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Be polite and professional throughout the call</inlineHelpText>
+        <label>Polite and Professional throughout call</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Scorecard</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Provide_a_Solution__c</fullName>
+        <externalId>false</externalId>
+        <label>Provide a Solution</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <label>0</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Rapport_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Rapport Comments</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Rapport_Percent__c</fullName>
+        <externalId>false</externalId>
+        <formula>(
+if(ispickval(  Polite_and_Professional__c , &quot;2&quot;), 1, if(ispickval( Polite_and_Professional__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval( Appropriate_pace__c , &quot;2&quot;), 1, if(ispickval(Appropriate_pace__c, &quot;1&quot;),0.5,0)) + 
+if(ispickval( React_to_the_Customer__c  , &quot;2&quot;), 1, if(ispickval(React_to_the_Customer__c  , &quot;1&quot;),0.5,0)) + 
+if(ispickval( Don_t_Interrupt__c  , &quot;2&quot;), 1, if(ispickval( Don_t_Interrupt__c , &quot;1&quot;),0.5,0)) +
+if(ispickval( Avoid_long_pauses__c  , &quot;2&quot;), 1, if(ispickval( Avoid_long_pauses__c , &quot;1&quot;),0.5,0)) +
+if(ispickval( correct_hold_and_Transfer__c   , &quot;2&quot;), 1, if(ispickval( correct_hold_and_Transfer__c  , &quot;1&quot;),0.5,0)) +
+if(ispickval( clients_name_throughout__c   , &quot;2&quot;), 1, if(ispickval( clients_name_throughout__c  , &quot;1&quot;),0.5,0))
+)
+/ 
+(
+if(ispickval( Polite_and_Professional__c  , &quot;N/A&quot;),0,1)+
+if(ispickval(Appropriate_pace__c, &quot;N/A&quot;),0,1)+ 
+if(ispickval( React_to_the_Customer__c  , &quot;N/A&quot;),0,1)+
+if(ispickval(Don_t_Interrupt__c , &quot;N/A&quot;),0,1) +
+if(ispickval(Avoid_long_pauses__c , &quot;N/A&quot;),0,1) +
+if(ispickval(correct_hold_and_Transfer__c  , &quot;N/A&quot;),0,1) +
+if(ispickval(clients_name_throughout__c  , &quot;N/A&quot;),0,1)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Rapport Percent</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>React_to_the_Customer__c</fullName>
+        <externalId>false</externalId>
+        <label>React to the Customer</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <label>0</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Read_compliance_scripts__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Read compliance scripts when required</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Requested_changes_made_accurately__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Requested changes made accurately</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Total_Percent__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Percent</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Total_Points__c</fullName>
+        <externalId>false</externalId>
+        <formula>( 
+if(ispickval(reason_for_the_call__c , &quot;2&quot;), 1, if(ispickval( reason_for_the_call__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval(Open_and_closed__c , &quot;2&quot;), 1, if(ispickval( Open_and_closed__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval(Demonstrate_understanding__c , &quot;2&quot;), 1, if(ispickval( Demonstrate_understanding__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval(Use_verbal_nods__c , &quot;2&quot;), 1, if(ispickval( Use_verbal_nods__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval(Polite_and_Professional__c , &quot;2&quot;), 1, if(ispickval( Polite_and_Professional__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval(Appropriate_pace__c , &quot;2&quot;), 1, if(ispickval(Appropriate_pace__c, &quot;1&quot;),0.5,0)) + 
+if(ispickval(React_to_the_Customer__c , &quot;2&quot;), 1, if(ispickval(React_to_the_Customer__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval(Don_t_Interrupt__c , &quot;2&quot;), 1, if(ispickval( Don_t_Interrupt__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval(Avoid_long_pauses__c , &quot;2&quot;), 1, if(ispickval( Avoid_long_pauses__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval(correct_hold_and_Transfer__c , &quot;2&quot;), 1, if(ispickval( correct_hold_and_Transfer__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval(clients_name_throughout__c , &quot;2&quot;), 1, if(ispickval( clients_name_throughout__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval(Close_the_call__c , &quot;2&quot;), 1, if(ispickval( Close_the_call__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval(additional_assistance__c , &quot;2&quot;), 1, if(ispickval(additional_assistance__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval(realistic_timescales__c , &quot;2&quot;), 1, if(ispickval(realistic_timescales__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval(Confident_Explanations__c , &quot;2&quot;), 1, if(ispickval(Confident_Explanations__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval(Answer_all_queries_correctly__c , &quot;2&quot;), 1, if(ispickval(Answer_all_queries_correctly__c, &quot;1&quot;),0.5,0)) + 
+if(ispickval(customer_understands__c , &quot;2&quot;), 1, if(ispickval(customer_understands__c , &quot;1&quot;),0.5,0)) + 
+if(ispickval(Provide_a_Solution__c , &quot;2&quot;), 1, if(ispickval( Provide_a_Solution__c, &quot;1&quot;),0.5,0)) + 
+if(ispickval(Use_Appropriate_Greeting__c, &quot;2&quot;), 1, if(ispickval(Use_Appropriate_Greeting__c, &quot;1&quot;),0.5,0)) + 
+if(ispickval(Company_Name__c, &quot;2&quot;), 1, if(ispickval(Company_Name__c, &quot;1&quot;),0.5,0)) + 
+if(ispickval(Mention_your_name__c, &quot;2&quot;), 1, if(ispickval(Mention_your_name__c, &quot;1&quot;),0.5,0)) 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Points</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Possible_Points__c</fullName>
+        <externalId>false</externalId>
+        <formula>( 
+if(ispickval( reason_for_the_call__c , &quot;N/A&quot;),0,1)+ 
+if(ispickval( Open_and_closed__c , &quot;N/A&quot;),0,1)+ 
+if(ispickval( Demonstrate_understanding__c , &quot;N/A&quot;),0,1)+ 
+if(ispickval( Use_verbal_nods__c , &quot;N/A&quot;),0,1)+ 
+if(ispickval( Polite_and_Professional__c , &quot;N/A&quot;),0,1)+ 
+if(ispickval(Appropriate_pace__c, &quot;N/A&quot;),0,1)+ 
+if(ispickval( React_to_the_Customer__c , &quot;N/A&quot;),0,1)+ 
+if(ispickval(Don_t_Interrupt__c , &quot;N/A&quot;),0,1) + 
+if(ispickval(Avoid_long_pauses__c , &quot;N/A&quot;),0,1) + 
+if(ispickval(correct_hold_and_Transfer__c , &quot;N/A&quot;),0,1) + 
+if(ispickval(clients_name_throughout__c , &quot;N/A&quot;),0,1) +
+if(ispickval( Close_the_call__c , &quot;N/A&quot;),0,1)+ 
+if(ispickval(additional_assistance__c , &quot;N/A&quot;),0,1)+ 
+if(ispickval( realistic_timescales__c , &quot;N/A&quot;),0,1) +
+if(ispickval(Confident_Explanations__c , &quot;N/A&quot;),0,1)+
+if(ispickval(Answer_all_queries_correctly__c, &quot;N/A&quot;),0,1)+ 
+if(ispickval( customer_understands__c , &quot;N/A&quot;),0,1)+
+if(ispickval(Provide_a_Solution__c, &quot;N/A&quot;),0,1) +
+if(ispickval(Use_Appropriate_Greeting__c, &quot;N/A&quot;),0,1)+
+if(ispickval(Company_Name__c, &quot;N/A&quot;),0,1)+
+if(ispickval(Mention_your_name__c, &quot;N/A&quot;),0,1) 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Possible Points</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Treating_Customers_Fairly__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Adhere to Treating Customers Fairly</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Understanding_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Education &amp; Understanding Comments</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Use_Appropriate_Greeting__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Agent says Morning/Afternoon for example</inlineHelpText>
+        <label>Use Appropriate Greeting</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Scorecard</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Use_verbal_nods__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Use verbal nods to ensure the customer knows you are listening</inlineHelpText>
+        <label>Use verbal nods</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <label>0</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>additional_assistance__c</fullName>
+        <externalId>false</externalId>
+        <label>Offer additional assistance</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <label>0</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>clients_name_throughout__c</fullName>
+        <externalId>false</externalId>
+        <label>Use the clients name throughout the call</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Scorecard</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>correct_hold_and_Transfer__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Use the correct hold and transfer procedure</inlineHelpText>
+        <label>Use correct hold and Transfer Procedure</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <label>0</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>customer_understands__c</fullName>
+        <externalId>false</externalId>
+        <label>Check that the customer understands</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Scorecard</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>realistic_timescales__c</fullName>
+        <externalId>false</externalId>
+        <label>Set realistic timescales when applicable</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Scorecard</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>reason_for_the_call__c</fullName>
+        <externalId>false</externalId>
+        <label>Establish the reason for the call</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Scorecard</valueSetName>
+        </valueSet>
+    </fields>
+    <label>Call Scorecard</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Case__c</columns>
+        <columns>Opening_Percent__c</columns>
+        <columns>Education_Understanding_Percent__c</columns>
+        <columns>Fact_Finding_Percent__c</columns>
+        <columns>Rapport_Percent__c</columns>
+        <columns>Close_Percent__c</columns>
+        <columns>Display_Total_Percent__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>Scorecard-{0000}</displayFormat>
+        <label>Call Scorecard Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Call Scorecards</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

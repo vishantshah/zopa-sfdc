@@ -1,0 +1,143 @@
+<apex:page standardController="Case" extensions="BulkCaseChangeExtension" recordSetVar="cases">
+    <apex:includeScript value="/soap/ajax/34.0/connection.js"/>
+    <apex:includeScript value="/soap/ajax/34.0/apex.js"/>
+    <apex:sectionHeader title="Bulk Case Update"/>
+        <apex:form >
+            <apex:actionFunction name="setStatusOptionsJS" action="{!setStatusOptions}" reRender="StatusOptions">
+                <apex:param name="status_json_map" value="" assignTo="{!StatusJsonMap}"/>
+            </apex:actionFunction>
+            <apex:outputPanel rendered="{!NOT(IsBulkChangePermissionAvailable)}">
+                <apex:pageMessage severity="warning"
+                        strength="2"
+                        title="You don't have access to this page!"
+                        detail="Please ask your Salesforce Administrator to get access to this page. You need custom permission 'Collections & Recoveries Bulk Change' on your profile."
+                >
+                    <br/>
+                    <apex:commandButton action="{!cancel}" value="Back"/>
+                </apex:pageMessage>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!IsBulkChangePermissionAvailable}">
+                <apex:outputPanel rendered="{!NOT(IsAnyRecordsSelected)}">
+                    <apex:pageMessage severity="warning"
+                            strength="2"
+                            title="You didn't select any record to Bulk Change!"
+                            detail="Please go back to List View page and select some Cases."
+                    >
+                        <br/>
+                        <apex:commandButton action="{!cancel}" value="Back"/>
+                    </apex:pageMessage>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!IsAnyRecordsSelected}">
+                    <apex:outputPanel rendered="{!NOT(AllRecordsHasCollectionsAndRecoveriesRecordType)}">
+                        <apex:pageMessage severity="warning"
+                                strength="2"
+                                title="You selected some records with incorrect Record Type!"
+                                detail="Please go back to List View page and select only 'Collections & Recoveries' Cases."
+                        >
+                            <br/>
+                            <apex:commandButton action="{!cancel}" value="Back"/>
+                        </apex:pageMessage>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!AllRecordsHasCollectionsAndRecoveriesRecordType}">
+                        <apex:actionStatus id="Spinner">
+                            <apex:facet name="stop">
+                                <apex:pageMessages id="PageMessages" escape="false"/>
+                            </apex:facet>
+                            <apex:facet name="start">
+                                <apex:pageMessage severity="info"
+                                        strength="2"
+                                        title="Processing..."
+                                >
+                                    <apex:image value="/img/loading32.gif" style="height: 15px"/>
+                                </apex:pageMessage>
+                            </apex:facet>
+                        </apex:actionStatus>
+                        <apex:pageBlock >
+                            <apex:pageBlockButtons location="top">
+                                <apex:commandButton value="Save" action="{!save}" reRender="PageMessages, CaseChanges, CaseTable" status="Spinner"/>
+                                <apex:commandButton value="Assign to DCA" action="{!showAssignToDcaPopup}" reRender="PageMessages, Popup"/>
+                                <apex:commandButton value="Cancel" action="{!cancel}"/>
+                            </apex:pageBlockButtons>
+                            <apex:pageBlockSection title="Fields to Update" columns="1" collapsible="false" id="CaseChanges">
+                                <apex:inputField value="{!CaseBulkChange.Process__c}"/>
+                                <apex:inputField value="{!CaseBulkChange.Sub_Process__c}"/>
+                                <apex:selectList value="{!CaseBulkChange.Status}" size="1" label="Status" id="StatusOptions">
+                                    <apex:selectOptions value="{!StatusOptions}"/>
+                                </apex:selectList>
+                                <apex:inputField value="{!CaseBulkChange.OwnerId}" required="false"/>
+                            </apex:pageBlockSection>
+                            <apex:pageBlockSection title="Selected Cases" columns="1" collapsible="false">
+                                <apex:pageBlockTable value="{!selected}" var="case_item" id="CaseTable">
+                                    <apex:column value="{!case_item.Id}"/>
+                                    <apex:column value="{!case_item.CaseNumber}"/>
+                                    <apex:column value="{!case_item.Process__c}"/>
+                                    <apex:column value="{!case_item.Sub_Process__c}"/>
+                                    <apex:column value="{!case_item.Status}"/>
+                                    <apex:column headerValue="Owner">
+                                        <apex:outputText value="{!case_item.Owner.Name}"/>
+                                    </apex:column>
+                                </apex:pageBlockTable>
+                            </apex:pageBlockSection>
+                        </apex:pageBlock>
+                        <c:ConfirmPopup id="Popup" Visible="{!CurrentAction != null}" HeaderMessage="{!ActionPopupMessages[CurrentAction]}">
+                            <apex:actionStatus id="spinner">
+                                <apex:facet name="stop">
+                                    <apex:outputPanel >
+                                        <apex:outputPanel rendered="{!IsCurrentActionAssignToDca}">
+                                            <apex:outputLabel value="DCA: " for="AccountDCA"/>
+                                            <apex:selectList size="1" style="text-align: center;" id="AccountDCA" value="{!DcaAccountId}">
+                                                <apex:selectOptions value="{!DcaAccounts}"/>
+                                            </apex:selectList>
+                                            <br/><br/>
+                                        </apex:outputPanel>
+                                        <apex:commandbutton value="Confirm" action="{!confirmAction}"
+                                                            status="spinner" reRender="Popup, PageMessages, CaseTable"
+                                                            style="border-color: #00c8b4; border-style: solid; border-width: 2px; width: 80px;"/>
+                                        <apex:commandbutton value="Cancel" action="{!hidePopup}" rerender="Popup" status="spinner"
+                                                            style="border-color: #8A9EBE; border-style: solid; border-width: 2px; width: 80px;"/>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:facet name="start">
+                                    <apex:image value="/img/loading32.gif" style="height: 15px"/>
+                                </apex:facet>
+                            </apex:actionStatus>
+                        </c:ConfirmPopup>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+            </apex:outputPanel>
+        </apex:form>
+    <script>
+        onloadPage();
+
+        function onloadPage() {
+            sforce.connection.sessionId = '{!$Api.Session_ID}';
+            result = sforce.connection.describeLayout('Case', new Array());
+
+            result.recordTypeMappings.forEach(function(obj) {
+                if(obj.name == 'Collections & Recoveries') {
+                    obj.picklistsForRecordType.forEach(function(picklist) {
+                        if(picklist.picklistName == 'Status') {
+                            var status_options = {};
+                            picklist.picklistValues.forEach(function(status_option) {
+                                status_options[status_option.label] = status_option.value;
+                            });
+                            setStatusOptionsJS(JSON.stringify(status_options));
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+    <style type="text/css">
+        .asignment-rule-input {
+            width: 250px;
+        }
+        .secondaryPalette {
+            border-color: #00c8b4 !important;
+        }
+        .tertiaryPalette {
+            background-color: #00c8b4 !important;
+            border-color: #00c8b4 !important;
+        }
+    </style>
+</apex:page>

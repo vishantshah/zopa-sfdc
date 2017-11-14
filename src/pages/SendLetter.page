@@ -1,0 +1,66 @@
+<apex:page controller="SendLetterController">
+    <apex:includeScript value="/support/console/35.0/integration.js"/>
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+    <script type="text/javascript">
+        function closeTab() {
+            if (sforce.console.isInConsole()) {
+                sforce.console.getEnclosingTabId(closeSubtab);
+            }
+         }
+
+        var closeSubtab = function closeSubtab(result) {
+            var tabId = result.id;
+            sforce.console.closeTab(tabId);
+        };
+    </script>
+    <apex:form id="form">
+        <apex:outputPanel rendered="{!NOT($Permission.Send_Letters) || NOT(HasLoanExternalId)}">
+            <apex:pageMessage summary="You have no permission to Send Letters." severity="warning" strength="3" rendered="{!NOT($Permission.Send_Letters)}"/>
+            <apex:pageMessage summary="This Loan has no UUID. Cannot perform API calls." severity="error" strength="3" rendered="{!NOT(HasLoanExternalId)}"/>
+            <apex:pageblock >
+                <apex:pageBlockButtons location="Top">
+                    <apex:commandButton onClick="closeTab();" value="Cancel"/>
+                </apex:pageBlockButtons>
+            </apex:pageblock>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!$Permission.Send_Letters && HasLoanExternalId}">
+            <apex:outputPanel id="PageMessages">
+                <apex:pageMessages />
+            </apex:outputPanel>
+            <apex:actionStatus id="Spinner">
+                <apex:facet name="start">
+                    <apex:pageMessage summary="Sending a request..." severity="info" strength="3">
+                        <apex:image value="/img/loading32.gif" style="height: 15px"/>
+                    </apex:pageMessage>
+                </apex:facet>
+            </apex:actionStatus>
+            <apex:pageblock id="PageBlock" rendered="{!NOT(IsPageError)}">
+                <apex:pageBlockButtons location="Top">
+                    <apex:commandButton action="{!sendLetter}" value="Send to Print House" onComplete="return false;" reRender="PageMessages, PageBlock" status="Spinner"/>
+                    <apex:commandButton action="{!generateLetter}" value="Generate" onComplete="return false;" reRender="PageMessages, PageBlock" status="Spinner"/>
+                    <apex:commandButton action="{!previewLetter}" value="Preview Letter" onComplete="return false;" reRender="PageMessages, PageBlock" status="Spinner"/>
+                    <apex:commandButton onClick="closeTab();" value="Cancel"/>
+                </apex:pageBlockButtons>
+                <apex:pageBlockSection Title="Letter to send" collapsible="false" rendered="{!LazyLoadFinishedPickTemplate}">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Letter Template"/>
+                        <apex:selectList value="{!SelectedTemplateName}" multiselect="false" size="1">
+                            <apex:selectOptions value="{!AllTemplatesOptions}"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection Title="Generated Letter" collapsible="false" rendered="{!IsLetterData}" columns="1">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Letter"/>
+                        <a href="data:application/pdf;charset=utf-8;base64,{!LetterData}" download="{!SelectedTemplateLabel}.pdf">
+                            Download
+                        </a>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </apex:pageblock>
+            <apex:outputPanel id="LoanLetters">
+                <c:LoanLetters Loan_Uuid="{!CurrentLoan.Loan_Id__c}"/>
+            </apex:outputPanel>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

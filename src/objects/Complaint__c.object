@@ -1,0 +1,1402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Customer complaint</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AccountName__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Complaints</relationshipLabel>
+        <relationshipName>Complaints</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Action_Taken__c</fullName>
+        <externalId>false</externalId>
+        <label>Action Taken</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Actual_Loss_to_Customer__c</fullName>
+        <description>What was the actual / calculated monetary loss to the customer - if any?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What was the actual / calculated monetary loss to the customer - if any?</inlineHelpText>
+        <label>Actual Loss to Customer</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Additional_Subject__c</fullName>
+        <description>Any additional reasons for the complaint</description>
+        <externalId>false</externalId>
+        <label>Additional Subject</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Broker__c</fullName>
+        <description>Was this a Broker customer?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the broker if this is a Broker customer?</inlineHelpText>
+        <label>Broker</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AngloScottish</fullName>
+                    <default>false</default>
+                    <label>AngloScottish</label>
+                </value>
+                <value>
+                    <fullName>Aspire Money</fullName>
+                    <default>false</default>
+                    <label>Aspire Money</label>
+                </value>
+                <value>
+                    <fullName>Best4Loans</fullName>
+                    <default>false</default>
+                    <label>Best4Loans</label>
+                </value>
+                <value>
+                    <fullName>Checkmyfile</fullName>
+                    <default>false</default>
+                    <label>Checkmyfile</label>
+                </value>
+                <value>
+                    <fullName>Choice Loans</fullName>
+                    <default>false</default>
+                    <label>Choice Loans</label>
+                </value>
+                <value>
+                    <fullName>Choose Wisely</fullName>
+                    <default>false</default>
+                    <label>Choose Wisely</label>
+                </value>
+                <value>
+                    <fullName>Click Finance</fullName>
+                    <default>false</default>
+                    <label>Click Finance</label>
+                </value>
+                <value>
+                    <fullName>Creditplus</fullName>
+                    <default>false</default>
+                    <label>Creditplus</label>
+                </value>
+                <value>
+                    <fullName>Easter Egg</fullName>
+                    <default>false</default>
+                    <label>Easter Egg</label>
+                </value>
+                <value>
+                    <fullName>Experian Credit Matcher</fullName>
+                    <default>false</default>
+                    <label>Experian Credit Matcher</label>
+                </value>
+                <value>
+                    <fullName>FirstTrustFinance</fullName>
+                    <default>false</default>
+                    <label>FirstTrustFinance</label>
+                </value>
+                <value>
+                    <fullName>Fluent Loans</fullName>
+                    <default>false</default>
+                    <label>Fluent Loans</label>
+                </value>
+                <value>
+                    <fullName>Fluent Loans Alt</fullName>
+                    <default>false</default>
+                    <label>Fluent Loans Alt</label>
+                </value>
+                <value>
+                    <fullName>Freedom Finance</fullName>
+                    <default>false</default>
+                    <label>Freedom Finance</label>
+                </value>
+                <value>
+                    <fullName>Gopher Money</fullName>
+                    <default>false</default>
+                    <label>Gopher Money</label>
+                </value>
+                <value>
+                    <fullName>Loan Finder</fullName>
+                    <default>false</default>
+                    <label>Loan Finder</label>
+                </value>
+                <value>
+                    <fullName>Loans Warehouse</fullName>
+                    <default>false</default>
+                    <label>Loans Warehouse</label>
+                </value>
+                <value>
+                    <fullName>Love Money</fullName>
+                    <default>false</default>
+                    <label>Love Money</label>
+                </value>
+                <value>
+                    <fullName>Medifinance</fullName>
+                    <default>false</default>
+                    <label>Medifinance</label>
+                </value>
+                <value>
+                    <fullName>Money Expert</fullName>
+                    <default>false</default>
+                    <label>Money Expert</label>
+                </value>
+                <value>
+                    <fullName>Moneyfacts -Tesco Compare</fullName>
+                    <default>false</default>
+                    <label>Moneyfacts -Tesco Compare</label>
+                </value>
+                <value>
+                    <fullName>Money Saving Expert</fullName>
+                    <default>false</default>
+                    <label>Money Saving Expert</label>
+                </value>
+                <value>
+                    <fullName>Money Supermarket</fullName>
+                    <default>false</default>
+                    <label>Money Supermarket</label>
+                </value>
+                <value>
+                    <fullName>Norton Finance</fullName>
+                    <default>false</default>
+                    <label>Norton Finance</label>
+                </value>
+                <value>
+                    <fullName>Orange Motor Finance</fullName>
+                    <default>false</default>
+                    <label>Orange Motor Finance</label>
+                </value>
+                <value>
+                    <fullName>Pan Credit</fullName>
+                    <default>false</default>
+                    <label>Pan Credit</label>
+                </value>
+                <value>
+                    <fullName>Pingtree</fullName>
+                    <default>false</default>
+                    <label>Pingtree</label>
+                </value>
+                <value>
+                    <fullName>Professions Loans</fullName>
+                    <default>false</default>
+                    <label>Professions Loans</label>
+                </value>
+                <value>
+                    <fullName>Salary Finance</fullName>
+                    <default>false</default>
+                    <label>Salary Finance</label>
+                </value>
+                <value>
+                    <fullName>The Loans Engine</fullName>
+                    <default>false</default>
+                    <label>The Loans Engine</label>
+                </value>
+                <value>
+                    <fullName>The Money Hub</fullName>
+                    <default>false</default>
+                    <label>The Money Hub</label>
+                </value>
+                <value>
+                    <fullName>The Practice Loan Company</fullName>
+                    <default>false</default>
+                    <label>The Practice Loan Company</label>
+                </value>
+                <value>
+                    <fullName>This is Money</fullName>
+                    <default>false</default>
+                    <label>This is Money</label>
+                </value>
+                <value>
+                    <fullName>TotallyMoney</fullName>
+                    <default>false</default>
+                    <label>TotallyMoney</label>
+                </value>
+                <value>
+                    <fullName>uSwitch</fullName>
+                    <default>false</default>
+                    <label>uSwitch</label>
+                </value>
+                <value>
+                    <fullName>Will and Woody</fullName>
+                    <default>false</default>
+                    <label>Will and Woody</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CaseNumber__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Case Number</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Case Number</inlineHelpText>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Complaints</relationshipLabel>
+        <relationshipName>Complaints</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Cause_Investigation__c</fullName>
+        <description>What caused the complaint to happen?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What caused the complaint to happen?</inlineHelpText>
+        <label>Cause &amp; Investigation</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Cause_of_Complaint__c</fullName>
+        <externalId>false</externalId>
+        <label>Cause of Complaint</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Unsuitable advice</fullName>
+                    <default>false</default>
+                    <label>Unsuitable advice</label>
+                </value>
+                <value>
+                    <fullName>Unclear guidance / arrangement</fullName>
+                    <default>false</default>
+                    <label>Unclear guidance / arrangement</label>
+                </value>
+                <value>
+                    <fullName>Disputes over sums / charges</fullName>
+                    <default>false</default>
+                    <label>Disputes over sums / charges</label>
+                </value>
+                <value>
+                    <fullName>Product performance / features</fullName>
+                    <default>false</default>
+                    <label>Product performance / features</label>
+                </value>
+                <value>
+                    <fullName>Product disclosure information</fullName>
+                    <default>false</default>
+                    <label>Product disclosure information</label>
+                </value>
+                <value>
+                    <fullName>Errors / not following instructions</fullName>
+                    <default>false</default>
+                    <label>Errors / not following instructions</label>
+                </value>
+                <value>
+                    <fullName>Delays / timescales</fullName>
+                    <default>false</default>
+                    <label>Delays / timescales</label>
+                </value>
+                <value>
+                    <fullName>Other general admin/customer service</fullName>
+                    <default>false</default>
+                    <label>Other general admin/customer service</label>
+                </value>
+                <value>
+                    <fullName>Arrears Related</fullName>
+                    <default>false</default>
+                    <label>Arrears Related</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Number of complaints in columns B to N which are claims related</fullName>
+                    <default>false</default>
+                    <label>Number of complaints in columns B to N which are claims related</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Complaint_Subtype__c</fullName>
+        <description>The type of complaint</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the type of complaint.</inlineHelpText>
+        <label>What does the Complaint Refer to?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Complaint_Type_Control__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>-- Borrower</fullName>
+                    <default>false</default>
+                    <label>-- Borrower</label>
+                </value>
+                <value>
+                    <fullName>Application (general)</fullName>
+                    <default>false</default>
+                    <label>Application (general)</label>
+                </value>
+                <value>
+                    <fullName>Speed of application process</fullName>
+                    <default>false</default>
+                    <label>Speed of application process</label>
+                </value>
+                <value>
+                    <fullName>Declined application</fullName>
+                    <default>false</default>
+                    <label>Declined application</label>
+                </value>
+                <value>
+                    <fullName>Quick Pay</fullName>
+                    <default>false</default>
+                    <label>Quick Pay</label>
+                </value>
+                <value>
+                    <fullName>APR/Interest change</fullName>
+                    <default>false</default>
+                    <label>APR/Interest change</label>
+                </value>
+                <value>
+                    <fullName>Cancellation</fullName>
+                    <default>false</default>
+                    <label>Cancellation</label>
+                </value>
+                <value>
+                    <fullName>Direct Debit</fullName>
+                    <default>false</default>
+                    <label>Direct Debit</label>
+                </value>
+                <value>
+                    <fullName>Borrowing fee</fullName>
+                    <default>false</default>
+                    <label>Borrowing fee</label>
+                </value>
+                <value>
+                    <fullName>Credit file update</fullName>
+                    <default>false</default>
+                    <label>Credit file update</label>
+                </value>
+                <value>
+                    <fullName>Lump sum payment</fullName>
+                    <default>false</default>
+                    <label>Lump sum payment</label>
+                </value>
+                <value>
+                    <fullName>Early Settlement</fullName>
+                    <default>false</default>
+                    <label>Early Settlement</label>
+                </value>
+                <value>
+                    <fullName>-- Lender</fullName>
+                    <default>false</default>
+                    <label>-- Lender</label>
+                </value>
+                <value>
+                    <fullName>Account discrepancies</fullName>
+                    <default>false</default>
+                    <label>Account discrepancies</label>
+                </value>
+                <value>
+                    <fullName>Statement discrepancies</fullName>
+                    <default>false</default>
+                    <label>Statement discrepancies</label>
+                </value>
+                <value>
+                    <fullName>Lending options</fullName>
+                    <default>false</default>
+                    <label>Lending options</label>
+                </value>
+                <value>
+                    <fullName>Bad debt</fullName>
+                    <default>false</default>
+                    <label>Bad debt</label>
+                </value>
+                <value>
+                    <fullName>Lending products</fullName>
+                    <default>false</default>
+                    <label>Lending products</label>
+                </value>
+                <value>
+                    <fullName>Funding lending account</fullName>
+                    <default>false</default>
+                    <label>Funding lending account</label>
+                </value>
+                <value>
+                    <fullName>Loan book</fullName>
+                    <default>false</default>
+                    <label>Loan book</label>
+                </value>
+                <value>
+                    <fullName>Access to funds</fullName>
+                    <default>false</default>
+                    <label>Access to funds</label>
+                </value>
+                <value>
+                    <fullName>-- Borroweer and lender</fullName>
+                    <default>false</default>
+                    <label>-- Borroweer and lender</label>
+                </value>
+                <value>
+                    <fullName>Payment issues - Inbound</fullName>
+                    <default>false</default>
+                    <label>Payment issues - Inbound</label>
+                </value>
+                <value>
+                    <fullName>Payment issues - Outbound</fullName>
+                    <default>false</default>
+                    <label>Payment issues - Outbound</label>
+                </value>
+                <value>
+                    <fullName>Customer Errors</fullName>
+                    <default>false</default>
+                    <label>Customer Errors</label>
+                </value>
+                <value>
+                    <fullName>-- Underwriting</fullName>
+                    <default>false</default>
+                    <label>-- Underwriting</label>
+                </value>
+                <value>
+                    <fullName>Cancelled in error</fullName>
+                    <default>false</default>
+                    <label>Cancelled in error</label>
+                </value>
+                <value>
+                    <fullName>Declined in error</fullName>
+                    <default>false</default>
+                    <label>Declined in error</label>
+                </value>
+                <value>
+                    <fullName>-- Borrower and UW</fullName>
+                    <default>false</default>
+                    <label>-- Borrower and UW</label>
+                </value>
+                <value>
+                    <fullName>Documents</fullName>
+                    <default>false</default>
+                    <label>Documents</label>
+                </value>
+                <value>
+                    <fullName>-- Collections</fullName>
+                    <default>false</default>
+                    <label>-- Collections</label>
+                </value>
+                <value>
+                    <fullName>Arrears</fullName>
+                    <default>false</default>
+                    <label>Arrears</label>
+                </value>
+                <value>
+                    <fullName>Direct Debit date</fullName>
+                    <default>false</default>
+                    <label>Direct Debit date</label>
+                </value>
+                <value>
+                    <fullName>SIGMA</fullName>
+                    <default>false</default>
+                    <label>SIGMA</label>
+                </value>
+                <value>
+                    <fullName>-- All</fullName>
+                    <default>false</default>
+                    <label>-- All</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Borrower</controllingFieldValue>
+                <valueName>Application (general)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Borrower</controllingFieldValue>
+                <valueName>Speed of application process</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Borrower</controllingFieldValue>
+                <valueName>Declined application</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Borrower</controllingFieldValue>
+                <valueName>Quick Pay</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Borrower</controllingFieldValue>
+                <valueName>APR/Interest change</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Borrower</controllingFieldValue>
+                <valueName>Cancellation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Borrower</controllingFieldValue>
+                <valueName>Direct Debit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Borrower</controllingFieldValue>
+                <valueName>Borrowing fee</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Borrower</controllingFieldValue>
+                <valueName>Credit file update</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Borrower</controllingFieldValue>
+                <valueName>Lump sum payment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Borrower</controllingFieldValue>
+                <valueName>Early Settlement</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Borrower</controllingFieldValue>
+                <controllingFieldValue>Lender</controllingFieldValue>
+                <valueName>Payment issues - Inbound</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Borrower</controllingFieldValue>
+                <controllingFieldValue>Lender</controllingFieldValue>
+                <valueName>Payment issues - Outbound</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Borrower</controllingFieldValue>
+                <controllingFieldValue>Lender</controllingFieldValue>
+                <valueName>Customer Errors</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Borrower</controllingFieldValue>
+                <controllingFieldValue>Underwriter</controllingFieldValue>
+                <valueName>Documents</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Borrower</controllingFieldValue>
+                <controllingFieldValue>Lender</controllingFieldValue>
+                <controllingFieldValue>Underwriter</controllingFieldValue>
+                <controllingFieldValue>Collections</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lender</controllingFieldValue>
+                <valueName>Account discrepancies</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lender</controllingFieldValue>
+                <valueName>Statement discrepancies</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lender</controllingFieldValue>
+                <valueName>Lending options</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lender</controllingFieldValue>
+                <valueName>Bad debt</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lender</controllingFieldValue>
+                <valueName>Lending products</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lender</controllingFieldValue>
+                <valueName>Funding lending account</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lender</controllingFieldValue>
+                <valueName>Loan book</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Lender</controllingFieldValue>
+                <valueName>Access to funds</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Underwriter</controllingFieldValue>
+                <valueName>Cancelled in error</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Underwriter</controllingFieldValue>
+                <valueName>Declined in error</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Collections</controllingFieldValue>
+                <valueName>Arrears</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Collections</controllingFieldValue>
+                <valueName>Direct Debit date</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Collections</controllingFieldValue>
+                <valueName>SIGMA</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Complaint_Type_Control__c</fullName>
+        <description>Controlling pick list for complaint type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select which type of complaint this is.</inlineHelpText>
+        <label>Complaint Service Area</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Borrower</fullName>
+                    <default>false</default>
+                    <label>Borrower</label>
+                </value>
+                <value>
+                    <fullName>Lender</fullName>
+                    <default>false</default>
+                    <label>Investor</label>
+                </value>
+                <value>
+                    <fullName>Underwriter</fullName>
+                    <default>false</default>
+                    <label>Underwriter</label>
+                </value>
+                <value>
+                    <fullName>Collections</fullName>
+                    <default>false</default>
+                    <label>Collections</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Complaint_Type_Misc__c</fullName>
+        <description>Type of complaint - Miscellaneous</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter complaint type here</inlineHelpText>
+        <label>Complaint Type Miscellaneous</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Overcharging</fullName>
+                    <default>false</default>
+                    <label>Overcharging</label>
+                </value>
+                <value>
+                    <fullName>Credit score issues</fullName>
+                    <default>false</default>
+                    <label>Credit score issues</label>
+                </value>
+                <value>
+                    <fullName>Service received</fullName>
+                    <default>false</default>
+                    <label>Service received</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Complaint_Type_Product__c</fullName>
+        <description>Type of complaint - Product</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the type of complaint for Product</inlineHelpText>
+        <label>Consumer Credit Type Product</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hire purchase / Uber</fullName>
+                    <default>false</default>
+                    <label>Hire purchase / Uber</label>
+                </value>
+                <value>
+                    <fullName>Other Lending</fullName>
+                    <default>false</default>
+                    <label>Other Lending</label>
+                </value>
+                <value>
+                    <fullName>Credit Broking</fullName>
+                    <default>false</default>
+                    <label>Credit Broking</label>
+                </value>
+                <value>
+                    <fullName>Debt Collecting</fullName>
+                    <default>false</default>
+                    <label>Debt Collecting</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Complaint_Type_Underwriting__c</fullName>
+        <description>Complaint type for Underwriting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter complaint type</inlineHelpText>
+        <label>Complaint Type Underwriting</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cancelled in error</fullName>
+                    <default>false</default>
+                    <label>Cancelled in error</label>
+                </value>
+                <value>
+                    <fullName>Declined in error</fullName>
+                    <default>false</default>
+                    <label>Declined in error</label>
+                </value>
+                <value>
+                    <fullName>Documents</fullName>
+                    <default>false</default>
+                    <label>Documents</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Complaint_Type_Zopa__c</fullName>
+        <description>Type of complaint - Zopa</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the type of complaint</inlineHelpText>
+        <label>Complaint Type Zopa</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Service received</fullName>
+                    <default>false</default>
+                    <label>Service received</label>
+                </value>
+                <value>
+                    <fullName>Member of staff</fullName>
+                    <default>false</default>
+                    <label>Member of staff</label>
+                </value>
+                <value>
+                    <fullName>Direct Mail</fullName>
+                    <default>false</default>
+                    <label>Direct Mail</label>
+                </value>
+                <value>
+                    <fullName>ECM</fullName>
+                    <default>false</default>
+                    <label>ECM</label>
+                </value>
+                <value>
+                    <fullName>Account closure</fullName>
+                    <default>false</default>
+                    <label>Account closure</label>
+                </value>
+                <value>
+                    <fullName>Deceased</fullName>
+                    <default>false</default>
+                    <label>Deceased</label>
+                </value>
+                <value>
+                    <fullName>Fraud</fullName>
+                    <default>false</default>
+                    <label>Fraud</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Cost_To_Business__c</fullName>
+        <description>What is the total cost to Zopa?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the total cost to Zopa?</inlineHelpText>
+        <label>Cost To Business</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Comment__c</fullName>
+        <description>Customer Comment on resolution. Detail why if not happy.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Customer Comment on resolution. Detail why if not happy.</inlineHelpText>
+        <label>Customer Comment</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Customer_Happy__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Was the customer happy with the final outcome/resolution and happy for the Complaint to be considered closed? Yes or No.
+If No why?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Was the customer happy with the final outcome/resolution and happy for the Complaint to be considered closed? Yes or No.
+If No why?</inlineHelpText>
+        <label>Customer Happy</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Date_Closed__c</fullName>
+        <description>Date complaint closed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date complaint closed</inlineHelpText>
+        <label>Date Closed</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Date_Created__c</fullName>
+        <defaultValue>Now()</defaultValue>
+        <description>Date complaint created</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When was the complaint made</inlineHelpText>
+        <label>Date of Complaint</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Date_Resolution__c</fullName>
+        <description>Date resolution offered to member.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date resolution offered to member. This may differ from date of closure.</inlineHelpText>
+        <label>Date Resolution</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Details__c</fullName>
+        <description>Details of case</description>
+        <externalId>false</externalId>
+        <label>Details</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Escalated_To__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Enter the member this case is escalated to</description>
+        <externalId>false</externalId>
+        <label>Escalated To</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Complaints</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FOS__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Is this complaint a FOS complaint?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Is this complaint a FOS complaint?</inlineHelpText>
+        <label>FOS</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Final_Response__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Is this Zopa’s final response? Yes or No</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Is this Zopa’s final response? Yes or No</inlineHelpText>
+        <label>Final Response</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Human_Error__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Human Error</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>InstitutionList__c</fullName>
+        <description>Name of Institution</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of Institution</inlineHelpText>
+        <label>Institution</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Metro Bank PLC</fullName>
+                    <default>false</default>
+                    <label>Metro Bank PLC</label>
+                </value>
+                <value>
+                    <fullName>P2P Global Investments PLC</fullName>
+                    <default>false</default>
+                    <label>P2P Global Investments PLC</label>
+                </value>
+                <value>
+                    <fullName>P2PCL1 PLC</fullName>
+                    <default>false</default>
+                    <label>P2PCL1 PLC</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Institution__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Was this loan funded by an institution? Yes or No.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Was this loan funded by an institution? Yes or No.</inlineHelpText>
+        <label>Institution</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Loss_Inconvenience__c</fullName>
+        <description>What loss or inconvenience did the customer suffer?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What loss or inconvenience did the customer suffer?</inlineHelpText>
+        <label>Loss &amp; Inconvenience</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Marketing_Error__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Marketing Error</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Monetary_Compensation__c</fullName>
+        <description>How much have we compensated the customer?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>How much have we compensated the customer?</inlineHelpText>
+        <label>Cost in Compensation and GOGW</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Monetary_Loss__c</fullName>
+        <description>What is the monetary value of loss to the customer?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the monetary value of loss to the customer? The amount the Member thinks they have lost.</inlineHelpText>
+        <label>Cost to Customer</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Outcome__c</fullName>
+        <externalId>false</externalId>
+        <label>Outcome</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>P2P</fullName>
+                    <default>false</default>
+                    <label>P2P</label>
+                </value>
+                <value>
+                    <fullName>ISA</fullName>
+                    <default>false</default>
+                    <label>ISA</label>
+                </value>
+                <value>
+                    <fullName>PPI</fullName>
+                    <default>false</default>
+                    <label>PPI</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Refer_to_FOS__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Have we advised the customer that they can refer their case to the FOS and provided them with the information to do so? Yes or No.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Have we advised the customer that they can refer their case to the FOS and provided them with the information to do so? Yes or No.</inlineHelpText>
+        <label>Refer to FOS?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Resolution__c</fullName>
+        <description>How was this resolved?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>How was this resolved?</inlineHelpText>
+        <label>Resolution</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Staff_Complaint__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Was the complaint about a member of staff</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Was the complaint about a member of staff</inlineHelpText>
+        <label>Staff Complaint</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>The status of the complaint.</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>true</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                    <label>Closed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Subject__c</fullName>
+        <description>Main subject reason for complaint</description>
+        <externalId>false</externalId>
+        <label>Subject</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Team__c</fullName>
+        <description>The origin/team of the complaint.</description>
+        <externalId>false</externalId>
+        <label>Team</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Borrowers</fullName>
+                    <default>false</default>
+                    <label>Borrowers</label>
+                </value>
+                <value>
+                    <fullName>Lenders</fullName>
+                    <default>false</default>
+                    <label>Lenders</label>
+                </value>
+                <value>
+                    <fullName>Collections</fullName>
+                    <default>false</default>
+                    <label>Collections</label>
+                </value>
+                <value>
+                    <fullName>Underwriters</fullName>
+                    <default>false</default>
+                    <label>Underwriters</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Tech_Error__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Tech Error</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Total_Zopa_Cost__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Zopa Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Type_of_Complaint__c</fullName>
+        <externalId>false</externalId>
+        <label>Type of Complaint</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Advising, selling and arranging</fullName>
+                    <default>false</default>
+                    <label>Advising, selling and arranging</label>
+                </value>
+                <value>
+                    <fullName>Arrears related</fullName>
+                    <default>false</default>
+                    <label>Arrears related</label>
+                </value>
+                <value>
+                    <fullName>Claims</fullName>
+                    <default>false</default>
+                    <label>Claims</label>
+                </value>
+                <value>
+                    <fullName>General admin/customer service</fullName>
+                    <default>false</default>
+                    <label>General admin/customer service</label>
+                </value>
+                <value>
+                    <fullName>Information, sums/charges or product performance</fullName>
+                    <default>false</default>
+                    <label>Information, sums/charges or product performance</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Zopa_Complaint__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Was the complaint about Zopa?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Was the complaint about Zopa?</inlineHelpText>
+        <label>Zopa Complaint</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Zopa_Error__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Zopa Error</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Complaint</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>C - {00000}</displayFormat>
+        <label>Complaint_Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Complaints</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

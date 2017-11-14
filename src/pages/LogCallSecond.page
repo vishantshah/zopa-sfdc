@@ -1,0 +1,153 @@
+<apex:page controller="LogCallExtension">
+<apex:stylesheet value="{!$Resource.ZopaCss}" />
+<apex:includeScript value="/support/console/35.0/integration.js"/>
+<script type="text/javascript">
+    var counterPassedOptions = 0;
+    var currentColor;
+
+    function passOption(elem, dpaField){
+        AssignDPA(dpaField);
+        if (counterPassedOptions == 0) {
+            currentColor = elem.style.background;
+        }
+        if (elem.style.background == currentColor){
+            elem.style.background = '#6b8e23';
+            counterPassedOptions += 1;
+        } else {
+            elem.style.background = currentColor;
+            counterPassedOptions -= 1;
+        }
+        if (counterPassedOptions > 2) {
+            document.getElementsByClassName('nextButton')[0].style.color = '#333';
+            document.getElementsByClassName('nextButton')[0].style.pointerEvents = 'auto';
+        } else {
+            document.getElementsByClassName('nextButton')[0].style.color = '#888';
+            document.getElementsByClassName('nextButton')[0].style.pointerEvents = 'none';
+        }
+    }
+
+    function checkSecondStep() {
+        if(counterPassedOptions == 4) {
+            PassedDPA();
+        }
+    }
+
+    function highlight(elem){
+        elem.style.cursor = 'pointer';
+    }
+
+    var callback = function () {
+             if (result.error) {
+                alert("Error message is " + result.error);
+             }
+         };
+
+    function closeTab() {
+        if (sforce.console.isInConsole()) {
+            sforce.console.getEnclosingTabId(closeSubtab);
+        } else {
+            RedirectToCasePage();
+        }
+     }
+
+    var closeSubtab = function closeSubtab(result) {
+        var tabId = result.id;
+        sforce.console.closeTab(tabId, callback);
+    };
+
+    </script>
+    <style type="text/css">
+        .passButton {
+            background:#ff6347;
+            height: 30%;
+            width: 15%;
+            display: block;
+            text-align: center;
+            font-size: 170%;
+        }
+        .nextButton{
+            pointer-events: none;
+        }
+    </style>
+    <apex:sectionHeader title="Log a Call" subtitle="{!CurrentCase.CaseNumber}"/>
+    <apex:form id="form">
+    <apex:actionfunction name="AssignDPA" action="{!setDPA}" onComplete="checkSecondStep()" rerender="EditInvolvment,popup" immediate="true">
+        <apex:param value="" name="currentDPA" />
+    </apex:actionfunction>
+    <apex:actionFunction name="PassedDPA" action="{!setPassedDpaAndCompleteSecondStep}"/>
+    <apex:actionfunction name="RedirectToCasePage" action="{!returnToCasePage}"/>
+            <apex:pageBlock mode="edit" title="">
+        <apex:outputPanel id="PageMessages">
+        <apex:pageMessages />
+        </apex:outputPanel>
+            <apex:pageBlockButtons location="Top">
+                <apex:commandButton action="{!setPassedDpaAndCompleteSecondStep}" value="Next (DPA Already completed)"/>
+                <apex:commandButton value="Next" action="{!setPassedDpaAndCompleteSecondStep}" styleClass="nextButton" style="color: #888"/>
+                <apex:commandButton value="Clear" action="{!clearSecondPage}"/>
+                <apex:commandButton value="Back" action="{!stepStart}"/>
+            </apex:pageBlockButtons>
+                <apex:pageBlockSection columns="2" title="Please select the DPA question you have asked" collapsible="false">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Account Name"/>
+                        <apex:outputText value="{!TheAccount.Name}"/>
+                    </apex:pageBlockSectionItem>
+                        <apex:outputpanel styleClass="passButton" onclick="passOption(this, 'DPA_Full_Name__c');" onmouseover="highlight(this);">
+                            <apex:outputtext value="Pass" escape="false" />
+                        </apex:outputpanel>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Email" />
+                        <apex:outputText value="{!TheAccount.PersonEmail}"/>
+                    </apex:pageBlockSectionItem>
+                        <apex:outputpanel styleClass="passButton" onclick="passOption(this, 'DPA_Email_Address__c');" onmouseover="highlight(this);">
+                            <apex:outputtext value="Pass" escape="false" />
+                        </apex:outputpanel>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Date of Birth" />
+                        <apex:outputText value="{!DateOfBirthFormated}"/>
+                    </apex:pageBlockSectionItem>
+                        <apex:outputpanel styleClass="passButton" onclick="passOption(this, 'DPA_Date_of_Birth__c');" onmouseover="highlight(this);">
+                            <apex:outputtext value="Pass" escape="false" />
+                        </apex:outputpanel>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Address (Postcode)" />
+                        <apex:outputText value="{0}, {1}, {2} ({3})" >
+                            <apex:param value="{!TheAccount.HouseNumber__c}" />
+                            <apex:param value="{!TheAccount.Street1__c}" />
+                            <apex:param value="{!TheAccount.Street2__c}" />
+                            <apex:param value="{!TheAccount.Postcode__c}" />
+                        </apex:outputText>
+                    </apex:pageBlockSectionItem>
+                        <apex:outputpanel styleClass="passButton" onclick="passOption(this, 'DPA_Address__c');" onmouseover="highlight(this);">
+                            <apex:outputtext value="Pass" escape="false" />
+                        </apex:outputpanel>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Zopa member ID" />
+                        <apex:outputText value="{!TheAccount.MemberID__c}"/>
+                    </apex:pageBlockSectionItem>
+                        <apex:outputpanel styleClass="passButton" onclick="passOption(this, 'DPA_Member_Id__c');" onmouseover="highlight(this);">
+                            <apex:outputtext value="Pass" escape="false" />
+                        </apex:outputpanel>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Monthly Repayment Amount" />
+                        <apex:outputText value="{!LoanDetails.MonthlyRepaymentAmount}"/>
+                    </apex:pageBlockSectionItem>
+                        <apex:outputpanel styleClass="passButton" onclick="passOption(this, 'DPA_Repayment_Amount__c');" onmouseover="highlight(this);">
+                            <apex:outputtext value="Pass" escape="false" />
+                        </apex:outputpanel>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Repayment Day of Month" />
+                        <apex:outputText value="{!LoanDetails.RepaymentDayofMonth}"/>
+                    </apex:pageBlockSectionItem>
+                        <apex:outputpanel styleClass="passButton" onclick="passOption(this, 'DPA_Repayment_Date__c');" onmouseover="highlight(this);">
+                            <apex:outputtext value="Pass" escape="false" />
+                        </apex:outputpanel>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Reason for failed DPA:" columns="1" collapsible="false">
+                    <apex:inputTextarea value="{!NewTask.Reason_for_failed_DPA__c}" rows="5" style="width: 25%"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockButtons location="Bottom">
+                    <apex:commandButton value="Fail" action="{!failFlow}" oncomplete="if ({!IsFilledRequiredFields}) closeTab();" reRender="PageMessages"/>
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+    </apex:form>
+</apex:page>

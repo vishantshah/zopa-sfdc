@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Case View Underwriter Tasks</label>
+    <requiredPermission>
+        <customPermission>Case_View_Case_Prep_Tasks</customPermission>
+        <dependency>true</dependency>
+    </requiredPermission>
+</CustomPermission>

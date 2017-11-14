@@ -1,0 +1,1303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Customer Services QA Check</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Customer Services QA Checks</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Customer Services QA Checks --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Action any changes correctly --></help>
+        <label><!-- Action any changes correctly --></label>
+        <name>Action_any_changes_correctly__c</name>
+    </fields>
+    <fields>
+        <help><!-- Adhere to Treating Customers Fairly --></help>
+        <label><!-- Adhere to Treating Customers Fairly --></label>
+        <name>Adhere_to_Treating_Customers_Fairly__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>AgentName__c</name>
+        <relationshipLabel><!-- Customer Services QA Checks --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Agent established that it was convenient for the customer to continue the call --></help>
+        <label><!-- Agent established that it was convenient --></label>
+        <name>Agent_established_that_it_was_convenient__c</name>
+    </fields>
+    <fields>
+        <help><!-- Answer all the customer’s queries correctly --></help>
+        <label><!-- Answer all the customer’s queries --></label>
+        <name>Answer_all_the_customer_s_queries__c</name>
+    </fields>
+    <fields>
+        <help><!-- Answer all the customer’s queries correctly --></help>
+        <label><!-- Answer all customer’s queries correctly --></label>
+        <name>Answer_all_the_customer_s_queries_correc__c</name>
+    </fields>
+    <fields>
+        <help><!-- Appropriate pace and tone for the customer --></help>
+        <label><!-- Appropriate pace and tone --></label>
+        <name>Appropriate_pace_and_tone__c</name>
+    </fields>
+    <fields>
+        <help><!-- Appropriate pace and tone for the customer --></help>
+        <label><!-- Appropriate pace and tone for customer --></label>
+        <name>Appropriate_pace_and_tone_for_customer__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ask open and closed questions to establish potential discussion points --></help>
+        <label><!-- Ask open and closed questions --></label>
+        <name>Ask_open_and_close_questions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ask open and closed questions in order to confirm
+details --></help>
+        <label><!-- Ask open and closed questions --></label>
+        <name>Ask_open_and_closed_questions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Avoid giving financial advice --></help>
+        <label><!-- Avoid giving financial advice --></label>
+        <name>Avoid_giving_financial_advice__c</name>
+    </fields>
+    <fields>
+        <help><!-- Avoid long pauses and hesitations --></help>
+        <label><!-- Avoid long pauses &amp; hesitations --></label>
+        <name>Avoid_long_pause_and_hesitations__c</name>
+    </fields>
+    <fields>
+        <help><!-- Avoid long pauses and hesitations --></help>
+        <label><!-- Avoid long pauses and hesitations --></label>
+        <name>Avoid_long_pauses_and_hesitations__c</name>
+    </fields>
+    <fields>
+        <help><!-- Avoid using jargon and company specific terms --></help>
+        <label><!-- Avoid using jargon and specific terms --></label>
+        <name>Avoid_using_jargon_and_specific_terms__c</name>
+    </fields>
+    <fields>
+        <help><!-- Be polite and professional throughout the call --></help>
+        <label><!-- Be polite and professional throughout --></label>
+        <name>Be_polite_and_professional_throughout__c</name>
+    </fields>
+    <fields>
+        <help><!-- Be polite and professional throughout the call --></help>
+        <label><!-- Be polite &amp; professional throughout --></label>
+        <name>Be_polite_professional_throughout__c</name>
+    </fields>
+    <fields>
+        <label><!-- CDevScore --></label>
+        <name>CDevScore__c</name>
+    </fields>
+    <fields>
+        <label><!-- CPInboundMaxScore --></label>
+        <name>CPInboundMaxScore__c</name>
+    </fields>
+    <fields>
+        <label><!-- CPinboundPct --></label>
+        <name>CPinboundPct__c</name>
+    </fields>
+    <fields>
+        <label><!-- CasePrepCaseMaxScore2 --></label>
+        <name>CasePrepCaseMaxScore2__c</name>
+    </fields>
+    <fields>
+        <label><!-- CasePrepCaseMaxScore --></label>
+        <name>CasePrepCaseMaxScore__c</name>
+    </fields>
+    <fields>
+        <label><!-- CasePrepCasePct --></label>
+        <name>CasePrepCasePct__c</name>
+    </fields>
+    <fields>
+        <label><!-- CasePrepCaseScore --></label>
+        <name>CasePrepCaseScore__c</name>
+    </fields>
+    <fields>
+        <label><!-- CasePrepCaseSoftMaxScore --></label>
+        <name>CasePrepCaseSoftMaxScore__c</name>
+    </fields>
+    <fields>
+        <label><!-- CasePrepCaseSoftSkillsPct --></label>
+        <name>CasePrepCaseSoftSkillsPct__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Customer Services QA Checks --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Case log uploaded with relevant notes --></help>
+        <label><!-- Case log uploaded with relevant notes --></label>
+        <name>Case_log_uploaded_with_relevant_notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- CdevMaxScore --></label>
+        <name>CdevMaxScore__c</name>
+    </fields>
+    <fields>
+        <label><!-- CdevPct --></label>
+        <name>CdevPct__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check that the customer understands --></help>
+        <label><!-- Check that the customer understands --></label>
+        <name>Check_that_the_customer_understands__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check that the customer understands --></help>
+        <label><!-- Check the customer understands --></label>
+        <name>Check_the_customer_understands__c</name>
+    </fields>
+    <fields>
+        <help><!-- Clear and understanding tone --></help>
+        <label><!-- Clear and understanding tone --></label>
+        <name>Clear_and_understanding_tone__c</name>
+    </fields>
+    <fields>
+        <help><!-- Close the call appropriately --></help>
+        <label><!-- Close the call appropriately --></label>
+        <name>Close_the_call_appropriately__c</name>
+    </fields>
+    <fields>
+        <help><!-- Close the call appropriately and offer contact details --></help>
+        <label><!-- Closed the call appropriately --></label>
+        <name>Close_thecall_appropriately__c</name>
+    </fields>
+    <fields>
+        <help><!-- Communication noted in Tasks --></help>
+        <label><!-- Communication noted in Tasks --></label>
+        <name>Communication_noted_in_Tasks__c</name>
+        <picklistValues>
+            <masterLabel>0</masterLabel>
+            <translation><!-- 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Communication was professional, polite, no jargon and correct grammar used --></help>
+        <label><!-- Communication was professional, polite, --></label>
+        <name>Communication_was_professional_polite__c</name>
+    </fields>
+    <fields>
+        <label><!-- ComplaintsCallPct --></label>
+        <name>ComplaintsCallPct__c</name>
+    </fields>
+    <fields>
+        <label><!-- ComplaintsCallScore --></label>
+        <name>ComplaintsCallScore__c</name>
+    </fields>
+    <fields>
+        <label><!-- Compliant call --></label>
+        <name>Compliant_call__c</name>
+    </fields>
+    <fields>
+        <help><!-- Confident request for the DPA to be conducted --></help>
+        <label><!-- Confident request for the DPA --></label>
+        <name>Confident_request_for_the_DPA__c</name>
+    </fields>
+    <fields>
+        <label><!-- ContactDate --></label>
+        <name>ContactDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Correct method used to contact the customer --></help>
+        <label><!-- Correct method used to contact customer --></label>
+        <name>Correct_method_used_to_contact_customer__c</name>
+        <picklistValues>
+            <masterLabel>0</masterLabel>
+            <translation><!-- 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Did the agent sign off the correspondence mentioning his/her name and job role? --></help>
+        <label><!-- Correct sign off used --></label>
+        <name>Correct_sign_off_used__c</name>
+    </fields>
+    <fields>
+        <label><!-- CpInboundScore --></label>
+        <name>CpInboundScore__c</name>
+    </fields>
+    <fields>
+        <label><!-- DPA checks where necessary --></label>
+        <name>DPA_checks_where_necessary__c</name>
+    </fields>
+    <fields>
+        <help><!-- DPA compliant --></help>
+        <label><!-- DPA compliant --></label>
+        <name>DPA_compliant__c</name>
+    </fields>
+    <fields>
+        <help><!-- Demonstrate understanding to the customer --></help>
+        <label><!-- Demonstrate understanding to customer --></label>
+        <name>Demonstrate_understanding_to_customer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Demonstrated understanding to customer --></label>
+        <name>Demonstrated_understanding_to_customer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Did agent abide by the 6 TCF outcomes --></label>
+        <name>Did_agent_abide_by_the_6_TCF_outcomes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent answer the complainant’s questions correctly? --></help>
+        <label><!-- Did agent answer complainant’s questions --></label>
+        <name>Did_agent_answer_complainant_s_questions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent give the customer their FOS rights where appropriate? --></help>
+        <label><!-- Did agent give customer their FOS rights --></label>
+        <name>Did_agent_give_customer_their_FOS_rights__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent offer 
+additional assistance where appropriate? --></help>
+        <label><!-- Did agent offer additional assistance --></label>
+        <name>Did_agent_offer_additional_assistance__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the Bank Statement meet the criteria for the Bank Check Task? --></help>
+        <label><!-- Did the Bank Statement meet the criteria --></label>
+        <name>Did_the_Bank_Statement_meet_the_criteria__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the ID document meet criteria? --></help>
+        <label><!-- Did the ID document meet criteria? --></label>
+        <name>Did_the_ID_document_meet_criteria__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the POI document meet critieria? --></help>
+        <label><!-- Did the POI document meet critieria? --></label>
+        <name>Did_the_POI_document_meet_critieria__c</name>
+    </fields>
+    <fields>
+        <help><!-- Where necessary did the agent acknowledge the mistake/Zopa error to the customer
+and offer an apology? --></help>
+        <label><!-- Did the agent acknowledge the mistake --></label>
+        <name>Did_the_agent_acknowledge_the_mistake__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent avoid interrupting the customer allowing the customer to vent where applicable? --></help>
+        <label><!-- Did the agent avoid interrupting --></label>
+        <name>Did_the_agent_avoid_interrupting__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent avoid offering financial
+advice to the customer? --></help>
+        <label><!-- Agent avoided offering financial advice --></label>
+        <name>Did_the_agent_avoid_offering_financial_a__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent close the call appropriately, offering
+additional assistance where
+appropriate? --></help>
+        <label><!-- Did agent close the call appropriately --></label>
+        <name>Did_the_agent_close_the_call_appropriate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent close the correspondence appropriately by clearly stating the outcome of
+complaint? --></help>
+        <label><!-- Did agent suitably close correspondence --></label>
+        <name>Did_the_agent_close_the_correspondence_a__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent successfully identify the customer? - Doesn’t send details about the account to an unauthorised person or replies to an unregistered email address. --></help>
+        <label><!-- Did the agent identify the customer ? --></label>
+        <name>Did_the_agent_identify_the_customer__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent mention his/ her name and job title? --></help>
+        <label><!-- Did the agent mention his/ her name/job --></label>
+        <name>Did_the_agent_mention_his_her_name_and__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent offer the most appropriate solution to meet the customers’ needs?
+Considering all the relevant factors of the case when offering remedies. --></help>
+        <label><!-- Did the agent offer appropriate solution --></label>
+        <name>Did_the_agent_offer_appropriate_solution__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent provide honest, evidence-based explanations and giving reasons for decisions? --></help>
+        <label><!-- Did the agent provide honest explanation --></label>
+        <name>Did_the_agent_provide_honest_explanation__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent refer to any notes/account details? --></help>
+        <label><!-- Did the agent refer to any notes/account --></label>
+        <name>Did_the_agent_refer_to_any_notes_account__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent remain impartial? --></help>
+        <label><!-- Did the agent remain impartial? --></label>
+        <name>Did_the_agent_remain_impartial__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent remain professional throughout the call? - Was the agent&apos;s tone
+understanding? - Did the agent sound clear and confident throughout the call? --></help>
+        <label><!-- Did the agent remain professional ? --></label>
+        <name>Did_the_agent_remain_professional_throug__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent successfully identify the Caller? - First and last name - DOB - First line of
+address and postal code - Registered email address --></help>
+        <label><!-- Did agent successfully identify caller --></label>
+        <name>Did_the_agent_successfully_identify_the__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent us effective questioning skills? --></help>
+        <label><!-- Did the agent use effective questioning --></label>
+        <name>Did_the_agent_us_eective_questioning_ski__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent use the appropriate greeting (Dear...) and salutation to address the complainant? --></help>
+        <label><!-- Did the agent use appropriate greeting --></label>
+        <name>Did_the_agent_use_appropriate_greeti__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent use the correct method to contact customer? --></help>
+        <label><!-- Did the agent use correct contact method --></label>
+        <name>Did_the_agent_use_the_correct_method_to__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the email state the correct documents needed to satisfy the task? --></help>
+        <label><!-- Did the email state correct documents --></label>
+        <name>Did_the_email_state_the_correct_document__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the email state why the documents were unacceptable? --></help>
+        <label><!-- Did email state why docs unacceptable ? --></label>
+        <name>Did_the_email_state_why_the_documents_we__c</name>
+    </fields>
+    <fields>
+        <help><!-- Document meets the task criteria --></help>
+        <label><!-- Document meets the task criteria --></label>
+        <name>Document_meets_the_task_criteria__c</name>
+        <picklistValues>
+            <masterLabel>0</masterLabel>
+            <translation><!-- 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Documents are in correct format with correct information needed --></help>
+        <label><!-- Documents are in correct format --></label>
+        <name>Documents_are_in_correct_format__c</name>
+    </fields>
+    <fields>
+        <help><!-- Documents have been classified --></help>
+        <label><!-- Documents have been classified --></label>
+        <name>Documents_have_been_classified__c</name>
+    </fields>
+    <fields>
+        <help><!-- Documents are in the correct format with the correct information needed --></help>
+        <label><!-- Documents in correct format --></label>
+        <name>Documents_in_correct_format__c</name>
+    </fields>
+    <fields>
+        <help><!-- Don’t interrupt the customer or talk over them --></help>
+        <label><!-- Don’t interrupt the customer --></label>
+        <name>Don_t_interrupt_the_customer__c</name>
+    </fields>
+    <fields>
+        <help><!-- Don&apos;t leave long pauses and signpost them if they cannot be avoided. --></help>
+        <label><!-- Don&apos;t leave long pauses --></label>
+        <name>Don_t_leave_long_pauses__c</name>
+    </fields>
+    <fields>
+        <help><!-- Don’t interrupt the customer or talk over them --></help>
+        <label><!-- Don’t interrupt the customer --></label>
+        <name>Dont_interrupt_the_customer__c</name>
+    </fields>
+    <fields>
+        <help><!-- Email states correct documents needed to complete the task --></help>
+        <label><!-- Email states correct documents needed --></label>
+        <name>Email_states_correct_documents_needed__c</name>
+    </fields>
+    <fields>
+        <help><!-- Email states why documents were unacceptable --></help>
+        <label><!-- Email states why documents unacceptable --></label>
+        <name>Email_states_why_documents_unacceptable__c</name>
+    </fields>
+    <fields>
+        <help><!-- Establish the reason for the call --></help>
+        <label><!-- Establish the reason for the call --></label>
+        <name>Establish_the_reason_for_the_call__c</name>
+    </fields>
+    <fields>
+        <label><!-- Established reason for the call --></label>
+        <name>Established_reason_for_the_call__c</name>
+    </fields>
+    <fields>
+        <help><!-- Explain how to take actions online in the future --></help>
+        <label><!-- Explain how to take actions online --></label>
+        <name>Explain_how_to_take_actions_online__c</name>
+    </fields>
+    <fields>
+        <help><!-- Explain the importance of actions to the customer. --></help>
+        <label><!-- Explain the importance of actions --></label>
+        <name>Explain_the_importance_of_actions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Explain the reason for the call --></help>
+        <label><!-- Explain the reason for the call --></label>
+        <name>Explain_the_reason_for_the_call__c</name>
+    </fields>
+    <fields>
+        <help><!-- Explanations are clear and delivered in sections --></help>
+        <label><!-- Explanations are clear and in sections --></label>
+        <name>Explanations_are_clear_and_in_sections__c</name>
+    </fields>
+    <fields>
+        <help><!-- Have documents been classified --></help>
+        <label><!-- Have documents been classified --></label>
+        <name>Have_documents_been_classified__c</name>
+    </fields>
+    <fields>
+        <help><!-- Identified
+usable bank account details (not business account/savings account or in
+another name) --></help>
+        <label><!-- Identified usable bank account details --></label>
+        <name>Identied_usable_bank_account_details__c</name>
+    </fields>
+    <fields>
+        <label><!-- LiveChatCalcs --></label>
+        <name>LiveChatCalcs__c</name>
+    </fields>
+    <fields>
+        <label><!-- LiveChatPercentage --></label>
+        <name>LiveChatPercentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- LiveChatTotalPointsAvailable --></label>
+        <name>LiveChatTotalPointsAvailable__c</name>
+    </fields>
+    <fields>
+        <help><!-- Make relevant notes --></help>
+        <label><!-- Make relevant notes --></label>
+        <name>Make_relevant_notes2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Make relevant notes --></label>
+        <name>Make_relevant_notesYNNA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Make relevant notes --></label>
+        <name>Makerelevantnotes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mention of agents name --></label>
+        <name>Mention_of_agents_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mentioned the company name --></label>
+        <name>Mentioned_the_company_name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Mentioned your name --></help>
+        <label><!-- Mentioned your name --></label>
+        <name>Mentioned_your_name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Obtain consent to change personal information --></help>
+        <label><!-- Obtain consent to change personal info --></label>
+        <name>Obtain_consent_to_change_personal_info__c</name>
+    </fields>
+    <fields>
+        <help><!-- Obtain consent to change personal information --></help>
+        <label><!-- Obtain consent to change personal inform --></label>
+        <name>Obtain_consent_to_change_personal_inform__c</name>
+    </fields>
+    <fields>
+        <help><!-- Offer additional assistance --></help>
+        <label><!-- Offer additional assistance --></label>
+        <name>Offer_additionalAssistance__c</name>
+    </fields>
+    <fields>
+        <help><!-- Offer additional assistance --></help>
+        <label><!-- Offer additional assistance --></label>
+        <name>Offer_additional_assistance__c</name>
+    </fields>
+    <fields>
+        <help><!-- Offer all relevant information --></help>
+        <label><!-- Offer all relevant information --></label>
+        <name>Offer_all_relevant_information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Offer additional assistance --></label>
+        <name>Offeradditionalassistance__c</name>
+    </fields>
+    <fields>
+        <help><!-- Perform necessary DPA checks --></help>
+        <label><!-- Perform necessary DPA checks --></label>
+        <name>Perform_necessary_DPA_checks__c</name>
+    </fields>
+    <fields>
+        <help><!-- Performs all tasks relevant to the query --></help>
+        <label><!-- Performs all tasks relevant to the query --></label>
+        <name>Performs_all_tasks_relevant_to_the_query__c</name>
+    </fields>
+    <fields>
+        <help><!-- Professional and polite communication with no use of jargon --></help>
+        <label><!-- Professional and polite communication --></label>
+        <name>Professional_and_polite_communication__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provide a solution --></help>
+        <label><!-- Provide a solution --></label>
+        <name>Provide_a_solution__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provide the customer with clear and confident explanations delivered in sections --></help>
+        <label><!-- Provide customer with clear explanation --></label>
+        <name>Provide_customer_with_clear_explanation__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provide rationale behind why we require certain information --></help>
+        <label><!-- Provide rationale behind why we require --></label>
+        <name>Provide_rationale_behind_why_we_require__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provide relevant information --></help>
+        <label><!-- Provide relevant information --></label>
+        <name>Provide_relevant_information__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provide the customer with clear and confident
+explanations --></help>
+        <label><!-- Provide the customer clear explanation --></label>
+        <name>Provide_the_customer_with_clear_explanat__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provides a solution --></help>
+        <label><!-- Provides a solution --></label>
+        <name>Provides_a_solution__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provides the customer with clear and confident explanations delivered in sections --></help>
+        <label><!-- Provides customer with clear explanation --></label>
+        <name>Provides_customer_with_clear_explanation__c</name>
+    </fields>
+    <fields>
+        <help><!-- React to the customer --></help>
+        <label><!-- React to customer --></label>
+        <name>React_to_customer__c</name>
+    </fields>
+    <fields>
+        <help><!-- React to the customer --></help>
+        <label><!-- React to the customer --></label>
+        <name>React_to_the_customer__c</name>
+    </fields>
+    <fields>
+        <help><!-- React to the customer appropriately --></help>
+        <label><!-- React to the customer appropriately --></label>
+        <name>React_to_the_customer_appropriately__c</name>
+    </fields>
+    <fields>
+        <help><!-- Read compliance scripts when required --></help>
+        <label><!-- Read compliance scripts when required --></label>
+        <name>Read_compliance_scripts_when_required__c</name>
+    </fields>
+    <fields>
+        <help><!-- Referred to Senior UW - correct notes added --></help>
+        <label><!-- Referred to Senior UW - correct notes --></label>
+        <name>Referred_to_Senior_UW_correct_notes__c</name>
+        <picklistValues>
+            <masterLabel>0</masterLabel>
+            <translation><!-- 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Referred to Senior UW - were the correct notes added? --></help>
+        <label><!-- Referred to Senior UW - were the correct --></label>
+        <name>Referred_to_Senior_UW_were_the_correct__c</name>
+    </fields>
+    <fields>
+        <help><!-- Set realistic timescales when applicable --></help>
+        <label><!-- Set realistic timescales When applicable --></label>
+        <name>Se_realistic_timescales_when_applicable__c</name>
+    </fields>
+    <fields>
+        <help><!-- Set realistic timescales when applicable --></help>
+        <label><!-- Set realistic timescales when applicable --></label>
+        <name>Set_realistic_timescales_when_applicable__c</name>
+    </fields>
+    <fields>
+        <label><!-- SoftSkillsScore --></label>
+        <name>SoftSkillsScore__c</name>
+    </fields>
+    <fields>
+        <help><!-- Task notes clear and accurate --></help>
+        <label><!-- Task notes clear and accurate --></label>
+        <name>Task_notes_clear_and_accurate__c</name>
+        <picklistValues>
+            <masterLabel>0</masterLabel>
+            <translation><!-- 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- The chat was compliant --></label>
+        <name>The_chat_was_compliant__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use appropriate greeting (morning, afternoon) --></help>
+        <label><!-- Use appropriate greeting --></label>
+        <name>Use_appropriate_greeting__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use appropriate sign off --></help>
+        <label><!-- Use appropriate sign off --></label>
+        <name>Use_appropriate_sign_off__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use appropriate tone of voice in line with email correspondence. --></help>
+        <label><!-- Use appropriate tone of voice --></label>
+        <name>Use_appropriate_tone_of_voice__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use correct grammar and punctuation --></help>
+        <label><!-- Use correct grammar and punctuation --></label>
+        <name>Use_correct_grammar_and_punctuation__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use the correct grammar and spelling --></help>
+        <label><!-- Use correct grammar and spelling --></label>
+        <name>Use_correct_grammar_and_spelling__c</name>
+    </fields>
+    <fields>
+        <help><!-- Uses correct grammar, spelling and phrasing --></help>
+        <label><!-- Use correct grammar spelling &amp; phrasing --></label>
+        <name>Use_correct_grammar_spelling_phrasing__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used appropriate greeting EG morning/afternoon --></help>
+        <label><!-- Use of appropriate greeting --></label>
+        <name>Use_of_appropriate_greeting__c</name>
+    </fields>
+    <fields>
+        <help><!-- Uses positive, professional language and an appropriate tone throughout. Avoiding
+jargon and company-specific terms. correct --></help>
+        <label><!-- Use of positive, professional language --></label>
+        <name>Use_of_positive_professional_language__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use verbal nods to demonstrate active listening --></help>
+        <label><!-- Use of verbal nods --></label>
+        <name>Use_of_verbal_nods__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use positive, polite and professional language throughout the chat --></help>
+        <label><!-- Use positive and professional language --></label>
+        <name>Use_positive_and_professional_language__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use the client&apos;s name throughout the chat --></help>
+        <label><!-- Use the client&apos;s name thoughout the chat --></label>
+        <name>Use_the_client_s_name_thoughout_the_chat__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use the client’s name throughout the call --></help>
+        <label><!-- Use the client’s name through the call --></label>
+        <name>Use_the_client_s_name_through_the_cal__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use the client’s name throughout the call --></help>
+        <label><!-- Use the client’s name throughout --></label>
+        <name>Use_the_client_s_name_throughout__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use the correct hold and transfer procedure --></help>
+        <label><!-- Use the correct hold/transfer procedure --></label>
+        <name>Use_the_correct_hold_transfer_procedure__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use verbal nods to ensure the customer knows you are listening --></help>
+        <label><!-- Use verbal nods --></label>
+        <name>Use_verbal_nods__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used appropriate greeting (company, name, client) --></help>
+        <label><!-- Used appropriate greeting --></label>
+        <name>Used_appropriate_greeting__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use the correct hold and transfer procedure --></help>
+        <label><!-- Used correct hold &amp; transfer procedure --></label>
+        <name>Used_correct_hold_transfer_procedur__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was communication noted in tasks? --></help>
+        <label><!-- Was communication noted in tasks? --></label>
+        <name>Was_communication_noted_in_tasks__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the call compliant? E.g. Agent avoid offering
+financial advise, DPA --></help>
+        <label><!-- Was the call compliant? --></label>
+        <name>Was_the_call_compliant__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the correspondence compliant ? --></help>
+        <label><!-- Was the correspondence compliant ? --></label>
+        <name>Was_the_correspondence_compliant__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the task actioned correctly (pending case prep queue or passed to UW’s) --></help>
+        <label><!-- Was the task actioned correctly --></label>
+        <name>Was_the_task_actioned_correctly__c</name>
+    </fields>
+    <fields>
+        <help><!-- Were full detailed notes left on customer account? --></help>
+        <label><!-- Were full detailed notes left on account --></label>
+        <name>Were_full_detailed_notes_left_on_account__c</name>
+    </fields>
+    <fields>
+        <help><!-- Were requested changes made accurately? --></help>
+        <label><!-- Were requested changes made accurately? --></label>
+        <name>Were_requested_changes_made_accurately__c</name>
+    </fields>
+    <fields>
+        <help><!-- Were task notes clear and accurate? --></help>
+        <label><!-- Were task notes clear and accurate? --></label>
+        <name>Were_task_notes_clear_and_accurate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Where appropriate, did the agent tell the complainant about the lessons learnt and changes made to services, guidance or policy. --></help>
+        <label><!-- Did agent advise lessons learned/changes --></label>
+        <name>Where_appropriate_did_the_agent_tell_th__c</name>
+    </fields>
+    <fields>
+        <help><!-- Where further investigation was required did agent advise the customer of timescales
+to get back to them? --></help>
+        <label><!-- Did agent advise customer of timescales --></label>
+        <name>Where_further_investigation_was_required__c</name>
+    </fields>
+    <fields>
+        <help><!-- Where necessary, did the agent recap/reiterate points of customers’ complaint? e.g. I
+understand from my colleague that you wish to complain about the rate of return you
+are getting on your current investment with us. --></help>
+        <label><!-- Where necessary, did the agent recap --></label>
+        <name>Where_necessary_did_the_agent_recap__c</name>
+    </fields>
+    <fields>
+        <label><!-- WrittenPct --></label>
+        <name>WrittenPct__c</name>
+    </fields>
+    <fields>
+        <label><!-- WrittenScCalcs --></label>
+        <name>WrittenScCalcs__c</name>
+    </fields>
+    <fields>
+        <label><!-- 10.Comments --></label>
+        <name>X10_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 11.Comments --></label>
+        <name>X11_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 12.Comments --></label>
+        <name>X12_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 13.Comments --></label>
+        <name>X13_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 14.Comments --></label>
+        <name>X14_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 15.Comments --></label>
+        <name>X15_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 16.Comments --></label>
+        <name>X16_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 17.Comments --></label>
+        <name>X17_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 19.Comments --></label>
+        <name>X19_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 1.Comments --></label>
+        <name>X1_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 20.Comments --></label>
+        <name>X20_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 21.Comments --></label>
+        <name>X21_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 22.Comments --></label>
+        <name>X22_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 23.Comments --></label>
+        <name>X23_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 24.Comments --></label>
+        <name>X24_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 25.Comments --></label>
+        <name>X25_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 26.Comments --></label>
+        <name>X26_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 27.Comments --></label>
+        <name>X27_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 28.Comments --></label>
+        <name>X28_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 29.Comments --></label>
+        <name>X29_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 2.Comments --></label>
+        <name>X2_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- 2 Mention the company name 1 --></help>
+        <label><!-- 2 Mention the company name --></label>
+        <name>X2_Mention_the_company_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- 30.Comments --></label>
+        <name>X30_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 3.Comments --></label>
+        <name>X3_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 4.Comments --></label>
+        <name>X4_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 5.Comments --></label>
+        <name>X5_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 6.Comments --></label>
+        <name>X6_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 7.Comments --></label>
+        <name>X7_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 8.Comments --></label>
+        <name>X8_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 9.Comments --></label>
+        <name>X9_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- If appropriate did the agent offer the customer more than one option to resolve the complaint? --></help>
+        <label><!-- did the agent offer options to resolve --></label>
+        <name>did_the_agent_oer_the_cus__c</name>
+    </fields>
+    <layouts>
+        <layout>CP_Inbound</layout>
+        <sections>
+            <label><!-- Close --></label>
+            <section>Close</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Education and understanding --></label>
+            <section>Education and understanding</section>
+        </sections>
+        <sections>
+            <label><!-- Fact Finding --></label>
+            <section>Fact Finding</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Opening --></label>
+            <section>Opening</section>
+        </sections>
+        <sections>
+            <label><!-- Rapport --></label>
+            <section>Rapport</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Call Scorecard</layout>
+        <sections>
+            <label><!-- Close --></label>
+            <section>Close</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fact Finding --></label>
+            <section>Fact Finding</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Opening --></label>
+            <section>Opening</section>
+        </sections>
+        <sections>
+            <label><!-- Rapport --></label>
+            <section>Rapport</section>
+        </sections>
+        <sections>
+            <label><!-- UW Policy --></label>
+            <section>UW Policy</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Case Prep Case ScoreCard</layout>
+        <sections>
+            <label><!-- Actioned correctly --></label>
+            <section>Actioned correctly</section>
+        </sections>
+        <sections>
+            <label><!-- Contact with customer --></label>
+            <section>Contact with customer</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Document assessment --></label>
+            <section>Document assessment</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Task assessment --></label>
+            <section>Task assessment</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Cdev_Outbound</layout>
+        <sections>
+            <label><!-- Close --></label>
+            <section>Close</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fact Finding --></label>
+            <section>Fact Finding</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Opening --></label>
+            <section>Opening</section>
+        </sections>
+        <sections>
+            <label><!-- Rapport --></label>
+            <section>Rapport</section>
+        </sections>
+        <sections>
+            <label><!-- UW Policy --></label>
+            <section>UW Policy</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Client Dev ScoreCard</layout>
+        <sections>
+            <label><!-- Close --></label>
+            <section>Close</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Education &amp; Understanding --></label>
+            <section>Education &amp; Understanding</section>
+        </sections>
+        <sections>
+            <label><!-- Fact Finding --></label>
+            <section>Fact Finding</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Opening --></label>
+            <section>Opening</section>
+        </sections>
+        <sections>
+            <label><!-- Rapport --></label>
+            <section>Rapport</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Complaints ScoreCard</layout>
+        <sections>
+            <label><!-- Being Open and Accountable --></label>
+            <section>Being Open and Accountable</section>
+        </sections>
+        <sections>
+            <label><!-- Closing Conclusion --></label>
+            <section>Closing Conclusion</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Greeting/Intro --></label>
+            <section>Greeting/Intro</section>
+        </sections>
+        <sections>
+            <label><!-- Investigation (Handle contact) --></label>
+            <section>Investigation (Handle contact)</section>
+        </sections>
+        <sections>
+            <label><!-- Putting things right (Resolution) --></label>
+            <section>Putting things right (Resolution)</section>
+        </sections>
+        <sections>
+            <label><!-- Soft Skills --></label>
+            <section>Soft Skills</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Email Scorecard</layout>
+        <sections>
+            <label><!-- Being Open and Accountable --></label>
+            <section>Being Open and Accountable</section>
+        </sections>
+        <sections>
+            <label><!-- Closing Conclusion --></label>
+            <section>Closing Conclusion</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Greeting/Intro --></label>
+            <section>Greeting/Intro</section>
+        </sections>
+        <sections>
+            <label><!-- Investigation --></label>
+            <section>Investigation</section>
+        </sections>
+        <sections>
+            <label><!-- Putting things right (Resolution) --></label>
+            <section>Putting things right (Resolution)</section>
+        </sections>
+        <sections>
+            <label><!-- Quality of written content --></label>
+            <section>Quality of written content</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Live Chat ScoreCard</layout>
+        <sections>
+            <label><!-- Close --></label>
+            <section>Close</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Content and structure --></label>
+            <section>Content and structure</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Rapport --></label>
+            <section>Rapport</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Outbound Call Scorecard</layout>
+        <sections>
+            <label><!-- Close --></label>
+            <section>Close</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fact Finding --></label>
+            <section>Fact Finding</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Opening --></label>
+            <section>Opening</section>
+        </sections>
+        <sections>
+            <label><!-- Rapport --></label>
+            <section>Rapport</section>
+        </sections>
+        <sections>
+            <label><!-- UW Policy --></label>
+            <section>UW Policy</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- CDev_Outbound_Call_Scorecard --></label>
+        <name>CDev_Outbound_Call_Scorecard</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CP_Inbound_Call_Scorecard --></label>
+        <name>CP_Inbound_Call_Scorecard</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Case Prep Case --></label>
+        <name>Case_Prep_Case</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Client Dev ScoreCard --></label>
+        <name>Client_Dev_ScoreCard</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Complaints Call ScoreCard --></label>
+        <name>Complaints_ScoreCard</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Live Chat ScoreCard --></label>
+        <name>Live_Chat_ScoreCard</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Written Scorecard --></label>
+        <name>Written_Scorecard</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You must associate a report with a case --></errorMessage>
+        <name>Case_Number_Missing</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Incident</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Incidents</value>
+    </caseValues>
+    <fields>
+        <label><!-- Actions --></label>
+        <name>Actions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Affecting Development --></label>
+        <name>Affecting_Development__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cause --></label>
+        <name>Cause__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Closed --></label>
+        <name>Date_Closed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Detail --></label>
+        <name>Detail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discovery Date --></label>
+        <name>Discovery_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Impact --></label>
+        <name>Impact__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4</masterLabel>
+            <translation><!-- 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5</masterLabel>
+            <translation><!-- 5 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Incident Date --></label>
+        <name>Incident_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Refer to Incident Management --></label>
+        <name>Refer_to_Incident_Management__c</name>
+    </fields>
+    <fields>
+        <label><!-- Resolution Date --></label>
+        <name>Resolution_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- SPReferrer --></label>
+        <name>SPReferrer__c</name>
+    </fields>
+    <fields>
+        <label><!-- SeverityReturnNum --></label>
+        <name>SeverityReturnNum__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Summary --></label>
+        <name>Summary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tribe --></label>
+        <name>Tribe__c</name>
+        <picklistValues>
+            <masterLabel>Borrowers</masterLabel>
+            <translation><!-- Borrowers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Infrastructure</masterLabel>
+            <translation><!-- Infrastructure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lenders</masterLabel>
+            <translation><!-- Lenders --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Markets</masterLabel>
+            <translation><!-- New Markets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Excellence</masterLabel>
+            <translation><!-- Service Excellence --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Traffic</masterLabel>
+            <translation><!-- Traffic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vulcans</masterLabel>
+            <translation><!-- Vulcans --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 3rd Party --></label>
+        <name>X3rd_Party__c</name>
+        <picklistValues>
+            <masterLabel>Bankline</masterLabel>
+            <translation><!-- Bankline --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C4L</masterLabel>
+            <translation><!-- C4L --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Call-Credit</masterLabel>
+            <translation><!-- Call-Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equifax</masterLabel>
+            <translation><!-- Equifax --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Experian</masterLabel>
+            <translation><!-- Experian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oakbrook</masterLabel>
+            <translation><!-- Oakbrook --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Qube</masterLabel>
+            <translation><!-- Qube --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salesforce</masterLabel>
+            <translation><!-- Salesforce --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unified Software</masterLabel>
+            <translation><!-- Unified Software --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Year-Month --></label>
+        <name>Year_Month__c</name>
+    </fields>
+    <fields>
+        <label><!-- Youtrack --></label>
+        <name>Youtrack__c</name>
+    </fields>
+    <layouts>
+        <layout>Incident Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Incident Layout Manager</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Incident Manager</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

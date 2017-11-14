@@ -1,0 +1,25 @@
+<apex:component >
+    <apex:attribute name="ActionToPerform" type="ApexPages.Action" description="ApexPages.Action that will exexute in lazy load mode"/>
+    <apex:attribute name="ShowSpinner" type="Boolean" description="Show Spinner While loading" default="true"/>
+    <apex:actionFunction name="LazyLoadFunction" action="{!ActionToPerform}" reRender="spinner42" status="spinner42" />
+    <apex:actionStatus id="spinner42">
+        <apex:facet name="stop">
+            <apex:outputPanel >
+                <apex:componentBody />
+            </apex:outputPanel>
+        </apex:facet>
+        <apex:facet name="start">
+            <apex:image value="/img/loading32.gif" style="height: 15px; display: block; margin: 0 auto;" rendered="{!ShowSpinner}"/>
+        </apex:facet>
+    </apex:actionStatus>
+
+    <script type="text/javascript">
+        if (window.attachEvent) {
+            window.attachEvent('onload', LazyLoadFunction);
+        } else if (window.addEventListener) {
+            window.addEventListener('load', LazyLoadFunction, false);
+        } else {
+            document.addEventListener('load', LazyLoadFunction, false);
+        }
+    </script>
+</apex:component>

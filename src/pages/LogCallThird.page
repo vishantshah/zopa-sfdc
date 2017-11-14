@@ -1,0 +1,87 @@
+<apex:page controller="LogCallExtension" docType="html-5.0">
+<apex:stylesheet value="{!$Resource.ZopaCss}" />
+<apex:includeScript value="/support/console/35.0/integration.js"/>
+<apex:sectionHeader title="Log a Call" subtitle="{!CurrentCase.CaseNumber}"/>
+    <script type="text/javascript">
+        var callback = function () {
+            if (result.error) {
+                alert("Error message is " + result.error);
+            }
+        };
+
+        function closeTab() {
+            if (sforce.console.isInConsole()) {
+                sforce.console.getFocusedPrimaryTabId(getFocusedPrimaryTabIdCallback);
+            } else {
+                RedirectToCasePage();
+            }
+        }
+
+        var getFocusedPrimaryTabIdCallback = function getFocusedPrimaryTabIdCallback(result) {
+            var primary_tab_id = result.id;
+            var case_collections_recoveries_page = '{!URLFOR("/apex/CaseCollectionsRecoveries?id=" + CurrentCase.Id)}';
+            sforce.console.openSubtab(primary_tab_id, case_collections_recoveries_page, true, undefined, '{!TabToRefreshId}', openCaseSubTabCallback);
+        }
+
+        var openCaseSubTabCallback = function openCaseSubTabCallback(result) {
+            sforce.console.getEnclosingTabId(getLogCallSubTabIdCallback);
+        }
+
+        var getLogCallSubTabIdCallback = function getLogCallSubTabIdCallback(result) {
+            var log_call_sub_tab_id = result.id;
+            sforce.console.closeTab(log_call_sub_tab_id);
+        }
+    </script>
+    <apex:form >
+    <apex:actionfunction name="RedirectToCasePage" action="{!returnToCasePage}"/>
+        <apex:pageBlock title="" mode="edit">
+        <apex:outputPanel id="PageMessages">
+            <apex:pageMessages />
+        </apex:outputPanel>
+        <div style="padding-left: 20%; padding-right: 20%;">
+            <apex:pageBlockSection id="FollowingOptions" title="Please select one of the following options:" columns="2" collapsible="false">
+                <apex:selectRadio value="{!TheFollowingOptions.SelectedOptions}" layout="pageDirection">
+                    <apex:selectOptions value="{!TheFollowingOptions.PayNow}" rendered="{!IsZcp143IsEnabled}"/>
+                    <apex:selectOptions value="{!TheFollowingOptions.PromiseToPay}" />
+                    <apex:selectOptions value="{!TheFollowingOptions.FollowUpRequired}"/>
+                    <apex:selectOptions value="{!TheFollowingOptions.RepaymentArrangement}"/>
+                    <apex:selectOptions value="{!TheFollowingOptions.Other}"/>
+                     <apex:actionSupport event="onchange" reRender="dateBlock" />
+                </apex:selectRadio>
+                <apex:pageBlockSection columns="1" id="dateBlock">
+                    <apex:pageBlockSectionItem rendered="{!PayNowExternalSystemLinkVisible}">
+                        <apex:outputLabel value="Zopa Admin" />
+                        <apex:commandLink id="paynow" onclick="window.open('http://zopaadmin.dca.zopa.com/Pages/ManageBorrowing.aspx?pk={!TheLoan.Loan_Id__c}', '_blank');">Zopa Admin</apex:commandLink>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem rendered="{!PromiseToPayDateVisible}">
+                        <apex:outputLabel value="Promise To Pay Date" />
+                        <apex:inputField value="{!ContainerForPromiseToPayDate.Start_Date__c}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem rendered="{!FollowUpRequiredVisible}">
+                        <apex:outputLabel value="Follow-Up Date" />
+                        <apex:inputField value="{!ContainerForFollowUpRequiredDate.Start_Date__c}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem rendered="{!IsOtherOptionChosen}"/>
+                    <apex:pageBlockSectionItem rendered="{!IsOtherOptionChosen}"/>
+                    <apex:pageBlockSectionItem rendered="{!IsOtherOptionChosen}"/>
+                    <apex:pageBlockSectionItem rendered="{!IsOtherOptionChosen}"/>
+                    <apex:pageBlockSectionItem rendered="{!IsOtherOptionChosen}"/>
+                    <apex:selectList size="1" value="{!NewTask.Task_description__c}" rendered="{!IsOtherOptionChosen}">
+                        <apex:selectOptions value="{!OtherOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                    <apex:outputText value="Notes" />
+                    <apex:inputTextarea value="{!NewTask.Description}" rows="5" style="width: 515%;" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            </apex:pageBlockSection>
+        </div>
+        <div style="text-align: right;padding-right: 40%; padding-left: 20%">
+            <apex:commandButton action="{!stepThird}" value="Done" oncomplete="if ({!IsFilledRequiredFields} && {!IsNotApiErrorsOccurred}) closeTab();" reRender="PageMessages"/>
+            <apex:commandButton action="{!stepFirst}" value="Back" />
+        </div>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

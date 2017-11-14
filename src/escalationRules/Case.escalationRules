@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EscalationRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <escalationRule>
+        <fullName>Test Rule</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <businessHoursSource>Case</businessHoursSource>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>contains</operation>
+                <value>Urgent</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Description</field>
+                <operation>contains</operation>
+                <value>Urgent</value>
+            </criteriaItems>
+            <escalationStartTime>CaseCreation</escalationStartTime>
+        </ruleEntry>
+    </escalationRule>
+</EscalationRules>

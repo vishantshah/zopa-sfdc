@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>Assign to Tech Support {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Assign to Tech Support</label>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Case_Comment</name>
+        <label>Create Case Comment</label>
+        <locationX>509</locationX>
+        <locationY>323</locationY>
+        <connector>
+            <targetReference>Change_Case_Queue</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>CommentBody</field>
+            <value>
+                <elementReference>summary</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IsPublished</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ParentId</field>
+            <value>
+                <elementReference>Passed_case_id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>CaseComment</object>
+    </recordCreates>
+    <recordUpdates>
+        <name>Change_Case_Queue</name>
+        <label>Change Case Queue</label>
+        <locationX>572</locationX>
+        <locationY>110</locationY>
+        <connector>
+            <targetReference>Thanks</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Passed_case_id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>00G20000002n34t</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <screens>
+        <name>Provide_Additional_Notes</name>
+        <label>Provide Additional Notes</label>
+        <locationX>208</locationX>
+        <locationY>113</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Tech_Summary</targetReference>
+        </connector>
+        <fields>
+            <name>AddNotes</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Please can you provide some additional details as to why the case is being passed to Tech.  Please ensure that you include as much detail as possible including any relevant dates/times, error messages and device/browser being used&lt;/FONT&gt;&lt;/SPAN&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Date_of_Issue_First_time</name>
+            <dataType>Date</dataType>
+            <fieldText>Date of Issue (First time)</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Device_being_used</name>
+            <dataType>String</dataType>
+            <fieldText>Device being used</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>Please provide some details on the device such as iPad/PC/Phone</helpText>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Any_other_key_dates</name>
+            <fieldText>Any other key dates</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <helpText>What other dates a relevant to the case, please add with an explanation</helpText>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Details_of_Issue</name>
+            <fieldText>Details of Issue</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <helpText>What is the customer experiencing.  Include details such as what screen and any error messages</helpText>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Actions_Taken</name>
+            <fieldText>What actions have you taken</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <helpText>What have you tried to resolve the situation, include and changes or suggestions</helpText>
+            <isRequired>true</isRequired>
+        </fields>
+    </screens>
+    <screens>
+        <name>Tech_Summary</name>
+        <label>Tech Summary</label>
+        <locationX>379</locationX>
+        <locationY>190</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Create_Case_Comment</targetReference>
+        </connector>
+        <fields>
+            <name>summary</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Date of Issue (First time):&lt;/B&gt; {!Date_of_Issue_First_time}&lt;/FONT&gt;&lt;/SPAN&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Key Dates:&lt;/B&gt; {!Any_other_key_dates}&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Details of the Issue: &lt;/B&gt;{!Details_of_Issue}&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Actions Taken:&lt;/B&gt; {!Actions_Taken}&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Device:&lt;/B&gt; {!Device_being_used}&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <screens>
+        <name>Thanks</name>
+        <label>Thanks</label>
+        <locationX>770</locationX>
+        <locationY>112</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Details</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Your case is now in the Tech Support queue.  We will assign the case back to you once we have completed our investigation&lt;/FONT&gt;&lt;/SPAN&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <startElementReference>Provide_Additional_Notes</startElementReference>
+    <variables>
+        <name>Passed_case_id</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

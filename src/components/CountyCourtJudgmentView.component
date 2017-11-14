@@ -1,0 +1,26 @@
+<apex:component controller="CountyCourtJudgmentViewCont">
+    <apex:attribute name="LoanApplicationId" type="String" required="true" assignTo="{!LoanAppId}" description="Id of related Loan Application"/>
+    <apex:form id="form" rendered="{!$Permission.Loan_View_County_Court_Judgment && IsZopa77IsEnabled}">
+        <c:LazyLoadSpinner ActionToPerform="{!getCountyCourtJudgmentInformation}" ShowSpinner="false">
+            <apex:pageBlock title="County Court Judgments" rendered="{!(CountyCourtJudgmentList != null && CountyCourtJudgmentList.size > 0) || ErrorOnLoad != null}">
+                <apex:pageMessage summary="{!ErrorOnLoad}" severity="FATAL" strength="2" rendered="{!ErrorOnLoad != null}" title="Error:" />
+                <apex:repeat value="{!CountyCourtJudgmentList}" var="ccj">
+                    <apex:pageBlockSection collapsible="false" columns="1" title="{!ccj.Address}">
+                        <apex:outputText value="{!ccj.countyCourtJudgmentItemsNumber} case(s) found for this address"/>
+                        <apex:pageBlockTable value="{!ccj.CountyCourtJudgmentItems}" var="ccj_item" rendered="{!ccj.hasCountyCourtJudgmentItems}">
+                            <apex:column headerValue="Name" value="{!ccj_item.Name}"/>
+                            <apex:column headerValue="Date Of Birth" value="{!ccj_item.DateOfBirth}"/>
+                            <apex:column headerValue="Value">
+                                <apex:outputText value="{0, number, £###,###.00}">
+                                    <apex:param value="{!ccj_item.Value}" />
+                                </apex:outputText>
+                            </apex:column>
+                            <apex:column headerValue="Court Date" value="{!ccj_item.CourtDate}"/>
+                            <apex:column headerValue="Satisfied Date" value="{!ccj_item.SatisfiedDate}"/>
+                        </apex:pageBlockTable>
+                    </apex:pageBlockSection>
+                </apex:repeat>
+            </apex:pageBlock>
+        </c:LazyLoadSpinner>
+    </apex:form>
+</apex:component>

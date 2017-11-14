@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Zopa API Security</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Zopa API Security</value>
+    </caseValues>
+    <fields>
+        <label><!-- Access_Token1 --></label>
+        <name>Access_Token1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access_Token2 --></label>
+        <name>Access_Token2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access_Token3 --></label>
+        <name>Access_Token3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access_Token4 --></label>
+        <name>Access_Token4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access_Token_Collections1 --></label>
+        <name>Access_Token_Collections1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access_Token_Collections2 --></label>
+        <name>Access_Token_Collections2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access_Token_Collections3 --></label>
+        <name>Access_Token_Collections3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access_Token_Collections4 --></label>
+        <name>Access_Token_Collections4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access Token Expiry Date --></label>
+        <name>Access_Token_Expiry_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Grant_Type_Collections --></label>
+        <name>Grant_Type_Collections__c</name>
+    </fields>
+    <fields>
+        <label><!-- Grant_Type --></label>
+        <name>Grant_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- OAuth_Client_Id_Collections --></label>
+        <name>OAuth_Client_Id_Collections__c</name>
+    </fields>
+    <fields>
+        <label><!-- OAuth_Client_Id --></label>
+        <name>OAuth_Client_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- OAuth_Client_Secret_Collections --></label>
+        <name>OAuth_Client_Secret_Collections__c</name>
+    </fields>
+    <fields>
+        <label><!-- OAuth_Client_Secret --></label>
+        <name>OAuth_Client_Secret__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scope_Collections --></label>
+        <name>Scope_Collections__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scope --></label>
+        <name>Scope__c</name>
+    </fields>
+    <fields>
+        <label><!-- Use OAuth --></label>
+        <name>Use_OAuth__c</name>
+    </fields>
+    <fields>
+        <label><!-- X Api Key Header --></label>
+        <name>X_Api_Key_Header__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

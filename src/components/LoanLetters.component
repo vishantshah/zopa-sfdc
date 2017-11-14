@@ -1,0 +1,31 @@
+<apex:component controller="LoanLettersController">
+    <apex:attribute name="Loan_Uuid" type="String" required="true" assignTo="{!LoanUuid}" description="Id of Loan"/>
+    <script>
+        function downloadLetterJS(letter_id) {
+            var download_link = document.getElementById("downloadLetterId");
+            download_link.click();
+        }
+    </script>
+    <c:LazyLoadSpinner ActionToPerform="{!getAllLetters}" ShowSpinner="false">
+        <apex:pageBlock title="Loan Letters">
+            <apex:pageMessages />
+            <apex:pageBlockSection collapsible="false" columns="1" rendered="{!ExistingLetters.size != 0}">
+                <apex:outputPanel id="DownloadLink">
+                    <a href="data:application/pdf;charset=utf-8;base64,{!LetterData}" download="{!LetterName}" style="display:none" id="downloadLetterId"></a>
+                </apex:outputPanel>
+                <apex:pageBlockTable value="{!ExistingLetters}" var="current_letter">
+                    <apex:column headerValue="Actions">
+                        <apex:commandLink value="Download" action="{!getLetter}" onComplete="downloadLetterJS()" reRender="PageMessages, DownloadLink">
+                            <apex:param name="Letter_Id" value="{!current_letter.Id}" assignTo="{!LetterId}"/>
+                            <apex:param name="Letter_Name" value="{!current_letter.Name}" assignTo="{!LetterName}"/>
+                        </apex:commandLink>
+                    </apex:column>
+                    <apex:column headerValue="Name" value="{!current_letter.Name}"/>
+                    <apex:column headerValue="Created Date" value="{!current_letter.CreatedDate}"/>
+                    <apex:column headerValue="Created By" value="{!current_letter.CreatedBy}"/>
+                </apex:pageBlockTable>
+                <apex:outputText value="No records to display" rendered="{!ExistingLetters.size == 0}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </c:LazyLoadSpinner>
+</apex:component>

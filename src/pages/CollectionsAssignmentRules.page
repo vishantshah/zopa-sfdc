@@ -1,0 +1,27 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Current Collections queue assignment</h1>
+  <p>Collections Priority 1: Day 5 cases</p> 
+  <p>Collections Priority 2: Day 6 and 7 cases </p> 
+  <p>Collections Priority 3: Day 8 and 9 cases </p> 
+  <p>Collections Priority 4: Day 10 and 11 cases </p> 
+  <p>Collections Priority 5: Day 12 to 14 cases </p> 
+  
+  <p>Collections Priority 6: Older than 14 days and Next review date older than 6 days ago</p> 
+  <p>Collections Priority 7: Older than 14 days and Next review date older than 2 days ago</p> 
+  <p>Collections Priority 8: Older than 14 days and Next review date  2 days ago</p> 
+  <p>Collections Priority 9: Older than 14 days and Next review date yesterday</p> 
+  <p>Collections Priority 10: Older than 14 days and Next review date  today</p> 
+  
+  <p>Collections Priority 11: Broken promise to pay </p> 
+  <p>Collections Priority 12: Arrangements for review ( end of arrangement )</p>  
+  <p>Collections Priority 13: Deceased cases </p> 
+  <p>Collections Priority 14: DMC cases </p> 
+  <p>Collections Priority 15: Broken Repayment Arrangement cases</p>  
+  <p>Collections Priority 16: Cases with DCA</p> 
+  <p>Collections Priority 17: Pre-Default Cases </p> 
+  <p>Collections Priority 18: Ready for Default cases</p>  
+  <p>Collections Priority 19: Anything else ( safety net )</p> 
+  
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

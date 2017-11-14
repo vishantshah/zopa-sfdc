@@ -1,0 +1,74 @@
+<apex:component controller="LoanViewBankDetailsController">
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+    <apex:attribute name="Loan_Id" required="true" type="Id" assignTo="{!CurrentLoanId}" description="Loan Id of current Loan"/>
+
+    <apex:pageblock rendered="{!IsZCP56IsEnabled}" mode="maindetail">
+        <apex:pageBlockSection Id="LoanBankDetailsBlock" Title="Bank Details" collapsible="false" >
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Bank Account Name" />
+                <apex:outputPanel id="BankAccountName">
+                    <apex:outputText value="{!BankDetails.BankName}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Direct Debit Status" />
+                <apex:outputPanel id="DirectDebitStatus">
+                    <apex:outputText value="{!BankDetails.DirectDebitStatus}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Account Number" />
+                <apex:outputPanel id="AccountNumber">
+                    <apex:outputText value="{!BankDetails.AccountNumber}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Account Holder Name" />
+                <apex:outputPanel id="AccountHolderName">
+                    <apex:outputText value="{!BankDetails.AccountHolderName}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Reference" />
+                <apex:outputPanel id="Reference">
+                    <apex:outputText value="{!BankDetails.Reference}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Account Sort Code" />
+                <apex:outputPanel id="AccountSortCode">
+                    <apex:outputText value="{!BankDetails.SortCode}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+        </apex:pageBlockSection>
+    </apex:pageblock>
+        <apex:actionFunction name="getLoanBankDetailsInformationJS" action="{!getLoanBankDetailsInformation}" reRender="PageMessages,LoanBankDetailsBlock" rendered="{!IsZCP56IsEnabled}"/>
+        <script type="text/javascript">
+            if (window.attachEvent) {
+                window.attachEvent('onload', getLoanBankDetailsInformationJS);
+            } else if (window.addEventListener) {
+                window.addEventListener('load', getLoanBankDetailsInformationJS, false);
+            } else {
+                document.addEventListener('load', getLoanBankDetailsInformationJS, false);
+            }
+
+
+            function openPrimaryTab(par_document_name, par_url) {
+                var win = window.open(par_url, '_blank');
+                win.focus();
+            }
+        </script>
+</apex:component>

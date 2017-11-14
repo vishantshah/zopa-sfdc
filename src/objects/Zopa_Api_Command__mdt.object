@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Http_Method__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Http Method</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>GET</fullName>
+                    <default>true</default>
+                    <label>GET</label>
+                </value>
+                <value>
+                    <fullName>POST</fullName>
+                    <default>false</default>
+                    <label>POST</label>
+                </value>
+                <value>
+                    <fullName>PUT</fullName>
+                    <default>false</default>
+                    <label>PUT</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IsCollectionsCommand__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>IsCollectionsCommand</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Name_of_the_mock_class__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Name of the mock class</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Url_Mapping_Contains_Letter_Id__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Url Mapping Contains Letter Id</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Url_Mapping_Contains_Letter_Send_Method__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Url Mapping Contains Letter Send Method</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Url_Mapping_Contains_Template_Name__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Url Mapping Contains Template Name</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Url_Mapping_Contains_Uuid__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Url Mapping Contains Uuid</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Url_Mapping__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Url Mapping</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Zopa Api Command</label>
+    <pluralLabel>Zopa Api Commands</pluralLabel>
+    <visibility>Protected</visibility>
+</CustomObject>

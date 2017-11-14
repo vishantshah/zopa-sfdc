@@ -1,0 +1,19 @@
+<apex:component controller="TelephoneMatchViewController">
+    <apex:attribute name="LoanApplicationId" type="String" required="true" assignTo="{!LoanAppId}" description="Id of related Loan Application"/>
+    <apex:form id="form" rendered="{!$Permission.Loan_View_Telephone_Match_Details && IsZopa147IsEnabled}">
+        <c:LazyLoadSpinner ActionToPerform="{!getTelephoneMatchInformation}" ShowSpinner="false">
+            <apex:pageBlock title="Telephone Match" rendered="{!(TelephoneMatchList != null && TelephoneMatchList.size > 0) || ErrorOnLoad != null}">
+                <apex:pageMessage summary="{!ErrorOnLoad}" severity="FATAL" strength="2" rendered="{!ErrorOnLoad != null}" title="Error:"/>
+                <apex:repeat value="{!TelephoneMatchList}" var="telephone_match">
+                    <apex:pageBlockSection collapsible="false" columns="1" title="{!telephone_match.Address}">
+                        <apex:outputText value="{!telephone_match.TelephoneMatchItemsNumber} Telephone match(es) found for this address"/>
+                        <apex:pageBlockTable value="{!telephone_match.TelephoneMatchItems}" var="telephone_match_item" rendered="{!telephone_match.HasTelephoneMatchItems}">
+                            <apex:column headerValue="Name" value="{!telephone_match_item.Name}"/>
+                            <apex:column headerValue="Number" value="{!telephone_match_item.TelephoneNumber}"/>
+                        </apex:pageBlockTable>
+                    </apex:pageBlockSection>
+                </apex:repeat>
+            </apex:pageBlock>
+        </c:LazyLoadSpinner>
+    </apex:form>
+</apex:component>

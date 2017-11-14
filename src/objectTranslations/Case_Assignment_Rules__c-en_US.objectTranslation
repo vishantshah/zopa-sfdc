@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Case Assignment Rules</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Case Assignment Rules</value>
+    </caseValues>
+    <fields>
+        <help><!-- The Assignment rule that will be used when updating cases of type Case Prep. --></help>
+        <label><!-- Case Prep --></label>
+        <name>Case_Prep__c</name>
+    </fields>
+    <fields>
+        <label><!-- Collections --></label>
+        <name>Collections__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Assignment rule that will be used when updating cases of type Manual Underwriting. --></help>
+        <label><!-- Creation Manual Underwriting --></label>
+        <name>Creation_Manual_Underwriting__c</name>
+    </fields>
+    <fields>
+        <label><!-- Early_Arrears --></label>
+        <name>Early_Arrears__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Assignment rule that will be used when updating cases of type Fraud. --></help>
+        <label><!-- Fraud --></label>
+        <name>Fraud__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Assignment rule that will be used when updating cases of type Recoveries. --></help>
+        <label><!-- Recoveries --></label>
+        <name>Recoveries__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Assignment rule that will be used when updating cases of type Sensitive. --></help>
+        <label><!-- Sensitive --></label>
+        <name>Sensitive__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Assignment rule that will be used when updating cases of type Team Leader. --></help>
+        <label><!-- Team Leader --></label>
+        <name>Team_Leader__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Assignment rule that will be used when updating cases of type Underwriter. --></help>
+        <label><!-- Underwriter --></label>
+        <name>Underwriter__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

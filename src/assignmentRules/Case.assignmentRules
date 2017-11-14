@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>AutoAssign</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Manual Underwriting</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Collections &amp; Recoveries</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>equals</operation>
+                <value>Collections &amp; Recoveries</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>IT_Support</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>contains</operation>
+                <value>HR Notification</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tech_Support</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Tech Support Email,Appsupport.IT</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>contains</operation>
+                <value>Callcredit,Call Credit,Equifax,Experian,Broker Portal,Toby,Sunila,Bolaji,Rapid returns,Nightly</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Description</field>
+                <operation>contains</operation>
+                <value>Callcredit,Call Credit,Equifax,Experian,Broker Portal,Toby,Sunila,Bolaji,Rapid returns</value>
+            </criteriaItems>
+            <team>Tech Support</team>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Dealer_Invoices_Priority_1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>dealerInvoices</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>IT_Support</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1</booleanFilter>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Zopian.IT</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tech_Support</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Tech Support Email,Appsupport.IT,Data.IT</value>
+            </criteriaItems>
+            <team>Tech Support</team>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Case_Prep_Emails</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Zopa Loans</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Collections Email</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Recoveries</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Recoveries Email</value>
+            </criteriaItems>
+            <team>Recoveries</team>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Lenders</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Account.Expected_Usage__c</field>
+                <operation>equals</operation>
+                <value>LenderNoneBusiness</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Borrowers</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Account.Expected_Usage__c</field>
+                <operation>equals</operation>
+                <value>Borrower</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>notContain</operation>
+                <value>Collections &amp; Recoveries</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Borrowers</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Description</field>
+                <operation>contains</operation>
+                <value>Loan</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>notEqual</operation>
+                <value>Collections &amp; Recoveries</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Lenders</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.Description</field>
+                <operation>contains</operation>
+                <value>Lending</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Description</field>
+                <operation>contains</operation>
+                <value>Lender</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Creation_Manual_Underwriting</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>ULM_Priority_1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Broker__c</field>
+                <operation>contains</operation>
+                <value>ULM</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Auto_Priority_1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Broker__c</field>
+                <operation>startsWith</operation>
+                <value>AB</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>TrueConnectivity_Priority_1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Broker__c</field>
+                <operation>equals</operation>
+                <value>TrueConnectivity</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Fraud_Priority_5</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>OR(  CONTAINS( All_Referral_Codes__c , &apos;RC_15;&apos;),  CONTAINS( All_Referral_Codes__c , &apos;RC_31;&apos;),  CONTAINS(  All_Referral_Codes__c , &apos;RC_50;&apos;),  CONTAINS( All_Referral_Codes__c , &apos;RC_71;&apos;),  CONTAINS( All_Referral_Codes__c , &apos;RC_83;&apos;),  CONTAINS( All_Referral_Codes__c , &apos;RC_84;&apos;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Underwriters_Priority_7</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>OR( CONTAINS( All_Referral_Codes__c , &apos;RC_67;&apos;), CONTAINS( All_Referral_Codes__c , &apos;RC_73;&apos;), CONTAINS( All_Referral_Codes__c , &apos;RC_77;&apos;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Case_Prep_Priority_8</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>OR( CONTAINS( All_Referral_Codes__c  , &apos;RC_60;&apos;),  CONTAINS( All_Referral_Codes__c  , &apos;RC_72;&apos;),  CONTAINS( All_Referral_Codes__c  , &apos;RC_82;&apos;),  CONTAINS( All_Referral_Codes__c  , &apos;RC_87;&apos;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Underwriters_Priority_7</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Manual Underwriting</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Collections &amp; Recoveries</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Move_To_Case_Prep</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>Case_Prep_Priority_1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>NOT( ISBLANK( Broker__c )) &amp;&amp; DATEVALUE(CreatedDate) &lt; TODAY()&amp;&amp; First_Time_Picked__c = False</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Case_Prep_Priority_2</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>NOT( ISBLANK( Broker__c )) &amp;&amp; DATEVALUE(CreatedDate) &lt; TODAY()&amp;&amp; First_Time_Picked__c = True</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Case_Prep_Priority_3</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()-1 &amp;&amp; First_Time_Picked__c = False</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Case_Prep_Priority_4</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()-1 &amp;&amp; First_Time_Picked__c = True</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Case_Prep_Priority_5</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+            <criteriaItems>
+                <field>Case.Status</field>
+                <operation>startsWith</operation>
+                <value>In Progress</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Status</field>
+                <operation>contains</operation>
+                <value>Open - Document Received</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.CreatedDate</field>
+                <operation>equals</operation>
+                <value>YESTERDAY</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Case_Prep_Priority_6</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.CreatedDate</field>
+                <operation>equals</operation>
+                <value>YESTERDAY</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Case_Prep_Priority_7</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>(1 OR 3) AND 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.Status</field>
+                <operation>startsWith</operation>
+                <value>In Progress</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.CreatedDate</field>
+                <operation>equals</operation>
+                <value>TODAY</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Status</field>
+                <operation>contains</operation>
+                <value>Open - Document Received</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Case_Prep_Priority_8</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Manual Underwriting</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Collections &amp; Recoveries</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Move_To_Case_Prep_WE</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>Case_Prep_Priority_1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()-3 &amp;&amp; First_Time_Picked__c = False</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Case_Prep_Priority_2</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()-2 &amp;&amp; First_Time_Picked__c = False</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Case_Prep_Priority_3</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()-1 &amp;&amp; First_Time_Picked__c = False</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Case_Prep_Priority_4</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Case_Prep_Priority_5</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Manual Underwriting</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Collections &amp; Recoveries</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Move_To_Fraud</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>Fraud_Priority_1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>NOT( ISBLANK( Broker__c )) &amp;&amp; DATEVALUE(CreatedDate) &lt; TODAY()</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Fraud_Priority_2</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()-2</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Fraud_Priority_3</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()-1</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Fraud_Priority_4</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Fraud_Priority_5</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Manual Underwriting</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Collections &amp; Recoveries</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Move_To_Fraud_WE</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>Fraud_Priority_1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()-3</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Fraud_Priority_2</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()-2</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Fraud_Priority_3</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()-1</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Fraud_Priority_4</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Fraud_Priority_5</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Manual Underwriting</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Collections &amp; Recoveries</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Move_To_Underwriter</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>Underwriters_Priority_1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>NOT( ISBLANK( Broker__c )) &amp;&amp; DATEVALUE(CreatedDate) &lt; TODAY() &amp;&amp;  First_Time_Picked__c = False</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Underwriters_Priority_2</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>NOT( ISBLANK( Broker__c )) &amp;&amp; DATEVALUE(CreatedDate) &lt; TODAY() &amp;&amp; First_Time_Picked__c = True</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Underwriters_Priority_3</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()-2 &amp;&amp; First_Time_Picked__c = False</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Underwriters_Priority_4</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()-1 &amp;&amp; First_Time_Picked__c = False</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Underwriters_Priority_5</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()-2 &amp;&amp; First_Time_Picked__c = True</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Underwriters_Priority_6</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Underwriters_Priority_7</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Manual Underwriting</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Collections &amp; Recoveries</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Move_To_Underwriter_WE</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>Underwriters_Priority_1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()-3 &amp;&amp; First_Time_Picked__c = False</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Underwriters_Priority_2</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()-2 &amp;&amp; First_Time_Picked__c = False</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Underwriters_Priority_3</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()-1 &amp;&amp; First_Time_Picked__c = False</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Underwriters_Priority_4</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>DATEVALUE(CreatedDate) &lt; TODAY()</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Underwriters_Priority_5</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Manual Underwriting</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Collections &amp; Recoveries</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Move_to_Collections</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>tech@zopa.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <booleanFilter>1 AND 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.Process__c</field>
+                <operation>equals</operation>
+                <value>Collections</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.IsClosed</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_13</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.Sub_Process__c</field>
+                <operation>equals</operation>
+                <value>Deceased</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.DeceasedInAdmin__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Recoveries_Priority_1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.Process__c</field>
+                <operation>equals</operation>
+                <value>Recoveries</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.DefaultInAdmin__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Sensitive_Priority_1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Process__c</field>
+                <operation>equals</operation>
+                <value>Sensitive Customers</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_17</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR (2 AND 3 AND 4 AND 5)</booleanFilter>
+            <criteriaItems>
+                <field>Case.Sub_Process__c</field>
+                <operation>equals</operation>
+                <value>Pre-Default</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.ArrearsRatio__c</field>
+                <operation>greaterOrEqual</operation>
+                <value>3</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.DefaultInAdmin__c</field>
+                <operation>equals</operation>
+                <value>False</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Sub_Process__c</field>
+                <operation>notEqual</operation>
+                <value>Default,Deceased,Sensitive Case,Arrangements,With DMC</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.ActivePPlan__c</field>
+                <operation>equals</operation>
+                <value>False</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_16</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Sub_Process__c</field>
+                <operation>equals</operation>
+                <value>DCA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_14</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.Sub_Process__c</field>
+                <operation>equals</operation>
+                <value>With DMC</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Payment_Plan_With__c</field>
+                <operation>equals</operation>
+                <value>DMA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_11</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.Sub_Process__c</field>
+                <operation>equals</operation>
+                <value>Broken Repayment Arrangement</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Payment_Plan_With__c</field>
+                <operation>equals</operation>
+                <value>Zopa</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_12</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Sub_Process__c</field>
+                <operation>equals</operation>
+                <value>Arrangements</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Next_Review_Date__c</field>
+                <operation>lessOrEqual</operation>
+                <value>TODAY</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR (2 AND 3) OR 4</booleanFilter>
+            <criteriaItems>
+                <field>Case.Process_Day_Counter__c</field>
+                <operation>equals</operation>
+                <value>4</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Task_Counter__c</field>
+                <operation>equals</operation>
+                <value>0</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Process_Day_Counter__c</field>
+                <operation>greaterThan</operation>
+                <value>4</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Sub_Process__c</field>
+                <operation>equals</operation>
+                <value>Broken Promise to Pay</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_2</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.Process_Day_Counter__c</field>
+                <operation>equals</operation>
+                <value>5</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Process_Day_Counter__c</field>
+                <operation>equals</operation>
+                <value>6</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_3</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.Process_Day_Counter__c</field>
+                <operation>equals</operation>
+                <value>7</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Process_Day_Counter__c</field>
+                <operation>equals</operation>
+                <value>8</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_4</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.Process_Day_Counter__c</field>
+                <operation>equals</operation>
+                <value>9</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Process_Day_Counter__c</field>
+                <operation>equals</operation>
+                <value>10</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_5</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR 2 OR 3 or 4</booleanFilter>
+            <criteriaItems>
+                <field>Case.Process_Day_Counter__c</field>
+                <operation>equals</operation>
+                <value>13</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Process_Day_Counter__c</field>
+                <operation>equals</operation>
+                <value>12</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Process_Day_Counter__c</field>
+                <operation>equals</operation>
+                <value>11</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Process_Day_Counter__c</field>
+                <operation>equals</operation>
+                <value>14</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_6</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>Process_Day_Counter__c &gt;= 15 &amp;&amp; DATEVALUE( Next_Review_Date__c ) &lt; TODAY()-6</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_7</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>Process_Day_Counter__c &gt;= 15 &amp;&amp; DATEVALUE( Next_Review_Date__c ) &lt; TODAY()-2</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_8</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>Process_Day_Counter__c &gt;= 15 &amp;&amp; DATEVALUE( Next_Review_Date__c ) = TODAY()-2</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_9</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>Process_Day_Counter__c &gt;= 15 &amp;&amp; DATEVALUE( Next_Review_Date__c ) = TODAY() - 1</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_10</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>Process_Day_Counter__c &gt;= 15 &amp;&amp; DATEVALUE( Next_Review_Date__c ) = TODAY()</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_18</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Sub_Process__c</field>
+                <operation>equals</operation>
+                <value>Ready for Default</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Collections_Priority_19</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.IsClosed</field>
+                <operation>equals</operation>
+                <value>False</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Move_to_Recoveries</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>Recoveries_Priority_1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Process__c</field>
+                <operation>equals</operation>
+                <value>Recoveries</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Recoveries_Priority_2</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.IsClosed</field>
+                <operation>equals</operation>
+                <value>False</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Move_to_Sensitive</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>tech@zopa.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Case.Process__c</field>
+                <operation>equals</operation>
+                <value>Sensitive Customers</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.IsClosed</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Sensitive_Priority_2</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>(1 AND 2 ) OR ( 1 AND 3 )</booleanFilter>
+            <criteriaItems>
+                <field>Case.Process__c</field>
+                <operation>equals</operation>
+                <value>Sensitive Customers</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.DefaultInAdmin__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Sub_Process__c</field>
+                <operation>equals</operation>
+                <value>Default,New Recoveries</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Sensitive_Priority_1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Process__c</field>
+                <operation>equals</operation>
+                <value>Sensitive Customers</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Sensitive_Priority_3</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.IsClosed</field>
+                <operation>equals</operation>
+                <value>False</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+</AssignmentRules>

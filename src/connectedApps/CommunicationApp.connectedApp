@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>matthew.brunton@zopa.com</contactEmail>
+    <label>CommunicationApp</label>
+    <oauthConfig>
+        <callbackUrl>https://0.0.0.0:8888</callbackUrl>
+        <consumerKey>3MVG9X0_oZyBSzHrnzENhROatHA6vMnUWSI1VOp0QenwmHQRWK2z7jF4GFr0v3vH9Yw4GzzluG2mpcwHsRUR9</consumerKey>
+        <scopes>Full</scopes>
+    </oauthConfig>
+</ConnectedApp>

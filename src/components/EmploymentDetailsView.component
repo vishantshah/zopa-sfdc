@@ -1,0 +1,72 @@
+<apex:component controller="EmploymentDetailsViewController">
+    <apex:attribute name="LoanApplicationId" type="String" required="true" assignTo="{!LoanAppId}" description="Id of related Loan Application"/>
+    <apex:form id="form" rendered="{!$Permission.Loan_View_Employment_Details && IsZopa73IsEnabled}">
+        <apex:pageBlock title="Employment Details">
+            <c:LazyLoadSpinner ActionToPerform="{!getEmploymentDetailsInformation}">
+                <apex:pageMessage summary="{!ErrorOnLoad}" severity="FATAL" strength="2" rendered="{!ErrorOnLoad != null}" title="Error:"/>
+                <apex:pageBlockSection columns="2" rendered="{!ErrorOnLoad == null}" title="Current Employer" collapsible="false">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Job Title"/>
+                        <apex:outputText value="{!CurrentEmployer.JobTitle}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Time With Employer"/>
+                        <apex:outputText value="{!CurrentEmployer.TimeAtEmployer}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Name"/>
+                        <apex:outputText >
+                            <a href="https://www.google.com/search?q={!CurrentEmployer.Name}" target="_blank">{!CurrentEmployer.Name}</a>
+                        </apex:outputText>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Phone Number"/>
+                        <apex:outputText value="{!CurrentEmployer.Telephone}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Address"/>
+                        <apex:outputText value="{!CurrentEmployer.Address}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Contact Info"/>
+                        <apex:outputText value="{!CurrentEmployer.ContactInfo}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Post Code"/>
+                        <apex:outputText value="{!CurrentEmployer.PostCode}"/>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection columns="2" rendered="{!AND(ErrorOnLoad == null, PreviousEmployer != null)}" title="Previous Employer" collapsible="false">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Job Title"/>
+                        <apex:outputText value="{!PreviousEmployer.JobTitle}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Time With Employer"/>
+                        <apex:outputText value="{!PreviousEmployer.TimeAtEmployer}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Name"/>
+                        <apex:outputText value="{!PreviousEmployer.Name}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Phone Number"/>
+                        <apex:outputText value="{!PreviousEmployer.Telephone}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Address"/>
+                        <apex:outputText value="{!PreviousEmployer.Address}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Contact Info"/>
+                        <apex:outputText value="{!PreviousEmployer.ContactInfo}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Post Code"/>
+                        <apex:outputText value="{!PreviousEmployer.PostCode}"/>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </c:LazyLoadSpinner>
+        </apex:pageBlock>
+    </apex:form>
+</apex:component>

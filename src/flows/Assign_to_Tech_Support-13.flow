@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <decisions>
+        <name>Check_for_Team_Template</name>
+        <label>Check for Team Template</label>
+        <locationX>731</locationX>
+        <locationY>425</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Is_Already_Tech</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>TeamTemplateID</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>0B420000000Gmtb</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Case_Status</targetReference>
+            </connector>
+            <label>Is Already Tech</label>
+        </rules>
+        <rules>
+            <name>Is_Not_Already_Tech</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>TeamTemplateID</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>0B420000000Gmtb</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_to_Team</targetReference>
+            </connector>
+            <label>Is Not Already Tech</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Origin</name>
+        <label>Origin</label>
+        <locationX>915</locationX>
+        <locationY>283</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Is_from_Account_Call</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>WorkflowOrigin</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>AccountCall</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Is from Account Call</label>
+        </rules>
+        <rules>
+            <name>Is_nothing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>WorkflowOrigin</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Is nothing</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Assign to Tech Support {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Assign to Tech Support</label>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Assign_to_Team</name>
+        <label>Assign to Team</label>
+        <locationX>764</locationX>
+        <locationY>307</locationY>
+        <connector>
+            <targetReference>Update_Case_Status</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ParentId</field>
+            <value>
+                <elementReference>Passed_case_id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TeamTemplateId</field>
+            <value>
+                <stringValue>0B420000000Gmtb</stringValue>
+            </value>
+        </inputAssignments>
+        <object>CaseTeamTemplateRecord</object>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Case_Comment</name>
+        <label>Create Case Comment</label>
+        <locationX>509</locationX>
+        <locationY>323</locationY>
+        <connector>
+            <targetReference>Check_whether_there_is_a_team_already</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>CommentBody</field>
+            <value>
+                <stringValue>Date of Issue (First time): {!Date_of_Issue_First_time}Key Dates: {!Any_other_key_dates}Details of the Issue: {!Details_of_Issue}Actions Taken: {!Actions_Taken}</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IsPublished</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ParentId</field>
+            <value>
+                <elementReference>Passed_case_id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>CaseComment</object>
+    </recordCreates>
+    <recordLookups>
+        <name>Check_whether_there_is_a_team_already</name>
+        <label>Check whether there is a team already</label>
+        <locationX>589</locationX>
+        <locationY>476</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_for_Team_Template</targetReference>
+        </connector>
+        <filters>
+            <field>ParentId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Passed_case_id</elementReference>
+            </value>
+        </filters>
+        <object>CaseTeamTemplateRecord</object>
+        <outputAssignments>
+            <assignToReference>TeamTemplateID</assignToReference>
+            <field>TeamTemplateId</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Case_Status</name>
+        <label>Update Case Status</label>
+        <locationX>633</locationX>
+        <locationY>162</locationY>
+        <connector>
+            <targetReference>Thanks</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Passed_case_id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Assign_to_Tech__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>With Tech</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <screens>
+        <name>Provide_Additional_Notes</name>
+        <label>Provide Additional Notes</label>
+        <locationX>208</locationX>
+        <locationY>113</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Tech_Summary</targetReference>
+        </connector>
+        <fields>
+            <name>AddNotes</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Please can you provide some additional details as to why the case is being passed to Tech.  Please ensure that you include as much detail as possible including any relevant dates/times, error messages and device/browser being used&lt;/FONT&gt;&lt;/SPAN&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Date_of_Issue_First_time</name>
+            <dataType>Date</dataType>
+            <fieldText>Date of Issue (First time)</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Device_being_used</name>
+            <dataType>String</dataType>
+            <fieldText>Device being used</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>Please provide some details on the device such as iPad/PC/Phone</helpText>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Any_other_key_dates</name>
+            <fieldText>Any other key dates</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <helpText>What other dates a relevant to the case, please add with an explanation</helpText>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Details_of_Issue</name>
+            <fieldText>Details of Issue</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <helpText>What is the customer experiencing.  Include details such as what screen and any error messages</helpText>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Actions_Taken</name>
+            <fieldText>What actions have you taken</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <helpText>What have you tried to resolve the situation, include and changes or suggestions</helpText>
+            <isRequired>true</isRequired>
+        </fields>
+    </screens>
+    <screens>
+        <name>Tech_Summary</name>
+        <label>Tech Summary</label>
+        <locationX>379</locationX>
+        <locationY>190</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Create_Case_Comment</targetReference>
+        </connector>
+        <fields>
+            <name>summary</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Date of Issue (First time):&lt;/B&gt; {!Date_of_Issue_First_time}&lt;/FONT&gt;&lt;/SPAN&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Key Dates:&lt;/B&gt; {!Any_other_key_dates}&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Details of the Issue: &lt;/B&gt;{!Details_of_Issue}&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Actions Taken:&lt;/B&gt; {!Actions_Taken}&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:14px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;Device:&lt;/B&gt; {!Device_being_used}&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <screens>
+        <name>Thanks</name>
+        <label>Thanks</label>
+        <locationX>770</locationX>
+        <locationY>112</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Details</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;You have now added the Tech team to the case (you can see this under the Case Team Section.  They will add comments and you will be notified by email when there is an update&lt;/FONT&gt;&lt;/SPAN&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <startElementReference>Provide_Additional_Notes</startElementReference>
+    <variables>
+        <name>Passed_case_id</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>TeamTemplateID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>WorkflowOrigin</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

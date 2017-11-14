@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Call Scorecard</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Call Scorecards</value>
+    </caseValues>
+    <fields>
+        <help><!-- Answer all the customer’s queries correctly --></help>
+        <label><!-- Answer all queries correctly --></label>
+        <name>Answer_all_queries_correctly__c</name>
+    </fields>
+    <fields>
+        <label><!-- Appropriate pace and tone for Customer --></label>
+        <name>Appropriate_pace__c</name>
+    </fields>
+    <fields>
+        <label><!-- Avoid giving financial advice --></label>
+        <name>Avoid_giving_financial_advice__c</name>
+    </fields>
+    <fields>
+        <label><!-- Avoid long pauses and hesitation --></label>
+        <name>Avoid_long_pauses__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Call Scorecards --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Close Comments --></label>
+        <name>Close_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Close Percent --></label>
+        <name>Close_Percent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Close the call appropriately --></label>
+        <name>Close_the_call__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mention the Company Name --></label>
+        <name>Company_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Compliance Comments --></label>
+        <name>Compliance_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provide the customer with clear and confident explanations delivered in sections --></help>
+        <label><!-- Provide Clear and Confident Explanations --></label>
+        <name>Confident_Explanations__c</name>
+    </fields>
+    <fields>
+        <help><!-- Demonstrates understanding to the customer --></help>
+        <label><!-- Demonstrate understanding --></label>
+        <name>Demonstrate_understanding__c</name>
+    </fields>
+    <fields>
+        <label><!-- Display Total Percent --></label>
+        <name>Display_Total_Percent__c</name>
+    </fields>
+    <fields>
+        <help><!-- Don’t interrupt the customer or talk over them --></help>
+        <label><!-- Don&apos;t Interrupt or Talk over Customer --></label>
+        <name>Don_t_Interrupt__c</name>
+    </fields>
+    <fields>
+        <label><!-- Education &amp; Understanding Percent --></label>
+        <name>Education_Understanding_Percent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fact Finding Comments --></label>
+        <name>Fact_Finding_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fact Finding Percent --></label>
+        <name>Fact_Finding_Percent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Make relevant notes --></label>
+        <name>Make_relevant_notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mention your name --></label>
+        <name>Mention_your_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Obtain consent to change personal info --></label>
+        <name>Obtain_consent_to_change_personal_info__c</name>
+    </fields>
+    <fields>
+        <help><!-- In order to confirm details --></help>
+        <label><!-- Ask open and closed questions --></label>
+        <name>Open_and_closed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opening Comments --></label>
+        <name>Opening_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opening Percent --></label>
+        <name>Opening_Percent__c</name>
+    </fields>
+    <fields>
+        <label><!-- DPA Compliant --></label>
+        <name>Perform_necessary_DPA_checks__c</name>
+    </fields>
+    <fields>
+        <help><!-- Be polite and professional throughout the call --></help>
+        <label><!-- Polite and Professional throughout call --></label>
+        <name>Polite_and_Professional__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provide a Solution --></label>
+        <name>Provide_a_Solution__c</name>
+        <picklistValues>
+            <masterLabel>0</masterLabel>
+            <translation><!-- 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Rapport Comments --></label>
+        <name>Rapport_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rapport Percent --></label>
+        <name>Rapport_Percent__c</name>
+    </fields>
+    <fields>
+        <label><!-- React to the Customer --></label>
+        <name>React_to_the_Customer__c</name>
+        <picklistValues>
+            <masterLabel>0</masterLabel>
+            <translation><!-- 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Read compliance scripts when required --></label>
+        <name>Read_compliance_scripts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requested changes made accurately --></label>
+        <name>Requested_changes_made_accurately__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Percent --></label>
+        <name>Total_Percent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Points --></label>
+        <name>Total_Points__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Possible Points --></label>
+        <name>Total_Possible_Points__c</name>
+    </fields>
+    <fields>
+        <label><!-- Adhere to Treating Customers Fairly --></label>
+        <name>Treating_Customers_Fairly__c</name>
+    </fields>
+    <fields>
+        <label><!-- Education &amp; Understanding Comments --></label>
+        <name>Understanding_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Agent says Morning/Afternoon for example --></help>
+        <label><!-- Use Appropriate Greeting --></label>
+        <name>Use_Appropriate_Greeting__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use verbal nods to ensure the customer knows you are listening --></help>
+        <label><!-- Use verbal nods --></label>
+        <name>Use_verbal_nods__c</name>
+        <picklistValues>
+            <masterLabel>0</masterLabel>
+            <translation><!-- 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Offer additional assistance --></label>
+        <name>additional_assistance__c</name>
+        <picklistValues>
+            <masterLabel>0</masterLabel>
+            <translation><!-- 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Use the clients name throughout the call --></label>
+        <name>clients_name_throughout__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use the correct hold and transfer procedure --></help>
+        <label><!-- Use correct hold and Transfer Procedure --></label>
+        <name>correct_hold_and_Transfer__c</name>
+        <picklistValues>
+            <masterLabel>0</masterLabel>
+            <translation><!-- 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Check that the customer understands --></label>
+        <name>customer_understands__c</name>
+    </fields>
+    <fields>
+        <label><!-- Set realistic timescales when applicable --></label>
+        <name>realistic_timescales__c</name>
+    </fields>
+    <fields>
+        <label><!-- Establish the reason for the call --></label>
+        <name>reason_for_the_call__c</name>
+    </fields>
+    <layouts>
+        <layout>Call Scorecard Layout</layout>
+        <sections>
+            <label><!-- Close --></label>
+            <section>Close</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Education &amp; Understanding --></label>
+            <section>Education &amp; Understanding</section>
+        </sections>
+        <sections>
+            <label><!-- Fact Finding --></label>
+            <section>Fact Finding</section>
+        </sections>
+        <sections>
+            <label><!-- Opening --></label>
+            <section>Opening</section>
+        </sections>
+        <sections>
+            <label><!-- Rapport --></label>
+            <section>Rapport</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

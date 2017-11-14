@@ -1,0 +1,42 @@
+<apex:component controller="LoanNotesController">
+    <script type="text/javascript">
+        function openAllNotes() {
+            var url = '{!URLFOR("/apex/LoanNotes?id="+CurrentLoan.Id)}';
+            openPageInSubtab(url, "Loan Notes");
+        }
+
+        function openPageInSubtab(url, tab_name) {
+            if (sforce.console.isInConsole()) {
+                var openConcreteSubTab = function (primaryTab, url, tab_name) {
+                    sforce.console.openSubtab(primaryTab.id, url, true, tab_name);
+                }
+
+                sforce.console.getEnclosingPrimaryTabId(function (primaryTab) {
+                    openConcreteSubTab(primaryTab, url, tab_name)
+                });
+            } else {
+                window.top.location = url;
+            }
+        }
+
+        document.getElementsByClassName('pbBottomButtons')[0].style.display = 'none';
+    </script>
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+    <apex:attribute name="Loan_Id" required="true" type="Id" assignTo="{!CurrentLoanId}" description="Loan Id of current Loan"/>
+    <apex:pageBlock title="Loan Notes" rendered="{!$Permission.LoanNotes && IsZcp122IsEnabled}">
+        <apex:pageMessage summary="{!ErrorOnLoad}" severity="ERROR" strength="2" rendered="{!ErrorOnLoad != null}" title="Error:"/>
+        <apex:outputPanel rendered="{!ErrorOnLoad = null}">
+            <c:LazyLoadSpinner ActionToPerform="{!getLoanNotes}" ShowSpinner="false">
+                <apex:outputText value="No records to display" rendered="{!IsNoNotesMessageVisible}"/>
+                <apex:pageBlockSection collapsible="false" columns="1" rendered="{!LoanNotesHasAnyRecords}" id="tableBlock">
+                    <apex:pageBlockTable value="{!ListLimitNotes}" var="current_comment">
+                        <apex:column headerValue="Created Date" value="{!current_comment.CreatedDate}"/>
+                        <apex:column headerValue="Created By" value="{!current_comment.CreatedBy}"/>
+                        <apex:column headerValue="Text" value="{!current_comment.Text}" style="width: 70%;"/>
+                    </apex:pageBlockTable>
+                    <apex:commandLink value="Show More" rendered="{!IsShowMoreVisible}" onclick="openAllNotes();return false;"/>
+                </apex:pageBlockSection>
+            </c:LazyLoadSpinner>
+        </apex:outputPanel>
+    </apex:pageBlock>
+</apex:component>

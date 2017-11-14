@@ -1,0 +1,61 @@
+<apex:component controller="PaymentHistoryViewController">
+    <apex:attribute name="LoanApplicationId" type="String" required="true" assignTo="{!LoanAppId}" description="Id of related Loan Application"/>
+    <apex:form id="form" rendered="{!$Permission.Loan_View_Payment_History && IsZopa74IsEnabled}">
+        <c:LazyLoadSpinner ActionToPerform="{!getPaymentHistoryInformation}" ShowSpinner="false">
+            <apex:pageBlock title="Payment History" rendered="{!LoanHistoryHasAnyPayments || ErrorOnLoad != null}">
+                <apex:pageMessage summary="{!ErrorOnLoad}" severity="FATAL" strength="2" rendered="{!ErrorOnLoad != null}" title="Error:"/>
+                <apex:repeat value="{!PaymentHistoryList}" var="payment">
+                    <apex:pageBlockSection collapsible="false" columns="1" rendered="{!payment.HasZopaLoanHistoryItems}">
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <apex:outputPanel styleClass="link-style link-active" onClick="openLoanApplicationTab('{!payment.LoanId}');" rendered="{!payment.LoanIdIsExist}" >{!payment.LoanExternalId}</apex:outputPanel>
+                                <apex:outputText styleClass="link-style link-not-active" value="{!payment.LoanExternalId}" rendered="{!NOT(payment.LoanIdIsExist)}"/>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputText value="{!payment.ZopaLoanHistoryItemsNumber} Payment(s) found for this address"/>
+                        <apex:pageBlockTable value="{!payment.ZopaLoanRepaymentItems}" var="payment_item" rendered="{!payment.HasZopaLoanHistoryItems}">
+                            <apex:column headerValue="RepaymentDate" value="{!payment_item.RepaymentDate}"/>
+                            <apex:column headerValue="Type" value="{!payment_item.Type}"/>
+                            <apex:column headerValue="Amount">
+                                <apex:outputText value="{0, number, £###,###.00}">
+                                    <apex:param value="{!payment_item.Amount}" />
+                                </apex:outputText>
+                            </apex:column>
+                            <apex:column headerValue="Status" value="{!payment_item.Status}"/>
+                        </apex:pageBlockTable>
+                    </apex:pageBlockSection>
+                </apex:repeat>
+            </apex:pageBlock>
+        </c:LazyLoadSpinner>
+    </apex:form>
+    <style type="text/css">
+        .link-style{
+            font-size:16px;
+            text-decoration: underline;
+        }
+        .link-active {
+            color:#000000;
+            cursor: pointer;
+        }
+        .link-not-active {
+            color:#666666;
+            cursor:not-allowed;
+        }
+    </style>
+    <script type="text/javascript">
+        function openLoanApplicationTab(loan_id) {
+            openPageInNewTab("/"+loan_id);
+        }
+
+        function openPageInNewTab(url) {
+            if (sforce.console.isInConsole()) {
+                var openSubTab = function (primaryTab) {
+                    sforce.console.openSubtab(primaryTab.id, url, true);
+                }
+                sforce.console.getEnclosingPrimaryTabId(openSubTab);
+            } else {
+                window.open(url);
+            }
+        }
+    </script>
+</apex:component>

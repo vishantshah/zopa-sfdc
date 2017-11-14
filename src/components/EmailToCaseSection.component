@@ -1,0 +1,23 @@
+<apex:component controller="EmailToCaseSectionController" allowDML="true">
+    <apex:attribute name="CaseId" type="Id" required="true" assignTo="{!CurrentCaseId}" description="Id of the current case."/>
+
+    <apex:form id="component">
+        <apex:pageBlock title="Emails">
+            <apex:pageBlockTable value="{!CasesEmailMessages}" var="email" align="center" rendered="{!CasesEmailMessages.size>0}">
+                <apex:column value="{!email.Status}" headerValue="Status"/>
+                <apex:column headerValue="Inbound / Outbound">
+                    <apex:image title="Inbound" value="/img/emailInbound.gif"  rendered="{!email.Incoming}"/>
+                    <apex:image title="Outbound" value="/img/emailOutbound.gif" rendered="{!NOT(email.Incoming)}"/>
+                    &nbsp;&nbsp;
+                    <apex:image title="Attachment" value="{!$Resource.emailAttachmentImg}" width="15" height="15" rendered="{!email.HasAttachment}"/>
+                </apex:column>
+                <apex:column headerValue="Subject">
+                    <apex:outputLink value="/{!email.Id}">{!email.Subject}</apex:outputLink>
+                </apex:column>
+                <apex:column value="{!email.ToAddress}" headerValue="Email Address"/>
+                <apex:column value="{!email.MessageDate}" headerValue="Message Date"/>
+            </apex:pageBlockTable>
+            <apex:outputText value="No records to display" rendered="{!CasesEmailMessages.size=0}"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:component>

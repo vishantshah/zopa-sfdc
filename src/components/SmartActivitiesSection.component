@@ -1,0 +1,105 @@
+<apex:component controller="SmartActivitiesSectionController" allowDML="true">
+    <apex:attribute assignTo="{!RelatedCase}" type="Case" name="Case" description="Shows only tasks related to this Case"/>
+    <script type="text/javascript">
+        function openPageInSubtab(url, tab_name) {
+            if (sforce.console.isInConsole()) {
+                var openConcreteSubTab = function (primaryTab, url, tab_name) {
+                    sforce.console.openSubtab(primaryTab.id, url, true, tab_name);
+                }
+
+                sforce.console.getEnclosingPrimaryTabId(function (primaryTab) {
+                    openConcreteSubTab(primaryTab, url, tab_name)
+                });
+            } else {
+                window.top.location = url;
+            }
+        }
+
+        function newEvent() {
+            var event_page = '{!URLFOR("/00U/e?what_id=" + RelatedCase.Id + "&rId=" + RelatedCase.Id)}';
+            openPageInSubtab(event_page, "New Event");
+        }
+    </script>
+    <apex:form id="component">
+        <apex:outputPanel id="OpenedTasks">
+            <apex:pageMessage id="MessageOpenTasks" summary="{!MessageHandlerOpenTasks.Summary}" detail="{!MessageHandlerOpenTasks.Detail}" severity="{!MessageHandlerOpenTasks.Severity}" title="{!MessageHandlerOpenTasks.Title}" strength="{!MessageHandlerOpenTasks.Strength}" rendered="{!MessageHandlerOpenTasks.HasMessage}"/>
+            <apex:pageBlock title="Open Activities" id="OpenTaskBlock">
+                <apex:pageBlockButtons location="Top" rendered="{!HasWorkWithTasksSectionPermissions && IsCaseNotClosed}">
+                    <apex:commandbutton value="New Task" action="{!newTask}" rerender="popup" />
+                    <apex:commandbutton value="New Event" onclick="newEvent();return false;" />
+                    <apex:repeat value="{!ButtonsUpdatingStatus}" var="button_status" rendered="{!OpenTasks.size>0}">
+                        <apex:commandButton action="{!updateSelectedTasksWithSpecificStatus}" value="{!button_status}" reRender="component">
+                            <apex:param name="statusToChange" assignTo="{!MassEditStatus}" value="{!button_status}"/>
+                        </apex:commandButton>
+                    </apex:repeat>
+                    <apex:commandButton value="Save Comments" action="{!saveCommentsOpenTasks}" rendered="{!OpenTasks.size>0}" rerender="OpenedTasks"/>
+                </apex:pageBlockButtons>
+                <apex:pageBlockTable value="{!OpenTasks}" var="open_wrapped_activity" align="center" rendered="{!OpenTasks.size>0}">
+                    <apex:column style="width:36px;" headerValue="Select" rendered="{!HasWorkWithTasksSectionPermissions}">
+                       <apex:inputCheckbox value="{!open_wrapped_activity.IsSelected}" rendered="{!IsCaseNotClosed && open_wrapped_activity.IsTask}"/>
+                    </apex:column>
+                    <apex:column headerValue="Subject">
+                        <apex:outputLink value="/{!open_wrapped_activity.Id}" title="{!open_wrapped_activity.Description}">{!open_wrapped_activity.Subject}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Task">
+                        <apex:image value="/img/checkbox_checked.gif" rendered="{!open_wrapped_activity.IsTask}"/>
+                        <apex:image value="/img/checkbox_unchecked.gif" rendered="{!!open_wrapped_activity.IsTask}"/>
+                    </apex:column>
+                    <apex:column value="{!open_wrapped_activity.TaskFor}" headerValue="Task For"/>
+                    <apex:column value="{!open_wrapped_activity.Status}" headerValue="Status"/>
+                    <apex:column headerValue="Comments" rendered="{!open_wrapped_activity.ShowComment}" style="width: 45%">
+                        <apex:inputTextarea value="{!open_wrapped_activity.Comment}" style="width: 97%;  resize:vertical;" rows="3"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+                <apex:outputText value="No records to display" rendered="{!OpenTasks.size=0}"/>
+            </apex:pageBlock>
+        </apex:outputPanel>
+        <apex:outputPanel id="ClosedTasks">
+            <apex:pageMessage id="MessageClosedTasks" summary="{!MessageHandlerClosedTasks.Summary}" detail="{!MessageHandlerClosedTasks.Detail}" severity="{!MessageHandlerClosedTasks.Severity}" title="{!MessageHandlerClosedTasks.Title}" strength="{!MessageHandlerClosedTasks.Strength}" rendered="{!MessageHandlerClosedTasks.HasMessage}"/>
+            <apex:pageBlock title="Activity History" id="ClosedTaskBlock">
+                <apex:pageBlockTable value="{!ClosedTasks}" var="closed_wrapped_activity" align="center" rendered="{!ClosedTasks.size>0}">
+                    <apex:column headerValue="Action" style="width: 5%;" rendered="{!HasWorkWithTasksSectionPermissions}">
+                        <apex:outputLink rendered="{!IsCaseNotClosed && closed_wrapped_activity.CanBeUndone}" onclick="undoneTask('{!closed_wrapped_activity.TaskRecord.Id}'); return false;">
+                            Undo
+                        </apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Subject" style="width: 22%;">
+                        <apex:outputLink value="/{!closed_wrapped_activity.Id}" title="{!closed_wrapped_activity.Description}">{!closed_wrapped_activity.Subject}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Task" style="width: 3%;">
+                        <apex:image value="/img/checkbox_checked.gif" rendered="{!closed_wrapped_activity.IsTask}"/>
+                        <apex:image value="/img/checkbox_unchecked.gif" rendered="{!!closed_wrapped_activity.IsTask}"/>
+                    </apex:column>
+                    <apex:column style="width: 10%" value="{!closed_wrapped_activity.DueDate}" headerValue="Completed Date"/>
+                    <apex:column headerValue="Agent Name" style="width: 10%">
+                        <apex:outputLink value="/{!closed_wrapped_activity.OwnerId}">{!closed_wrapped_activity.AgentName}</apex:outputLink>
+                    </apex:column>
+                    <apex:column value="{!closed_wrapped_activity.Status}" headerValue="Outcome" style="width: 5%"/>
+                    <apex:column headerValue="Comments" rendered="{!closed_wrapped_activity.ShowComment}" style="width: 45%;">
+                        <apex:outputText value="{!closed_wrapped_activity.Comment}" style="word-wrap: break-word;"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+                <apex:outputText value="No records to display" rendered="{!ClosedTasks.size=0}"/>
+                <apex:actionFunction name="undoneTask" action="{!undoneChosenTask}" rerender="component" >
+                    <apex:param value="" assignTo="{!IdTaskToUndo}" name="test" />
+                </apex:actionFunction>
+            </apex:pageBlock>
+        </apex:outputPanel>
+        <c:ConfirmPopup id="popup" visible="{!NewMUTask!=null}" headermessage="New Manual Underwriting Task">
+            <apex:actionstatus id="spinner">
+                <apex:facet name="stop">
+                    <apex:outputpanel >
+                        <apex:selectlist value="{!NewMUTask.Subject}" multiselect="false" title="Choose a reason" size="1" style="display:block;margin: 0 auto;margin-bottom: 5px;">
+                            <apex:selectoptions value="{!MUTaskSubjects}" />
+                        </apex:selectlist>
+                        <apex:commandbutton value="Save" action="{!saveMUTask}" rerender="popup, OpenedTasks" status="spinner" style="border-color: #8A9EBE; border-style: solid;border-width: 2px; width: 80px;" />
+                        <apex:commandbutton value="Cancel" action="{!hideNewTaskPopup}" rerender="popup" status="spinner" style="border-color: #8A9EBE; border-style: solid;border-width: 2px; width: 80px;" />
+                    </apex:outputpanel>
+                </apex:facet>
+                <apex:facet name="start">
+                    <apex:image value="/img/loading32.gif" style="height: 15px" />
+                </apex:facet>
+            </apex:actionstatus>
+        </c:ConfirmPopup>
+    </apex:form>
+</apex:component>

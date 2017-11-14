@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Complaint</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Complaints</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>AccountName__c</name>
+        <relationshipLabel><!-- Complaints --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Action Taken --></label>
+        <name>Action_Taken__c</name>
+    </fields>
+    <fields>
+        <help><!-- What was the actual / calculated monetary loss to the customer - if any? --></help>
+        <label><!-- Actual Loss to Customer --></label>
+        <name>Actual_Loss_to_Customer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Additional Subject --></label>
+        <name>Additional_Subject__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the broker if this is a Broker customer? --></help>
+        <label><!-- Broker --></label>
+        <name>Broker__c</name>
+        <picklistValues>
+            <masterLabel>AngloScottish</masterLabel>
+            <translation><!-- AngloScottish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aspire Money</masterLabel>
+            <translation><!-- Aspire Money --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Best4Loans</masterLabel>
+            <translation><!-- Best4Loans --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Checkmyfile</masterLabel>
+            <translation><!-- Checkmyfile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Choice Loans</masterLabel>
+            <translation><!-- Choice Loans --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Choose Wisely</masterLabel>
+            <translation><!-- Choose Wisely --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Click Finance</masterLabel>
+            <translation><!-- Click Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Creditplus</masterLabel>
+            <translation><!-- Creditplus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Easter Egg</masterLabel>
+            <translation><!-- Easter Egg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Experian Credit Matcher</masterLabel>
+            <translation><!-- Experian Credit Matcher --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FirstTrustFinance</masterLabel>
+            <translation><!-- FirstTrustFinance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fluent Loans</masterLabel>
+            <translation><!-- Fluent Loans --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fluent Loans Alt</masterLabel>
+            <translation><!-- Fluent Loans Alt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Freedom Finance</masterLabel>
+            <translation><!-- Freedom Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gopher Money</masterLabel>
+            <translation><!-- Gopher Money --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan Finder</masterLabel>
+            <translation><!-- Loan Finder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loans Warehouse</masterLabel>
+            <translation><!-- Loans Warehouse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Love Money</masterLabel>
+            <translation><!-- Love Money --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medifinance</masterLabel>
+            <translation><!-- Medifinance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Money Expert</masterLabel>
+            <translation><!-- Money Expert --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Money Saving Expert</masterLabel>
+            <translation><!-- Money Saving Expert --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Money Supermarket</masterLabel>
+            <translation><!-- Money Supermarket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moneyfacts -Tesco Compare</masterLabel>
+            <translation><!-- Moneyfacts -Tesco Compare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Norton Finance</masterLabel>
+            <translation><!-- Norton Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orange Motor Finance</masterLabel>
+            <translation><!-- Orange Motor Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pan Credit</masterLabel>
+            <translation><!-- Pan Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pingtree</masterLabel>
+            <translation><!-- Pingtree --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professions Loans</masterLabel>
+            <translation><!-- Professions Loans --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salary Finance</masterLabel>
+            <translation><!-- Salary Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>The Loans Engine</masterLabel>
+            <translation><!-- The Loans Engine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>The Money Hub</masterLabel>
+            <translation><!-- The Money Hub --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>The Practice Loan Company</masterLabel>
+            <translation><!-- The Practice Loan Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>This is Money</masterLabel>
+            <translation><!-- This is Money --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TotallyMoney</masterLabel>
+            <translation><!-- TotallyMoney --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Will and Woody</masterLabel>
+            <translation><!-- Will and Woody --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>uSwitch</masterLabel>
+            <translation><!-- uSwitch --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Case Number --></help>
+        <label><!-- Case --></label>
+        <name>CaseNumber__c</name>
+        <relationshipLabel><!-- Complaints --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- What caused the complaint to happen? --></help>
+        <label><!-- Cause &amp; Investigation --></label>
+        <name>Cause_Investigation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cause of Complaint --></label>
+        <name>Cause_of_Complaint__c</name>
+        <picklistValues>
+            <masterLabel>Arrears Related</masterLabel>
+            <translation><!-- Arrears Related --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delays / timescales</masterLabel>
+            <translation><!-- Delays / timescales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disputes over sums / charges</masterLabel>
+            <translation><!-- Disputes over sums / charges --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Errors / not following instructions</masterLabel>
+            <translation><!-- Errors / not following instructions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Number of complaints in columns B to N which are claims related</masterLabel>
+            <translation><!-- Number of complaints in columns B to N which are claims related --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other general admin/customer service</masterLabel>
+            <translation><!-- Other general admin/customer service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product disclosure information</masterLabel>
+            <translation><!-- Product disclosure information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product performance / features</masterLabel>
+            <translation><!-- Product performance / features --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unclear guidance / arrangement</masterLabel>
+            <translation><!-- Unclear guidance / arrangement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unsuitable advice</masterLabel>
+            <translation><!-- Unsuitable advice --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Enter the type of complaint. --></help>
+        <label><!-- What does the Complaint Refer to? --></label>
+        <name>Complaint_Subtype__c</name>
+        <picklistValues>
+            <masterLabel>-- All</masterLabel>
+            <translation><!-- - -  All --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>-- Borroweer and lender</masterLabel>
+            <translation><!-- - -  Borroweer and lender --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>-- Borrower</masterLabel>
+            <translation><!-- - -  Borrower --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>-- Borrower and UW</masterLabel>
+            <translation><!-- - -  Borrower and UW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>-- Collections</masterLabel>
+            <translation><!-- - -  Collections --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>-- Lender</masterLabel>
+            <translation><!-- - -  Lender --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>-- Underwriting</masterLabel>
+            <translation><!-- - -  Underwriting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>APR/Interest change</masterLabel>
+            <translation><!-- APR/Interest change --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Access to funds</masterLabel>
+            <translation><!-- Access to funds --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Account discrepancies</masterLabel>
+            <translation><!-- Account discrepancies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Application (general)</masterLabel>
+            <translation><!-- Application (general) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arrears</masterLabel>
+            <translation><!-- Arrears --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bad debt</masterLabel>
+            <translation><!-- Bad debt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Borrowing fee</masterLabel>
+            <translation><!-- Borrowing fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancellation</masterLabel>
+            <translation><!-- Cancellation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled in error</masterLabel>
+            <translation><!-- Cancelled in error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit file update</masterLabel>
+            <translation><!-- Credit file update --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Errors</masterLabel>
+            <translation><!-- Customer Errors --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Declined application</masterLabel>
+            <translation><!-- Declined application --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Declined in error</masterLabel>
+            <translation><!-- Declined in error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Direct Debit</masterLabel>
+            <translation><!-- Direct Debit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Direct Debit date</masterLabel>
+            <translation><!-- Direct Debit date --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Documents</masterLabel>
+            <translation><!-- Documents --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Early Settlement</masterLabel>
+            <translation><!-- Early Settlement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Funding lending account</masterLabel>
+            <translation><!-- Funding lending account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lending options</masterLabel>
+            <translation><!-- Lending options --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lending products</masterLabel>
+            <translation><!-- Lending products --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan book</masterLabel>
+            <translation><!-- Loan book --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lump sum payment</masterLabel>
+            <translation><!-- Lump sum payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment issues - Inbound</masterLabel>
+            <translation><!-- Payment issues - Inbound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment issues - Outbound</masterLabel>
+            <translation><!-- Payment issues - Outbound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quick Pay</masterLabel>
+            <translation><!-- Quick Pay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SIGMA</masterLabel>
+            <translation><!-- SIGMA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Speed of application process</masterLabel>
+            <translation><!-- Speed of application process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Statement discrepancies</masterLabel>
+            <translation><!-- Statement discrepancies --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select which type of complaint this is. --></help>
+        <label><!-- Complaint Service Area --></label>
+        <name>Complaint_Type_Control__c</name>
+        <picklistValues>
+            <masterLabel>Borrower</masterLabel>
+            <translation><!-- Borrower --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collections</masterLabel>
+            <translation><!-- Collections --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Investor</masterLabel>
+            <translation><!-- Investor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Underwriter</masterLabel>
+            <translation><!-- Underwriter --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Enter complaint type here --></help>
+        <label><!-- Complaint Type Miscellaneous --></label>
+        <name>Complaint_Type_Misc__c</name>
+        <picklistValues>
+            <masterLabel>Credit score issues</masterLabel>
+            <translation><!-- Credit score issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overcharging</masterLabel>
+            <translation><!-- Overcharging --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service received</masterLabel>
+            <translation><!-- Service received --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Enter the type of complaint for Product --></help>
+        <label><!-- Consumer Credit Type Product --></label>
+        <name>Complaint_Type_Product__c</name>
+        <picklistValues>
+            <masterLabel>Credit Broking</masterLabel>
+            <translation><!-- Credit Broking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Debt Collecting</masterLabel>
+            <translation><!-- Debt Collecting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hire purchase / Uber</masterLabel>
+            <translation><!-- Hire purchase / Uber --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Lending</masterLabel>
+            <translation><!-- Other Lending --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Enter complaint type --></help>
+        <label><!-- Complaint Type Underwriting --></label>
+        <name>Complaint_Type_Underwriting__c</name>
+        <picklistValues>
+            <masterLabel>Cancelled in error</masterLabel>
+            <translation><!-- Cancelled in error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Declined in error</masterLabel>
+            <translation><!-- Declined in error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Documents</masterLabel>
+            <translation><!-- Documents --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Enter the type of complaint --></help>
+        <label><!-- Complaint Type Zopa --></label>
+        <name>Complaint_Type_Zopa__c</name>
+        <picklistValues>
+            <masterLabel>Account closure</masterLabel>
+            <translation><!-- Account closure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deceased</masterLabel>
+            <translation><!-- Deceased --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Direct Mail</masterLabel>
+            <translation><!-- Direct Mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ECM</masterLabel>
+            <translation><!-- ECM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fraud</masterLabel>
+            <translation><!-- Fraud --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Member of staff</masterLabel>
+            <translation><!-- Member of staff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service received</masterLabel>
+            <translation><!-- Service received --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What is the total cost to Zopa? --></help>
+        <label><!-- Cost To Business --></label>
+        <name>Cost_To_Business__c</name>
+    </fields>
+    <fields>
+        <help><!-- Customer Comment on resolution. Detail why if not happy. --></help>
+        <label><!-- Customer Comment --></label>
+        <name>Customer_Comment__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the customer happy with the final outcome/resolution and happy for the Complaint to be considered closed? Yes or No.
+If No why? --></help>
+        <label><!-- Customer Happy --></label>
+        <name>Customer_Happy__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date complaint closed --></help>
+        <label><!-- Date Closed --></label>
+        <name>Date_Closed__c</name>
+    </fields>
+    <fields>
+        <help><!-- When was the complaint made --></help>
+        <label><!-- Date of Complaint --></label>
+        <name>Date_Created__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date resolution offered to member. This may differ from date of closure. --></help>
+        <label><!-- Date Resolution --></label>
+        <name>Date_Resolution__c</name>
+    </fields>
+    <fields>
+        <label><!-- Details --></label>
+        <name>Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- Escalated To --></label>
+        <name>Escalated_To__c</name>
+        <relationshipLabel><!-- Complaints --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Is this complaint a FOS complaint? --></help>
+        <label><!-- FOS --></label>
+        <name>FOS__c</name>
+    </fields>
+    <fields>
+        <help><!-- Is this Zopa’s final response? Yes or No --></help>
+        <label><!-- Final Response --></label>
+        <name>Final_Response__c</name>
+    </fields>
+    <fields>
+        <label><!-- Human Error --></label>
+        <name>Human_Error__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of Institution --></help>
+        <label><!-- Institution --></label>
+        <name>InstitutionList__c</name>
+        <picklistValues>
+            <masterLabel>Metro Bank PLC</masterLabel>
+            <translation><!-- Metro Bank PLC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>P2P Global Investments PLC</masterLabel>
+            <translation><!-- P2P Global Investments PLC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>P2PCL1 PLC</masterLabel>
+            <translation><!-- P2PCL1 PLC --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Was this loan funded by an institution? Yes or No. --></help>
+        <label><!-- Institution --></label>
+        <name>Institution__c</name>
+    </fields>
+    <fields>
+        <help><!-- What loss or inconvenience did the customer suffer? --></help>
+        <label><!-- Loss &amp; Inconvenience --></label>
+        <name>Loss_Inconvenience__c</name>
+    </fields>
+    <fields>
+        <label><!-- Marketing Error --></label>
+        <name>Marketing_Error__c</name>
+    </fields>
+    <fields>
+        <help><!-- How much have we compensated the customer? --></help>
+        <label><!-- Cost in Compensation and GOGW --></label>
+        <name>Monetary_Compensation__c</name>
+    </fields>
+    <fields>
+        <help><!-- What is the monetary value of loss to the customer? The amount the Member thinks they have lost. --></help>
+        <label><!-- Cost to Customer --></label>
+        <name>Monetary_Loss__c</name>
+    </fields>
+    <fields>
+        <label><!-- Outcome --></label>
+        <name>Outcome__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+        <picklistValues>
+            <masterLabel>ISA</masterLabel>
+            <translation><!-- ISA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>P2P</masterLabel>
+            <translation><!-- P2P --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PPI</masterLabel>
+            <translation><!-- PPI --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Have we advised the customer that they can refer their case to the FOS and provided them with the information to do so? Yes or No. --></help>
+        <label><!-- Refer to FOS? --></label>
+        <name>Refer_to_FOS__c</name>
+    </fields>
+    <fields>
+        <help><!-- How was this resolved? --></help>
+        <label><!-- Resolution --></label>
+        <name>Resolution__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the complaint about a member of staff --></help>
+        <label><!-- Staff Complaint --></label>
+        <name>Staff_Complaint__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Subject --></label>
+        <name>Subject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Team --></label>
+        <name>Team__c</name>
+        <picklistValues>
+            <masterLabel>Borrowers</masterLabel>
+            <translation><!-- Borrowers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collections</masterLabel>
+            <translation><!-- Collections --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lenders</masterLabel>
+            <translation><!-- Lenders --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Underwriters</masterLabel>
+            <translation><!-- Underwriters --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Tech Error --></label>
+        <name>Tech_Error__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Zopa Cost --></label>
+        <name>Total_Zopa_Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type of Complaint --></label>
+        <name>Type_of_Complaint__c</name>
+        <picklistValues>
+            <masterLabel>Advising, selling and arranging</masterLabel>
+            <translation><!-- Advising, selling and arranging --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arrears related</masterLabel>
+            <translation><!-- Arrears related --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claims</masterLabel>
+            <translation><!-- Claims --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General admin/customer service</masterLabel>
+            <translation><!-- General admin/customer service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Information, sums/charges or product performance</masterLabel>
+            <translation><!-- Information, sums/charges or product performance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Was the complaint about Zopa? --></help>
+        <label><!-- Zopa Complaint --></label>
+        <name>Zopa_Complaint__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zopa Error --></label>
+        <name>Zopa_Error__c</name>
+    </fields>
+    <layouts>
+        <layout>Complaint Layout</layout>
+        <sections>
+            <label><!-- Costs --></label>
+            <section>Costs</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Details --></label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label><!-- Details2 --></label>
+            <section>Details2</section>
+        </sections>
+        <sections>
+            <label><!-- Investigation --></label>
+            <section>Investigation</section>
+        </sections>
+        <sections>
+            <label><!-- Investigation2 --></label>
+            <section>Investigation2</section>
+        </sections>
+        <sections>
+            <label><!-- Resolution --></label>
+            <section>Resolution</section>
+        </sections>
+        <sections>
+            <label><!-- Resolution2 --></label>
+            <section>Resolution2</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

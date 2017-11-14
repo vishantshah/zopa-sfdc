@@ -1,0 +1,118 @@
+<apex:page controller="ManagePaymentPlanController" action="{!getExistingPaymentPlans}" docType="html-5.0">
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+    <apex:includeScript value="/support/console/35.0/integration.js"/>
+    <script type="text/javascript">
+        var callback = function () {
+             if (result.error) {
+                alert("Error message is " + result.error);
+             }
+         };
+        function closeTab() {
+            if (sforce.console.isInConsole()) {
+                sforce.console.getEnclosingTabId(closeSubtab);
+            } else {
+                RedirectToPreviousPage();
+            }
+         }
+
+        var closeSubtab = function closeSubtab(result) {
+            var tabId = result.id;
+            sforce.console.closeTab(tabId, callback);
+        };
+    </script>
+    <apex:form id="form">
+        <apex:actionfunction name="RedirectToPreviousPage" action="{!redirectToPreviousPage}"/>
+        <apex:pageMessages id="PageMessages"/>
+        <apex:actionStatus id="Spinner">
+            <apex:facet name="start">
+                <apex:pageMessage summary="Sending a request..." severity="info" strength="3">
+                    <apex:image value="/img/loading32.gif" style="height: 15px"/>
+                </apex:pageMessage>
+            </apex:facet>
+        </apex:actionStatus>
+        <apex:sectionHeader title="Manage Payment Plan" subtitle="{!CurrentLoan.Loan_Id__c}" printUrl=""/>
+        <apex:pageBlock title="Payment Plan Details" id="PaymentPlanDetails">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="{!IF(ThereIsActivePaymentPlan, 'Update Plan', 'Create Plan')}"
+                                    action="{!save}"
+                                    reRender="PageMessages"
+                                    status="Spinner"/>
+                <apex:commandButton value="Refresh Panel"
+                                    action="{!getExistingPaymentPlans}"
+                                    reRender="PageMessages, PaymentPlanDetails, PaymentPlanHistory"
+                                    status="Spinner"/>
+                <apex:commandButton value="Cancel"
+                                    onClick="closeTab();return false"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection collapsible="false" columns="2">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Created Date"/>
+                    <apex:outputPanel >
+                        <apex:outputText value="{!ActivePaymentPlan.CreatedDate}" rendered="{!ThereIsActivePaymentPlan}"/>
+                        <apex:inputField value="{!CaseHelper.Payment_Plan_Start_Date__c}" rendered="{!NOT(ThereIsActivePaymentPlan)}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Agreed with"/>
+                    <apex:selectList value="{!ActivePaymentPlan.Arrangement}" multiselect="false" size="1">
+                        <apex:selectOptions value="{!ArrangementSelectOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Amount"/>
+                    <apex:inputText value="{!ActivePaymentPlan.Amount}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Duration"/>
+                    <apex:selectList value="{!ActivePaymentPlan.Duration}" multiselect="false" size="1">
+                        <apex:selectOptions value="{!DurationSelectOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Payment Day"/>
+                    <apex:selectList value="{!ActivePaymentPlan.PaymentDay}" multiselect="false" size="1">
+                        <apex:selectOptions value="{!PaymentDaySelectOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Frequency"/>
+                    <apex:selectList value="{!ActivePaymentPlan.Frequency}" multiselect="false" size="1">
+                        <apex:selectOptions value="{!FrequencySelectOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Payment Method"/>
+                    <apex:selectList value="{!ActivePaymentPlan.Method}" multiselect="false" size="1">
+                        <apex:selectOptions value="{!MethodSelectOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Arrears Reason"/>
+                    <apex:selectList value="{!ActivePaymentPlan.ArrearsReason}" multiselect="false" size="1">
+                        <apex:selectOptions value="{!ArrearsReasonSelectOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="State"/>
+                    <apex:selectList value="{!ActivePaymentPlan.State}" multiselect="false" size="1">
+                        <apex:selectOptions value="{!StateSelectOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock title="Payment Plan History"  id="PaymentPlanHistory">
+            <apex:pageBlockTable value="{!ExistingPaymentPlans}" var="PaymentPlan">
+                <apex:column value="{!PaymentPlan.CreatedDate}" headerValue="Created Date"/>
+                <apex:column value="{!PaymentPlan.State}" headerValue="State"/>
+                <apex:column value="{!PaymentPlan.Duration}" headerValue="Duration"/>
+                <apex:column value="{!PaymentPlan.Arrangement}" headerValue="Agreed with"/>
+                <apex:column value="{!PaymentPlan.Amount}" headerValue="Amount"/>
+                <apex:column value="{!PaymentPlan.Frequency}" headerValue="Frequency"/>
+                <apex:column value="{!PaymentPlan.PaymentDay}" headerValue="Payment Day"/>
+                <apex:column value="{!PaymentPlan.Method}" headerValue="Payment Method"/>
+                <apex:column value="{!PaymentPlan.ArrearsReason}" headerValue="Arrears Reason"/>
+                <apex:column value="{!PaymentPlan.EndDate}" headerValue="End Date"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Update_Case_Assignment_Assignment_Rules_Updated_Successfully</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update Case Assignment Assignment Rules Updated Successfully</shortDescription>
+        <value>Assignment rules updated successfully</value>
+    </labels>
+    <labels>
+        <fullName>Update_Case_Assignment_Assignment_Rules_in_use</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update Case Assignment Assignment Rules in use</shortDescription>
+        <value>Assignment Rules in use</value>
+    </labels>
+    <labels>
+        <fullName>Update_Case_Assignment_Change_Assignment_Rules_in_use</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update Case Assignment Change Assignment Rules in use</shortDescription>
+        <value>Change Assignment Rules in use</value>
+    </labels>
+    <labels>
+        <fullName>Update_Case_Assignment_Error_Updating_Assignment_Rules</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update Case Assignment Error Updating Assignment Rules</shortDescription>
+        <value>There was an error updating the assignment rules</value>
+    </labels>
+    <labels>
+        <fullName>Update_Case_Assignment_Error_Updating_Cases</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update Case Assignment Error Updating Cases</shortDescription>
+        <value>There was an error updating the cases</value>
+    </labels>
+    <labels>
+        <fullName>Update_Case_Assignment_Title_Subtitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update Case Assignment Title Subtitle</shortDescription>
+        <value>Manage Assignment rules that are used, and update case assignments on this page</value>
+    </labels>
+    <labels>
+        <fullName>Update_Case_Assignment_Update_Assignment_Rules</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update Case Assignment Update Assignment Rules</shortDescription>
+        <value>Update Assignment Rules</value>
+    </labels>
+    <labels>
+        <fullName>Update_Case_Assignment_Update_Assignments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update Case Assignment Update Assignments</shortDescription>
+        <value>Update Assignments</value>
+    </labels>
+    <labels>
+        <fullName>Update_Case_Assignment_Update_Started</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update Case Assignment Update Started</shortDescription>
+        <value>Case Update has been started</value>
+    </labels>
+    <labels>
+        <fullName>Update_Case_Assignments_Case_Assignment_Management</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update Case Assignment Case Assignment Management</shortDescription>
+        <value>Case Assignment Management</value>
+    </labels>
+    <labels>
+        <fullName>Update_Case_Assignments_Title</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update Case Assignment Title</shortDescription>
+        <value>Update Case Assignments</value>
+    </labels>
+</CustomLabels>

@@ -1,0 +1,24 @@
+<apex:component controller="CifaDetailsViewController">
+    <apex:attribute name="LoanApplicationId" type="String" required="true" assignTo="{!LoanAppId}" description="Id of related Loan Application"/>
+    <apex:form id="form" rendered="{!$Permission.Loan_View_Cifa_Details && IsZopa76IsEnabled}">
+        <c:LazyLoadSpinner ActionToPerform="{!getCifaInformation}" ShowSpinner="false">
+            <apex:pageBlock title="CIFAS" rendered="{!(CifaList != null && CifaList.size > 0) || ErrorOnLoad != null}">
+                <apex:pageMessage summary="{!ErrorOnLoad}" severity="FATAL" strength="2" rendered="{!ErrorOnLoad != null}" title="Error:"/>
+                <apex:repeat value="{!CifaList}" var="cifa">
+                    <apex:pageBlockSection collapsible="false" columns="1" title="{!cifa.Address}">
+                        <apex:outputText value="{!cifa.cifaItemsNumber} CIFAS case(s) found for this address"/>
+                        <apex:pageBlockTable value="{!cifa.CifaItems}" var="cifa_item" rendered="{!cifa.hasCifaItems}">
+                            <apex:column headerValue="Name" value="{!cifa_item.Name}"/>
+                            <apex:column headerValue="Date Of Birth" value="{!cifa_item.DateOfBirth}"/>
+                            <apex:column headerValue="Fraud Date" value="{!cifa_item.FraudDate}"/>
+                            <apex:column headerValue="Case Number" value="{!cifa_item.CaseNumber}"/>
+                            <apex:column headerValue="Category" value="{!cifa_item.Category}"/>
+                            <apex:column headerValue="Supplying Member" value="{!cifa_item.SupplyingMember}"/>
+                            <apex:column headerValue="Reference Text" value="{!cifa_item.ReferenceText}"/>
+                        </apex:pageBlockTable>
+                    </apex:pageBlockSection>
+                </apex:repeat>
+            </apex:pageBlock>
+        </c:LazyLoadSpinner>
+    </apex:form>
+</apex:component>

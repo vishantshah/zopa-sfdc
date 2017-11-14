@@ -1,0 +1,467 @@
+<apex:page standardController="Loan_Application__c" extensions="CallCreditDetailsViewController" showHeader="true" sidebar="true">
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+    <apex:includeScript value="/support/console/36.0/integration.js"/>
+    <script type="text/javascript">
+        function setTabTitle() {
+            console.log('a');
+            if(sforce.console.isInConsole()){
+                console.log('aa');
+                sforce.console.setTabTitle('Call Credit Details: {!Loan_Application__c.Name}');
+            }
+        }
+        if (window.attachEvent) {
+            window.attachEvent('onload', setTabTitle);
+        } else if (window.addEventListener) {
+            window.addEventListener('load', setTabTitle, false);
+        } else {
+            document.addEventListener('load', setTabTitle, false);
+        }
+    </script>
+    <apex:form id="form" rendered="{!$Permission.Loan_View_Bureau_Details}">
+        <apex:sectionHeader title="{!Loan_Application__c.Name}" subtitle="Call Credit Details"/>
+        <c:LazyLoadSpinner ActionToPerform="{!getCallCreditDetails}">
+            <apex:pageMessages />
+            <apex:outputPanel rendered="{!LazyLoadFinished}">
+                <apex:pageBlock title="Overall Summary">
+                    <apex:pageBlockSection columns="1" collapsible="false" title="Address Confirmation">
+                        <apex:pageBlockTable value="{!CallCredit.SummaryAddresses}" var="address">
+                            <apex:column headerValue="Address" value="{!address.Address}"/>
+                            <apex:column headerValue="Level" value="{!address.Level}"/>
+                            <apex:column headerValue="Source" value="{!address.Source}"/>
+                            <apex:column headerValue="Current">
+                                <apex:inputcheckbox selected="{!address.Current}" disabled="true"/>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="2" collapsible="false" title="Indebtedness Indicators">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Total Balances (All)"/>
+                            <apex:outputText value="{0, number, £###,##0.00}" rendered="{!CallCredit.ApplicantSummary.TotalBalancesActive != null}">
+                                <apex:param value="{!CallCredit.ApplicantSummary.TotalBalancesActive}"/>
+                            </apex:outputText>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Total Balances (Loan/Installment Credit)"/>
+                            <apex:outputText value="{0, number, £###,##0.00}" rendered="{!CallCredit.ApplicantSummary.TotalBalancesLoans != null}">
+                                <apex:param value="{!CallCredit.ApplicantSummary.TotalBalancesLoans}"/>
+                            </apex:outputText>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Total Balances (Mortgage Accounts)"/>
+                            <apex:outputText value="{0, number, £###,##0.00}" rendered="{!CallCredit.ApplicantSummary.TotalBalancesMortgages != null}">
+                                <apex:param value="{!CallCredit.ApplicantSummary.TotalBalancesMortgages}"/>
+                            </apex:outputText>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Total Balances (Revolving Credit/Budget)"/>
+                            <apex:outputText value="{0, number, £###,##0.00}" rendered="{!CallCredit.ApplicantSummary.TotalBalancesRevolve != null}">
+                                <apex:param value="{!CallCredit.ApplicantSummary.TotalBalancesRevolve}"/>
+                            </apex:outputText>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Total Limits (Revolving Credit/Budget)"/>
+                            <apex:outputText value="{0, number, £###,##0.00}" rendered="{!CallCredit.ApplicantSummary.TotalLimitsRevolve != null}">
+                                <apex:param value="{!CallCredit.ApplicantSummary.TotalLimitsRevolve}"/>
+                            </apex:outputText>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Balance to Limit Ratio (Revolving Credit/Budget)"/>
+                            <apex:outputText value="{0, number, £###,##0.00}" rendered="{!CallCredit.ApplicantSummary.BalanceLimitRatioRevolve != null}">
+                                <apex:param value="{!CallCredit.ApplicantSummary.BalanceLimitRatioRevolve}"/>
+                            </apex:outputText>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="2" collapsible="false" title="Share - Financial Data">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Total Value of Cash Advances in Last 12 Months"/>
+                            <apex:outputText value="{0, number, £###,##0.00}" rendered="{!CallCredit.ApplicantSummary.TotalValueCashAdvances12Months != null}">
+                                <apex:param value="{!CallCredit.ApplicantSummary.TotalValueCashAdvances12Months}"/>
+                            </apex:outputText>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Total Value of Cash Advances in Last 36 Months"/>
+                            <apex:outputText value="{0, number, £###,##0.00}" rendered="{!CallCredit.ApplicantSummary.TotalValueCashAdvances36Months != null}">
+                                <apex:param value="{!CallCredit.ApplicantSummary.TotalValueCashAdvances36Months}"/>
+                            </apex:outputText>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Number of Delinquent Accounts in Last 12 Months"/>
+                            <apex:outputText value="{!CallCredit.ApplicantSummary.TotalDelinqs12Months}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Worst Payment Status in Last 12 Months"/>
+                            <apex:outputText value="{!CallCredit.ApplicantSummary.WorstPayStatus12Months}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Worst Payment Status in Last 36 Months"/>
+                            <apex:outputText value="{!CallCredit.ApplicantSummary.WorstPayStatus36Months}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Number of Defaults in Last 12 Months"/>
+                            <apex:outputText value="{!CallCredit.ApplicantSummary.TotalDefaults12Months}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Number of Defaults in Last 36 Months"/>
+                            <apex:outputText value="{!CallCredit.ApplicantSummary.TotalDefaults36Months}"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="2" collapsible="false" title="Public Information">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Currently Insolvent"/>
+                            <apex:inputcheckbox selected="{!CallCredit.ApplicantSummary.CurrentlyInsolvent}" disabled="true"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Number of Discharged BAIs in Last 6 Months"/>
+                            <apex:outputText value="{!CallCredit.ApplicantSummary.TotalDischargedBAIs}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Number of Active Judgements"/>
+                            <apex:outputText value="{!CallCredit.ApplicantSummary.TotalActiveJudgements}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Number of Satisfied Judgements"/>
+                            <apex:outputText value="{!CallCredit.ApplicantSummary.TotalSatisfiedJudgements}"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="2" collapsible="false" title="Credit Searches">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Number of Home Credit Searches in Last 3 Months"/>
+                            <apex:outputText value="{!CallCredit.ApplicantSummary.TotalHomeCreditSearches3Months}"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+                <apex:pageBlock title="Residency Confirmation">
+                    <apex:pageBlockSection columns="1" collapsible="false" title="Electoral Roll">
+                        <apex:pageBlockTable value="{!CallCredit.ApplicantsCurrentAddressElectoralRoll}" var="address">
+                            <apex:column headerValue="Current Address" value="{!address.Address}"/>
+                            <apex:column headerValue="Resident" value="{!address.Resident}"/>
+                            <apex:column headerValue="Duration" value="{!address.Duration}"/>
+                        </apex:pageBlockTable>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+                <apex:pageBlock title="Unsettled Share Accounts - Financial Data" rendered="{!CallCredit.IsIndividualReport}">
+                    <apex:repeat value="{!CallCredit.UnsettledShareAccounts}" var="share_account">
+                        <apex:pageBlockSection title="Current Address: {!share_account.AccountHolderAddress}" columns="1" collapsible="false">
+                            <apex:outputPanel >
+                                <table class="list" border="0" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                        <tr class="dataRow even first">
+                                            <td class="dataCell" colspan="1" style="font-weight: bold;">Payment Status</td>
+                                            <apex:repeat value="{!share_account.HistoricPaymentStatus}" var="payment_status">
+                                                <td class="dataCell" colspan="1">{!payment_status}</td>
+                                            </apex:repeat>
+                                        </tr>
+                                        <tr class="dataRow odd last">
+                                            <td class="dataCell" colspan="1" style="font-weight: bold;">Account Status</td>
+                                            <apex:repeat value="{!share_account.HistoricAccountStatus}" var="account_status">
+                                                <td class="dataCell" colspan="1">{!account_status}</td>
+                                            </apex:repeat>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </apex:outputPanel>
+                        </apex:pageBlockSection>
+                        <apex:pageBlockSection columns="2" collapsible="false">
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Account Holder Name"/>
+                                <apex:outputText value="{!share_account.AccountHolderName}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Account Holder Date of Birth"/>
+                                <apex:outputText value="{!share_account.AccountHolderDobDisplay}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Account State"/>
+                                <apex:outputText value="{!share_account.AccountState}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Account Type"/>
+                                <apex:outputText value="{!share_account.AccountType}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Current Balance"/>
+                                <apex:outputText value="{0, number, £###,##0.00}" rendered="{!share_account.CurrentBalance != null}">
+                                    <apex:param value="{!share_account.CurrentBalance}"/>
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Date Account Updated"/>
+                                <apex:outputText value="{!share_account.DateUpdatedDisplay}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Credit Limit / Overdraft"/>
+                                <apex:outputText value="{0, number, £###,##0.00}" rendered="{!share_account.CreditLimitOverdraft != null}">
+                                    <apex:param value="{!share_account.CreditLimitOverdraft}"/>
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                        </apex:pageBlockSection>
+                        <apex:outputPanel style="font-size: 12px;margin-left: 10px;padding: 5px;font-weight: bold;">
+                            <apex:outputText value="Share Details"/>
+                        </apex:outputPanel>
+                        <apex:pageBlockSection columns="2" collapsible="false">
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Organization Type"/>
+                                <apex:outputText value="{!share_account.OrganisationType}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Account Start Date"/>
+                                <apex:outputText value="{!share_account.AccountStartDateDisplay}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Account End Date"/>
+                                <apex:outputText value="{!share_account.AccountEndDateDisplay}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Starting Balance"/>
+                                <apex:outputText value="{0, number, £###,##0.00}" rendered="{!share_account.StartingBalance != null}">
+                                    <apex:param value="{!share_account.StartingBalance}"/>
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Statement Balance"/>
+                                <apex:outputText value="{0, number, £###,##0.00}" rendered="{!share_account.StatementBalance != null}">
+                                    <apex:param value="{!share_account.StatementBalance}"/>
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Payment Frequency"/>
+                                <apex:outputText value="{!share_account.PaymentFrequency}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Regular Payment"/>
+                                <apex:outputText value="{0, number, £###,##0.00}" rendered="{!share_account.RegularPayment != null}">
+                                    <apex:param value="{!share_account.RegularPayment}"/>
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Repayment Period Payment"/>
+                                <apex:outputText value="{!share_account.RepaymentPeriodPayment}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Defaulted"/>
+                                <apex:inputcheckbox selected="{!share_account.Defaulted}" disabled="true"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Defaulted Date"/>
+                                <apex:outputText value="{!share_account.DefaultDateDisplay}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Original Default Balance"/>
+                                <apex:outputText value="{0, number, £###,##0.00}" rendered="{!share_account.OriginalDefaultBalance != null}">
+                                    <apex:param value="{!share_account.OriginalDefaultBalance}"/>
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Date Default Satisfied"/>
+                                <apex:outputText value="{!share_account.DateDefaultSatisfiedDisplay}"/>
+                            </apex:pageBlockSectionItem>
+                        </apex:pageBlockSection>
+                        <apex:outputPanel style="font-size: 12px;margin-left: 10px;padding: 5px;font-weight: bold;">
+                            <apex:outputText value="Historic Balances & Limits"/>
+                        </apex:outputPanel>
+                        <apex:pageBlockSection columns="1" collapsible="false">
+                            <apex:pageBlockTable value="{!share_account.AccountHistory}" var="account_history">
+                                <apex:column headerValue="Month" value="{!account_history.Month}"/>
+                                <apex:column headerValue="Current Balance">
+                                    <apex:outputText value="{0, number, £###,##0.00}" rendered="{!account_history.CurrentBalance != null}">
+                                        <apex:param value="{!account_history.CurrentBalance}"/>
+                                    </apex:outputText>
+                                </apex:column>
+                                <apex:column headerValue="Statement Balance">
+                                    <apex:outputText value="{0, number, £###,##0.00}" rendered="{!account_history.StatementBalance != null}">
+                                        <apex:param value="{!account_history.StatementBalance}"/>
+                                    </apex:outputText>
+                                </apex:column>
+                                <apex:column headerValue="Limit">
+                                    <apex:outputText value="{0, number, £###,##0.00}" rendered="{!account_history.CreditLimit != null}">
+                                        <apex:param value="{!account_history.CreditLimit}"/>
+                                    </apex:outputText>
+                                </apex:column>
+                                <apex:column headerValue="Payment Amount">
+                                    <apex:outputText value="{0, number, £###,##0.00}" rendered="{!account_history.PaymentAmount != null}">
+                                        <apex:param value="{!account_history.PaymentAmount}"/>
+                                    </apex:outputText>
+                                </apex:column>
+                                <apex:column headerValue="Number Of Cash Advances" value="{!account_history.NumberOfCashAdvances}"/>
+                                <apex:column headerValue="Value Of Cash Advances">
+                                    <apex:outputText value="{0, number, £###,##0.00}" rendered="{!account_history.ValueOfCashAdvances != null}">
+                                        <apex:param value="{!account_history.ValueOfCashAdvances}"/>
+                                    </apex:outputText>
+                                </apex:column>
+                            </apex:pageBlockTable>
+                        </apex:pageBlockSection>
+                    </apex:repeat>
+                </apex:pageBlock>
+                <apex:pageBlock title="Settled Share Accounts - Financial Data" rendered="{!CallCredit.IsIndividualReport}">
+                    <apex:repeat value="{!CallCredit.SettledShareAccounts}" var="share_account">
+                        <apex:pageBlockSection title="Current Address: {!share_account.AccountHolderAddress}" columns="1" collapsible="false">
+                            <apex:outputPanel >
+                                <table class="list" border="0" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                        <tr class="dataRow even first">
+                                            <td class="dataCell" colspan="1" style="font-weight: bold;">Payment Status</td>
+                                            <apex:repeat value="{!share_account.HistoricPaymentStatus}" var="payment_status">
+                                                <td class="dataCell" colspan="1">{!payment_status}</td>
+                                            </apex:repeat>
+                                        </tr>
+                                        <tr class="dataRow odd last">
+                                            <td class="dataCell" colspan="1" style="font-weight: bold;">Account Status</td>
+                                            <apex:repeat value="{!share_account.HistoricAccountStatus}" var="account_status">
+                                                <td class="dataCell" colspan="1">{!account_status}</td>
+                                            </apex:repeat>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </apex:outputPanel>
+                        </apex:pageBlockSection>
+                        <apex:pageBlockSection columns="2" collapsible="false">
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Account Holder Name"/>
+                                <apex:outputText value="{!share_account.AccountHolderName}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Account Holder Date of Birth"/>
+                                <apex:outputText value="{!share_account.AccountHolderDobDisplay}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Account State"/>
+                                <apex:outputText value="{!share_account.AccountState}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Account Type"/>
+                                <apex:outputText value="{!share_account.AccountType}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Current Balance"/>
+                                <apex:outputText value="{0, number, £###,##0.00}" rendered="{!share_account.CurrentBalance != null}">
+                                    <apex:param value="{!share_account.CurrentBalance}"/>
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Date Account Updated"/>
+                                <apex:outputText value="{!share_account.DateUpdatedDisplay}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Credit Limit / Overdraft"/>
+                                <apex:outputText value="{0, number, £###,##0.00}" rendered="{!share_account.CreditLimitOverdraft != null}">
+                                    <apex:param value="{!share_account.CreditLimitOverdraft}"/>
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                        </apex:pageBlockSection>
+                        <apex:outputPanel style="font-size: 12px;margin-left: 10px;padding: 5px;font-weight: bold;">
+                            <apex:outputText value="Share Details"/>
+                        </apex:outputPanel>
+                        <apex:pageBlockSection columns="2" collapsible="false">
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Organisation Type"/>
+                                <apex:outputText value="{!share_account.OrganisationType}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Account Start Date"/>
+                                <apex:outputText value="{!share_account.AccountStartDateDisplay}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Account End Date"/>
+                                <apex:outputText value="{!share_account.AccountEndDateDisplay}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Starting Balance"/>
+                                <apex:outputText value="{0, number, £###,##0.00}" rendered="{!share_account.StartingBalance != null}">
+                                    <apex:param value="{!share_account.StartingBalance}"/>
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Statement Balance"/>
+                                <apex:outputText value="{0, number, £###,##0.00}" rendered="{!share_account.StatementBalance != null}">
+                                    <apex:param value="{!share_account.StatementBalance}"/>
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Payment Frequency"/>
+                                <apex:outputText value="{!share_account.PaymentFrequency}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Regular Payment"/>
+                                <apex:outputText value="{0, number, £###,##0.00}" rendered="{!share_account.RegularPayment != null}">
+                                    <apex:param value="{!share_account.RegularPayment}"/>
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Repayment Period Payment"/>
+                                <apex:outputText value="{!share_account.RepaymentPeriodPayment}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Defaulted"/>
+                                <apex:inputcheckbox selected="{!share_account.Defaulted}" disabled="true"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Defaulted Date"/>
+                                <apex:outputText value="{!share_account.DefaultDateDisplay}"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Original Default Balance"/>
+                                <apex:outputText value="{0, number, £###,##0.00}" rendered="{!share_account.OriginalDefaultBalance != null}">
+                                    <apex:param value="{!share_account.OriginalDefaultBalance}"/>
+                                </apex:outputText>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputText value="Date Default Satisfied"/>
+                                <apex:outputText value="{!share_account.DateDefaultSatisfiedDisplay}"/>
+                            </apex:pageBlockSectionItem>
+                        </apex:pageBlockSection>
+                        <apex:outputPanel style="font-size: 12px;margin-left: 10px;padding: 5px;font-weight: bold;">
+                            <apex:outputText value="Historic Balances & Limits"/>
+                        </apex:outputPanel>
+                        <apex:pageBlockSection columns="1" collapsible="false">
+                            <apex:pageBlockTable value="{!share_account.AccountHistory}" var="account_history">
+                                <apex:column headerValue="Month" value="{!account_history.Month}"/>
+                                <apex:column headerValue="Current Balance">
+                                    <apex:outputText value="{0, number, £###,##0.00}" rendered="{!account_history.CurrentBalance != null}">
+                                        <apex:param value="{!account_history.CurrentBalance}"/>
+                                    </apex:outputText>
+                                </apex:column>
+                                <apex:column headerValue="Statement Balance">
+                                    <apex:outputText value="{0, number, £###,##0.00}" rendered="{!account_history.StatementBalance != null}">
+                                        <apex:param value="{!account_history.StatementBalance}"/>
+                                    </apex:outputText>
+                                </apex:column>
+                                <apex:column headerValue="Limit">
+                                    <apex:outputText value="{0, number, £###,##0.00}" rendered="{!account_history.CreditLimit != null}">
+                                        <apex:param value="{!account_history.CreditLimit}"/>
+                                    </apex:outputText>
+                                </apex:column>
+                                <apex:column headerValue="Payment Amount">
+                                    <apex:outputText value="{0, number, £###,##0.00}" rendered="{!account_history.PaymentAmount != null}">
+                                        <apex:param value="{!account_history.PaymentAmount}"/>
+                                    </apex:outputText>
+                                </apex:column>
+                                <apex:column headerValue="Number Of Cash Advances" value="{!account_history.NumberOfCashAdvances}"/>
+                                <apex:column headerValue="Value Of Cash Advances">
+                                    <apex:outputText value="{0, number, £###,##0.00}" rendered="{!account_history.ValueOfCashAdvances != null}">
+                                        <apex:param value="{!account_history.ValueOfCashAdvances}"/>
+                                    </apex:outputText>
+                                </apex:column>
+                            </apex:pageBlockTable>
+                        </apex:pageBlockSection>
+                    </apex:repeat>
+                </apex:pageBlock>
+                <apex:pageBlock title="Address Links">
+                    <apex:pageBlockSection columns="1" collapsible="false">
+                        <apex:pageBlockTable value="{!CallCredit.AddressLinks}" var="address">
+                            <apex:column headerValue="Value" value="{!address.Value}"/>
+                        </apex:pageBlockTable>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+                <apex:pageBlock title="Associate Links">
+                    <apex:pageBlockSection columns="1" collapsible="false">
+                        <apex:pageBlockTable value="{!CallCredit.AssociateLinks}" var="associate">
+                            <apex:column headerValue="Supplier Type" value="{!associate.SupplierType}"/>
+                            <apex:column headerValue="Last Confirmation Date" value="{!associate.LastConfirmationDateDisplay}"/>
+                            <apex:column headerValue="Earliest Confirmation Date" value="{!associate.EarliestConfirmationDateDisplay}"/>
+                        </apex:pageBlockTable>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+            </apex:outputPanel>
+        </c:LazyLoadSpinner> 
+    </apex:form>
+</apex:page>

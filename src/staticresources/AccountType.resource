@@ -1,0 +1,28 @@
+Name,Zopa_Value__c,Row_Type__c
+Unknown,Unknown,Both
+Bank Default,BankDefault,UnsecuredDebts
+Budget Card,BudgetCard,RollingCredit
+Hire Purchase,HirePurchase,UnsecuredDebts
+Credit Card,CreditCard,RollingCredit
+Loan,Loan,UnsecuredDebts
+Charge Card,ChargeCard,RollingCredit
+Rental,Rental,UnsecuredDebts
+Current Account,CurrentAccount,RollingCredit
+Fixed Term,FixedTerm,UnsecuredDebts
+Mail Order Agency,MailOrderAgency,RollingCredit
+Fixed Term Deferred,FixedTermDeferred,UnsecuredDebts
+Secured Loan,SecuredLoan,UnsecuredDebts
+Option Account,OptionAccount,UnsecuredDebts
+Varying Subscription,VaryingSubscription,UnsecuredDebts
+Overdraft,Overdraft,UnsecuredDebts
+Balloon Lease,BalloonLease,UnsecuredDebts
+Lease Purchase,LeasePurchase,UnsecuredDebts
+Bounced Cheque,BouncedCheque,UnsecuredDebts
+Council Arrears,CouncilArrears,UnsecuredDebts
+Lease Residual,LeaseResidual,UnsecuredDebts
+Share Dealing,ShareDealing,UnsecuredDebts
+Home Lending,HomeLending,UnsecuredDebts
+Student Loans,StudentLoans,UnsecuredDebts
+Insurance,Insurance,UnsecuredDebts
+PayDay Loan,PayDayLoan,UnsecuredDebts
+Rent,Rent,UnsecuredDebts

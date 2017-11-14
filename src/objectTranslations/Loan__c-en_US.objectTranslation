@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Loan</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Loans</value>
+    </caseValues>
+    <fields>
+        <label><!-- DCA --></label>
+        <name>AccountDCA__c</name>
+        <relationshipLabel><!-- Loans (DCA) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- DMC --></label>
+        <name>AccountDMC__c</name>
+        <relationshipLabel><!-- Loans (DMC) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Borrower --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Loans --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Amount --></label>
+        <name>Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Application Date --></label>
+        <name>Application_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approval State --></label>
+        <name>Approval_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Arrears Start Date --></label>
+        <name>ArrearsStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- SF Arrears Ratio --></label>
+        <name>Arrears_Ratio__c</name>
+    </fields>
+    <fields>
+        <label><!-- Broker --></label>
+        <name>Broker__c</name>
+    </fields>
+    <fields>
+        <label><!-- Collections Notes --></label>
+        <name>Collections_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- CustomerType --></label>
+        <name>CustomerType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Of Last Missed Plan Payment --></label>
+        <name>Date_Of_Last_Missed_Plan_Payment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default Reason --></label>
+        <name>Default_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Bankruptcy</masterLabel>
+            <translation><!-- Bankruptcy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Debt Arrangement Scheme</masterLabel>
+            <translation><!-- Debt Arrangement Scheme --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Debt Relief Order</masterLabel>
+            <translation><!-- Debt Relief Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Individual Voluntary Arrangement</masterLabel>
+            <translation><!-- Individual Voluntary Arrangement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sequestration</masterLabel>
+            <translation><!-- Sequestration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trust Deeds</masterLabel>
+            <translation><!-- Trust Deeds --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zopa Default</masterLabel>
+            <translation><!-- Zopa Default --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Disbursal Date --></label>
+        <name>Disbursal_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Four Payments Down --></label>
+        <name>Four_Payments_Down__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insitution --></label>
+        <name>Insitution__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last_Payment_Made --></label>
+        <name>Last_Payment_Made__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loan Application --></label>
+        <name>Loan_Application__c</name>
+        <relationshipLabel><!-- Loans --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Loan Event --></label>
+        <name>Loan_Event__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loan_Id --></label>
+        <name>Loan_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loan Servicing Fee Rate --></label>
+        <name>Loan_Servicing_Fee_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loan Usage --></label>
+        <name>Loan_Usage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Market --></label>
+        <name>Market__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member_ID --></label>
+        <name>Member_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Monthly Safeguard Fee Rate --></label>
+        <name>Monthly_Safeguard_Fee_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Original Apr --></label>
+        <name>Original_Apr__c</name>
+    </fields>
+    <fields>
+        <label><!-- Original First Month Repayment Amount --></label>
+        <name>Original_First_Month_Repayment_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Original Monthly Repayment Amount --></label>
+        <name>Original_Monthly_Repayment_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quick Pay Amount --></label>
+        <name>Quick_Pay_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rate --></label>
+        <name>Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requested Amount --></label>
+        <name>Requested_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rialto Fee --></label>
+        <name>Rialto_Fee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- SF Status --></label>
+        <name>State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Term --></label>
+        <name>Term__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Amount Borrowed --></label>
+        <name>Total_Amount_Borrowed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Original Repayable Amount --></label>
+        <name>Total_Original_Repayable_Amount__c</name>
+    </fields>
+    <layouts>
+        <layout>Loan Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Loan Application</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Loan Application</value>
+    </caseValues>
+    <fields>
+        <label><!-- APR --></label>
+        <name>APR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Aborted Referral Codes --></label>
+        <name>Aborted_Referral_Codes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Application Valid Until --></label>
+        <name>Application_Valid_Until__c</name>
+    </fields>
+    <fields>
+        <label><!-- Broker --></label>
+        <name>Broker__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cancel/Decline Reason --></label>
+        <name>Cancel_Decline_Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Account --></label>
+        <name>Customer_Account__c</name>
+        <relationshipLabel><!-- Loan Application --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Documents Last Updated Date --></label>
+        <name>Documents_Last_Updated_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employment Status --></label>
+        <name>Employment_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Errored Referral Codes --></label>
+        <name>Errored_Referral_Codes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expiry Date --></label>
+        <name>Expiry_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expirty Date --></label>
+        <name>Expitry_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fee --></label>
+        <name>Fee__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Payment --></label>
+        <name>First_Payment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fraud Retro --></label>
+        <name>Fraud_Retro__c</name>
+    </fields>
+    <fields>
+        <label><!-- Institution --></label>
+        <name>Institution__c</name>
+    </fields>
+    <fields>
+        <label><!-- Amount --></label>
+        <name>Loan_Application_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loan Application Date --></label>
+        <name>Loan_Application_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loan Application Status --></label>
+        <name>Loan_Application_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loan ID --></label>
+        <name>Loan_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Marital Status --></label>
+        <name>Marital_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Market --></label>
+        <name>Market__c</name>
+    </fields>
+    <fields>
+        <label><!-- Monthly Repayment Amount --></label>
+        <name>Monthly_Repayment_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Outstanding Balance --></label>
+        <name>Outstanding_Balance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Day --></label>
+        <name>Payment_Day__c</name>
+    </fields>
+    <fields>
+        <label><!-- Picked Up In Underwriting Web --></label>
+        <name>Picked_Up_In_Underwriting_Web__c</name>
+    </fields>
+    <fields>
+        <label><!-- Purpose --></label>
+        <name>Purpose__c</name>
+    </fields>
+    <fields>
+        <label><!-- QuickPay --></label>
+        <name>QuickPay__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rate --></label>
+        <name>Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Referal Codes --></label>
+        <name>Referal_Codes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Referral Codes --></label>
+        <name>Referral_Codes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Residential Status --></label>
+        <name>Residential_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Term --></label>
+        <name>Term__c</name>
+    </fields>
+    <fields>
+        <label><!-- Triggered Referral Codes --></label>
+        <name>Triggered_Referral_Codes__c</name>
+    </fields>
+    <layouts>
+        <layout>Loan Reference Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You are not able to edit this field. --></errorMessage>
+        <name>Forbid_to_edit_Loan_Reference_field</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Go_To_Customer_Account --></label>
+        <name>Go_To_Customer_Account</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Underwriting_Web_Call_Report_Page --></label>
+        <name>Underwriting_Web_Call_Report_Page</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Underwriting_Web_Equifax_Page --></label>
+        <name>Underwriting_Web_Equifax_Page</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_Documents --></label>
+        <name>View_Documents</name>
+    </webLinks>
+</CustomObjectTranslation>

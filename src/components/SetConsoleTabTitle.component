@@ -1,0 +1,11 @@
+<apex:component >
+    <apex:attribute name="Title" required="true" type="String" description="Title text" />
+    <apex:attribute name="IconUrl" type="String" description="icon url" />
+    <apex:includescript value="/support/console/38.0/integration.js" />
+    <script type="text/javascript">
+        sforce.console.setTabTitle('{!Title}');
+        if ('{!IconUrl}') {
+            sforce.console.setTabIcon('{!IconUrl}', null);
+        }
+    </script>
+</apex:component>

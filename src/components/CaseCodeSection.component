@@ -1,0 +1,12 @@
+<apex:component controller="CaseCodeSectionController">
+    <apex:attribute name="LoanTriggeredRCCodes" type="String" required="true" assignTo="{!IncomingTriggeredReferralCodes}" description="Referral codes of the parent loan application record"/>
+    <apex:attribute name="LoanAbortedRCCodes" type="String" required="true" assignTo="{!IncomingAbortedReferralCodes}" description="Referral codes of the parent loan application record"/>
+    <apex:attribute name="LoanErroredRCCodes" type="String" required="true" assignTo="{!IncomingErroredReferralCodes}" description="Referral codes of the parent loan application record"/>
+    <apex:pageBlock title="Case Codes"  rendered="{!CaseCodesWithCaseConfigurationDescription.size>0}">
+    <apex:pageBlockTable value="{!CaseCodesWithCaseConfigurationDescription}" var="case_code" align="center">
+        <apex:column value="{!case_code.CodeName}" headerValue="RC Code"/>
+        <apex:column value="{!case_code.CodeReason}" headerValue="Reason"/>
+        <apex:column value="{!case_code.CodeDescription}" headerValue="Description"/>
+    </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:component>

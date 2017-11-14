@@ -1,0 +1,73 @@
+<apex:page controller="DirectDebitController">
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+    <apex:sectionHeader title="New Payment" subtitle="{!CurrectLoan.Name}"/>
+    <apex:includeScript value="/support/console/35.0/integration.js"/>
+    <script type="text/javascript">
+         var callback = function () {
+             if (result.error) {
+                alert("Error message is " + result.error);
+             }
+         };
+        function closeTab() {
+            if (sforce.console.isInConsole()) {
+                sforce.console.getEnclosingTabId(closeSubtab);
+            } else {
+                RedirectToLoanPage();
+            }
+         }
+
+        var closeSubtab = function closeSubtab(result) {
+            var tabId = result.id;
+            sforce.console.closeTab(tabId, callback);
+        };
+    </script>
+    <style>
+        ul.directDebitSchemeList {
+            font-size: 14px;
+            line-height: 200%;
+            list-style-type: square;
+        }
+    </style>
+    <apex:form id="form">
+        <apex:actionfunction name="RedirectToLoanPage" action="{!redirectToLoanPage}"/>
+        <apex:outputPanel id="PageMessages">
+            <apex:pageMessages />
+        </apex:outputPanel>
+        <apex:pageblock mode="edit" title="">
+            <apex:pageBlockButtons location="Bottom">
+                    <apex:commandButton action="{!createNewDirectDebit}" value="Create New Direct Debit" />
+                    <apex:commandButton onclick="closeTab();return false" value="Cancel" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection id="input_block" collapsible="false" columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Sort Code"/>
+                    <apex:inputText value="{!TheDirectDebit.SortCode}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Account Number"/>
+                    <apex:inputText value="{!TheDirectDebit.AccountNumber}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Holder Name"/>
+                    <apex:inputText value="{!TheDirectDebit.AccountHolderName}" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form>
+    <c:SetConsoleTabTitle title="{!'New Payment: ' + CurrectLoan.Name}" iconurl="{!$Resource.icon_affordability_16}"/>
+    <ul class="directDebitSchemeList">
+        <li>
+            This Guarantee is offered by all Banks and Building Societies that take part in the Direct Debit Scheme.
+            The efficiency and security of the Scheme is monitored and protected by your own Bank or Building Society.
+        </li>
+        <li>
+            If the amounts to be paid or the payment dates change Zopa Ltd will notify you 14 days in advance of your account being debited or as otherwise agreed.
+        </li>
+        <li>
+            If an error is made by Zopa Ltd or your Bank or Building Society, you are guaranteed a full and immediate refund.
+        </li>
+        <li>
+            You can cancel a Direct Debit at any time by writing to your Bank or Building Society. Please also send a copy of your letter to us.
+        </li>
+    </ul>
+</apex:page>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Yes</fullName>
+        <default>false</default>
+        <label>Yes</label>
+    </customValue>
+    <customValue>
+        <fullName>Somewhat</fullName>
+        <default>false</default>
+        <label>Somewhat</label>
+    </customValue>
+    <customValue>
+        <fullName>No</fullName>
+        <default>false</default>
+        <label>No</label>
+    </customValue>
+    <customValue>
+        <fullName>Yes, only after conversation</fullName>
+        <default>false</default>
+        <label>Yes, only after conversation</label>
+    </customValue>
+    <masterLabel>Understanding Questions</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

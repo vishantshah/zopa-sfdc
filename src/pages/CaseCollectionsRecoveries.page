@@ -1,0 +1,389 @@
+<apex:page standardController="Case" extensions="CaseCollectionsRecoveriesExtension,CaseCollectionsRecoveriesDetails">
+    <apex:stylesheet value="{!$Resource.ZopaCss}"/>
+    <apex:includeScript value="/support/console/38.0/integration.js"/>
+    <script type="text/javascript">
+        var is_page_ready_to_refresh = {!IsPageReadyToRefresh};
+
+        function initActionsJS() {
+            if(sforce.console.isInConsole()) {
+                initActionsWithOmniFix();
+            } else {
+                initActions();
+            }
+        }
+
+        if (window.attachEvent) {
+            window.attachEvent('onload', initActionsJS);
+        } else if (window.addEventListener) {
+            window.addEventListener('load', initActionsJS, false);
+        } else {
+            document.addEventListener('load', initActionsJS, false);
+        }
+
+        function setupDirectDebit() {
+            var direct_debit_page = '{!URLFOR("/apex/DirectDebit?loanId="+CurrentCase.Loan__c)}';
+            openPageInSubtab(direct_debit_page, "New Payment");
+        }
+
+        function openLogCall() {
+            sforce.console.getEnclosingTabId(openLogCallCallback);
+        }
+
+        var openLogCallCallback = function openLogCallCallback(result) {
+            var current_tab_id = result.id;
+            var log_a_call_page = '{!URLFOR("/apex/LogCallFirst?caseId="+CurrentCase.Id)}' + '&tab_to_refresh_id=' + current_tab_id;
+            openPageInSubtab(log_a_call_page, "Log a Call");
+        };
+
+        function openPageInSubtab(url, tab_name) {
+            if (sforce.console.isInConsole()) {
+                var openConcreteSubTab = function (primaryTab, url, tab_name) {
+                    sforce.console.openSubtab(primaryTab.id, url, true, tab_name);
+                }
+
+                sforce.console.getEnclosingPrimaryTabId(function (primaryTab) {
+                    openConcreteSubTab(primaryTab, url, tab_name)
+                });
+            } else {
+                window.top.location = url;
+            }
+        }
+
+        function updateLitigationDetails() {
+            var litigation_details_edit_page = '{!URLFOR("/apex/LoanLitigationDetailsEdit?id="+CurrentCase.Loan__c)}';
+            openPageInSubtab(litigation_details_edit_page, "Recoveries");
+        }
+
+        function sendEmail() {
+            var email_page = '{!URLFOR("/email/author/emailauthor.jsp")}';
+            email_page += sforce.console.isInConsole() ? '&' : '?';
+            email_page += 'p3_lkid=' + '{!CurrentCase.Id}';
+            email_page += '&rtype=003';
+            email_page += '&p2_lkid=' + '{!CurrentCase.AccountId}';
+            email_page += '{!BlankEmailTemplate}';
+            openPageInSubtab(email_page, "Send an Email");
+        }
+
+        function loseFocus() {
+            document.activeElement.blur;
+            var fix_link_to_save_unfocused_field = document.getElementById("fixLinkToSaveFocusedField");
+            fix_link_to_save_unfocused_field.click();
+            saveChanges();
+        }
+
+        function openManagePaymentPlan() {
+            var manage_payment_plan_page = '{!URLFOR("/apex/ManagePaymentPlan")}';
+            manage_payment_plan_page += sforce.console.isInConsole() ? '&' : '?';
+            manage_payment_plan_page += 'loan_id=' + '{!CurrentCase.Loan__c}';
+            manage_payment_plan_page += '&case_id=' + '{!CurrentCase.Id}';
+            manage_payment_plan_page += '&from_id=' + '{!CurrentCase.Id}';
+            manage_payment_plan_page += '&back_page=' + 'CaseCollectionsRecoveries';
+            openPageInSubtab(manage_payment_plan_page, "Manage Payment Plan");
+        }
+
+        function sendLetter() {
+            var letter_page = '{!URLFOR("/apex/SendLetter?id=" + CurrentCase.Id)}';
+            openPageInSubtab(letter_page, "Send a Letter");
+        }
+
+        function sendText() {
+            sforce.console.getEnclosingTabId(sendTextCallback);
+        }
+
+        var sendTextCallback = function sendTextCallback(result) {
+            var current_tab_id = result.id;
+            var send_text_page = '{!URLFOR("/apex/SendText?id=" + CurrentCase.Id)}' + '&tab_to_refresh_id=' + current_tab_id;
+            openPageInSubtab(send_text_page, "Send SMS");
+        };
+
+        function refreshPageWhenItIsReady() {
+            if(is_page_ready_to_refresh == true) {
+                refreshPage();
+            }
+        }
+
+        function refreshPage() {
+            if (sforce.console.isInConsole()) {
+                window.top.location = '/console';
+            } else {
+                var current_page_url = '{!URLFOR("/apex/casecollectionsrecoveries?id=" + CurrentCase.Id)}';
+                window.top.location = current_page_url;
+            }
+        }
+    </script>
+    <a href="#" id="fixLinkToSaveFocusedField"></a>
+    <apex:sectionHeader title="Case" subtitle="{!Case.CaseNumber}"/>
+    <chatter:feedWithFollowers entityId="{!Case.id}"/>
+    <apex:form id="form">
+        <apex:outputPanel rendered="{!IsSensitiveCase}"
+                          style="padding-left: 37% !important; font-size: 18pt; min-width: 100% !important; width: 100% !important;">
+            <h1>This is a Sensitive Case</h1>
+        </apex:outputPanel>
+        <apex:actionfunction name="initActions" action="{!initActions}" reRender="case_details, manage_buttons, PageMessagesPanel"/>
+        <apex:actionFunction name="initActionsWithOmniFix" action="{!initActionsWithOmniFix}"
+                             reRender="case_details, manage_buttons, PageMessagesPanel"/>
+        <apex:actionFunction name="saveChanges" action="{!save}"
+                             onComplete="if ({!IsInlineFormValid} && {!IsNotApiErrorsOccurred}) reRenderPage();"/>
+        <apex:actionfunction name="reRenderPage" reRender="form"/>
+        <apex:outputPanel id="PageMessagesPanel">
+            <apex:pageMessages />
+        </apex:outputPanel>
+        <apex:pageblock mode="maindetail">
+            <apex:pageBlockButtons location="Top" html-align="left">
+                <apex:outputPanel id="manage_buttons">
+                    <apex:commandbutton id="SendAnEmail" value="Send an Email"
+                                        onclick="sendEmail();return false;"
+                                        rendered="{!IsCaseNotClosed}"/>
+                    <apex:commandbutton id="SendALetter" value="Send a Letter"
+                                        onclick="sendLetter();return false;"
+                                        style="{!IF($Permission.Send_Letters, 'display:inline', 'display:none')}"/>
+                    <apex:commandbutton id="SendTextButton" value="Send SMS"
+                                        onclick="sendText();return false;"
+                                        rendered="{!IsSendTextButtonAvailable}"/>
+                    <apex:commandbutton id="saveButton" value="Save"
+                                        onclick="loseFocus();return false;"
+                                        style="display: none;"/>
+                    <apex:commandbutton id="LogCallButton" value="Log a Call"
+                                        oncomplete="openLogCall()"
+                                        rendered="{!$Permission.Log_a_Call_on_Collections_Case}"/>
+                    <apex:commandbutton id="SetupDirectDebitButton" value="Setup Direct Debit"
+                                        oncomplete="setupDirectDebit()"
+                                        rendered="{!$Permission.Loan_Setup_Direct_Debit_Button}"/>
+                    <apex:commandbutton id="MakeDefault" value="Make Default"
+                                        action="{!showMakeDefaultPopup}" reRender="popup"
+                                        style="{!IF(IsMakeDefaultButtonAvailable, 'display:inline', 'display:none')}"/>
+                    <apex:commandbutton id="LitigationDetails" value="Update Litigation Details"
+                                        onClick="updateLitigationDetails()"
+                                        rendered="{!IsAccessToLitigationUpdate}"/>
+                    <apex:commandbutton id="SettleButton" value="Settle Case"
+                                        action="{!showSettleCasePopup}" reRender="popup"
+                                        style="{!IF(IsSettleCaseButtonAvailable, 'display:inline', 'display:none')}"/>
+                    <apex:commandButton id="DeceasedButton" value="Set as Deceased"
+                                        action="{!showConfirmDeceasedPopup}" reRender="popup"
+                                        rendered="{!IsZcp105IsEnabled}" />
+                    <apex:commandButton id="WithdrawnButton" value="Set as Withdrawn"
+                                        action="{!showSetWithdrawnPopup}" reRender="popup"
+                                        rendered="{!ShownManualSetWithdrawn}" />
+                    <apex:commandButton id="CollectionsButton" value="Set as Collections"
+                                        action="{!showConfirmCollectionsPopup}" reRender="popup"
+                                        rendered="{!IsTheConfirmCollectionsButtonAvailable}"/>
+                    <apex:commandButton id="cancelButton" value="Cancel"
+                                        action="{!cancel}"
+                                        style="display: none;"/>
+                    <apex:commandButton id="AssignToDCAButton" value="Assign to DCA"
+                                        action="{!showAssignDcaPopup}" reRender="popup, PageMessagesPanel"
+                                        rendered="{!$Permission.Assign_and_Unassign_to_DCA_buttons && IsAssignToDcaButtonAvailable}"/>
+                    <apex:commandButton id="RecallFromDCAButton" value="Recall from DCA"
+                                        action="{!showRecallDcaPopup}" reRender="popup"
+                                        rendered="{!$Permission.Assign_and_Unassign_to_DCA_buttons && IsUnassignToDcaButtonAvailable}"/>
+                    <apex:commandButton id="AssignToDMCButton" value="Assign to DMC"
+                                        action="{!showAssignDmcPopup}" reRender="popup"
+                                        rendered="{!IsAssignToDmcButtonAvailable}"/>
+                    <apex:commandButton id="RecallFromDMCButton" value="Recall from DMC"
+                                        action="{!showRecallDmcPopup}" reRender="popup"
+                                        rendered="{!IsRecallFromDmcButtonAvailable}"/>
+                    <apex:commandButton id="ManagePaymentPlanButton" value="Manage Payment Plan"
+                                        oncomplete="openManagePaymentPlan();"
+                                        rendered="{!$Permission.Loan_Manage_Payment_Plan && IsZcp24IsEnabled}"/>
+                </apex:outputPanel>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection id="case_details" Title="Case Details" collapsible="false">
+                <apex:outputField value="{!Case.Subject}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Case Owner"/>
+                    <apex:outputPanel >
+                        <apex:outputField value="{!Case.OwnerId}"/>
+                        <apex:outputPanel rendered="{!$Permission.Case_Owner_Edit_Collections && IsCaseNotClosed}">
+                            &nbsp;
+                            <apex:commandlink action="{!assignToMe}" value="[Assign to me]"
+                                              oncomplete="window.location.reload('true');"/>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!IsCaseNotClosed && ($Permission.Profile_Token_Team_Leader || $Permission.Profile_Token_SysAdmin)}">
+                            <a href="/{!Case.ID}/a?retURL=%2F{!Case.ID}">[Change Owner]</a>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:outputField value="{!Case.CreatedDate}" label="Date Opened"/>
+                <apex:outputField value="{!Case.Loan__c}"/>
+                <apex:outputField value="{!Case.Status}"/>
+                <apex:outputField value="{!RelatedLoan.AccountDCA__c}" label="DCA"/>
+                <apex:outputField value="{!Case.Process__c}">
+                    <apex:inlineEditSupport showOnEdit="saveButton, cancelButton"
+                                            hideOnEdit="LogCallButton, SendAnEmail, SendALetter, SendTextButton, SetupDirectDebitButton, MakeDefault, LitigationDetails, SettleButton, DeceasedButton, WithdrawnButton, PaymentPlan, AssignToDCAButton, RecallFromDCAButton, CollectionsButton, AssignToDMCButton, RecallFromDMCButton, ManagePaymentPlanButton"
+                                            event="ondblclick"
+                                            resetFunction="resetInlineEdit" rendered="{!IsCaseNotClosed}"/>
+                </apex:outputField>
+                <apex:outputField value="{!RelatedLoan.AccountDMC__c}" label="DMC"/>
+                <apex:outputField value="{!Case.Sub_Process__c}">
+                    <apex:inlineEditSupport showOnEdit="saveButton, cancelButton"
+                                            hideOnEdit="LogCallButton, SendAnEmail, SendALetter, SendTextButton, SetupDirectDebitButton, MakeDefault, LitigationDetails, SettleButton, DeceasedButton, WithdrawnButton, PaymentPlan, AssignToDCAButton, RecallFromDCAButton, CollectionsButton, AssignToDMCButton, RecallFromDMCButton, ManagePaymentPlanButton"
+                                            event="ondblclick"
+                                            resetFunction="resetInlineEdit" rendered="{!IsCaseNotClosed}"/>
+                </apex:outputField>
+                <apex:outputField value="{!Case.Next_Review_Date__c}" rendered="{!IsZcp189IsEnabled}">
+                    <apex:inlineEditSupport showOnEdit="saveButton, cancelButton"
+                                            hideOnEdit="LogCallButton, SendAnEmail, SendALetter, SendTextButton, SetupDirectDebitButton, MakeDefault, LitigationDetails, SettleButton, DeceasedButton, WithdrawnButton, PaymentPlan, AssignToDCAButton, RecallFromDCAButton, CollectionsButton, AssignToDMCButton, RecallFromDMCButton, ManagePaymentPlanButton"
+                                            event="ondblclick"
+                                            resetFunction="resetInlineEdit" rendered="{!IsCaseNotClosed}"/>
+                </apex:outputField>
+                <apex:outputField value="{!Case.AccountId}" label="Customer Account"/>
+                <apex:outputField value="{!Case.Stop_Communication_Until__c}" rendered="{!IsZcp189IsEnabled}">
+                    <apex:inlineEditSupport showOnEdit="saveButton, cancelButton"
+                                            hideOnEdit="LogCallButton, SendAnEmail, SendALetter, SendTextButton, SetupDirectDebitButton, MakeDefault, LitigationDetails, SettleButton, DeceasedButton, WithdrawnButton, PaymentPlan, AssignToDCAButton, RecallFromDCAButton, CollectionsButton, AssignToDMCButton, RecallFromDMCButton, ManagePaymentPlanButton"
+                                            event="ondblclick"
+                                            resetFunction="resetInlineEdit" rendered="{!IsCaseNotClosed}"/>
+                </apex:outputField>
+                <apex:outputField value="{!RelatedLoan.Default_Reason__c}" rendered="{!IsLoanDefault}"/>
+                <apex:outputField id="ProcessDayCounter" value="{!Case.Process_Day_Counter__c}">
+                    <apex:inlineEditSupport showOnEdit="saveButton, cancelButton"
+                                            hideOnEdit="LogCallButton, SendAnEmail, SendALetter, SendTextButton, SetupDirectDebitButton, MakeDefault, LitigationDetails, SettleButton, DeceasedButton, WithdrawnButton, PaymentPlan, AssignToDCAButton, RecallFromDCAButton, CollectionsButton, AssignToDMCButton, RecallFromDMCButton, ManagePaymentPlanButton"
+                                            rendered="{!$Permission.CaseEditDaysInProcessCounter && IsCaseNotClosed}"
+                                            event="ondblclick"
+                                            resetFunction="resetInlineEdit"/>
+                </apex:outputfield>
+                <apex:outputField value="{!Case.Default_Notice_Sent_Date__c}"/>
+                <apex:pageBlockSectionItem rendered="{!IsZCP169IsEnabled && $Permission.Loan_View_Pay_Now_Link}">
+                    <apex:outputLabel value="Zopa Admin"/>
+                    <apex:outputpanel >
+                        <apex:commandLink id="paynow"
+                                          onclick="window.open('http://zopaadmin.dca.zopa.com/Pages/ManageBorrowing.aspx?pk={!RelatedLoan.Loan_Id__c}', '_blank');">
+                            Zopa Admin
+                        </apex:commandLink>
+                    </apex:outputpanel>
+                </apex:pageBlockSectionItem>
+                <apex:outputField value="{!RelatedLoan.ArrearsStartDate__c}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Arrears Ratio"/>
+                    <apex:outputPanel >
+                        <apex:outputText value="{!RelatedLoanDetails.ArrearsRatio}" rendered="{!LazyLoadFinished}"/>
+                        <apex:image value="/img/loading32.gif" style="height: 15px;"
+                                    rendered="{!NOT(LazyLoadFinished)}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Arrears Balance"/>
+                    <apex:outputPanel >
+                        <apex:outputText value="{!RelatedLoanDetails.ArrearsBalance}" rendered="{!LazyLoadFinished}"/>
+                        <apex:image value="/img/loading32.gif" style="height: 15px;"
+                                    rendered="{!NOT(LazyLoadFinished)}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection id="case_counters" Title="Case Counters" collapsible="false">
+                <apex:outputField value="{!CurrentCase.Review_Counter__c}" label="Reviews"/>
+                <apex:outputField value="{!CurrentCase.Task_Counter__c}" label="Tasks"/>
+                <apex:outputField value="{!CurrentCase.Outbound_Calls_Counter__c}" label="Outbound Calls"/>
+                <apex:outputField value="{!CurrentCase.Contacts_Made_Counter__c}" label="Contacts Made"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection Title="Customer Details" collapsible="false">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Name"/>
+                    <apex:outputField value="{!Case.Account.Name}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Email"/>
+                    <apex:outputField value="{!Case.Account.PersonEmail}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Date of Birth"/>
+                    <apex:outputField value="{!Case.Account.Date_Of_Birth__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Phone"/>
+                    <support:clickToDial number="{!Case.Account.Phone}"
+                            entityId="{!Case.Id}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Mobile Phone"/>
+                    <support:clickToDial number="{!Case.Account.PersonMobilePhone}"
+                            entityId="{!Case.Id}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="House Number"/>
+                    <apex:outputField value="{!Case.Account.HouseNumber__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Street 1"/>
+                    <apex:outputField value="{!Case.Account.Street1__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Street 2"/>
+                    <apex:outputField value="{!Case.Account.Street2__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Post Code"/>
+                    <apex:outputField value="{!Case.Account.Postcode__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Country"/>
+                    <apex:outputField value="{!Case.Account.County__c}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+        <c:ConfirmPopup id="popup" Visible="{!CurrentProcess!=null}" HeaderMessage="{!POPUP_MESSAGES[CurrentProcess]}">
+            <apex:actionStatus id="spinner">
+                <apex:facet name="stop">
+                    <apex:outputPanel >
+                        <apex:outputPanel rendered="{!IsDefaultAction}">
+                            <apex:outputLabel value="Please select Default Reason " for="DefaultReason"/>
+                            <apex:inputField value="{!RelatedLoan.Default_Reason__c}" id="DefaultReason"/>
+                            <br/><br/>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!IsPicklistDcaAccountsVisible}">
+                            <apex:outputLabel value="Please select DCA " for="AccountDCA"/>
+                            <apex:selectList size="1" style="text-align: center;" id="AccountDCA" value="{!AccountDcaId}">
+                                <apex:selectOptions value="{!AccountsDca}"/>
+                            </apex:selectList>
+                            <br/><br/>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!IsPicklistDmcAccountsVisible}">
+                            <apex:outputLabel value="Please select DMC " for="AccountDMC"/>
+                            <apex:selectList size="1" style="text-align: center;" id="AccountDMC" value="{!AccountDmcId}">
+                                <apex:selectOptions value="{!AccountsDmc}"/>
+                            </apex:selectList>
+                            <br/><br/>
+                        </apex:outputPanel>
+                        <apex:commandbutton value="Confirm" action="{!confirmAction}"
+                                            status="spinner" reRender="popup, PageMessagesPanel, case_details, manage_buttons, loan_state_listener"
+                                            style="border-color: #8A9EBE; border-style: solid;border-width: 2px; width: 80px;"/>
+                        <apex:commandbutton value="Cancel" action="{!hidePopup}" rerender="popup" status="spinner"
+                                            style="border-color: #8A9EBE; border-style: solid;border-width: 2px; width: 80px;"/>
+                    </apex:outputPanel>
+                </apex:facet>
+                <apex:facet name="start">
+                    <apex:image value="/img/loading32.gif" style="height: 15px"/>
+                </apex:facet>
+            </apex:actionStatus>
+        </c:ConfirmPopup>
+        <apex:actionPoller action="{!checkIfLoanStateChanged}"
+                onComplete="refreshPageWhenItIsReady()"
+                reRender="loan_state_listener_panel"
+                enabled="{!IsLoanStateListenerEnabled}"
+                id="loan_state_listener"
+                interval="10"
+                timeout="60000"
+        />
+        <apex:outputPanel id="loan_state_listener_panel">
+            <script type="text/javascript">
+                is_page_ready_to_refresh = {!IsPageReadyToRefresh};
+            </script>
+        </apex:outputPanel>
+    </apex:form>
+    <apex:relatedList title="Notes & Attachments" subject="{!Case}" list="CombinedAttachments"/>
+    <apex:form >
+        <c:LoanPaymentHistory Loan_Id="{!RelatedLoan.Loan_Id__c}"/>
+        <c:LoanNotes Loan_Id="{!RelatedLoan.Id}"/>
+        <c:PaymentPlanHistory Loan_Uuid="{!RelatedLoan.Loan_Id__c}"/>
+    </apex:form>
+    <c:SetConsoleTabTitle title="{!'Case: ' + Case.CaseNumber}" iconurl="{!$Resource.icon_case_16}"/>
+    <c:CaseActivitiesSection Case="{!Case}"/>
+    <c:EmailToCaseSection CaseId="{!Case.id}"/>
+</apex:page>

@@ -1,0 +1,65 @@
+<apex:page standardController="Loan_Application__c" extensions="EquifaxDetailsViewController" showHeader="true" sidebar="true">
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+    <apex:includeScript value="/support/console/36.0/integration.js"/>
+    <script type="text/javascript">
+        function setTabTitle() {
+            if(sforce.console.isInConsole()){
+                sforce.console.setTabTitle('Equifax Details: {!Loan_Application__c.Name}');
+            }
+        }
+        if (window.attachEvent) {
+            window.attachEvent('onload', setTabTitle);
+        } else if (window.addEventListener) {
+            window.addEventListener('load', setTabTitle, false);
+        } else {
+            document.addEventListener('load', setTabTitle, false);
+        }
+    </script>
+    <apex:form id="form" rendered="{!$Permission.Loan_View_Bureau_Details}">
+        <apex:sectionHeader title="{!Loan_Application__c.Name}" subtitle="Equifax Details"/>
+        <c:LazyLoadSpinner ActionToPerform="{!getEquifaxDetails}">
+            <apex:pageMessages />
+            <apex:outputPanel rendered="{!LazyLoadFinished}">
+                <apex:pageBlock title="Applicant Credit Checks" rendered="{!Equifax.ApplicantCreditChecks != null}">
+                    <apex:outputPanel layout="block" style="padding: 5px;">
+                        <apex:outputText value="{!Equifax.ApplicantCreditChecks.size} address(es) found" rendered="{!Equifax.ApplicantCreditChecks.size > 0}"/>
+                    </apex:outputPanel>
+                    <apex:repeat value="{!Equifax.ApplicantCreditChecks}" var="credit_check">
+                        <c:EquifaxSectionDisplay EquifaxDetailsSection="{!credit_check}" />
+                    </apex:repeat>
+                    <apex:outputText value="No records to display" rendered="{!Equifax.ApplicantCreditChecks.size == 0}"/>
+                </apex:pageBlock>
+
+                <apex:pageBlock title="Associated Credit Checks" rendered="{!Equifax.AssociatedCreditChecks != null}">
+                    <apex:outputPanel layout="block" style="padding: 5px;">
+                        <apex:outputText value="{!Equifax.AssociatedCreditChecks.size} address(es) found" rendered="{!Equifax.AssociatedCreditChecks.size > 0}"/>
+                    </apex:outputPanel>
+                    <apex:repeat value="{!Equifax.AssociatedCreditChecks}" var="credit_check">
+                        <c:EquifaxSectionDisplay EquifaxDetailsSection="{!credit_check}" />
+                    </apex:repeat>
+                    <apex:outputText value="No records to display" rendered="{!Equifax.AssociatedCreditChecks.size == 0}"/>
+                </apex:pageBlock>
+
+                <apex:pageBlock title="Family Credit Checks" rendered="{!Equifax.FamilyCreditChecks != null}">
+                    <apex:outputPanel layout="block" style="padding: 5px;">
+                        <apex:outputText value="{!Equifax.FamilyCreditChecks.size} address(es) found" rendered="{!Equifax.FamilyCreditChecks.size > 0}"/>
+                    </apex:outputPanel>
+                    <apex:repeat value="{!Equifax.FamilyCreditChecks}" var="credit_check">
+                        <c:EquifaxSectionDisplay EquifaxDetailsSection="{!credit_check}" />
+                    </apex:repeat>
+                    <apex:outputText value="No records to display" rendered="{!Equifax.FamilyCreditChecks.size == 0}"/>
+                </apex:pageBlock>
+
+                <apex:pageBlock title="Other Credit Checks" rendered="{!Equifax.OtherCreditChecks != null}">
+                    <apex:outputPanel layout="block" style="padding: 5px;">
+                        <apex:outputText value="{!Equifax.OtherCreditChecks.size} address(es) found" rendered="{!Equifax.OtherCreditChecks.size > 0}"/>
+                    </apex:outputPanel>
+                    <apex:repeat value="{!Equifax.OtherCreditChecks}" var="credit_check">
+                        <c:EquifaxSectionDisplay EquifaxDetailsSection="{!credit_check}" />
+                    </apex:repeat>
+                    <apex:outputText value="No records to display" rendered="{!Equifax.OtherCreditChecks.size == 0}"/>
+                </apex:pageBlock>
+            </apex:outputPanel>
+        </c:LazyLoadSpinner> 
+    </apex:form>
+</apex:page>

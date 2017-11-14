@@ -1,0 +1,39 @@
+<apex:component controller="LoanPaymentHistoryController">
+    <apex:attribute name="Loan_Id" type="String" required="true" assignTo="{!LoanId}" description="Id of related Loan"/>
+    <style type="text/css">
+        .arrears-balance {
+            float: right;
+            font-weight: bold;
+            font-size: 20px;
+            color: #141E64;
+        }
+    </style>
+    <apex:pageBlock title="Repayment History" rendered="{!IsZcp20IsEnabled}">
+        <apex:pageBlockSection collapsible="false" columns="1">
+            <c:LazyLoadSpinner ActionToPerform="{!getLoanDetails}" ShowSpinner="false">
+                <apex:outputText value="Arrears Balance: {!LoanDetails.ArrearsBalance}" styleClass="arrears-balance" rendered="{!IsLoanDetailsRetrieved}"/>
+            </c:LazyLoadSpinner>
+            <c:LazyLoadSpinner ActionToPerform="{!getPaymentHistoryInformation}" ShowSpinner="false">
+                <apex:pageMessage summary="{!ErrorOnLoad}" severity="ERROR" strength="2" rendered="{!ErrorOnLoad != null}" title="Error:"/>
+                <apex:outputText value="No records to display" rendered="{!IsNoPaymentsMessageVisible}"/>
+                <apex:pageBlockTable value="{!PaymentHistoryList}" var="payment_item" rendered="{!LoanHistoryHasAnyPayments}">
+                    <apex:column headerValue="CNR">
+                        <apex:inputCheckbox value="{!payment_item.CountsAsNormalRepayment}" disabled="true"/>
+                    </apex:column>
+                    <apex:column headerValue="TPF">
+                         <apex:inputCheckbox value="{!payment_item.ThirdPartyFlag}" disabled="true"/>
+                    </apex:column>
+                    <apex:column headerValue="Repayment Date" value="{!payment_item.RepaymentDate}"/>
+                    <apex:column headerValue="Received Date" value="{!payment_item.ReceivedDate}"/>
+                    <apex:column headerValue="Type" value="{!payment_item.Type}"/>
+                    <apex:column headerValue="Amount">
+                        <apex:outputText value="{0, number, £###,###.00}">
+                            <apex:param value="{!payment_item.Amount}" />
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Status" value="{!payment_item.Status}"/>
+                </apex:pageBlockTable>
+            </c:LazyLoadSpinner>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:component>

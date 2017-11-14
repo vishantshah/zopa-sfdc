@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Collections Quality Check</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Collections Quality Checks</value>
+    </caseValues>
+    <fields>
+        <help><!-- ACCOUNT INFORMATION: Did the agent check customer details and any relevant previous notes to ensure up to date? --></help>
+        <label><!-- ACCOUNT INFORMATION: Did the agent check --></label>
+        <name>ACCOUNT_INFORMATION_Did_the_agent_check__c</name>
+    </fields>
+    <fields>
+        <help><!-- ARRANGEMENT: Has the arrangement been set up correctly and is reasonable (amount, confirmation etc..)? --></help>
+        <label><!-- ARRANGEMENT: Set Correctly ? --></label>
+        <name>ARRANGEMENT_Set_Correctly__c</name>
+    </fields>
+    <fields>
+        <help><!-- ARREARS BALANCE: Did the agent inform the customer of the amount outstanding? --></help>
+        <label><!-- ARREARS BALANCE: customer informed ? --></label>
+        <name>ARREARS_BALANCE_Did_the_agent_inform_th__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Collections Quality Checks --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Are the notes accurate and include sufficient information regarding the agreed arrangement? This should include the first payment date, arrangement end date and exact repayment amount. --></help>
+        <label><!-- Accurate note/info regarding arrangement --></label>
+        <name>Accurate_note_info_regarding_arrangement__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent ask the customer how they could help? (reciprocal opening) --></help>
+        <label><!-- Agent asked customer how they could help --></label>
+        <name>Agent_asked_customer_how_they_could_help__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent mention that the call was being recorded for quality and monitoring purposes? --></help>
+        <label><!-- Agent mentioned calls are recorded ? --></label>
+        <name>Agent_mentioned_calls_are_recorded__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent offer further assistance at the end of the call ? --></help>
+        <label><!-- Did agent offer further assistance ? --></label>
+        <name>Agent_offered_further_assistance__c</name>
+    </fields>
+    <fields>
+        <help><!-- Are the notes accurate and include sufficient information regarding the agreed arrangement? This should include first payment date, duration and exact repayment amount after taking in consideration customers financial circumstances and priority debts. --></help>
+        <label><!-- Are the arrangement notes accurate --></label>
+        <name>Are_the_arrangement_notes_accurate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the arrangement cancelled or closed before collections activity resumed? This should be due to failing to pay in line or the arrangement expired. --></help>
+        <label><!-- Arrangement cancelled or closed before --></label>
+        <name>Arrangement_cancelled_or_closed_before__c</name>
+    </fields>
+    <fields>
+        <help><!-- Arrangements &amp; IVA’s – If the customer entered into any form of payment arrangement with us, were they set up (or voted for) correctly and for a reasonable amount? --></help>
+        <label><!-- Arrangements &amp; IVA’s set up correctly ? --></label>
+        <name>Arrangements_IVA_s__c</name>
+    </fields>
+    <fields>
+        <help><!-- Arrears/Legal Letters – Was it necessary to send these, did they contain the correct attachments and were they sent at the correct time? --></help>
+        <label><!-- Arrears/Legal Letters – Was it necessary --></label>
+        <name>Arrears_Legal_Letters_Was_it_necessary__c</name>
+    </fields>
+    <fields>
+        <help><!-- CASE NOTES - If we received third party authority, was this noted in the &apos;Key information&apos; section? --></help>
+        <label><!-- CASE NOTES 3rd party authority noted --></label>
+        <name>CASE_NOTES_3rd_party_authority_noted__c</name>
+    </fields>
+    <fields>
+        <help><!-- CASE NOTES - Are the notes accurate, header in capitals include sufficient information and spelt correctly? --></help>
+        <label><!-- CASE NOTES Accurate, header in caps etc --></label>
+        <name>CASE_NOTES_Accurate_header_in_caps_etc__c</name>
+    </fields>
+    <fields>
+        <help><!-- COLLECTIONS - Was the Collections 2 letter sent within the correct time frame? --></help>
+        <label><!-- COLLECTIONS Letter 2 sent in time frame? --></label>
+        <name>COLLECTIONS_Letter_2_sent_in_time_frame__c</name>
+    </fields>
+    <fields>
+        <help><!-- COLLECTIONS - Was the Collections 3 letter sent if appropriate? --></help>
+        <label><!-- COLLECTIONS Letter 3 sent if appropriate --></label>
+        <name>COLLECTIONS_Letter_3_sent_if_appropriate__c</name>
+    </fields>
+    <fields>
+        <help><!-- COLLECTIONS - Was DCA email sent at the right time and before being passed to CRS? --></help>
+        <label><!-- COLLECTIONS Was DCA email sent correctly --></label>
+        <name>COLLECTIONS_Was_DCA_email_sent_correctly__c</name>
+    </fields>
+    <fields>
+        <help><!-- COLLECTIONS - Was a NOSA letter sent once two months in arrears? --></help>
+        <label><!-- COLLECTIONS Was NOSA sent once 2mnth arr --></label>
+        <name>COLLECTIONS_Was_NOSA_sent_once_2mnth_arr__c</name>
+    </fields>
+    <fields>
+        <help><!-- COMPLAINT: Where applicable, was an apology provided and has the complaint been dealt with correctly? --></help>
+        <label><!-- COMPLAINT: handled correctly ? --></label>
+        <name>COMPLAINT_handled_correctly__c</name>
+    </fields>
+    <fields>
+        <help><!-- COMPLIANCE: Was the case management compliant? --></help>
+        <label><!-- COMPLIANCE:Was case management Compliant --></label>
+        <name>COMPLIANCE_Was_case_management_Compliant__c</name>
+    </fields>
+    <fields>
+        <label><!-- CONSEQUENCES: Did the agent advise --></label>
+        <name>CONSEQUENCES_Did_the_agent_advise__c</name>
+    </fields>
+    <fields>
+        <help><!-- CRS - Was a two month review set after being referred to CRS? --></help>
+        <label><!-- CRS 2 month review set after referred? --></label>
+        <name>CRS_2_month_review_set_after_referred__c</name>
+    </fields>
+    <fields>
+        <help><!-- CRS - If the case was referred to CRS, was the correct information added on admin screen? --></help>
+        <label><!-- CRS Correct info added to admin? --></label>
+        <name>CRS_Correct_info_added_to_admin__c</name>
+    </fields>
+    <fields>
+        <help><!-- CRS - If the case was referred to CRS, was it sent over at the right time? (Was the account just over 30 days in arrears and we had had no promises to pay) --></help>
+        <label><!-- CRS Sent over at the right time? --></label>
+        <name>CRS_Sent_over_at_the_right_time__c</name>
+    </fields>
+    <fields>
+        <help><!-- Calls – Were these done an appropriate amount of times and did they ring for an acceptable length of time? --></help>
+        <label><!-- Calls – done an appropriate amount --></label>
+        <name>Calls_done_an_appropriate_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Collections Quality Checks --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Changing Account Statuses – When changing the status of an account, was this done correctly and in a timely manner? --></help>
+        <label><!-- Changing Account Statuses correctly ? --></label>
+        <name>Changing_Account_Statuses__c</name>
+    </fields>
+    <fields>
+        <help><!-- Search here for the Collections Agent you are quality checking --></help>
+        <label><!-- Collections Agent Name --></label>
+        <name>Collections_Agent_Name__c</name>
+        <relationshipLabel><!-- Collections Quality Checks --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- If applicable, was the case moved to &apos;collections&apos; status and review date set? --></help>
+        <label><!-- Collections status &amp; review date set? --></label>
+        <name>Collections_status_review_date_set__c</name>
+    </fields>
+    <fields>
+        <help><!-- Completes all tasks relevant to the email (including full notes on the account) --></help>
+        <label><!-- Completes all tasks relevant to the emai --></label>
+        <name>Completes_all_tasks_relevant_to_the_emai__c</name>
+    </fields>
+    <fields>
+        <help><!-- Confirms accurate time frames to the customer (where relevant) --></help>
+        <label><!-- Confirms accurate time frames to the cus --></label>
+        <name>Confirms_accurate_time_frames_to_the_cus__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was all correspondence and certificate scanned and filed for reference? --></help>
+        <label><!-- Corr and Cert scanned and filled? --></label>
+        <name>Corr_and_Cert_scanned_and_filled__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the correct arranged payment amount decided and stated in notes? --></help>
+        <label><!-- Correct arranged payment amount decided --></label>
+        <name>Correct_arranged_payment_amount_decided__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the correct correspondence sent back via email or letter and noted on the account? (only exception being Stepchange who we do not respond to) --></help>
+        <label><!-- Correct correspondence sent back? --></label>
+        <name>Correct_correspondence_sent_back__c</name>
+    </fields>
+    <fields>
+        <help><!-- Were the correct and accurate details provided to the executor in writing or phone conversation, including the outstanding balance? --></help>
+        <label><!-- Correct details provided to executor? --></label>
+        <name>Correct_details_provided_to_executor__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the correct letter and email sent after cancellation or closure? --></help>
+        <label><!-- Correct letter/email sent after closure --></label>
+        <name>Correct_letter_email_sent_after_closure__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the DMC third party authority updated in the &apos;key information&apos; section? --></help>
+        <label><!-- DMC 3rd party auth updated in key info? --></label>
+        <name>DMC_3rd_party_authority_updated__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the DMC correspondence noted on admin page? --></help>
+        <label><!-- DMC correspondence noted on admin page? --></label>
+        <name>DMC_correspondence_noted_on_admin_page__c</name>
+    </fields>
+    <fields>
+        <help><!-- If we received a letter from the DMC, was this scanned and filed in Bad Debt drive? Allow 7 days for correspondence to be scanned and saved --></help>
+        <label><!-- DMC letter scanned and filed? --></label>
+        <name>DMC_letter_scanned_and_filed__c</name>
+    </fields>
+    <fields>
+        <label><!-- DMCcalcs --></label>
+        <name>DMCcalcs__c</name>
+    </fields>
+    <fields>
+        <label><!-- DMCpercent --></label>
+        <name>DMCpercent__c</name>
+    </fields>
+    <fields>
+        <help><!-- DPA – Whenever we did make contact with someone regarding an account, was the necessary information confirmed first (whether verbally or written) in order for us to discuss in detail? --></help>
+        <label><!-- DPA -Necessary information confirmed 1st --></label>
+        <name>DPA_Necessary_information_confirmed_1st__c</name>
+    </fields>
+    <fields>
+        <help><!-- Once being noted of deceased borrower was the death certificate requested? --></help>
+        <label><!-- Death certificate requested? --></label>
+        <name>Death_certificate_requested__c</name>
+    </fields>
+    <fields>
+        <label><!-- DeceasedCalculation --></label>
+        <name>DeceasedCalculation__c</name>
+    </fields>
+    <fields>
+        <label><!-- DeceasedPercent --></label>
+        <name>DeceasedPercent__c</name>
+    </fields>
+    <fields>
+        <label><!-- DefaultCalculation --></label>
+        <name>DefaultCalculation__c</name>
+    </fields>
+    <fields>
+        <label><!-- DefaultPercent --></label>
+        <name>DefaultPercent__c</name>
+    </fields>
+    <fields>
+        <label><!-- DepartmentReviewCalculation --></label>
+        <name>DepartmentReviewCalculation__c</name>
+    </fields>
+    <fields>
+        <label><!-- DeptReviewPercentage --></label>
+        <name>DeptReviewPercentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Did the agent address customer queries --></label>
+        <name>Did_the_agent_address_customer_queries__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent avoid offering financial advice to the customer? --></help>
+        <label><!-- Did the agent avoid financial advice --></label>
+        <name>Did_the_agent_avoid_offering_financial_a__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent display understanding / empathy with the customers situation? --></help>
+        <label><!-- Did the agent display understanding  ? --></label>
+        <name>Did_the_agent_display_understanding__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent make accurate and relevant notes on the customers account? --></help>
+        <label><!-- Did the agent make accurate notes --></label>
+        <name>Did_the_agent_make_accurate_and_relevant__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent mention the company, department and their name? --></help>
+        <label><!-- Did the agent mention the company... --></label>
+        <name>Did_the_agent_mention_the_company__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent offer all the relevant information? --></help>
+        <label><!-- Did the agent offer all relevant info --></label>
+        <name>Did_the_agent_offer_all_relevant_info__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent pause the call recording when taking card details and un-pause to allow remainder of the call to be recorded. --></help>
+        <label><!-- Did the agent pause the recording --></label>
+        <name>Did_the_agent_pause_the_recording__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent sound welcoming, clear and confident to the customer? --></help>
+        <label><!-- Did the agent sound welcoming ? --></label>
+        <name>Did_the_agent_sound_welcoming__c</name>
+    </fields>
+    <fields>
+        <label><!-- EmailResponseCalculation --></label>
+        <name>EmailResponseCalculation__c</name>
+    </fields>
+    <fields>
+        <label><!-- EmailResponsePercent --></label>
+        <name>EmailResponsePercent__c</name>
+    </fields>
+    <fields>
+        <help><!-- If the borrower failed to pay in line with the agreement, were they emailed and called in line with policy? --></help>
+        <label><!-- Emailed/called in line with policy --></label>
+        <name>Emailed_called_in_line_with_policy__c</name>
+    </fields>
+    <fields>
+        <help><!-- Emails – Were these sent when necessary and did they contain the correct information (including attached documents)? --></help>
+        <label><!-- Emails – Were these sent when necessary --></label>
+        <name>Emails_Were_these_sent_when_necessary__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date in which the event being checked occured. --></help>
+        <label><!-- Event date --></label>
+        <name>Event_date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did we explain how to do this online in the future? --></help>
+        <label><!-- Explain how to do online in future? --></label>
+        <name>Explain_how_to_do_online_in_future__c</name>
+    </fields>
+    <fields>
+        <help><!-- Explains the importance of certain actions to the customer. --></help>
+        <label><!-- Explains the importance of certain actio --></label>
+        <name>Explains_the_importance_of_certain_actio__c</name>
+    </fields>
+    <fields>
+        <help><!-- FINANCIAL DIFFICULTIES - IED email and letter sent to borrower if needed? --></help>
+        <label><!-- FINANCIAL DIFFICULTIES IED sent --></label>
+        <name>FINANCIAL_DIFFICULTIES_Email_Letter_sent__c</name>
+    </fields>
+    <fields>
+        <help><!-- FINANCIAL DIFFICULTIES - Was the account placed on hold for 30 days --></help>
+        <label><!-- FINANCIAL DIFFICULTIES On hold 30days --></label>
+        <name>FINANCIAL_DIFFICULTIES_On_hold_30days__c</name>
+    </fields>
+    <fields>
+        <help><!-- FINANCIAL DIFFICULTIES - Was borrower made aware of not-for-profit organisations Step Change and/or National Debtline. This should be noted on account --></help>
+        <label><!-- FINANCIAL DIFFICULTIES - Step Change --></label>
+        <name>FINANCIAL_DIFFICULTIES_Step_Change__c</name>
+    </fields>
+    <fields>
+        <help><!-- HARDSHIP/ FINANCIAL DIFFICULTIES: Was the customer treated fairly? --></help>
+        <label><!-- Hardship: was customer treated fairly ? --></label>
+        <name>FINANCIAL_DIFFICULTIES_Was_th__c</name>
+    </fields>
+    <fields>
+        <help><!-- FINANCIAL DIFFICULTIES - was the account placed on hold for 30 days and IED email and letter sent? --></help>
+        <label><!-- FINANCIAL DIFFICULTIES - account on hold --></label>
+        <name>FINANCIAL_DIFFICULTIES_account_on_hold__c</name>
+    </fields>
+    <fields>
+        <help><!-- FINANCIAL DIFFICULTIES - Was the important information note and key information added if necessary? --></help>
+        <label><!-- FINANCIAL DIFFICULTIES imp/key info note --></label>
+        <name>FINANCIAL_DIFFICULTIES_imp_key_info_note__c</name>
+    </fields>
+    <fields>
+        <help><!-- FINANCIAL DIFFICULTIES- Was the important information noted and key information added if necessary? --></help>
+        <label><!-- FINANCIAL DIFFICULTIES- key info noted --></label>
+        <name>FINANCIAL_DIFFICULTIES_key_info__c</name>
+    </fields>
+    <fields>
+        <help><!-- FURTHER PROBING: Did the agent ask sufficient questions to understand the customer&apos;s financial situation? --></help>
+        <label><!-- FURTHER PROBING: Sufficient Questions --></label>
+        <name>FURTHER_PROBING_Did_the_agent_ask_suffi__c</name>
+    </fields>
+    <fields>
+        <help><!-- FURTHER PROBING - Did the agent ask the customer about their priority bills --></help>
+        <label><!-- FURTHER PROBING Priority bills --></label>
+        <name>FURTHER_PROBING_Priority_bills__c</name>
+    </fields>
+    <fields>
+        <help><!-- FURTHER PROBING - Where applicable did the agent ask the customer about source of funds? --></help>
+        <label><!-- FURTHER PROBING - Source of funds --></label>
+        <name>FURTHER_PROBING_Where_applicable_did_t__c</name>
+    </fields>
+    <fields>
+        <help><!-- FUTURE PAYMENTS: Where possible, did the agent make sufficient steps with the customer to avoid them missing future payments? E.g. how to set up new DD, changing repayment date. --></help>
+        <label><!-- FUTURE PAYMENTS: Advice given ? --></label>
+        <name>FUTURE_PAYMENTS_Where_possible_did_the__c</name>
+    </fields>
+    <fields>
+        <help><!-- Financial difficulties - Was the correct process followed when dealing with customers in financial difficulties? This is for every step in the process such as the initial probing stage to confirm the financial situation, signposting and the 30 day hold on --></help>
+        <label><!-- Financial difficulties -Correct process? --></label>
+        <name>Financial_difficulties_Correct_process__c</name>
+    </fields>
+    <fields>
+        <help><!-- Follows the correct process for hardship cases (signposting customer to free help and advice such as Stepchange etc) --></help>
+        <label><!-- Follows the correct process for hardship --></label>
+        <name>Follows_the_correct_process_for_hardship__c</name>
+    </fields>
+    <fields>
+        <help><!-- HARDSHIP/ FINANCIAL DIFFICULTIES: Was this recognised and external help details provided whilst giving a 30 day hold? --></help>
+        <label><!-- Hardship/Financial Difficult: recognised --></label>
+        <name>HARDSHIP_FINANCIAL_DIFFICULTIES__c</name>
+    </fields>
+    <fields>
+        <label><!-- InboundCalculation --></label>
+        <name>InboundCalculation__c</name>
+    </fields>
+    <fields>
+        <label><!-- InboundPercent --></label>
+        <name>InboundPercent__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the &apos;manage payment plan&apos; section updated accordingly and contain the correct information about the arrangement --></help>
+        <label><!-- &apos;Manage payment plan&apos; section updated --></label>
+        <name>Manage_payment_plan_section_updated__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the account moved to &apos;arrangement status&apos; after the arrangement was accepted? --></help>
+        <label><!-- Moved to &apos;arrangement status&apos; ? --></label>
+        <name>Moved_to_arrangement_status__c</name>
+    </fields>
+    <fields>
+        <help><!-- DEFAULT NOTICE - Was a NOSA sent within 6 months before notice of default being issued? --></help>
+        <label><!-- Was NOSA sent within 6 months --></label>
+        <name>NOSA_sent_within_6_months__c</name>
+    </fields>
+    <fields>
+        <help><!-- Notes – Were notes created for every action and recorded accurately, in good detail and in a timely manner? --></help>
+        <label><!-- Notes – Created for every action ? --></label>
+        <name>Notes_Created_for_every_action__c</name>
+    </fields>
+    <fields>
+        <help><!-- Offers additional assistance --></help>
+        <label><!-- Offers additional assistance --></label>
+        <name>Offers_additional_assistance__c</name>
+    </fields>
+    <fields>
+        <help><!-- Offers correct solution/explanation --></help>
+        <label><!-- Offers correct solution/explanation --></label>
+        <name>Offers_correct_solution_explanation__c</name>
+    </fields>
+    <fields>
+        <label><!-- OutboundCalculation --></label>
+        <name>OutboundCalculation__c</name>
+    </fields>
+    <fields>
+        <label><!-- OutboundPercent --></label>
+        <name>OutboundPercent__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was an overview of the call content provided? --></help>
+        <label><!-- Overview of the call content provided ? --></label>
+        <name>Overview_of_the_call_content_provided__c</name>
+    </fields>
+    <fields>
+        <help><!-- PAYMENT - If partial payment was made, or customer promised payments, was the account reviewed at the right time? --></help>
+        <label><!-- PAYMENT Part/Promise acc review on time --></label>
+        <name>PAYMENT_Part_Promise_acc_review_on_time__c</name>
+    </fields>
+    <fields>
+        <help><!-- PAYMENT - Was payment actioned? If so was the correct payment actioned and the correct amount added --></help>
+        <label><!-- PAYMENT Correct payment and amount --></label>
+        <name>PAYMENT_correct_payment_and_amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Uses a polite greeting which includes the customers name (Mr/Mrs X or the first name depending on subject/tone) --></help>
+        <label><!-- Polite Greeting? --></label>
+        <name>Polite_Greeting__c</name>
+    </fields>
+    <fields>
+        <help><!-- Uses positive, professional language and appropriate tone throughout. Avoids jargon and company specifc --></help>
+        <label><!-- Positive,Professional,Appropriate? --></label>
+        <name>Positive_Professional_language__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent avoid disclosing any information to the customer until after confirming security questions? --></help>
+        <label><!-- Pre DPA agent avoid disclosing any info --></label>
+        <name>Pre_DPA_agent_avoid_disclosing_any_info__c</name>
+    </fields>
+    <fields>
+        <help><!-- REASON FOR MISSED PAYMENT: Did the agent ask or find out why the payment was missed? --></help>
+        <label><!-- REASON FOR MISSED PAYMENT: --></label>
+        <name>REASON_FOR_MISSED_PAYMENT__c</name>
+    </fields>
+    <fields>
+        <help><!-- REPAYMENT METHODS: Were different repayment methods offered to customer where possible and were necessary direct debit details discussed and confirmed correctly if one is not in place?? --></help>
+        <label><!-- REPAYMENT METHODS: Offered --></label>
+        <name>REPAYMENT_METHODS_Offered__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provides rationale behind why we require certain information? --></help>
+        <label><!-- Rationale behind why we require info --></label>
+        <name>Rationale_behind_why_we_require_info__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent respond to the customer&apos;s registered email address? --></help>
+        <label><!-- Responded to the registered email? --></label>
+        <name>Responded_to_the_registered_email__c</name>
+    </fields>
+    <fields>
+        <help><!-- Reviewing Accounts – If for any reason an account needs to be placed under review (arrangements and promise to pay for example), was this done correctly? --></help>
+        <label><!-- Reviewing Accounts - Done Correctly ? --></label>
+        <name>Reviewing_Accounts__c</name>
+    </fields>
+    <fields>
+        <help><!-- Type in here the summary of the case --></help>
+        <label><!-- Summary comments --></label>
+        <name>Summary_comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent pause call recording when taking card details and un-pause to allow remainder of the call to be recorded? --></help>
+        <label><!-- Telephony skills displayed --></label>
+        <name>Telephony_skills__c</name>
+    </fields>
+    <fields>
+        <help><!-- Thanks the customer for his/her email --></help>
+        <label><!-- Thanks the customer for his/her email --></label>
+        <name>Thanks_the_customer_for_his_her_email__c</name>
+    </fields>
+    <fields>
+        <help><!-- Uses correct grammar, spelling and phrasing --></help>
+        <label><!-- Uses correct grammar, spelling, phrasing --></label>
+        <name>Uses_correct_grammar_spelling_phrasing__c</name>
+    </fields>
+    <fields>
+        <help><!-- WAS THE CALL COMPLIANT? Full DPA, hardship dealt with correctly, avoided financial advise, didn&apos;t record card details --></help>
+        <label><!-- WAS THE CALL COMPLIANT? Full DPA etc --></label>
+        <name>WAS_THE_CALL_COMPLIANT_Full_DPA_etc__c</name>
+    </fields>
+    <fields>
+        <help><!-- WITHDRAWN - Was the Collections 1 letter sent within the correct time frame? --></help>
+        <label><!-- WITHDRAWN Coll1 letter sent in time --></label>
+        <name>WITHDRAWN_Coll1_letter_sent_in_time__c</name>
+    </fields>
+    <fields>
+        <help><!-- WITHDRAWN - Was the borrower called and emailed after missing a payment? --></help>
+        <label><!-- WITHDRAWN Contacted after missed payment --></label>
+        <name>WITHDRAWN_Contacted_after_missed_payment__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was Data Protection Policy adhered to? 3 or more security questions. E.g. Full name, DOB, email address, postcode. --></help>
+        <label><!-- Was Data Protection Policy adhered to --></label>
+        <name>Was_Data_Protection_Policy_adhered_to__c</name>
+    </fields>
+    <fields>
+        <help><!-- FORMAL DEMAND- Was &apos;Set to default&apos; noted on the account. --></help>
+        <label><!-- &apos;Set to default&apos; noted on the account ? --></label>
+        <name>Was_Set_to_default_noted_on_the_accoun__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was a 3 month review put in place? --></help>
+        <label><!-- Was a 3month review put in place? --></label>
+        <name>Was_a_3month_review_put_in_place__c</name>
+    </fields>
+    <fields>
+        <help><!-- Outcome - Was a fair and acceptable outcome reached for the customer? --></help>
+        <label><!-- Was a fair &amp; acceptable outcome reached? --></label>
+        <name>Was_a_fair_acceptable_outcome_reached__c</name>
+    </fields>
+    <fields>
+        <help><!-- DEFAULT NOTICE - Was a written &apos;Notice of default&apos; sent two weeks before defaulting the account? --></help>
+        <label><!-- Was a written &apos;NOD sent  2 weeks before --></label>
+        <name>Was_a_written_NOD_sent_t__c</name>
+    </fields>
+    <fields>
+        <help><!-- INSOLVENCY- Was all correspondence noted on admin, scanned and filed for reference ? --></help>
+        <label><!-- Was all correspondence noted on admin ? --></label>
+        <name>Was_all_correspondence_noted_on_admin__c</name>
+    </fields>
+    <fields>
+        <help><!-- Correspondence – Was all postal correspondence received and created relating to accounts scanned and saved to the individual correspondence folder? --></help>
+        <label><!-- Was all postal correspondence received ? --></label>
+        <name>Was_all_postal_correspondence_received__c</name>
+    </fields>
+    <fields>
+        <help><!-- DEFAULT NOTICE- Was the account over 4 months in arrears before default notice was given? --></help>
+        <label><!-- Was the account over 4 months in arrears --></label>
+        <name>Was_the_account_over_4_months_in_arrears__c</name>
+    </fields>
+    <fields>
+        <help><!-- INSOLVENCY- Was the account set to default status after receiving confirmation from DMC or Insolvency Service? --></help>
+        <label><!-- Account set to default status after DMC --></label>
+        <name>Was_the_account_set_to_default_status_a__c</name>
+    </fields>
+    <fields>
+        <help><!-- ACTIVE LISTENING: Was the agents actively listening to the customer? I.e. Did the agent or customer have to repeat themselves due to lack of listening? --></help>
+        <label><!-- Was the agent actively listening ? --></label>
+        <name>Was_the_agent_actively_listening__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the email compliant? --></help>
+        <label><!-- Was the email compliant? --></label>
+        <name>Was_the_email_compliant__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the review date set accordingly? This should be in line with when the first repayment is due --></help>
+        <label><!-- Was the review date set accordingly --></label>
+        <name>Was_the_review_date_set_accordingly__c</name>
+    </fields>
+    <fields>
+        <help><!-- Were the correct confirmation letters sent via post and email with details of how to set payment up? --></help>
+        <label><!-- Correct confirmation letters sent/email --></label>
+        <name>Were_the_correct_confirmation_letters_se__c</name>
+    </fields>
+    <fields>
+        <label><!-- Withdrawn/CollectionsCalculation --></label>
+        <name>Withdrawn_CollectionsCalculation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Withdrawn/CollectionsPercent --></label>
+        <name>Withdrawn_CollectionsPercent__c</name>
+    </fields>
+    <fields>
+        <label><!-- 10.comments --></label>
+        <name>X10_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 11.comments --></label>
+        <name>X11_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 12.comments --></label>
+        <name>X12_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 13.comments --></label>
+        <name>X13_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 14.comments --></label>
+        <name>X14_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 15.comments --></label>
+        <name>X15_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 16.comments --></label>
+        <name>X16_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 17. comments --></label>
+        <name>X17_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 18.comments --></label>
+        <name>X18_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 19.comments --></label>
+        <name>X19_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 20.comments --></label>
+        <name>X20_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 21.comments --></label>
+        <name>X21_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 22.comments --></label>
+        <name>X22_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 23.comments --></label>
+        <name>X23_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 24.comments --></label>
+        <name>X24_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 25.comments --></label>
+        <name>X25_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 26.comments --></label>
+        <name>X26_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 27.comments --></label>
+        <name>X27_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 28.comments --></label>
+        <name>X28_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 29.comments --></label>
+        <name>X29_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 2. comments --></label>
+        <name>X2_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 3. comments --></label>
+        <name>X3_comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was 3rd party information obtained and updated in important information note? --></help>
+        <label><!-- 3rd party info obtained and updated? --></label>
+        <name>X3rd_party_info_obtained_and_updated__c</name>
+    </fields>
+    <fields>
+        <label><!-- 4. comments --></label>
+        <name>X4_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 5. comments --></label>
+        <name>X5_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 6. comments --></label>
+        <name>X6_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 7. comments --></label>
+        <name>X7_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 8. comments --></label>
+        <name>X8_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 9.comments --></label>
+        <name>X9_comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- ZopaArrCalculation --></label>
+        <name>ZopaArrCalculation__c</name>
+    </fields>
+    <fields>
+        <label><!-- ZopaArrPercent --></label>
+        <name>ZopaArrPercent__c</name>
+    </fields>
+    <fields>
+        <help><!-- INSOLVENCY- Were the correct letters and completed proxy forms returned to DMC in the given time frame? --></help>
+        <label><!-- Correct correspondence returned to DMC ? --></label>
+        <name>correct_letters_and_completed_proxy_form__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent display a polite and professional manner throughout the call and avoid interruping or talking over the customer? --></help>
+        <label><!-- polite and professional manner ? --></label>
+        <name>polite_and_professional_manner__c</name>
+    </fields>
+    <layouts>
+        <layout>Collections Inbound Call</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Collections Outbound Call</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>DMC Arrangements Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Deceased Collections Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Default Process layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Departmental Case Review Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Email Response Review Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Withdrawn/Collections Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Zopa Arrangements Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Collections Inbound Call --></label>
+        <name>Collections_Inbound_Call</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Collections Outbound Call --></label>
+        <name>Collections_Outbound_Call</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- DMC Arrangements check --></label>
+        <name>DMC_Arrangements_check</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Deceased Collections Check --></label>
+        <name>Deceased_Collections_Check</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Default Process check --></label>
+        <name>Default_Process_check</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Departmental Case Review --></label>
+        <name>Departmental_Case_Review</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Email Response Review --></label>
+        <name>Email_Response_Review</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Withdrawn/Collections --></label>
+        <name>Withdrawn_Collections</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Zopa Arrangements --></label>
+        <name>Zopa_Arrangements</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You must associate a report with a case or with an account --></errorMessage>
+        <name>Case_Number_Missing</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object created with the intent of storing surveys responses gathered from Getfeedback.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Case_Agent__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case Agent</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Survey_Responses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Survey Responses</relationshipLabel>
+        <relationshipName>Survey_Responses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Customer Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Survey Responses</relationshipLabel>
+        <relationshipName>Survey_Responses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Link_to_Response__c</fullName>
+        <externalId>false</externalId>
+        <label>Link to Response</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Loan_Application__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Loan Application</label>
+        <referenceTo>Loan_Application__c</referenceTo>
+        <relationshipLabel>Survey Responses</relationshipLabel>
+        <relationshipName>Survey_Responses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Loan__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Loan</label>
+        <referenceTo>Loan__c</referenceTo>
+        <relationshipLabel>Survey Responses</relationshipLabel>
+        <relationshipName>Survey_Responses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Net_Promoter_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Net Promoter Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rating_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Rating Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Comment</label>
+        <length>2000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Survey_Completion_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Completion Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Name_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Name Title</label>
+        <length>500</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Survey_Start_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Start Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <label>Survey Response</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Case_Agent__c</columns>
+        <columns>Rating_Score__c</columns>
+        <columns>Survey_Comment__c</columns>
+        <columns>Case__c</columns>
+        <columns>Customer_Account__c</columns>
+        <columns>Survey_Completion_Time__c</columns>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Surveys Responses</label>
+        <sharedTo>
+            <role>Borrowers</role>
+            <role>Case_Prep_Team_Lead</role>
+            <role>Customer_Service_Team_Lead</role>
+            <role>Investor</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ChamindaSR</fullName>
+        <columns>Case_Agent__c</columns>
+        <columns>Rating_Score__c</columns>
+        <columns>Survey_Comment__c</columns>
+        <columns>Case__c</columns>
+        <columns>Customer_Account__c</columns>
+        <columns>Survey_Completion_Time__c</columns>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Case_Agent__c</field>
+            <operation>contains</operation>
+            <value>Marlow Green,Issa Khafaga,Victoria Russell,Louis-Dean Blackwood,Thomas Kozia</value>
+        </filters>
+        <label>Chaminda Surveys Responses</label>
+        <sharedTo>
+            <role>Borrowers</role>
+            <role>Case_Prep_Team_Lead</role>
+            <role>Customer_Service_Team_Lead</role>
+            <role>Investor</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>DanielleSR</fullName>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <columns>Case_Agent__c</columns>
+        <columns>Rating_Score__c</columns>
+        <columns>Survey_Comment__c</columns>
+        <columns>Case__c</columns>
+        <columns>Customer_Account__c</columns>
+        <columns>Survey_Completion_Time__c</columns>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Case_Agent__c</field>
+            <operation>contains</operation>
+            <value>Taiwo Situ,Ravneet Bhullar,Amanda Stevens,Romarna Shay-Josephs</value>
+        </filters>
+        <filters>
+            <field>Case_Agent__c</field>
+            <operation>contains</operation>
+            <value>Samantha Tutton,Jeffrey Obuobi</value>
+        </filters>
+        <label>Danielle Surveys Responses</label>
+        <sharedTo>
+            <role>Borrowers</role>
+            <role>Case_Prep_Team_Lead</role>
+            <role>Customer_Service_Team_Lead</role>
+            <role>Investor</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MirandaSR</fullName>
+        <columns>Case_Agent__c</columns>
+        <columns>Rating_Score__c</columns>
+        <columns>Survey_Comment__c</columns>
+        <columns>Case__c</columns>
+        <columns>Customer_Account__c</columns>
+        <columns>Survey_Completion_Time__c</columns>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Case_Agent__c</field>
+            <operation>contains</operation>
+            <value>James Ling,Nana Boison,Shannon Tube,Ellie Gates,Olamide Addo</value>
+        </filters>
+        <label>Miranda Surveys Responses</label>
+        <sharedTo>
+            <role>Borrowers</role>
+            <role>Case_Prep_Team_Lead</role>
+            <role>Customer_Service_Team_Lead</role>
+            <role>Investor</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>RebeccaSR</fullName>
+        <columns>Case_Agent__c</columns>
+        <columns>Rating_Score__c</columns>
+        <columns>Survey_Comment__c</columns>
+        <columns>Case__c</columns>
+        <columns>Customer_Account__c</columns>
+        <columns>Survey_Completion_Time__c</columns>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Case_Agent__c</field>
+            <operation>contains</operation>
+            <value>Stefan Aitange,Samantha Napa,Patrick Metry,Akkas Ali,Andy Opong</value>
+        </filters>
+        <label>Rebecca Surveys Responses</label>
+        <sharedTo>
+            <role>Borrowers</role>
+            <role>Case_Prep_Team_Lead</role>
+            <role>Customer_Service_Team_Lead</role>
+            <role>Investor</role>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <label>Survey Response ID</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Survey Responses</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

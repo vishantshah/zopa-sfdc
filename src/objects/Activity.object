@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ComposeGmail</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>LogCall</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>MailMerge</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>RequestUpdate</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SendEmail</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewAll</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Account_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Case_Configuration_Task__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case Configuration Task</label>
+        <referenceTo>Case_Configuration_Task__c</referenceTo>
+        <relationshipLabel>Tasks</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CompletedDateTime__c</fullName>
+        <externalId>false</externalId>
+        <label>Completed Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Copy_For_Case__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Copy For Case</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Created_Year_Month__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(year(datevalue(CreatedDate))) &amp; &quot;-&quot; &amp; if(MONTH(datevalue(CreatedDate))&gt;9,TEXT(MONTH(datevalue(CreatedDate))),&quot;0&quot; &amp; TEXT(MONTH(datevalue(CreatedDate))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Created Year-Month</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Rate</label>
+        <length>15</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Went_with_Another_Provider__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Customer Went with Another Provider</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DPA_Address__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Was Address used as a DPA question</description>
+        <externalId>false</externalId>
+        <label>DPA Address</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DPA_Broker__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DPA Not Required</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DPA_Contractual_Repayment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DPA Contractual Repayment</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DPA_Date_of_Birth__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Was Date of  Birth used as a DPA question</description>
+        <externalId>false</externalId>
+        <label>DPA Date of Birth</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DPA_Email_Address__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Was Email Address used as a DPA question</description>
+        <externalId>false</externalId>
+        <label>DPA Email Address</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DPA_Full_Name__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Was Full name used as a DPA question</description>
+        <externalId>false</externalId>
+        <label>DPA Full Name</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DPA_Member_Id__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DPA Member Id</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DPA_Memorable_Word__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DPA Memorable Word</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DPA_Passed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DPA Passed</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DPA_Postcode__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Was Postcode used as a DPA question</description>
+        <externalId>false</externalId>
+        <label>DPA Postcode</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DPA_Repayment_Amount__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DPA Monthly Repayment Amount</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DPA_Repayment_Date__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DPA Repayment Date of Month</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>First_Time_Investing_p2p__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>First Time Investing in P2P</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>How_did_you_hear_about_Zopa__c</fullName>
+        <externalId>false</externalId>
+        <label>How did you hear about Zopa?</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>true</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>Direct mail</fullName>
+                    <default>false</default>
+                    <label>Direct mail</label>
+                </value>
+                <value>
+                    <fullName>Internet search</fullName>
+                    <default>false</default>
+                    <label>Internet search</label>
+                </value>
+                <value>
+                    <fullName>Friend</fullName>
+                    <default>false</default>
+                    <label>Friend</label>
+                </value>
+                <value>
+                    <fullName>Other (add notes on next page)</fullName>
+                    <default>false</default>
+                    <label>Other (add notes on next page)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Is_This_First_Time_Investing_in_P2P2__c</fullName>
+        <externalId>false</externalId>
+        <label>Is This First Time Investing in P2P</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Yes_No_N_A</valueSetName>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Method__c</fullName>
+        <description>Task creation method in example: Task has been created manually or automatically.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Task creation method in example: Task has been created manually or automatically.</inlineHelpText>
+        <label>Method</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Automatic</fullName>
+                    <default>false</default>
+                    <label>Automatic</label>
+                </value>
+                <value>
+                    <fullName>Manual</fullName>
+                    <default>false</default>
+                    <label>Manual</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Moved_To_Underwriting__c</fullName>
+        <description>Date stamp when CP agent presses Move to Underwriting button</description>
+        <externalId>false</externalId>
+        <label>Moved To Underwriting</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>NVMContactWorld__ACD__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the ACD the call was delivered from</description>
+        <externalId>false</externalId>
+        <label>ACD</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NVMContactWorld__CW_Call_End_Time__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The time in Contact World that the call ended</description>
+        <externalId>false</externalId>
+        <label>CW Call End Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>NVMContactWorld__CW_Call_Start_Time__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The time shown in Contact World when the call first hit your call plan</description>
+        <externalId>false</externalId>
+        <label>CW Call Start Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>NVMContactWorld__CallRingTimeInSeconds__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>For Inbound, this is the time between the agent&apos;s phone ringing and the agent answering the call. For Outbound, this is the time between the customer&apos;s phone ringing and the customer answering the call. This value is rounded to the nearest second.</inlineHelpText>
+        <label>Call Ring Time (s)</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NVMContactWorld__CallTalkTimeInSeconds__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>For Inbound, this is the time the customer spent connected to an agent. For Outbound, this is the time between the customer answering their phone and the call ending. This value is rounded to the nearest second.</inlineHelpText>
+        <label>Call Talk Time (s)</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NVMContactWorld__ContactWorld_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The contact world number relating to this call.  In the case of an inbound call this would be the number dialled by the caller.  For an outbound call this would be the number presented to the person being called.</description>
+        <externalId>false</externalId>
+        <label>ContactWorld Number</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>NVMContactWorld__Customer_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The customer number.  In the case of an inbound call this will be the calling line id.  For an outbound this will be the number that the agnet has called.</description>
+        <externalId>false</externalId>
+        <label>Customer Number</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>NVMContactWorld__InteractionQuality__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Interaction Quality</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NVMContactWorld__Service_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The service name that the call came from</description>
+        <externalId>false</externalId>
+        <label>Service Name</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NVMContactWorld__Was_Call_Recorded__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Call Was Recorded</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>OutcomeCode__c</fullName>
+        <description>New voice media picklist for outbound calls</description>
+        <externalId>false</externalId>
+        <label>OutcomeCode</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Call Connect</fullName>
+                    <default>false</default>
+                    <label>Call Connect</label>
+                </value>
+                <value>
+                    <fullName>Voicemail</fullName>
+                    <default>false</default>
+                    <label>Voicemail</label>
+                </value>
+                <value>
+                    <fullName>Case Update</fullName>
+                    <default>false</default>
+                    <label>Case Update</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RCCodeStatus__c</fullName>
+        <externalId>false</externalId>
+        <label>RCCodeStatus</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Triggered</fullName>
+                    <default>false</default>
+                    <label>Triggered</label>
+                </value>
+                <value>
+                    <fullName>Aborted</fullName>
+                    <default>false</default>
+                    <label>Aborted</label>
+                </value>
+                <value>
+                    <fullName>Errored</fullName>
+                    <default>false</default>
+                    <label>Errored</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Could not Contact Reason</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Reason_for_failed_DPA__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason for failed DPA</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Review_Due_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Review Due Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ReviewedSameDay__c</fullName>
+        <description>Shows if a review was completed the same day as review due</description>
+        <externalId>false</externalId>
+        <formula>Review_Due_Date__c =  CompletedDateTime__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ReviewedSameDay</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Reviewed__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+    NOT(ISBLANK( CompletedDateTime__c )),
+    TRUE,
+    (FALSE)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Reviewed</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Task_For__c</fullName>
+        <externalId>false</externalId>
+        <label>Task For</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Case-Prep</fullName>
+                    <default>false</default>
+                    <label>Case-Prep</label>
+                </value>
+                <value>
+                    <fullName>Underwriter</fullName>
+                    <default>false</default>
+                    <label>Underwriter</label>
+                </value>
+                <value>
+                    <fullName>Fraud</fullName>
+                    <default>false</default>
+                    <label>Fraud</label>
+                </value>
+                <value>
+                    <fullName>Case Prep</fullName>
+                    <default>false</default>
+                    <label>Case Prep</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Task_description__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason for the Arrears</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Time_to_Contact__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+  AND(
+    NOT(ISBLANK(Review_Due_Date__c)),
+    NOT(ISBLANK(CompletedDateTime__c))
+  ),
+  (CompletedDateTime__c - Review_Due_Date__c)*24*60*60,
+  NULL
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Time to Contact</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Understands_Safeguard_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Understands Safeguard is not a Guarante2</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Understanding_Questions</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Understands_Safeguard_is_not_a_Guarantee__c</fullName>
+        <externalId>false</externalId>
+        <label>Understands Safeguard is not a Guarantee</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Understanding_Questions</valueSetName>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Understands_how_to_access_their_loans_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Understands how to access their loans_2</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Understanding_Questions</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Understands_how_to_access_their_loans__c</fullName>
+        <externalId>false</externalId>
+        <label>Understands how to access their loans</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Understanding_Questions</valueSetName>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Understands_lending_t_Individuals_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Understands lending to Individuals_2</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Understanding_Questions</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Understands_lending_to_Individuals__c</fullName>
+        <externalId>false</externalId>
+        <label>Understands lending to Individuals</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Understanding_Questions</valueSetName>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Understands_why_rate_might_differ2__c</fullName>
+        <externalId>false</externalId>
+        <label>Understands why rate might differ2</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Understanding_Questions</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Understands_why_rate_might_differ__c</fullName>
+        <externalId>false</externalId>
+        <label>Understands why rate might differ</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Understanding_Questions</valueSetName>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Which_Provider__c</fullName>
+        <externalId>false</externalId>
+        <label>Which Provider</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <listViews>
+        <fullName>MyActivities</fullName>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>TASK.PRIORITY</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>TASK.LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Activities</label>
+    </listViews>
+    <listViews>
+        <fullName>MyDelegatedActivities</fullName>
+        <filterScope>Delegated</filterScope>
+        <label>My Delegated Activities</label>
+    </listViews>
+    <listViews>
+        <fullName>MyTeamsActivities</fullName>
+        <filterScope>Team</filterScope>
+        <label>My Team&apos;s Activities</label>
+    </listViews>
+    <listViews>
+        <fullName>TodaysTasks</fullName>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>TASK.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>ACTIVITY.TASK</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>TASK.DUE_DATE</field>
+            <operation>lessThan</operation>
+            <value>TOMORROW</value>
+        </filters>
+        <label>Today&apos;s Tasks</label>
+    </listViews>
+    <listViews>
+        <fullName>UpcomingEvents</fullName>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>ACTIVITY.TASK</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>TASK.DUE_DATE</field>
+            <operation>greaterThan</operation>
+            <value>YESTERDAY</value>
+        </filters>
+        <label>Upcoming Events</label>
+    </listViews>
+    <searchLayouts>
+        <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.WHAT_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.DUE_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.CALLTYPE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+</CustomObject>

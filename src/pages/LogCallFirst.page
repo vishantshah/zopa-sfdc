@@ -1,0 +1,67 @@
+<apex:page controller="LogCallExtension">
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+    <apex:sectionHeader title="Log a Call" subtitle="{!CurrentCase.CaseNumber}"/>
+    <apex:includeScript value="/support/console/35.0/integration.js"/>
+    <script type="text/javascript">
+         var callback = function () {
+             if (result.error) {
+                alert("Error message is " + result.error);
+             }
+         };
+        function closeTab() {
+            if (sforce.console.isInConsole()) {
+                sforce.console.getEnclosingTabId(closeSubtab);
+            } else {
+                RedirectToCasePage();
+            }
+         }
+
+        var closeSubtab = function closeSubtab(result) {
+            var tabId = result.id;
+            sforce.console.closeTab(tabId, callback);
+        };
+    </script>
+    <style type="text/css">
+    .subjectButton {
+        font-size:200% !important;
+        background:steelblue !important;
+        height:60% !important;
+        width:35% !important;
+        border-radius: 20px!important;
+    }
+    .saveExitButton {
+        font-size:100% !important;
+        background:steelblue !important;
+        height:30% !important;
+        width:25%!important;
+        border-radius: 20px !important;
+    }
+
+    .data2Col:first-child{
+        padding-left: 20% !important;
+    }
+    </style>
+    <apex:form id="form">
+    <apex:actionfunction name="RedirectToCasePage" action="{!returnToCasePage}"/>
+        <apex:outputPanel id="PageMessages">
+            <apex:pageMessages />
+        </apex:outputPanel>
+            <apex:pageBlock mode="edit" title="">
+                <div style="padding-left: 25%;">
+                    <apex:pageBlockButtons location="Top">
+                        <apex:commandButton action="{!setInboundSubject}" value="Inbound" />
+                        <apex:commandButton action="{!setOutboundSubject}" value="Outbound" />
+                    </apex:pageBlockButtons>
+                    <apex:pageBlockSection columns="1">
+                        <apex:selectList size="1" style="text-align: center;" value="{!NewTask.Reason__c}">
+                            <apex:selectOptions value="{!TaskReasons}"/>
+                        </apex:selectList>
+                    </apex:pageBlockSection>
+                </div>
+                <apex:pageBlockButtons location="Bottom">
+                    <apex:commandButton action="{!saveAndExit}" oncomplete="closeTab();return false;" value="Save & Exit" />
+                    <apex:commandButton onclick="closeTab();return false" value="Cancel" />
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+    </apex:form>
+</apex:page>

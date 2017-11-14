@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Case Assignment rules that will be used when updating case assignments</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Case_Prep__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The Assignment rule that will be used when updating cases of type Case Prep.</inlineHelpText>
+        <label>Case Prep</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Collections__c</fullName>
+        <externalId>false</externalId>
+        <label>Collections</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Creation_Manual_Underwriting__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The Assignment rule that will be used when updating cases of type Manual Underwriting.</inlineHelpText>
+        <label>Creation Manual Underwriting</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Early_Arrears__c</fullName>
+        <externalId>false</externalId>
+        <label>Early_Arrears</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fraud__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The Assignment rule that will be used when updating cases of type Fraud.</inlineHelpText>
+        <label>Fraud</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Recoveries__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The Assignment rule that will be used when updating cases of type Recoveries.</inlineHelpText>
+        <label>Recoveries</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sensitive__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The Assignment rule that will be used when updating cases of type Sensitive.</inlineHelpText>
+        <label>Sensitive</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Team_Leader__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The Assignment rule that will be used when updating cases of type Team Leader.</inlineHelpText>
+        <label>Team Leader</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Underwriter__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The Assignment rule that will be used when updating cases of type Underwriter.</inlineHelpText>
+        <label>Underwriter</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Case Assignment Rules</label>
+    <visibility>Protected</visibility>
+</CustomObject>

@@ -1,0 +1,129 @@
+<apex:page standardController="Account" extensions="AccountViewExtension" action="{!onPageLoad}">
+    <apex:form >
+        <div id="account_banners">
+            <apex:outputPanel rendered="{!IsCustomerInArrears}" style="display: block; padding-left: 34% !important; font-size: 18pt; min-width: 100% !important; width: 100% !important;">
+                <h1>This Customer has Loan in Arrears</h1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!IsSensitive}" style="display: block; padding-left: 36% !important; font-size: 18pt; min-width: 100% !important; width: 100% !important;">
+                <h1>This is a Sensitive Customer</h1>
+            </apex:outputPanel>
+        </div>
+        <apex:detail inlineEdit="false" showChatter="true" relatedList="true"/>
+        <apex:iframe src="https://login.eloqua.com/apps/salesTools/profiler?emailAddress={!CurrentAccount.PersonEmail}"/>
+        <apex:actionFunction name="showMakeSensitivePopUpJS" action="{!showMakeSensitivePopUp}" rerender="popup" />
+        <c:ConfirmPopup id="popup" Visible="{!IsShownPopUp}" HeaderMessage="Reason for Marking as Sensitive">
+            <apex:actionStatus id="spinner">
+                <apex:facet name="stop">
+                    <apex:outputPanel >
+                        <div class="input-popup-fields-blocks">
+                            <apex:outputLabel styleClass="input-popup-big-label" value="Reason for Marking as Sensitive: " for="Sensitive_Type"/>
+                            <apex:selectList value="{!CurrentAccount.SensitiveType__c}" size="1" id="Sensitive_Type">
+                               <apex:selectOptions value="{!SensitiveType}"/>
+                            </apex:selectList>
+                        </div>
+                        <div class="input-popup-fields-blocks">
+                            <apex:outputLabel value="Customer has given consent to mark as Sensitive Case" for="Is_Sensitive"/>
+                            <apex:inputField styleClass="input-popup-fields" id="Is_Sensitive" value="{!CurrentAccount.Confirm_sensitive_with_customer__c}"/>
+                        </div>
+                        <apex:outputLabel value="You must add a note." for="Comment_to_Sensitive_Account" rendered="{!RenderedErrorMessage}" style="color: red;"/>
+                        <apex:inputField styleclass="input-popup" id="Comment_to_Sensitive_Account" value="{!CurrentAccount.Comment_to_Sensitive_Account__c}" label="Comments"/>
+                        <apex:commandButton value="Save" action="{!onClickSave}" rerender="popup" status="spinner" style="border-color: #8A9EBE; border-style: solid;border-width: 2px; width: 80px;" />
+                        <apex:commandbutton value="Cancel" action="{!hidePopup}" rerender="popup" status="spinner" style="border-color: #8A9EBE; border-style: solid;border-width: 2px; width: 80px;" />
+                    </apex:outputPanel>
+                </apex:facet>
+                <apex:facet name="start">
+                    <apex:image value="/img/loading32.gif" style="height: 15px"/>
+                </apex:facet>
+            </apex:actionStatus>
+        </c:ConfirmPopup>
+    </apex:form>
+    <script type="text/javascript">
+        function hideMakeSensitiveButton(){
+            var elements = document.getElementsByClassName('btn');
+            for(var i = 0; i < elements.length; ++i){
+                if(elements[i].name == 'mark_sensitive' || elements[i].value == 'Mark Sensitive'){
+                    elements[i].style.display = 'none';
+                }
+            }
+        }
+
+        function hideSensitiveFields(){
+            var elements = document.getElementsByClassName('labelCol');
+            for(var i = 0; i < elements.length; ++i){
+                if(elements[i].innerHTML == 'Sensitive Type' || elements[i].innerHTML == 'Comment to Sensitive Account'|| elements[i].innerHTML == 'Confirm sensitive with customer'){
+                    elements[i].parentNode.style.display = 'none';
+                }
+            }
+        }
+
+        function moveBannersAboveChatter(){
+            var chatter = document.getElementById('section_header');
+            var banner = document.getElementById('account_banners');
+            chatter.parentNode.insertBefore(banner, chatter);
+        }
+
+        function addNonStandardFieldsToDetails() {
+            var tableRef = document.getElementsByClassName('detailList')[0].getElementsByTagName('tbody')[0];
+            addNewDetailField(tableRef, 'Holding Account Balance', {!HoldingAccountBalance});
+        }
+
+        function addNewDetailField(tableRef, label, value) {
+            clearLastDetailRowStyles(tableRef);
+            var newRow = tableRef.insertRow(tableRef.rows.length);
+            var newLabelCell = newRow.insertCell(newRow.cells.length);
+            var labelText = document.createTextNode(label);
+            newLabelCell.appendChild(labelText);
+            newLabelCell.classList.add('labelCol');
+            newLabelCell.classList.add('last');
+            var newValueCell = newRow.insertCell(newRow.cells.length);
+            var valueText = document.createTextNode(value);
+            newValueCell.appendChild(valueText);
+            newValueCell.classList.add('dataCol');
+            newValueCell.classList.add('col02');
+            newValueCell.classList.add('last');
+        }
+
+        function clearLastDetailRowStyles(tableRef) {
+            var lastRow = tableRef.rows[tableRef.rows.length -1];
+            for(var i = 0; i < lastRow.cells.length; i++) {
+                lastRow.cells[i].classList.remove('last');
+            }
+        }
+
+        moveBannersAboveChatter();
+        addNonStandardFieldsToDetails();
+
+        if({!!$Permission.Mark_Customer_Sensitive} || {!Account.Is_Sensitive__c}){
+            hideMakeSensitiveButton();
+        }
+
+        if({!!Account.Is_Sensitive__c}){
+            hideSensitiveFields();
+        }
+    </script>
+    <style type="text/css">
+        .input-popup {
+            display: block;
+            margin-left: 100px;
+            max-width: 500px;
+            width: 500px;
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
+
+        .input-popup-fields {
+            margin-left: 10px;
+        }
+
+        .input-popup-fields-blocks {
+            display: block;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .input-popup-big-label {
+            font-size: 14pt;
+            font-weight: bold;
+        }
+    </style>
+</apex:page>

@@ -1,0 +1,59 @@
+<apex:page controller="BulkCaseProcessingController">
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+    <apex:sectionHeader title="Bulk Case Processing"/>
+    <apex:pageMessage rendered="{!!$Permission.Case_Bulk_Approve_Loan || !IsZopa37IsEnabled}" summary="You don't have permissions to view this page."
+    severity="FATAL" strength="2"/>
+    <apex:form id="form" rendered="{!$Permission.Case_Bulk_Approve_Loan && IsZopa37IsEnabled}">
+        <apex:pageMessages />
+        <apex:pageBlock >
+            <apex:pageBlockButtons location="Top">
+                <apex:commandButton action="{!showBulkApprovePopup}" value="Bulk Approve" reRender="form"/>
+                <apex:commandButton action="{!showBulkMoveToCasePrepPopup}" value="Move To Case-Prep" reRender="form"/>
+                <apex:commandButton action="{!showBulkMoveToUnderwriterPopup}" value="Move To Underwriter" reRender="form"/>
+                <apex:commandButton action="{!showBulkMoveToFraudPopup}" value="Move To Fraud" reRender="form"/>
+                <apex:commandbutton action="{!showApproveLoanAndWaiveQuickPayPopup}" value="Approve and Waive Quickpay" rerender="form" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable id="table" value="{!WrappedCases}" var="wrapped_case" rendered="{!WrappedCases.size > 0}">
+                <apex:column style="width:23px;">
+                    <apex:facet name="header">
+                        <apex:inputcheckbox value="{!SelectAll}">
+                            <apex:actionsupport action="{!selectDeselectAllAction}" event="onchange" rerender="table"/>
+                        </apex:inputcheckbox>
+                    </apex:facet>
+                    <apex:inputCheckbox value="{!wrapped_case.Selected}"/>
+                </apex:column>
+                <apex:column headerValue="Case Number">
+                    <apex:outputLink value="/{!wrapped_case.CaseRecord.Id}">{!wrapped_case.CaseRecord.CaseNumber}</apex:outputLink>
+                </apex:column>
+                <apex:column headerValue="Customer Name">
+                    <apex:outputField value="{!wrapped_case.CaseRecord.Loan_Application__r.Customer_Account__r.Name}"/>
+                </apex:column>
+                <apex:column headerValue="Underwriter">
+                    <apex:outputField value="{!wrapped_case.CaseRecord.Initial_Underwriter__r.Name}"/>
+                </apex:column>
+                <apex:repeat value="{!FieldSet}" var="field_to_show">
+                    <apex:column value="{!wrapped_case.CaseRecord[field_to_show]}"/>
+                </apex:repeat>
+            </apex:pageBlockTable>
+            <apex:outputText value="No records to display" rendered="{!WrappedCases.size == 0}"/>
+        </apex:pageBlock>
+        <c:ConfirmPopup id="popup" Visible="{!CurrentProcess!=null}" HeaderMessage="{!PopupMessagesMap[CurrentProcess]}">
+            <apex:actionStatus id="spinner">
+                <apex:facet name="stop">
+                    <apex:outputPanel >
+                        <apex:commandButton value="Confirm" action="{!confirmAction}" rerender="form" status="spinner" style="border-color: #8A9EBE; border-style: solid;border-width: 2px; width: 80px;" />
+                        <apex:commandbutton value="Cancel" action="{!hidePopup}" rerender="popup" status="spinner" style="border-color: #8A9EBE; border-style: solid;border-width: 2px; width: 80px;" />
+                    </apex:outputPanel>
+                </apex:facet>
+                <apex:facet name="start">
+                    <apex:image value="/img/loading32.gif" style="height: 15px"/>
+                </apex:facet>
+            </apex:actionStatus>
+            <apex:actionFunction name="makeLockCases" action="{!lockCases}" reRender="emptyPanel"/>
+            <apex:outputPanel id="emptyPanel"></apex:outputPanel>
+            <script type="text/javascript">
+                makeLockCases();
+            </script>
+        </c:ConfirmPopup>
+    </apex:form>
+</apex:page>

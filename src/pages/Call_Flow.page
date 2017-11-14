@@ -1,0 +1,3 @@
+<apex:page standardController="Account">
+<flow:interview name="Telephone2" finishLocation="{!URLFOR('/home/home.jsp')}"/>
+</apex:page>

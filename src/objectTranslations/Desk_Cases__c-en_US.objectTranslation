@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Desk Case</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Desk Cases</value>
+    </caseValues>
+    <fields>
+        <label><!-- From --></label>
+        <name>From__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Mbr_id__c</name>
+        <relationshipLabel><!-- Desk Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Subject --></label>
+        <name>Subject__c</name>
+    </fields>
+    <fields>
+        <label><!-- mbr_email --></label>
+        <name>mbr_email__c</name>
+    </fields>
+    <fields>
+        <label><!-- mbr_pk --></label>
+        <name>mbr_pk__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ticket Id temp --></label>
+        <name>ticket_id_temp__c</name>
+        <relationshipLabel><!-- Desk Cases --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

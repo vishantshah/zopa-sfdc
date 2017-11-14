@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Quality Assurance Collections Report</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Quality Assurance Collections Reports</value>
+    </caseValues>
+    <fields>
+        <label><!-- 1. Comments --></label>
+        <name>X1_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 1. Agent mentioned company, dept, name --></label>
+        <name>X1_Greeting_Company_Name_UW_Name__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 2. Comments --></label>
+        <name>X2_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 2. Asked how they could help --></label>
+        <name>X2_Convenient_to_continue_question__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 3. Comments --></label>
+        <name>X3_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was Data Protection Policy adhered to? 3 or more security questions. E.g. Full name, DOB, email address, postcode. --></help>
+        <label><!-- 3. Data Protection policy adhered to? --></label>
+        <name>X3_Security_ID_checks_as_per_policy__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 4. Comments --></label>
+        <name>X4_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- ACCOUNT INFORMATION: Did the agent check customer details and any relevant previous notes to ensure up to date? --></help>
+        <label><!-- 4. ACCOUNT INFO: Checked details/notes --></label>
+        <name>X4_Reason_for_Call__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- REPAYMENT METHODS: Were different repayment methods offered to customer where possible and were necessary direct debit details discussed and confirmed correctly if one is not in place? --></help>
+        <label><!-- 5. REASON FOR MISSED PAYMENT --></label>
+        <name>X5_Call_closed_if_ID_Checks_failed__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 5. Comments --></label>
+        <name>X5_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 6. Comments --></label>
+        <name>X6_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- FURTHER PROBING: Did the agent ask sufficient questions to understand the customer&apos;s financial situation? --></help>
+        <label><!-- 6.FURTHER PROBING: Sufficient Questions --></label>
+        <name>X6_FURTHER_PROBING__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 7. ARREARS BALANCE: Customer Informed? --></label>
+        <name>X7_ARREARS_BALANCE__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 7. Comments --></label>
+        <name>X7_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 8. Comments --></label>
+        <name>X8_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- REPAYMENT METHODS: Were different repayment methods offered to customer where possible and were necessary direct debit details discussed and confirmed correctly if one is not in place?? --></help>
+        <label><!-- 8. REPAYMENT METHODS: Options Offered? --></label>
+        <name>X8_REPAYMENT_METHODS__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- CONSEQUENCES: Did the agent advise of possible effect to credit file due to missing payments? --></help>
+        <label><!-- 9. CONSEQUENCES: Effect to Credit File? --></label>
+        <name>X9_CONSEQUENCES__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 9. Comments --></label>
+        <name>X9_Comments__c</name>
+    </fields>
+    <layouts>
+        <layout>Approved Report</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Cancellation Report</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>CiFAS Report</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Decline Report</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Approved Scorecard --></label>
+        <name>Approved_Scorecard</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Call Quality Scorecard --></label>
+        <name>Call_Quality_Scorecard</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Cancellation Case Scorecard --></label>
+        <name>Cancellation_Case_Scorecard</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CiFAS Scorecard --></label>
+        <name>CiFAS_Scorecard</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Decline Scorecard --></label>
+        <name>Decline_Scorecard</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Zopa Api Command</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Zopa Api Commands</value>
+    </caseValues>
+    <fields>
+        <label><!-- Http Method --></label>
+        <name>Http_Method__c</name>
+        <picklistValues>
+            <masterLabel>GET</masterLabel>
+            <translation><!-- GET --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>POST</masterLabel>
+            <translation><!-- POST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PUT</masterLabel>
+            <translation><!-- PUT --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- IsCollectionsCommand --></label>
+        <name>IsCollectionsCommand__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name of the mock class --></label>
+        <name>Name_of_the_mock_class__c</name>
+    </fields>
+    <fields>
+        <label><!-- Url Mapping Contains Letter Id --></label>
+        <name>Url_Mapping_Contains_Letter_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Url Mapping Contains Letter Send Method --></label>
+        <name>Url_Mapping_Contains_Letter_Send_Method__c</name>
+    </fields>
+    <fields>
+        <label><!-- Url Mapping Contains Template Name --></label>
+        <name>Url_Mapping_Contains_Template_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Url Mapping Contains Uuid --></label>
+        <name>Url_Mapping_Contains_Uuid__c</name>
+    </fields>
+    <fields>
+        <label><!-- Url Mapping --></label>
+        <name>Url_Mapping__c</name>
+    </fields>
+    <layouts>
+        <layout>Zopa Api Command Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

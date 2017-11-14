@@ -1,0 +1,22 @@
+<apex:component controller="ElectoralRollAddressesViewController">
+    <apex:attribute name="LoanApplicationId" type="String" required="true" assignTo="{!LoanAppId}" description="Id of related Loan Application"/>
+    <apex:form id="form" rendered="{!$Permission.Loan_View_Electoral_Roll_Details && IsZopa147IsEnabled}">
+        <c:LazyLoadSpinner ActionToPerform="{!getElectoralRollAddressInformation}" ShowSpinner="false">
+            <apex:pageBlock title="Electoral Roll" rendered="{!(ElectoralRollAddressList != null && ElectoralRollAddressList.size > 0) || ErrorOnLoad != null}">
+                <apex:pageMessage summary="{!ErrorOnLoad}" severity="FATAL" strength="2" rendered="{!ErrorOnLoad != null}" title="Error:"/>
+                <apex:repeat value="{!ElectoralRollAddressList}" var="era">
+                    <apex:pageBlockSection collapsible="false" columns="1" title="{!era.Address}">
+                        <apex:outputText value="{!era.ElectoralRollAddressItemsNumber} Electoral roll(s) found for this address"/>
+                        <apex:pageBlockTable value="{!era.ElectoralRollAddressItems}" var="era_item" rendered="{!era.HasElectoralRollAddressItems}">
+                            <apex:column headerValue="Voter Name" value="{!era_item.VotersName}"/>
+                            <apex:column headerValue="Period" value="{!era_item.Period}"/>
+                            <apex:column headerValue="Is Applicant">
+                                <apex:inputCheckbox value="{!era_item.IsApplicant}" disabled="true"/>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                    </apex:pageBlockSection>
+                </apex:repeat>
+            </apex:pageBlock>
+        </c:LazyLoadSpinner>
+    </apex:form>
+</apex:component>

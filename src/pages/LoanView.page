@@ -1,0 +1,201 @@
+<apex:page standardController="Loan__c" extensions="LoanViewExtension">
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+    <apex:includeScript value="/support/console/38.0/integration.js"/>
+    <script type="text/javascript">
+        var is_page_ready_to_refresh = {!IsPageReadyToRefresh};
+
+        function setupDirectDebit() {
+            var direct_debit_page = '{!URLFOR("/apex/DirectDebit?loanId="+CurrentLoan.Id)}';
+            openPageInSubtab(direct_debit_page, "New Payment");
+        }
+
+        function openPageInSubtab(url, tab_name) {
+            if (sforce.console.isInConsole()) {
+                var openConcreteSubTab = function (primaryTab, url, tab_name) {
+                    sforce.console.openSubtab(primaryTab.id, url, true, tab_name);
+                }
+
+                sforce.console.getEnclosingPrimaryTabId(function (primaryTab) {
+                    openConcreteSubTab(primaryTab, url, tab_name)
+                });
+            } else {
+                window.top.location = url;
+            }
+        }
+
+        function openManagePaymentPlan() {
+            var manage_payment_plan_page = '{!URLFOR("/apex/ManagePaymentPlan")}';
+            manage_payment_plan_page += sforce.console.isInConsole() ? '&' : '?';
+            manage_payment_plan_page += 'loan_id=' + '{!CurrentLoan.Id}';
+            manage_payment_plan_page += getCaseIdParam();
+            manage_payment_plan_page += '&from_id=' + '{!CurrentLoan.Id}';
+            manage_payment_plan_page += '&back_page=' + 'LoanView';
+            openPageInSubtab(manage_payment_plan_page, "Manage Payment Plan");
+        }
+
+        function getCaseIdParam() {
+            if({!IsRelatedCaseExist}) {
+                return '&case_id=' + '{!RelatedCase.Id}'
+            }
+            return '';
+        }
+
+        function sendLetter() {
+            var letter_page = '{!URLFOR("/apex/SendLetter?id=" + CurrentLoan.Id)}';
+            openPageInSubtab(letter_page, "Send a Letter");
+        }
+
+        function refreshPageWhenItIsReady() {
+            if(is_page_ready_to_refresh == true) {
+                refreshPage();
+            }
+        }
+
+        function refreshPage() {
+            if (sforce.console.isInConsole()) {
+                window.top.location = '/console';
+            } else {
+                var current_page_url = '{!URLFOR("/apex/LoanView?id=" + CurrentLoan.Id)}';
+                window.top.location = current_page_url;
+            }
+        }
+    </script>
+    <apex:sectionHeader title="Loan" subtitle="{!CurrentLoan.Name}"/>
+    <chatter:feedWithFollowers entityId="{!CurrentLoan.id}"/>
+    <apex:form id="form">
+        <apex:outputPanel id="PageMessages">
+            <apex:pageMessages />
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!IsCustomerInArrears}" style="font-size: 18pt; min-width: 100% !important; width: 100% !important;">
+            <div align="center" draggable="false" >
+                <h1>This Loan is in Arrears</h1>
+            </div>
+        </apex:outputPanel>
+        <apex:outputPanel id="ImportantNotes" style="min-width: 100% !important; width: 100% !important;" rendered="{!IsZcp98IsEnabled}">
+            <div align="center" draggable="false" >
+                <apex:outputText value="Important Notes" style="font-size: 14pt; margin: 0 auto !important"/>
+            </div>
+            <apex:inputTextarea rows="5" html-maxlength="3000" readonly="{!NOT(IsCollectionsNotesInEditMode)}" value="{!CurrentLoan.Collections_Notes__c}" style="width: 100%; font-size: 130%; font-weight: bold; resize: vertical;"/>
+            <div align="center" draggable="false" >
+                <apex:commandbutton action="{!enableEditModeForCollectionsNotes}" value="Edit" rendered="{!!IsCollectionsNotesInEditMode && $Permission.Loan_Edit_Collections_Notes}" reRender="ImportantNotes"/>
+                <apex:commandbutton action="{!saveCollectionsNotes}" value="Save" rendered="{!IsCollectionsNotesInEditMode}" reRender="ImportantNotes"/>
+            </div>
+        </apex:outputPanel>
+        <apex:pageblock mode="maindetail">
+            <apex:pageBlockButtons location="Top">
+                <apex:outputPanel id="manage_buttons">
+                    <apex:commandbutton value="Send a Letter"
+                                        onclick="sendLetter();return false;"
+                                        rendered="{!$Permission.Send_Letters}"/>
+                    <apex:commandbutton value="Setup Direct Debit"
+                                        oncomplete="setupDirectDebit()"
+                                        rendered="{!$Permission.Loan_Setup_Direct_Debit_Button}"/>
+                    <apex:commandbutton value="Make Default"
+                                        action="{!showMakeDefaultPopup}"
+                                        reRender="popup"
+                                        rendered="{!IsMakeDefaultButtonAvailable}"/>
+                    <apex:commandButton value="Set as Deceased"
+                                        action="{!showConfirmDeceasedPopup}"
+                                        reRender="popup"
+                                        rendered="{!IsZcp105IsEnabled}"/>
+                    <apex:commandButton value="Set as Collections"
+                                        action="{!showConfirmCollectionsPopup}"
+                                        reRender="popup"
+                                        rendered="{!IsTheConfirmCollectionsButtonAvailable}"/>
+                    <apex:commandButton value="Set as Withdrawn"
+                                        action="{!showSetWithdrawnPopup}"
+                                        reRender="popup"
+                                        rendered="{!ShownManualSetWithdrawn}"/>
+                    <apex:commandButton value="Manage Payment Plan"
+                                        oncomplete="openManagePaymentPlan();"
+                                        rendered="{!$Permission.Loan_Manage_Payment_Plan && IsManagePaymentPlanVisible}"/>
+                    <apex:commandButton value="Assign to DCA"
+                                        action="{!showAssignDcaPopup}"
+                                        reRender="popup, PageMessages"
+                                        rendered="{!$Permission.Assign_and_Unassign_to_DCA_buttons && IsAssignToDcaButtonAvailable}"/>
+                    <apex:commandButton value="Recall from DCA"
+                                        action="{!showRecallDcaPopup}"
+                                        reRender="popup"
+                                        rendered="{!$Permission.Assign_and_Unassign_to_DCA_buttons && IsUnassignToDcaButtonAvailable}"/>
+                    <apex:commandButton value="Assign to DMC"
+                                        action="{!showAssignDmcPopup}"
+                                        reRender="popup"
+                                        rendered="{!IsAssignToDmcButtonAvailable}"/>
+                    <apex:commandButton value="Recall from DMC"
+                                        action="{!showRecallDmcPopup}"
+                                        reRender="popup"
+                                        rendered="{!IsRecallFromDmcButtonAvailable}"/>
+                    <apex:commandButton value="Create Collections & Recoveries Case"
+                                        action="{!showCreateCollectionsAndRecoveriesCasePopup}"
+                                        reRender="popup"
+                                        rendered="{!IsCreateCollectionsAndRecoveriesCaseButtonAvailable}"/>
+                </apex:outputPanel>
+            </apex:pageBlockButtons>
+        </apex:pageblock>
+        <div style="margin: 15px 0">
+            <c:ConfirmPopup id="popup" Visible="{!CurrentProcess!=null}" HeaderMessage="{!POPUP_MESSAGES_MAP[CurrentProcess]}">
+                <apex:actionStatus id="spinner">
+                    <apex:facet name="stop">
+                        <apex:outputPanel >
+                            <apex:outputPanel rendered="{!IsDefaultAction}">
+                                <apex:outputLabel value="Please select Default Reason " for="DefaultReason"/>
+                                <apex:inputField value="{!CurrentLoan.Default_Reason__c}" id="DefaultReason" />
+                                <br /><br />
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!IsPicklistDcaAccountsVisible}">
+                                <apex:outputLabel value="Please select DCA " for="AccountDCA"/>
+                                <apex:selectList size="1" style="text-align: center;" id="AccountDCA" value="{!AccountDcaId}">
+                                    <apex:selectOptions value="{!AccountsDca}"/>
+                                </apex:selectList>
+                                <br /><br />
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!IsPicklistDmcAccountsVisible}">
+                                <apex:outputLabel value="Please select DMC " for="AccountDMC"/>
+                                <apex:selectList size="1" style="text-align: center;" id="AccountDMC" value="{!AccountDmcId}">
+                                    <apex:selectOptions value="{!AccountsDmc}"/>
+                                </apex:selectList>
+                                <br/><br/>
+                            </apex:outputPanel>
+                            <apex:commandbutton value="Confirm"
+                                                action="{!confirmAction}"
+                                                rerender="popup, manage_buttons, loan_state_listener, PageMessages, RelatedCases, ActivityHistories"
+                                                status="spinner"
+                                                style="border-color: #8A9EBE; border-style: solid;border-width: 2px; width: 80px;" />
+                            <apex:commandbutton value="Cancel"
+                                                action="{!hidePopup}"
+                                                rerender="popup"
+                                                status="spinner"
+                                                style="border-color: #8A9EBE; border-style: solid;border-width: 2px; width: 80px;" />
+                        </apex:outputPanel>
+                    </apex:facet>
+                    <apex:facet name="start">
+                        <apex:image value="/img/loading32.gif" style="height: 15px"/>
+                    </apex:facet>
+                </apex:actionStatus>
+            </c:ConfirmPopup>
+            <c:LoanDetailsView Loan_Id="{!Loan__c.Id}"/>
+            <c:LoanViewBankDetails Loan_Id="{!Loan__c.Id}"/>
+            <c:LoanPaymentHistory Loan_Id="{!CurrentLoan.Loan_Id__c}"/>
+            <c:LoanLitigationDetails Loan_Id="{!Loan__c.Id}" Loan_Status="{!Loan__c.State__c}" Loan_uuid="{!CurrentLoan.Loan_Id__c}"/>
+            <c:LoanNotes Loan_Id="{!Loan__c.Id}"/>
+            <c:PaymentPlanHistory Loan_Uuid="{!Loan__c.Loan_Id__c}"/>
+            <c:SetConsoleTabTitle title="{!'Loan:' +Loan__c.Name}" iconurl="{!$Resource.icon_loan_16}" />
+        </div>
+        <apex:actionPoller action="{!checkIfLoanStateChanged}"
+                onComplete="refreshPageWhenItIsReady()"
+                reRender="loan_state_listener_panel"
+                enabled="{!IsLoanStateListenerEnabled}"
+                id="loan_state_listener"
+                interval="10"
+                timeout="60000"
+        />
+        <apex:outputPanel id="loan_state_listener_panel">
+            <script type="text/javascript">
+                is_page_ready_to_refresh = {!IsPageReadyToRefresh};
+            </script>
+        </apex:outputPanel>
+    </apex:form>
+    <apex:relatedList list="Cases__r" id="RelatedCases"/>
+    <apex:relatedList list="OpenActivities" />
+    <apex:relatedList list="ActivityHistories" id="ActivityHistories"/>
+</apex:page>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Desk Case Email</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Desk Case Emails</value>
+    </caseValues>
+    <fields>
+        <label><!-- bcc --></label>
+        <name>bcc__c</name>
+    </fields>
+    <fields>
+        <label><!-- body --></label>
+        <name>body__c</name>
+    </fields>
+    <fields>
+        <label><!-- cc --></label>
+        <name>cc__c</name>
+    </fields>
+    <fields>
+        <label><!-- created at --></label>
+        <name>created_at__c</name>
+    </fields>
+    <fields>
+        <label><!-- from --></label>
+        <name>from__c</name>
+    </fields>
+    <fields>
+        <label><!-- id --></label>
+        <name>id__c</name>
+    </fields>
+    <fields>
+        <label><!-- interaction_direction --></label>
+        <name>interaction_direction__c</name>
+    </fields>
+    <fields>
+        <label><!-- interaction status --></label>
+        <name>interaction_status__c</name>
+    </fields>
+    <fields>
+        <label><!-- reply to --></label>
+        <name>reply_to__c</name>
+    </fields>
+    <fields>
+        <label><!-- sent at --></label>
+        <name>sent_at__c</name>
+    </fields>
+    <fields>
+        <label><!-- subject --></label>
+        <name>subject__c</name>
+    </fields>
+    <fields>
+        <label><!-- ticket_id --></label>
+        <name>ticket_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- to --></label>
+        <name>to__c</name>
+    </fields>
+    <fields>
+        <label><!-- updated at --></label>
+        <name>updated_at__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

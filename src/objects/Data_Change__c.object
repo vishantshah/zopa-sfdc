@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A data change details an update to production data</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Additional_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional Notes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Approved__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Approved</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Case_Reference__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case Reference</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Data Changes</relationshipLabel>
+        <relationshipName>Data_Changes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Admin User Setup</fullName>
+                    <default>false</default>
+                    <label>Admin User Setup</label>
+                </value>
+                <value>
+                    <fullName>Cancelled Declined Loan</fullName>
+                    <default>false</default>
+                    <label>Cancelled Declined Loan</label>
+                </value>
+                <value>
+                    <fullName>Code Development</fullName>
+                    <default>false</default>
+                    <label>Code Development</label>
+                </value>
+                <value>
+                    <fullName>Comments</fullName>
+                    <default>false</default>
+                    <label>Comments</label>
+                </value>
+                <value>
+                    <fullName>DB Schema or Code Changes</fullName>
+                    <default>false</default>
+                    <label>DB Schema or Code Changes</label>
+                </value>
+                <value>
+                    <fullName>Loan Transfer</fullName>
+                    <default>false</default>
+                    <label>Loan Transfer</label>
+                </value>
+                <value>
+                    <fullName>Member Details</fullName>
+                    <default>false</default>
+                    <label>Member Details</label>
+                </value>
+                <value>
+                    <fullName>Money transfers</fullName>
+                    <default>false</default>
+                    <label>Money transfers</label>
+                </value>
+                <value>
+                    <fullName>Process Failures</fullName>
+                    <default>false</default>
+                    <label>Process Failures</label>
+                </value>
+                <value>
+                    <fullName>Rapid Returns</fullName>
+                    <default>false</default>
+                    <label>Rapid Returns</label>
+                </value>
+                <value>
+                    <fullName>Remove Repayments</fullName>
+                    <default>false</default>
+                    <label>Remove Repayments</label>
+                </value>
+                <value>
+                    <fullName>Salary Finance</fullName>
+                    <default>false</default>
+                    <label>Salary Finance</label>
+                </value>
+                <value>
+                    <fullName>Staff Bonus</fullName>
+                    <default>false</default>
+                    <label>Staff Bonus</label>
+                </value>
+                <value>
+                    <fullName>Bad Debt Estimate Table Updates</fullName>
+                    <default>false</default>
+                    <label>Bad Debt Estimate Table Updates</label>
+                </value>
+                <value>
+                    <fullName>Insert Fraud Record</fullName>
+                    <default>false</default>
+                    <label>Insert Fraud Record</label>
+                </value>
+                <value>
+                    <fullName>Change Admin Role for User</fullName>
+                    <default>false</default>
+                    <label>Change Admin Role for User</label>
+                </value>
+                <value>
+                    <fullName>Prevent DD for Sortcode</fullName>
+                    <default>false</default>
+                    <label>Prevent DD for Sortcode</label>
+                </value>
+                <value>
+                    <fullName>MGM</fullName>
+                    <default>false</default>
+                    <label>MGM</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Routine Changes (e.g. MGM, Staff bonus, Fraud table)</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Routine Changes (e.g. MGM, Staff bonus, Fraud table)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Change_Summary__c</fullName>
+        <externalId>false</externalId>
+        <label>Change Summary</label>
+        <length>254</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date_Implemented__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Implemented</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Denied__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Denied</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Incident_Reference__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Incident Reference</label>
+        <referenceTo>Incident__c</referenceTo>
+        <relationshipLabel>Data Changes</relationshipLabel>
+        <relationshipName>Data_Changes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Open_Year_Month__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(year(datevalue(CreatedDate))) &amp; &quot;-&quot; &amp; if(MONTH(datevalue(CreatedDate))&gt;9,TEXT(MONTH(datevalue(CreatedDate))),&quot;0&quot; &amp; TEXT(MONTH(datevalue(CreatedDate))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Open Year-Month</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rows_Affected__c</fullName>
+        <externalId>false</externalId>
+        <label>Rows Affected</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQL_Transaction__c</fullName>
+        <externalId>false</externalId>
+        <label>SQL Transaction</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>20</visibleLines>
+    </fields>
+    <label>Data Change</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Change_Summary__c</columns>
+        <columns>Date_Implemented__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Date_Implemented__c</field>
+            <operation>equals</operation>
+            <value>LAST_N_DAYS:7</value>
+        </filters>
+        <label>Data Changes Last 7 Days</label>
+    </listViews>
+    <listViews>
+        <fullName>Data_changes_All</fullName>
+        <columns>NAME</columns>
+        <columns>Change_Summary__c</columns>
+        <columns>Date_Implemented__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>Data Changes ALL</label>
+    </listViews>
+    <listViews>
+        <fullName>NEW_Data_Changes</fullName>
+        <columns>NAME</columns>
+        <columns>Change_Summary__c</columns>
+        <columns>Category__c</columns>
+        <columns>Date_Implemented__c</columns>
+        <columns>Approved__c</columns>
+        <columns>Denied__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>NEW Data Changes</label>
+    </listViews>
+    <listViews>
+        <fullName>NEW_Data_Changes_Last_7_Days</fullName>
+        <columns>NAME</columns>
+        <columns>Change_Summary__c</columns>
+        <columns>Category__c</columns>
+        <columns>Date_Implemented__c</columns>
+        <columns>Approved__c</columns>
+        <columns>Denied__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>LAST_N_DAYS:7</value>
+        </filters>
+        <label>NEW Data Changes Last 7 Days</label>
+    </listViews>
+    <nameField>
+        <displayFormat>DC-{0000}</displayFormat>
+        <label>Data Change</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Data Changes</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Approval_by_Different_Person</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( ISCHANGED( Approved__c ), CreatedById =   $User.Id )</errorConditionFormula>
+        <errorMessage>You cannot approve your own change</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Case_Missing</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISBLANK( Case_Reference__c )</errorConditionFormula>
+        <errorMessage>You must include a case when creating a Data Change</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

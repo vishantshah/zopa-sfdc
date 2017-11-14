@@ -1,0 +1,1044 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Quality Assurance Report</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Quality Assurance Reports</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Quality Assurance Reports --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- DID AGENT OBTAIN CONSENT FROM CUSTOMER TO MAKE A CHANGE TO PERSONAL DATA. E.g address, bank details etc --></help>
+        <label><!-- Agent got consent to change Personal Inf --></label>
+        <name>Agent_got_consent_to_change_Personal_Inf__c</name>
+    </fields>
+    <fields>
+        <label><!-- Borrower/Lender --></label>
+        <name>Borrower_Lender__c</name>
+        <picklistValues>
+            <masterLabel>Borrower</masterLabel>
+            <translation><!-- Borrower --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lender</masterLabel>
+            <translation><!-- Lender --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Call Percent --></label>
+        <name>Call_Percent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Score --></label>
+        <name>Call_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Owner --></label>
+        <name>Case_Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Quality Assurance Reports --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Client Development Call Percent --></label>
+        <name>Client_Development_Call_Percent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Development Call Score --></label>
+        <name>Client_Development_Call_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- Compliance Status --></label>
+        <name>Compliance_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date and Time of Call --></label>
+        <name>Date_and_Time_of_Call__c</name>
+    </fields>
+    <fields>
+        <label><!-- 3. Did the agent confirm callers name --></label>
+        <name>Did_the_agent_confirm_callers_name__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 2. Did the agent mention his/her name --></label>
+        <name>Did_the_agent_mention_his_her_name__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Email Percent --></label>
+        <name>Email_Percent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Score --></label>
+        <name>Email_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Percent --></label>
+        <name>Final_Percent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Open Year-Month --></label>
+        <name>Open_Year_Month__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requested changes made accurately --></label>
+        <name>Requested_changes_made_accurately__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Quality Assurance Reports --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Did the agent go the extra mile and deliver excellent customer service? --></help>
+        <label><!-- 10. Comments --></label>
+        <name>X10_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the agent go the extra mile and deliver excellent customer service? --></help>
+        <label><!-- 10. Goes the extra mile to deliver --></label>
+        <name>X10_Customer_Experience_Extra_Mile__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 10. Was the customer pleased --></label>
+        <name>X10_Was_the_customer_pleased__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 11. Agent offered best solution --></label>
+        <name>X11_Agent_offered_best_solution__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Uses correct grammar, spelling and phrasing --></help>
+        <label><!-- 11. Comments --></label>
+        <name>X11_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Uses correct grammar, spelling and phrasing --></help>
+        <label><!-- 11. Uses correct grammar and spelling --></label>
+        <name>X11_Customer_Experience_Grammar_etc__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 12. Agent Answered Questions Correctly --></label>
+        <name>X12_Agent_Answered_Questions_Correctly__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Uses positive, professional language and appropriate tone throughout. Avoids jargon and company specific 
+terms. Uses Full Company Name throughout --></help>
+        <label><!-- 12. Comments --></label>
+        <name>X12_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Uses positive, professional language and appropriate tone throughout. Avoids jargon and company specific 
+terms. Uses Full Company Name throughout --></help>
+        <label><!-- 12. Customer Experience - Language --></label>
+        <name>X12_Customer_Experience_Language__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 13. Agent avoided giving finance advice --></label>
+        <name>X13_Agent_avoided_giving_finance_advice__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Provides rationale behind why we require certain information? --></help>
+        <label><!-- 13. Comments --></label>
+        <name>X13_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provides rationale behind why we require certain information? --></help>
+        <label><!-- 13. Customer Experience - Rationale --></label>
+        <name>X13_Customer_Experience_Rationale__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 14. Agent displayed active listening --></label>
+        <name>X14_Agent_displayed_active_listening__c</name>
+    </fields>
+    <fields>
+        <label><!-- 14. Agent used correct on hold procedure --></label>
+        <name>X14_Agent_used_correct_on_hold_procedure__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Did we explain how to do this online in future? --></help>
+        <label><!-- 14. Comments --></label>
+        <name>X14_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did we explain how to do this online in future? --></help>
+        <label><!-- 14. Customer Experience - Future Solutio --></label>
+        <name>X14_Customer_Experience_Future_Solutio__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Was the email compliant? --></help>
+        <label><!-- 15. Comments --></label>
+        <name>X15_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the email compliant? --></help>
+        <label><!-- 15. Compliance --></label>
+        <name>X15_Compliance__c</name>
+        <picklistValues>
+            <masterLabel>Fail</masterLabel>
+            <translation><!-- Fail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pass</masterLabel>
+            <translation><!-- Pass --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 15. Correct call transfer used --></label>
+        <name>X15_Correct_call_transfer_used__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 16. Agent offered further assistance --></label>
+        <name>X16_Agent_offered_further_assistance__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 16. Comments --></label>
+        <name>X16_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 17. Agent closed call appropriately --></label>
+        <name>X17_Agent_closed_call_appropriately__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 17. Comments --></label>
+        <name>X17_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 18. Agent avoided interrupting customer --></label>
+        <name>X18_Agent_avoided__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 18. Comments --></label>
+        <name>X18_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 19. Agent displayed professional manner --></label>
+        <name>X19_Agent_displayed_professional_manner__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 19. Comments --></label>
+        <name>X19_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 1. Agent mentioned the company name --></label>
+        <name>X1_Agent_mentioned_the_company_name__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Doesn&apos;t send/discuss details about the account to an unauthorised person or replies to the incorrect e-mail address --></help>
+        <label><!-- 1. Comments --></label>
+        <name>X1_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Doesn&apos;t send details about the account to an unauthorised person or replies to the incorrect e-mail address --></help>
+        <label><!-- 1. Doesn&apos;t send unauthorised information --></label>
+        <name>X1_Data_Protection_Unauthorised_Sending__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 20. Agent was clear and confident --></label>
+        <name>X20_Agent_was_clear_and_confident__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 20. Comments --></label>
+        <name>X20_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 21. Agent sounded friendly/polite --></label>
+        <name>X21_Agent_sounded_friendly_polite__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 21. Comments --></label>
+        <name>X21_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 22. Agent communicated correct attitude --></label>
+        <name>X22_Agent_communicated_correct_attitude__c</name>
+        <picklistValues>
+            <masterLabel>Fail</masterLabel>
+            <translation><!-- Fail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pass</masterLabel>
+            <translation><!-- Pass --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 22. Agent used effective questioning --></label>
+        <name>X22_Agent_used_effective_questioning__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 22. Comments --></label>
+        <name>X22_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 23. Comments --></label>
+        <name>X23_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 23. Was the call compliant --></label>
+        <name>X23_Was_the_call_compliant__c</name>
+        <picklistValues>
+            <masterLabel>Fail</masterLabel>
+            <translation><!-- Fail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pass</masterLabel>
+            <translation><!-- Pass --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 24. Agent added relevant notes to admin --></label>
+        <name>X24_Agent_added_relevant_notes_to_admin__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 24. Comments --></label>
+        <name>X24_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Uses the correct greeting with the customers name --></help>
+        <label><!-- 2. Comments --></label>
+        <name>X2_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Uses the correct greeting with the customers name --></help>
+        <label><!-- 2. Correct Greeting Used --></label>
+        <name>X2_Greeting_Correct_Greeting_Used__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 3. Asked contact earliest convenenience --></label>
+        <name>X3_Asked_contact_earliest_convenenience__c</name>
+    </fields>
+    <fields>
+        <help><!-- Thanks the customer for his/her email --></help>
+        <label><!-- 3. Comments --></label>
+        <name>X3_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Thanks the customer for his/her e-mail --></help>
+        <label><!-- 3. Thanks for email --></label>
+        <name>X3_Thanks_for_email__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Offers Correct solution explanation --></help>
+        <label><!-- 4. Comments --></label>
+        <name>X4_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 4. Correct Number provided to customer --></label>
+        <name>X4_Correct_Number_provided_to_customer__c</name>
+    </fields>
+    <fields>
+        <label><!-- 4. Agent confirmed caller username/email --></label>
+        <name>X4_Did_the_agent_confirm_callers_usernam__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Offers correct solution/explanation --></help>
+        <label><!-- 4. Solution Explantion Correct --></label>
+        <name>X4_Solution_Explantion__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Explains the importance of certain actions to the customer. --></help>
+        <label><!-- 5. Comments --></label>
+        <name>X5_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 5. Did agent confirm customers DOB --></label>
+        <name>X5_Did_agent_confirm_customers_DOB__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 5. Did the agent mention the call reason --></label>
+        <name>X5_Did_the_agent_mention_the_call_reason__c</name>
+    </fields>
+    <fields>
+        <help><!-- Explains the importance of certain actions to the customer. --></help>
+        <label><!-- 5. Explains the importance of actions --></label>
+        <name>X5_Process_Updates_Explains_actions__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 6. Agent confirmed postcode and 1st Line --></label>
+        <name>X6_Agent_confirmed_postcode_and_1st_Line__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Follows the correct process for escalation --></help>
+        <label><!-- 6. Comments --></label>
+        <name>X6_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Follows the correct process for escalation --></help>
+        <label><!-- 6. Follows correct escalation process --></label>
+        <name>X6_Process_Updates_Escalation_Process__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 6. The agent didn&apos;t disclose secure info --></label>
+        <name>X6_The_agent_didn_t_disclose_secure_info__c</name>
+    </fields>
+    <fields>
+        <label><!-- 7. Agent address customer query --></label>
+        <name>X7_Agent_address_customer_query__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Completes all tasks relevant to the e-mail --></help>
+        <label><!-- 7. Comments --></label>
+        <name>X7_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Completes all tasks relevant to the e-mail --></help>
+        <label><!-- 7. Agent Completes all tasks --></label>
+        <name>X7_Process_Updates_Task_Completion__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 8. Agent offered all relevant info --></label>
+        <name>X8_Agent_offered_all_relevant_info__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Confirms accurate timeframes to the customer (where relevant) --></help>
+        <label><!-- 8. Comments --></label>
+        <name>X8_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Confirms accurate timeframes to the customer (where relevant) --></help>
+        <label><!-- 8. Confirms accurate timeframes --></label>
+        <name>X8_Process_Updates_Timeframes__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 9. Agent gave exception customer service --></label>
+        <name>X9_Agent_gave_exception_customer_service__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Offers additional assistance --></help>
+        <label><!-- 9. Offers additional assistance --></label>
+        <name>X9_Closure_Additional_Assistance__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Offers additional assistance --></help>
+        <label><!-- 9. Comments --></label>
+        <name>X9_Comments__c</name>
+    </fields>
+    <layouts>
+        <layout>Call Report Layout</layout>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- End Call --></label>
+            <section>End Call</section>
+        </sections>
+        <sections>
+            <label><!-- Greeting --></label>
+            <section>Greeting</section>
+        </sections>
+        <sections>
+            <label><!-- Handle Contact --></label>
+            <section>Handle Contact</section>
+        </sections>
+        <sections>
+            <label><!-- Header --></label>
+            <section>Header</section>
+        </sections>
+        <sections>
+            <label><!-- Obtaining Consent --></label>
+            <section>Obtaining Consent</section>
+        </sections>
+        <sections>
+            <label><!-- Query Resolution --></label>
+            <section>Query Resolution</section>
+        </sections>
+        <sections>
+            <label><!-- Soft Skills --></label>
+            <section>Soft Skills</section>
+        </sections>
+        <sections>
+            <label><!-- Solution Information --></label>
+            <section>Solution Information</section>
+        </sections>
+        <sections>
+            <label><!-- Telephony Skills --></label>
+            <section>Telephony Skills</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Client Development Call Layout</layout>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- End Call --></label>
+            <section>End Call</section>
+        </sections>
+        <sections>
+            <label><!-- Greeting --></label>
+            <section>Greeting</section>
+        </sections>
+        <sections>
+            <label><!-- Handle Contact --></label>
+            <section>Handle Contact</section>
+        </sections>
+        <sections>
+            <label><!-- Header --></label>
+            <section>Header</section>
+        </sections>
+        <sections>
+            <label><!-- Obtaining Consent --></label>
+            <section>Obtaining Consent</section>
+        </sections>
+        <sections>
+            <label><!-- Query Resolution --></label>
+            <section>Query Resolution</section>
+        </sections>
+        <sections>
+            <label><!-- Soft Skills --></label>
+            <section>Soft Skills</section>
+        </sections>
+        <sections>
+            <label><!-- Solution Information --></label>
+            <section>Solution Information</section>
+        </sections>
+        <sections>
+            <label><!-- Telephony Skills --></label>
+            <section>Telephony Skills</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Email Report Layout</layout>
+        <sections>
+            <label><!-- Closure &amp; Signature --></label>
+            <section>Closure &amp; Signature</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Experience --></label>
+            <section>Customer Experience</section>
+        </sections>
+        <sections>
+            <label><!-- Data Protection --></label>
+            <section>Data Protection</section>
+        </sections>
+        <sections>
+            <label><!-- Greeting --></label>
+            <section>Greeting</section>
+        </sections>
+        <sections>
+            <label><!-- Header --></label>
+            <section>Header</section>
+        </sections>
+        <sections>
+            <label><!-- Obtaining Consent --></label>
+            <section>Obtaining Consent</section>
+        </sections>
+        <sections>
+            <label><!-- Process Updates --></label>
+            <section>Process Updates</section>
+        </sections>
+        <sections>
+            <label><!-- Solution Explanation --></label>
+            <section>Solution Explanation</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Voicemail Spot Check</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Greeting --></label>
+            <section>Greeting</section>
+        </sections>
+        <sections>
+            <label><!-- Header --></label>
+            <section>Header</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Call Report --></label>
+        <name>Call_Report</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Client Development Call --></label>
+        <name>Client_Development_Call</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Email Report --></label>
+        <name>Email_Report</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Voicemail Spot Check --></label>
+        <name>Voicemail_Spot_Check</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You must answer all the questions to save the form --></errorMessage>
+        <name>Call_Record_Type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must associate a report with a case --></errorMessage>
+        <name>Case_Number_Missing</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must select whether this is a Borrower or Lender Call --></errorMessage>
+        <name>Client_DevBorrower_Lender_Selected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must complete the Account, User and Date and Time of call fields --></errorMessage>
+        <name>Client_Dev_Required_Fields</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must answer all the questions to save the record --></errorMessage>
+        <name>Client_Development_Type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must answer all questions (excluding comments) --></errorMessage>
+        <name>Email_Record_Type</name>
+    </validationRules>
+</CustomObjectTranslation>

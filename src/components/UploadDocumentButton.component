@@ -1,0 +1,6 @@
+<apex:component >
+    <apex:attribute type="Id" name="LoanSFID" description="Loan internal sf id" required="true"/>
+    <apex:attribute type="Id" name="RedirrectTo" description="Id of record redirect to" />
+    <apex:commandbutton action="{!URLFOR('/apex/DocumentsManagement?id=' + LoanSFID + '&cancelUrl=/' + RedirrectTo)}"
+                        value="Upload Document" immediate="true" style="margin:5px auto; display:block;" />
+</apex:component>

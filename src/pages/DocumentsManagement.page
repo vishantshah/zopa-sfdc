@@ -1,0 +1,28 @@
+<apex:page standardController="Loan_Application__c" sidebar="true" extensions="DocumentsManagementExtension">
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+    <apex:sectionHeader title="Loan Application" subtitle="{!Loan_Application__c.Name}"/>
+
+    <c:DocumentListLoanApplication loanapplicationid="{!Loan_Application__c.Loan_ID__c}" loanSalesforceId="{!Loan_Application__c.Id}" showuploaddocumentbutton="false" showgotobutton="true" />
+
+    <apex:form rendered="{!IsZopa55IsEnabled && $Permission.Documents_Upload_New}">
+        <apex:pagemessages />
+        <apex:pageblock title="Add New Document">
+            <apex:pageblockbuttons location="Bottom">
+                <apex:commandbutton action="{!uploadDocument}" value="Upload Document"/>
+            </apex:pageblockbuttons>
+            <apex:pageblocksection columns="1">
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel value="Document Type" />
+                    <apex:selectlist value="{!DocumentType}" multiselect="false" title="Choose a type" size="1">
+                        <apex:selectoptions value="{!AvailableDocumentTypes}" />
+                    </apex:selectlist>
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel value="Select Document" />
+                    <apex:inputfile value="{!DocumentToUpload.body}" filename="{!DocumentToUpload.name}" contentType="{!ContentType}"/>
+                </apex:pageblocksectionitem>
+            </apex:pageblocksection>
+        </apex:pageblock>
+    </apex:form>
+    <c:SetConsoleTabTitle title="Document Management" iconurl="{!$Resource.icon_documents_16}" />
+</apex:page>

@@ -1,0 +1,42 @@
+<apex:page title="{!$Label.Update_Case_Assignments_Title}" controller="UpdateCaseAssignmentController" >
+    <style type="text/css">
+        .asignment-rule-input {
+            width: 250px;
+        }
+        .secondaryPalette {
+            border-color: #8BC34A !important;
+        }
+        .tertiaryPalette {
+            background-color: #8BC34A !important;
+            border-color: #8BC34A !important;
+        }
+    </style>
+    <apex:sectionHeader title="{!$Label.Update_Case_Assignments_Case_Assignment_Management}" subtitle="Update or Run Assignment Rules"/>
+    <apex:pageMessages />
+    <apex:form id="mainform">
+        <apex:pageBlock id="assignmentRuleBlock" title="Case Assignment Rules">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton action="{!updateAssignmentRulesInUse}" value="{!$Label.Update_Case_Assignment_Update_Assignment_Rules}"/>
+                <apex:commandButton value="Run Manual Underwriting Assignment Rules"
+                                    action="{!updateAssignments}"
+                                    rendered="{!IsManualUnderwritingAppSelected}"
+                />
+                <apex:commandButton value="Run Collections & Recoveries Assignment Rules"
+                                    action="{!updateAssignments}"
+                                    rendered="{!IsCollectionsAndRecoveriesAppSelected}"
+                />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Manual Underwriting" collapsible="false" rendered="{!IsManualUnderwritingAppSelected}">
+                <apex:inputField styleClass="asignment-rule-input" value="{!organizationCaseAssignmentRules.Creation_Manual_Underwriting__c}"/>
+                <apex:inputField styleClass="asignment-rule-input" value="{!organizationCaseAssignmentRules.Case_Prep__c}"/>
+                <apex:inputField styleClass="asignment-rule-input" value="{!organizationCaseAssignmentRules.Underwriter__c}"/>
+                <apex:inputField styleClass="asignment-rule-input" value="{!organizationCaseAssignmentRules.Fraud__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Collections & Recoveries" collapsible="false" rendered="{!IsCollectionsAndRecoveriesAppSelected}">
+                <apex:inputField styleClass="asignment-rule-input" value="{!organizationCaseAssignmentRules.Collections__c}"/>
+                <apex:inputField styleClass="asignment-rule-input" value="{!organizationCaseAssignmentRules.Recoveries__c}"/>
+                <apex:inputField styleClass="asignment-rule-input" value="{!organizationCaseAssignmentRules.Sensitive__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,182 @@
+<apex:component controller="LoanDetailsViewController">
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+    <apex:attribute name="Loan_Id" required="true" type="Id" assignTo="{!CurrentLoanId}" description="Loan Id of current Loan"/>
+        <apex:pageblock mode="maindetail">
+            <apex:pageBlockSection Id="LoanDetailsBlock" Title="Customer Details" collapsible="false" >
+
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Loan Application"/>
+                <apex:outputpanel >
+                    <a href="/{!CurrentLoanApplication.Id}?retURL=/{!CurrentLoanApplication.Id}">{!CurrentLoanApplication.Name}</a>
+                </apex:outputpanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:outputField value="{!CurrentLoan.Account__c}"/>
+            <apex:pageBlockSectionItem rendered="{!IsZCP55IsEnabled && CurrentLoan.AccountDCA__c != null}"/>
+            <apex:outputField rendered="{!IsZCP55IsEnabled && CurrentLoan.AccountDCA__c != null}" value="{!CurrentLoan.AccountDCA__c}"/>
+            <apex:pageBlockSectionItem rendered="{!CurrentLoan.AccountDMC__c != null}"/>
+            <apex:outputField rendered="{!CurrentLoan.AccountDMC__c != null}" value="{!CurrentLoan.AccountDMC__c}"/>
+            <apex:outputField rendered="{!$Permission.Loan_Status_and_Arrears_Ratio_Visible && IsZCP104IsEnabled}" value="{!CurrentLoan.Arrears_Ratio__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Approval_State__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.CustomerType__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Disbursal_Date__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Insitution__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Loan_Servicing_Fee_Rate__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Loan_Usage__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Market__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Monthly_Safeguard_Fee_Rate__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Original_Apr__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Original_First_Month_Repayment_Amount__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Original_Monthly_Repayment_Amount__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Quick_Pay_Amount__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Rate__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Requested_Amount__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Rialto_Fee__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Start_Date__c}"/>
+            <apex:outputField rendered="{!$Permission.Loan_Status_and_Arrears_Ratio_Visible && IsZCP104IsEnabled}" value="{!CurrentLoan.State__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Term__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Total_Amount_Borrowed__c}"/>
+            <apex:outputField rendered="{!IsZCP104IsEnabled}" value="{!CurrentLoan.Total_Original_Repayable_Amount__c}"/>
+            <apex:outputField rendered="{!IsZCP71IsEnabled}" value="{!CurrentLoan.Date_Of_Last_Missed_Plan_Payment__c}"/>
+            <apex:outputField rendered="{!IsDefaultReason}" value="{!CurrentLoan.Default_Reason__c}"/>
+            <apex:outputField value="{!CurrentLoan.Broker__c}"/>
+
+            <apex:pageBlockSectionItem rendered="{!IsZCP55IsEnabled}">
+                <apex:outputLabel value="Early Repayment Amount" />
+                <apex:outputPanel id="EarlyRepaymentAmount">
+                    <apex:outputText value="{!LoanDetails.EarlyRepaymentAmount}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:outputField value="{!CurrentLoan.ArrearsStartDate__c}"/>
+
+            <apex:pageBlockSectionItem rendered="{!IsZCP55IsEnabled}">
+                <apex:outputLabel value="Holding Account Balance" />
+                <apex:outputPanel id="HoldingAccountBalance">
+                    <apex:outputText value="{!LoanDetails.HoldingAccountBalance}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="{!IsZCP55IsEnabled}">
+                <apex:outputLabel value="Arrears Balance" />
+                <apex:outputPanel id="ArrearsBalance">
+                    <apex:outputText value="{!LoanDetails.ArrearsBalance}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="{!IsZCP55IsEnabled}">
+                <apex:outputLabel value="Monthly Repayment Amount" />
+                <apex:outputPanel id="MonthlyRepaymentAmount">
+                    <apex:outputText value="{!LoanDetails.MonthlyRepaymentAmount}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="{!IsZCP55IsEnabled}">
+                <apex:outputLabel value="Arrears Ratio" />
+                <apex:outputPanel id="ArrearsRatio">
+                    <apex:outputText value="{!LoanDetails.ArrearsRatio}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="{!IsZCP55IsEnabled}">
+                <apex:outputLabel value="Next Repayment Adjustment" />
+                <apex:outputPanel id="NextRepaymentAdjustment">
+                    <apex:outputText value="{!LoanDetails.NextRepaymentAdjustment}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="{!IsZCP55IsEnabled}">
+                <apex:outputLabel value="Remaining Balance" />
+                <apex:outputPanel id="RemainingBalance">
+                    <apex:outputText value="{!LoanDetails.RemainingBalance}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="{!IsZCP55IsEnabled}">
+                <apex:outputLabel value="Replacement Amount" />
+                <apex:outputPanel id="ReplacementAmount">
+                    <apex:outputText value="{!LoanDetails.ReplacementAmount}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="{!IsZCP55IsEnabled}">
+                <apex:outputLabel value="State" />
+                <apex:outputPanel id="State">
+                    <apex:outputText value="{!LoanDetails.State}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="{!IsZCP55IsEnabled}">
+                <apex:outputLabel value="Total Actual Repayable Amount" />
+                <apex:outputPanel id="TotalActualRepayableAmount">
+                    <apex:outputText value="{!LoanDetails.TotalActualRepayableAmount}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="{!IsZCP55IsEnabled}">
+                <apex:outputLabel value="Last Repayment Date" />
+                <apex:outputPanel id="LastRepaymentDate">
+                    <apex:outputText value="{!LoanDetails.LastRepaymentDate}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="{!IsZCP55IsEnabled}">
+                <apex:outputLabel value="Repayment Day of Month" />
+                <apex:outputPanel id="RepaymentDayofMonth">
+                    <apex:outputText value="{!LoanDetails.RepaymentDayofMonth}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="{!IsZCP55IsEnabled}">
+                <apex:outputLabel value="First Month Repayment Amount" />
+                <apex:outputPanel id="FirstMonthRepaymentAmount">
+                    <apex:outputText value="{!LoanDetails.FirstMonthRepaymentAmount}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="{!IsZCP55IsEnabled}">
+                <apex:outputLabel value="First Month Extra Days" />
+                <apex:outputPanel id="FirstMonthExtraDays">
+                    <apex:outputText value="{!LoanDetails.FirstMonthExtraDays}" rendered="{!LazyLoadFinished}"/>
+                    <apex:image value="/img/loading32.gif" style="height: 15px;" rendered="{!NOT(LazyLoadFinished)}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem rendered="{!IsZCP169IsEnabled && $Permission.Loan_View_Pay_Now_Link}">
+                <apex:outputLabel value="Zopa Admin"/>
+                <apex:outputpanel >
+                    <apex:commandLink id="paynow" onclick="window.open('http://zopaadmin.dca.zopa.com/Pages/ManageBorrowing.aspx?pk={!CurrentLoan.Loan_Id__c}', '_blank');">Zopa Admin</apex:commandLink>
+                </apex:outputpanel>
+            </apex:pageBlockSectionItem>
+
+            </apex:pageBlockSection>
+        </apex:pageblock>
+        <apex:actionFunction name="getLoanDetailsInformationJS" action="{!getLoanDetailsInformation}" reRender="PageMessages,LoanDetailsBlock" rendered="{!IsZCP55IsEnabled}"/>
+        <script type="text/javascript">
+            if (window.attachEvent) {
+                window.attachEvent('onload', getLoanDetailsInformationJS);
+            } else if (window.addEventListener) {
+                window.addEventListener('load', getLoanDetailsInformationJS, false);
+            } else {
+                document.addEventListener('load', getLoanDetailsInformationJS, false);
+            }
+
+            function openPrimaryTab(par_document_name, par_url) {
+                var win = window.open(par_url, '_blank');
+                win.focus();
+            }
+        </script>
+</apex:component>

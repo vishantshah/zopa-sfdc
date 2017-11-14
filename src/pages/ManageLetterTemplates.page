@@ -1,0 +1,87 @@
+<apex:page showHeader="true" controller="ManageLetterTemplatesController" sidebar="true">
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+
+    <apex:form id="form">
+        <apex:outputText value="You have no permission to manage Letter Templates" rendered="{!NOT($Permission.Manage_Letter_Templates)}"/>
+        <apex:outputPanel rendered="{!$Permission.Manage_Letter_Templates}">
+            <apex:outputPanel id="PageMessages">
+                <apex:pageMessages />
+            </apex:outputPanel>
+            <apex:actionStatus id="Spinner">
+                <apex:facet name="start">
+                    <apex:pageMessage summary="Sending a request..." severity="info" strength="3">
+                        <apex:image value="/img/loading32.gif" style="height: 15px"/>
+                    </apex:pageMessage>
+                </apex:facet>
+            </apex:actionStatus>
+            <apex:pageblock id="testblock" title="Manage Letter Templates">
+                <apex:actionFunction name="getAllTemplates" action="{!getAllLetterTemplates}" reRender="PageMessages,testblock" status="Spinner"/>
+                <apex:pageBlockButtons id="TemplateSetButtons" location="Top">
+                    <apex:commandbutton id="EditLetterTemplateButton" action="{!onClickSetTemplate}" value="Select" rerender="PageMessages, testblockedit" status="Spinner"/>
+                </apex:pageBlockButtons>
+                <apex:pageBlockSection id="pick_template_block" rendered="{!LazyLoadFinishedPickTemplate}">
+                    <apex:pageBlockSection Title="Pick Letter Template" collapsible="false">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Letter Template Name"/>
+                            <apex:selectList value="{!SelectedTemplateName}" multiselect="false" size="1">
+                                <apex:selectOptions value="{!AllTemplatesOptions}"/>
+                            </apex:selectList>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                </apex:pageBlockSection>
+            </apex:pageblock>
+            <apex:outputPanel id="testblockedit">
+                <apex:pageblock rendered="{!LazyLoadFinishedTemplateBlock && SelectedTemplate != null && $Permission.Manage_Letter_Templates}">
+                    <apex:pageBlockButtons id="TemplateDetailsButtons" location="Top">
+                        <apex:commandbutton id="PreviewButton" action="{!showPreviewMode}" value="Preview" rerender="popup"/>
+                        <apex:commandbutton id="EditButton" action="{!onClickTurnEditMode}" value="Edit" rendered="{!NOT(IsEditMode)}" rerender="testblockedit"/>
+                        <apex:commandbutton id="SaveButton" action="{!onClickSaveTemplate}" value="Save" rendered="{!IsEditMode}" rerender="PageMessages,testblockedit" status="Spinner"/>
+                    </apex:pageBlockButtons>
+                    <apex:pageBlockSection Title="Template Details" collapsible="false" columns="2">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Friendly Name"/>
+                            <apex:outputText value="{!SelectedTemplate.FriendlyName}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Name"/>
+                            <apex:outputText value="{!SelectedTemplate.Name}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Created Date"/>
+                            <apex:outputText value="{!SelectedTemplate.CreatedDate}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Template Version"/>
+                            <apex:outputText value="{!SelectedTemplate.Version}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!NOT(IsEditMode)}">
+                            <apex:outputLabel value="Template Body"/>
+                            <apex:outputText value="{!SelectedTemplate.Html}" style="width: 99%"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection id="TemplateEdit" columns="1" rendered="{!LazyLoadFinishedTemplateBlock && SelectedTemplate != null && IsEditMode}">
+                        <apex:pageBlockSection Title="Edit Letter Template" collapsible="false" columns="1">
+                            <apex:inputTextArea id="htmlBlockInput" value="{!SelectedTemplate.Html}" richText="false" rows="20" style="width: 99%"/>
+                        </apex:pageBlockSection>
+                    </apex:pageBlockSection>
+                </apex:pageblock>
+            </apex:outputPanel>
+        </apex:outputPanel>
+        <c:LetterTemplatesPreview id="popup"  Visible="{!IsShownPreview}" HeaderMessage="Preview" TemplateBodyStr="{!SelectedTemplate.Html}" TemplateName="{!SelectedTemplate.FriendlyName}">
+            <apex:outputPanel >
+                <apex:commandbutton value="Hide" action="{!hidePreviewMode}" rerender="popup" style="border-color: #8A9EBE; border-style: solid;border-width: 2px; width: 80px;" />
+            </apex:outputPanel>
+        </c:LetterTemplatesPreview>
+
+        <script type="text/javascript">
+            if (window.attachEvent) {
+                window.attachEvent('onload', getAllTemplates);
+            } else if (window.addEventListener) {
+                window.addEventListener('load', getAllTemplates, false);
+            } else {
+                document.addEventListener('load', getAllTemplates, false);
+            }
+        </script>
+    </apex:form>
+
+</apex:page>

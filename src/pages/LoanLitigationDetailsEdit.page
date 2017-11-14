@@ -1,0 +1,160 @@
+<apex:page StandardController="Loan__c" extensions="LoanLitigationDetailsEditController">
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+    <apex:includeScript value="/support/console/35.0/integration.js"/>
+    <script type="text/javascript">
+         var callback = function () {
+             if (result.error) {
+                alert("Error message is " + result.error);
+             }
+         };
+        function closeTab() {
+            if (sforce.console.isInConsole()) {
+                sforce.console.getEnclosingTabId(closeSubtab);
+            } else {
+                RedirectToLoanPage();
+            }
+         }
+
+        var closeSubtab = function closeSubtab(result) {
+            var tabId = result.id;
+            sforce.console.closeTab(tabId, callback);
+        };
+    </script>
+    <apex:form id="form">
+        <apex:pageBlock title="Recoveries" mode="maindetail">
+            <apex:outputPanel id="PageMessages">
+                <apex:pageMessages />
+            </apex:outputPanel>
+                <apex:pageBlockButtons location="Top">
+                    <apex:commandbutton action="{!makeEditableFields}" value="Update Litigation Details" rendered="{!IsCorrectLoading}" rerender="form"/>
+                    <apex:commandButton onclick="closeTab();return false" value="Cancel" />
+                </apex:pageBlockButtons>
+                    <apex:pageBlockSection collapsible="false" columns="2" rendered="{!IsCorrectLoading}">
+                        <apex:pageBlockSectionItem rendered="{!IsEditeble}">
+                            <apex:outputLabel value="Default Notice Date"/>
+                            <apex:inputField value="{!LoanLitigationDetailsEdit.ContainerForDefaultNotice.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!NOT IsEditeble}">
+                            <apex:outputLabel value="Default Notice Date"/>
+                            <apex:outputField value="{!LoanLitigationDetailsEdit.ContainerForDefaultNotice.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!IsEditeble}">
+                            <apex:outputLabel value="Claim Issued Date"/>
+                            <apex:inputField value="{!LoanLitigationDetailsEdit.ContainerForClaimIssued.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!NOT IsEditeble}">
+                            <apex:outputLabel value="Claim Issued Date"/>
+                            <apex:outputField value="{!LoanLitigationDetailsEdit.ContainerForClaimIssued.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!IsEditeble}">
+                            <apex:outputLabel value="Default Date"/>
+                            <apex:inputField value="{!LoanLitigationDetailsEdit.ContainerForDateOfDefault.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!NOT IsEditeble}">
+                            <apex:outputLabel value="Default Date"/>
+                            <apex:outputField value="{!LoanLitigationDetailsEdit.ContainerForDateOfDefault.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!IsEditeble}">
+                            <apex:outputLabel value="Defendent Deadline Date"/>
+                            <apex:inputField value="{!LoanLitigationDetailsEdit.ContainerForDefendantDeadline.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!NOT IsEditeble}">
+                            <apex:outputLabel value="Defendent Deadline Date"/>
+                            <apex:outputField value="{!LoanLitigationDetailsEdit.ContainerForDefendantDeadline.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!IsEditeble}">
+                            <apex:outputLabel value="Assignment Date"/>
+                            <apex:inputField value="{!LoanLitigationDetailsEdit.ContainerForAssignment.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!NOT IsEditeble}">
+                            <apex:outputLabel value="Assignment Date"/>
+                            <apex:outputField value="{!LoanLitigationDetailsEdit.ContainerForAssignment.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!IsEditeble}">
+                            <apex:outputLabel value="Judgment Request Date"/>
+                            <apex:inputField value="{!LoanLitigationDetailsEdit.ContainerForJudgmentRequested.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!NOT IsEditeble}">
+                            <apex:outputLabel value="Judgment Request Date"/>
+                            <apex:outputField value="{!LoanLitigationDetailsEdit.ContainerForJudgmentRequested.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!IsEditeble}">
+                            <apex:outputLabel value="LBA Sent Date"/>
+                            <apex:inputField value="{!LoanLitigationDetailsEdit.ContainerForLbaSent.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!NOT IsEditeble}">
+                            <apex:outputLabel value="LBA Sent Date"/>
+                            <apex:outputField value="{!LoanLitigationDetailsEdit.ContainerForLbaSent.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!IsEditeble}">
+                            <apex:outputLabel value="Judgment Obtained Date"/>
+                            <apex:inputField value="{!LoanLitigationDetailsEdit.ContainerForJudgmentObtained.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!NOT IsEditeble}">
+                            <apex:outputLabel value="Judgment Obtained Date"/>
+                            <apex:outputField value="{!LoanLitigationDetailsEdit.ContainerForJudgmentObtained.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!IsEditeble}">
+                            <apex:outputLabel value="Claim Sent To Court Date"/>
+                            <apex:inputField value="{!LoanLitigationDetailsEdit.ContainerForClaimSentToCourt.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!NOT IsEditeble}">
+                            <apex:outputLabel value="Claim Sent To Court Date"/>
+                            <apex:outputField value="{!LoanLitigationDetailsEdit.ContainerForClaimSentToCourt.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!IsEditeble}">
+                            <apex:outputLabel value="Date Enforcement Commenced"/>
+                            <apex:inputField value="{!LoanLitigationDetailsEdit.ContainerForEnforcementCommenced.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!NOT IsEditeble}">
+                            <apex:outputLabel value="Date Enforcement Commenced"/>
+                            <apex:outputField value="{!LoanLitigationDetailsEdit.ContainerForEnforcementCommenced.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!IsEditeble}">
+                            <apex:outputLabel value="Original Court Cost"/>
+                            <apex:inputText value="{!LoanLitigationDetailsEdit.OriginalCourtFees}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!NOT IsEditeble}">
+                            <apex:outputLabel value="Original Court Cost"/>
+                            <apex:outputText value="{0, number, £###,###.00}">
+                                <apex:param value="{!CurrentLoanLitigationDetails.OriginalCourtFees}"/>
+                            </apex:outputText>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!IsEditeble}">
+                            <apex:outputLabel value="Date Warrant Issued"/>
+                            <apex:inputField value="{!LoanLitigationDetailsEdit.ContainerForWarrantIssued.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!NOT IsEditeble}">
+                            <apex:outputLabel value="Date Warrant Issued"/>
+                            <apex:outputField value="{!LoanLitigationDetailsEdit.ContainerForWarrantIssued.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!IsEditeble}">
+                            <apex:outputLabel value="Outstanding Court Costs"/>
+                            <apex:inputText value="{!LoanLitigationDetailsEdit.OutstandingCourtFees}" />
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!NOT IsEditeble}">
+                            <apex:outputLabel value="Outstanding Court Costs"/>
+                            <apex:outputText value="{0, number, £###,###.00}">
+                                <apex:param value="{!LoanLitigationDetailsEdit.OutstandingCourtFees}" />
+                            </apex:outputText>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!IsEditeble}">
+                            <apex:outputLabel value="Final Return Date"/>
+                            <apex:inputField value="{!LoanLitigationDetailsEdit.ContainerForFinalReturn.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!NOT IsEditeble}">
+                            <apex:outputLabel value="Final Return Date"/>
+                            <apex:outputField value="{!LoanLitigationDetailsEdit.ContainerForFinalReturn.Start_Date__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!IsEditeble}">
+                            <apex:outputLabel value="County Court Claim Number"/>
+                            <apex:inputText value="{!LoanLitigationDetailsEdit.CountyCourtClaimNumber}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem rendered="{!NOT IsEditeble}">
+                            <apex:outputLabel value="County Court Claim Number"/>
+                            <apex:outputText value="{!LoanLitigationDetailsEdit.CountyCourtClaimNumber}"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+            </apex:pageBlock>
+    </apex:form>
+</apex:page>

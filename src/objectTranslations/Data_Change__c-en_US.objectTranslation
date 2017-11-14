@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Data Change</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Data Changes</value>
+    </caseValues>
+    <fields>
+        <label><!-- Additional Notes --></label>
+        <name>Additional_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approved --></label>
+        <name>Approved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Reference --></label>
+        <name>Case_Reference__c</name>
+        <relationshipLabel><!-- Data Changes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Category --></label>
+        <name>Category__c</name>
+        <picklistValues>
+            <masterLabel>Admin User Setup</masterLabel>
+            <translation><!-- Admin User Setup --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bad Debt Estimate Table Updates</masterLabel>
+            <translation><!-- Bad Debt Estimate Table Updates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled Declined Loan</masterLabel>
+            <translation><!-- Cancelled Declined Loan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Change Admin Role for User</masterLabel>
+            <translation><!-- Change Admin Role for User --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Code Development</masterLabel>
+            <translation><!-- Code Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Comments</masterLabel>
+            <translation><!-- Comments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DB Schema or Code Changes</masterLabel>
+            <translation><!-- DB Schema or Code Changes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insert Fraud Record</masterLabel>
+            <translation><!-- Insert Fraud Record --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan Transfer</masterLabel>
+            <translation><!-- Loan Transfer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MGM</masterLabel>
+            <translation><!-- MGM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Member Details</masterLabel>
+            <translation><!-- Member Details --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Money transfers</masterLabel>
+            <translation><!-- Money transfers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prevent DD for Sortcode</masterLabel>
+            <translation><!-- Prevent DD for Sortcode --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Process Failures</masterLabel>
+            <translation><!-- Process Failures --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rapid Returns</masterLabel>
+            <translation><!-- Rapid Returns --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Remove Repayments</masterLabel>
+            <translation><!-- Remove Repayments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salary Finance</masterLabel>
+            <translation><!-- Salary Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Staff Bonus</masterLabel>
+            <translation><!-- Staff Bonus --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Change Summary --></label>
+        <name>Change_Summary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Implemented --></label>
+        <name>Date_Implemented__c</name>
+    </fields>
+    <fields>
+        <label><!-- Denied --></label>
+        <name>Denied__c</name>
+    </fields>
+    <fields>
+        <label><!-- Incident Reference --></label>
+        <name>Incident_Reference__c</name>
+        <relationshipLabel><!-- Data Changes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Open Year-Month --></label>
+        <name>Open_Year_Month__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rows Affected --></label>
+        <name>Rows_Affected__c</name>
+    </fields>
+    <fields>
+        <label><!-- SQL Transaction --></label>
+        <name>SQL_Transaction__c</name>
+    </fields>
+    <layouts>
+        <layout>Data Change Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You cannot approve your own change --></errorMessage>
+        <name>Approval_by_Different_Person</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must include a case when creating a Data Change --></errorMessage>
+        <name>Case_Missing</name>
+    </validationRules>
+</CustomObjectTranslation>

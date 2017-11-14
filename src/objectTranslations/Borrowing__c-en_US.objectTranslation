@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Borrowing</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Borrowings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account_ID__c</name>
+        <relationshipLabel><!-- Borrowings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Amount --></label>
+        <name>Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Borrowing Approval State --></label>
+        <name>BRW_Approval_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Repayment Date --></label>
+        <name>BRW_Last_Repayment_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>BRW_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Borrowing State --></label>
+        <name>BRW_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Borrowing_PK --></label>
+        <name>Borrowing_PK__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interest Rate --></label>
+        <name>Interest_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member_PK_Shadow --></label>
+        <name>Member_PK_Shadow__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member_PK --></label>
+        <name>Member_PK__c</name>
+    </fields>
+    <fields>
+        <label><!-- Remaining Balance --></label>
+        <name>Remaining_Balance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Repayment Amount --></label>
+        <name>Repayment_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Repayment Day --></label>
+        <name>Repayment_Day__c</name>
+    </fields>
+    <fields>
+        <label><!-- Term --></label>
+        <name>Term__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

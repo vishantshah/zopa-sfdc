@@ -1,0 +1,139 @@
+<apex:component controller="DocumentListLoanAppController">
+
+    <apex:attribute name="LoanApplicationId" type="String" required="true" assignto="{!LoanAppId}" description="Id of related Loan Application" />
+    <apex:attribute name="loanSalesforceId" type="String" required="true" assignto="{!LoanInternalId}" description="sf Id of Loan Application" />
+    <apex:attribute name="ShowUploadDocumentButton" type="Boolean" default="true" description="Show hide Upload Document Button" />
+    <apex:attribute name="ShowGoToButton" type="Boolean" default="false" description="Show hide Go To Buttons" />
+    <script>
+        function focusAccountDetails(subtabs) {
+            sforce.console.focusSubtabById(subtabs.ids[0]);
+        }
+        function getSubTabIdsOfPrimary(primaryTab) {
+            sforce.console.getSubtabIds(primaryTab.id , focusAccountDetails);
+        }
+        function goToAccountDetails() {
+            sforce.console.getEnclosingPrimaryTabId(getSubTabIdsOfPrimary);
+        }
+
+        function openPageInSubtab(url, tab_name) {
+            if (sforce.console.isInConsole()) {
+                var openConcreteSubTab = function (primaryTab, url, tab_name) {
+                    sforce.console.openSubtab(primaryTab.id, url, true, tab_name);
+                }
+
+                sforce.console.getEnclosingPrimaryTabId(function (primaryTab) {
+                    openConcreteSubTab(primaryTab, url, tab_name)
+                });
+            } else {
+                window.top.location = url;
+            }
+        }
+
+        function goToDocumentPage() {
+            var document_page = '{!URLFOR($Page.DocumentsManagement+"?id=" + loanSalesforceId)}';
+            openPageInSubtab(document_page, "Document Management");
+        }
+        function goToLoanApplication() {
+            var loan_page = '{!URLFOR($Page.LoanApplicationView+"?id=" + loanSalesforceId)}';
+            openPageInSubtab(loan_page, "Loan Application");
+        }
+        function goToManualUnderwritingCase() {
+            var case_page = '{!URLFOR($Page.CaseManualUnderwriting+"?id=" + MUCaseId)}';
+            openPageInSubtab(case_page, "Case");
+        }
+    </script>
+    <apex:form >
+        <apex:pageblock rendered="{!$Permission.View_Case_Loan_Document && IsZopa54IsEnabled}" title="Loan Application Documents">
+            <apex:pageblockbuttons location="top">
+                <apex:commandbutton onclick="goToAccountDetails();return false;" value="Go To Customer Account" rendered="{!ShowGoToButton}" />
+                <apex:commandbutton onclick="goToDocumentPage();return false;" rendered="{!$Permission.Documents_Upload_New && ShowUploadDocumentButton && IsZopa54IsEnabled}" value="Upload Document" immediate="true" rerender="popup"/>
+            </apex:pageblockbuttons>
+            <c:LazyLoadSpinner actiontoperform="{!getDocumentsListFromBackEnd}">
+                <apex:outputpanel id="wrapper">
+                    <apex:pagemessage summary="{!ErrorOnLoad}" severity="FATAL" strength="2" rendered="{!ErrorOnLoad != null}" title="Error:" />
+                    <apex:pageblocksection id="documents_table" columns="1" rendered="{!DocumentsList != null && DocumentsList.size > 0}">
+                        <apex:pageblocktable value="{!DocumentsList}" var="documentItem">
+                            <apex:column headervalue="Document Name" value="{!documentItem.FileName}" />
+                            <apex:column headervalue="Document Type" value="{!documentItem.DocumentType}" />
+                            <apex:column headervalue="Upload Date" value="{!documentItem.UploadTime}" />
+                            <apex:column headervalue="Tamper Score">
+                                <apex:image url="{!documentItem.TamperTrafficLightScore}" />
+                            </apex:column>
+                            <apex:column headervalue="Action">
+                                <apex:outputlink onclick="testOpenPrimaryTab('{!documentItem.FileName}', '{!documentItem.DocumentUrl}')" value="">View</apex:outputlink>
+                                <a>&nbsp;&nbsp;</a>
+                                <apex:outputlink onclick="testOpenPrimaryTab('Details: {!documentItem.FileName}', '{!documentItem.TamperDetailsUrl}')" value="">View Metadata</apex:outputlink>&nbsp;&nbsp;
+                                <apex:outputlink onclick="doPopUp('{!documentItem.Id}', '{!documentItem.DocumentType}');return false;" id="theCommandLink" rendered="{!$Permission.Loan_Classify_Document && IsZopa58IsEnabled}">Classify Document</apex:outputlink>
+                            </apex:column>
+                        </apex:pageblocktable>
+                    </apex:pageblocksection>
+                    <apex:outputtext value="No records to display" rendered="{!DocumentsList != null && DocumentsList.size == 0}" />
+                    <apex:actionfunction name="showPopUp" action="{!showPopupForclassifyDocumentAction}" rerender="popup">
+                        <apex:param name="DocId" assignto="{!DocumentIdToChangeType}" value="" />
+                        <apex:param name="DocType" assignto="{!NewDocumentType}" value="" />
+                    </apex:actionfunction>
+                    <c:ConfirmPopup id="popup" visible="{!DocumentIdToChangeType != null}" headermessage="Choose type for this document">
+                        <apex:actionstatus id="spinner">
+                            <apex:facet name="stop">
+                                <apex:outputpanel >
+                                    <apex:selectlist value="{!NewDocumentType}" multiselect="false" title="Choose a type" size="1" style="display:block;margin: 0 auto;margin-bottom: 5px;">
+                                        <apex:selectoptions value="{!AvailableDocumentTypes}" />
+                                    </apex:selectlist>
+                                    <apex:commandbutton value="Update" action="{!classifyDocumentAction}" rerender="wrapper" status="spinner" style="border-color: #8A9EBE; border-style: solid;border-width: 2px; width: 80px;">
+                                    </apex:commandbutton>
+                                    <apex:commandbutton value="Cancel" action="{!hidePopup}" rerender="popup" status="spinner" style="border-color: #8A9EBE; border-style: solid;border-width: 2px; width: 80px;" />
+                                </apex:outputpanel>
+                            </apex:facet>
+                            <apex:facet name="start">
+                                <apex:image value="/img/loading32.gif" style="height: 15px" />
+                            </apex:facet>
+                        </apex:actionstatus>
+                    </c:ConfirmPopup>
+                </apex:outputpanel>
+            </c:LazyLoadSpinner>
+        </apex:pageblock>
+
+        <apex:includescript value="/support/console/36.0/integration.js" />
+        <script type="text/javascript">
+
+
+        function doPopUp(id, type) {
+            showPopUp(id, type);
+        }
+
+
+        var document_name;
+        var url;
+        function testOpenPrimaryTab(par_document_name, par_url) {
+            document_name = par_document_name;
+            url = par_url;
+            /*if(testIsInConsole() == true){
+                sforce.console.getEnclosingPrimaryTabId(openSubtab);
+            }else{*/
+                var win = window.open(url, '_blank');
+                win.focus();
+           // }
+        }
+
+        var openSubtab = function openSubtab(result) {
+            var primaryTabId = result.id;
+            sforce.console.openSubtab(primaryTabId , url, true, document_name, null, openSuccess);
+        };
+
+        var openSuccess = function openSuccess(result) {
+            if (result.success == false) {
+                alert('Can\'t open link.');
+            }
+        };
+
+        function testIsInConsole() {
+            if (sforce.console.isInConsole()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        </script>
+    </apex:form>
+</apex:component>

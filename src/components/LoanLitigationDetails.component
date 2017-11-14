@@ -1,0 +1,104 @@
+<apex:component controller="LoanLitigationDetailsController">
+    <apex:attribute name="Loan_Id" type="String" required="true" assignTo="{!LoanId}" description="Id of related Loan"/>
+    <apex:attribute name="Loan_Status" type="String" required="true" assignTo="{!LoanStatus}" description="Status of related Loan"/>
+    <apex:attribute name="Loan_uuid" type="String" required="true" assignTo="{!LoanUuid}" description="Uuid of related Loan"/>
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+    <apex:includeScript value="/support/console/38.0/integration.js"/>
+    <script type="text/javascript">
+
+        function updateLitigationDetails() {
+                var litigation_details_edit_page = '{!URLFOR("/apex/LoanLitigationDetailsEdit?id="+LoanId)}';
+                openPageInSubtab(litigation_details_edit_page, "Recoveries");
+        }
+
+        function openPageInSubtab(url, tab_name) {
+            if (sforce.console.isInConsole()) {
+                var openConcreteSubTab = function (primaryTab, url, tab_name) {
+                    sforce.console.openSubtab(primaryTab.id, url, true, tab_name);
+                }
+
+                sforce.console.getEnclosingPrimaryTabId(function (primaryTab) {
+                    openConcreteSubTab(primaryTab, url, tab_name)
+                });
+            } else {
+                window.top.location = url;
+            }
+        }
+    </script>
+        <c:LazyLoadSpinner ActionToPerform="{!getLitigationDetails}" ShowSpinner="false">
+            <apex:pageBlock mode="maindetail" title="Litigation Details" rendered="{!IsAccessToLitigationDetailsBlock && $Permission.Loan_Litigation_Details}">
+            <apex:outputPanel id="PageMessages">
+                <apex:pageMessages />
+            </apex:outputPanel>
+                <apex:pageBlockButtons location="Top">
+                    <apex:commandbutton onClick="updateLitigationDetails()" value="Update Litigation Details"/>
+                </apex:pageBlockButtons>
+                    <apex:pageBlockSection collapsible="false" columns="2">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Default Notice Date"/>
+                            <apex:outputText value="{!CurrentLoanLitigationDetails.DefaultNotice}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Claim Issued Date"/>
+                            <apex:outputText value="{!CurrentLoanLitigationDetails.ClaimIssued}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Default Date"/>
+                            <apex:outputText value="{!CurrentLoanLitigationDetails.DateOfDefault}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Defendent Deadline Date"/>
+                            <apex:outputText value="{!CurrentLoanLitigationDetails.DefendantDeadline}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Assignment Date"/>
+                            <apex:outputText value="{!CurrentLoanLitigationDetails.Assignment}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Judgment Request Date"/>
+                            <apex:outputText value="{!CurrentLoanLitigationDetails.JudgmentRequested}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="LBA Sent Date"/>
+                            <apex:outputText value="{!CurrentLoanLitigationDetails.LbaSent}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Judgment Obtained Date"/>
+                            <apex:outputText value="{!CurrentLoanLitigationDetails.JudgmentObtained}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Claim Sent To Court Date"/>
+                            <apex:outputText value="{!CurrentLoanLitigationDetails.ClaimSentToCourt}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Date Enforcement Commenced"/>
+                            <apex:outputText value="{!CurrentLoanLitigationDetails.EnforcementCommenced}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Original Court Cost"/>
+                            <apex:outputText value="{0, number, £###,###.00}">
+                                <apex:param value="{!CurrentLoanLitigationDetails.OriginalCourtFees}"/>
+                            </apex:outputText>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Date Warrant Issued"/>
+                            <apex:outputText value="{!CurrentLoanLitigationDetails.WarrantIssued}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Outstanding Court Costs"/>
+                            <apex:outputText value="{0, number, £###,###.00}">
+                                <apex:param value="{!CurrentLoanLitigationDetails.OutstandingCourtFees}" />
+                            </apex:outputText>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Final Return Date"/>
+                            <apex:outputText value="{!CurrentLoanLitigationDetails.FinalReturn}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="County Court Claim Number"/>
+                            <apex:outputText value="{!CurrentLoanLitigationDetails.CountyCourtClaimNumber}"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+            </apex:pageBlock>
+        </c:LazyLoadSpinner>
+</apex:component>

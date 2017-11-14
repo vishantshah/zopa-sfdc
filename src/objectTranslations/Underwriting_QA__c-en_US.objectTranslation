@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Underwriting Quality Check</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Underwriting Quality Checks</value>
+    </caseValues>
+    <fields>
+        <help><!-- Additional searches needed/requested --></help>
+        <label><!-- Additional searches needed/requested --></label>
+        <name>Additional_searches_needed_requested__c</name>
+    </fields>
+    <fields>
+        <help><!-- During the call has the U/W given any advice to the customer? (ex: consolidation loans, save interest by settling your loan early, etc.) Did they divulge confidential policy guidelines? --></help>
+        <label><!-- Advice given? Policy divulged? --></label>
+        <name>Advice_given_Policy_divulged__c</name>
+    </fields>
+    <fields>
+        <label><!-- Advice was given ? Policy was Divulged ? --></label>
+        <name>Advice_was_given_Policy_was_Divulged__c</name>
+        <picklistValues>
+            <masterLabel>Fail</masterLabel>
+            <translation><!-- Fail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pass</masterLabel>
+            <translation><!-- Pass --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ApprovalCaseScore --></label>
+        <name>ApprovalCaseScore__c</name>
+    </fields>
+    <fields>
+        <label><!-- ApprovalPercent --></label>
+        <name>ApprovalPercent__c</name>
+    </fields>
+    <fields>
+        <help><!-- Bank Statement: Sort code, Account number checked, correct process followed if new statement required. --></help>
+        <label><!-- Bank Statement: Checked --></label>
+        <name>Bank_Statement_Checked__c</name>
+    </fields>
+    <fields>
+        <help><!-- Block account request emailed to Borrowers? --></help>
+        <label><!-- Block account request emailed ? --></label>
+        <name>Block_account_request_emailed__c</name>
+    </fields>
+    <fields>
+        <help><!-- Call closed if ID checks fails and Customer advised on further action/other options? --></help>
+        <label><!-- Call ended correctly if ID checks failed --></label>
+        <name>Call_ended_correctly_if_ID_checks_failed__c</name>
+    </fields>
+    <fields>
+        <label><!-- CancellationCasePercent --></label>
+        <name>CancellationCasePercent__c</name>
+    </fields>
+    <fields>
+        <label><!-- CancellationCaseScore --></label>
+        <name>CancellationCaseScore__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Underwriting Quality Checks --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Case log updated with notes from call. --></help>
+        <label><!-- Case log updated with notes from call. --></label>
+        <name>Case_log_updated_with_notes_from_call__c</name>
+    </fields>
+    <fields>
+        <help><!-- Category/type of fraud noted? --></help>
+        <label><!-- Category/type of fraud noted? --></label>
+        <name>Category_type_of_fraud_noted__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check to confirm our Applicant? --></help>
+        <label><!-- Check to confirm our Applicant? --></label>
+        <name>Check_to_confirm_our_Applicant__c</name>
+    </fields>
+    <fields>
+        <label><!-- CifasCaseScore --></label>
+        <name>CifasCaseScore__c</name>
+    </fields>
+    <fields>
+        <label><!-- CifasCheckPercent --></label>
+        <name>CifasCheckPercent__c</name>
+    </fields>
+    <fields>
+        <help><!-- Cifas loading on the case ? --></help>
+        <label><!-- Cifas Loading ? --></label>
+        <name>Cifas_Loading__c</name>
+    </fields>
+    <fields>
+        <help><!-- Cifas loading number recorded in the task? --></help>
+        <label><!-- Cifas loading number recorded ? --></label>
+        <name>Cifas_loading_number_recorded__c</name>
+    </fields>
+    <fields>
+        <label><!-- Development Notes --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Has the U/W confirmed applicants Full name, DOB, and Full Address? --></help>
+        <label><!-- Confirmed applicant details? --></label>
+        <name>Confirmed_applicant_details__c</name>
+    </fields>
+    <fields>
+        <help><!-- Correct Decline Reasons Chosen? --></help>
+        <label><!-- Correct Decline Reasons Chosen? --></label>
+        <name>Correct_Decline_Reasons_Chosen__c</name>
+    </fields>
+    <fields>
+        <help><!-- Correct and accurate notes given to support lending decision? --></help>
+        <label><!-- Correct and accurate notes given --></label>
+        <name>Correct_and_accurate_notes_given__c</name>
+    </fields>
+    <fields>
+        <help><!-- Correct documents requested - Correct upload instructions given (E-mail address only given as a last resort) --></help>
+        <label><!-- Correct docs asked for/instructions give --></label>
+        <name>Correct_docs_asked_for_instructions_give__c</name>
+    </fields>
+    <fields>
+        <help><!-- One question from the credit file - Was the protocol of not revealing partners/assoc details complied with? --></help>
+        <label><!-- Credit file question --></label>
+        <name>Credit_file_question__c</name>
+    </fields>
+    <fields>
+        <help><!-- Customer given the correct information during ownership e.g. (15% income worked from gross salary.) --></help>
+        <label><!-- Customer given the correct information ? --></label>
+        <name>Customer_given_the_correct_information__c</name>
+    </fields>
+    <fields>
+        <label><!-- DeclineCaseCore --></label>
+        <name>DeclineCaseCore__c</name>
+    </fields>
+    <fields>
+        <label><!-- DeclineCasePercent --></label>
+        <name>DeclineCasePercent__c</name>
+    </fields>
+    <fields>
+        <help><!-- Documents: - Correct rational for additional documents requested - Task raised - Valid format ? --></help>
+        <label><!-- Documents: - Correct Rationale ? --></label>
+        <name>Documents_Correct_Rationale__c</name>
+    </fields>
+    <fields>
+        <help><!-- Documents Checked (Outside of Caseprep) --></help>
+        <label><!-- Documents checked outside of case prep --></label>
+        <name>Documents_checked_outside_of_case_prep__c</name>
+    </fields>
+    <fields>
+        <help><!-- Documents checked within 24 hours of receipt/reasonable timescale. No unnecessary delays? --></help>
+        <label><!-- Documents checked within 24 hours --></label>
+        <name>Documents_checked_within_24_hours__c</name>
+    </fields>
+    <fields>
+        <help><!-- Employer/business found on internet and URL pasted into case notes? Or Verify employment by either call to employer on verified number or obtained docs as per policy. --></help>
+        <label><!-- Employer/business found --></label>
+        <name>Employer_business_found__c</name>
+    </fields>
+    <fields>
+        <help><!-- Final affordability calculator updated to include any additional credit(s), confirmed income and correct rental/mortgage as per policy. Notes added to support the amendments. --></help>
+        <label><!-- Final affordability calculator updated --></label>
+        <name>Final_affordability_calculator_updated__c</name>
+    </fields>
+    <fields>
+        <help><!-- Full compliance with all Current Policy P&amp;G &amp; Interim emails. All appropriate actions taken and no unnecessary delays or document requests? --></help>
+        <label><!-- Full compliance with Current Policy --></label>
+        <name>Full_compliance_with_Current_Policy__c</name>
+    </fields>
+    <fields>
+        <help><!-- Full compliance with all Current Policy P&amp;G &amp; Interim emails. All appropriate actions taken and no unnecessary delays or document requests? Tamper check conducted where required ? --></help>
+        <label><!-- Full compliance with all Current Policy --></label>
+        <name>Full_compliance_with_all_Current_Policy__c</name>
+    </fields>
+    <fields>
+        <help><!-- Full notes explaining why U/W had good reason to suspect fraud? --></help>
+        <label><!-- Full Explanation given ? --></label>
+        <name>Full_notes_explaining_why_U_W_had_good_r__c</name>
+    </fields>
+    <fields>
+        <help><!-- Greeting, Company Name, U/W Name. Was it evident that it was convenient to continue or should the U/W have ideally checked this? --></help>
+        <label><!-- Greeting &amp; convenient to continue --></label>
+        <name>Greeting_convenient_to_continue__c</name>
+    </fields>
+    <fields>
+        <help><!-- Has call been attempted/made? --></help>
+        <label><!-- Has call been attempted/made? --></label>
+        <name>Has_call_been_attempted_made__c</name>
+    </fields>
+    <fields>
+        <label><!-- ID checked, run via Au10tix --></label>
+        <name>ID_checked_run_via_Au10tix__c</name>
+    </fields>
+    <fields>
+        <help><!-- If proceeding with 0, 1and 2 category cases and no bank match was interbank check made (even if bank statement received before or after) --></help>
+        <label><!-- If proceeding with 0, 1 &amp; 2 category --></label>
+        <name>If_proceeding_with_0_1and_2_category_ca__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was information given to the customer factually correct? --></help>
+        <label><!-- Information factually correct? --></label>
+        <name>Information_factually_correct__c</name>
+    </fields>
+    <fields>
+        <help><!-- Note added to the task stating that searches are to remain until contact made with Victim or removed if contact has been made with Victim. --></help>
+        <label><!-- Note added to the task RE: Searches --></label>
+        <name>Note_added_to_the_task_stating_that_sear__c</name>
+    </fields>
+    <fields>
+        <help><!-- Overall CIFAS was compliant ? --></help>
+        <label><!-- Overall Cifas was Compliant ? --></label>
+        <name>Overall_Cifas_was_Compliant__c</name>
+    </fields>
+    <fields>
+        <help><!-- POI: Correct documents checked, 15% rule checked --></help>
+        <label><!-- POI: Correct documents checked --></label>
+        <name>POI_Correct_documents_checked__c</name>
+    </fields>
+    <fields>
+        <help><!-- U/W professional and courteous, and not speaking over or interrupting applicant --></help>
+        <label><!-- Professional and courteous? --></label>
+        <name>Professional_and_courteous__c</name>
+    </fields>
+    <fields>
+        <help><!-- RC Codes Complied with --></help>
+        <label><!-- RC Codes Complied with --></label>
+        <name>RC_Codes_Complied_with__c</name>
+    </fields>
+    <fields>
+        <help><!-- Reason for call --></help>
+        <label><!-- Reason for call --></label>
+        <name>Reason_for_call__c</name>
+    </fields>
+    <fields>
+        <help><!-- Reason for silences/hold and checking ok with applicant --></help>
+        <label><!-- Reason for silences/hold &amp; checking ok --></label>
+        <name>Reason_for_silences_hold_checking_ok__c</name>
+    </fields>
+    <fields>
+        <label><!-- RiskScore --></label>
+        <name>RiskScore__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sent letter to Victim? Or case note explaining why letter not sent e.g fear of interception? --></help>
+        <label><!-- Sent letter to Victim? Or case note ? --></label>
+        <name>Sent_letter_to_Victim_Or_case_note__c</name>
+    </fields>
+    <fields>
+        <help><!-- Copy of letter stored in appropriate folder? --></help>
+        <label><!-- Copy of letter stored ? --></label>
+        <name>Sent_letter_to_Victim_Or_case_note_expl__c</name>
+    </fields>
+    <fields>
+        <help><!-- Tamper Check performed and accurately assessed, where required --></help>
+        <label><!-- Tamper Check performed --></label>
+        <name>Tamper_Check_performed__c</name>
+    </fields>
+    <fields>
+        <label><!-- UW Call Case Percent --></label>
+        <name>UW_Call_Case_Percent__c</name>
+    </fields>
+    <fields>
+        <label><!-- UW Call Case Score --></label>
+        <name>UW_Call_Case_Score__c</name>
+    </fields>
+    <fields>
+        <help><!-- Search here for the underwriter you are quality checking --></help>
+        <label><!-- Underwriter name --></label>
+        <name>Underwriter_name__c</name>
+        <relationshipLabel><!-- Underwriting Quality Checks --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Upheld Complaint ? --></help>
+        <label><!-- Upheld Complaint --></label>
+        <name>Upheld_Complaint__c</name>
+    </fields>
+    <fields>
+        <help><!-- Valid Cancellation Reason? --></help>
+        <label><!-- Valid Cancellation Reason ? --></label>
+        <name>Valid_Cancellation_Reason__c</name>
+    </fields>
+    <fields>
+        <help><!-- Valid Cancellation within correct timescales and/or Deadline extension valid ? --></help>
+        <label><!-- Valid Cancellation timescale ? --></label>
+        <name>Valid_Cancellation_timescale__c</name>
+    </fields>
+    <fields>
+        <help><!-- Valid Decline Rationale? --></help>
+        <label><!-- Valid Decline Rationale? --></label>
+        <name>Valid_Decline_Rationale__c</name>
+    </fields>
+    <fields>
+        <help><!-- Is the lending decision valid ? --></help>
+        <label><!-- Valid Lending Decision --></label>
+        <name>Valid_Lending_Decision__c</name>
+    </fields>
+    <fields>
+        <help><!-- Valid Loan purpose established --></help>
+        <label><!-- Valid Loan purpose established --></label>
+        <name>Valid_Loan_purpose_established__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was loading correctlyinvestigated according to category type? --></help>
+        <label><!-- Was loading investigated correctly ? --></label>
+        <name>Was_loading_investigated_correctly__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was loading/reloading correctly input? --></help>
+        <label><!-- Was loading/reloading correctly input? --></label>
+        <name>Was_loading_reloading_correctly_input__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was reloading for a valid reason ? --></help>
+        <label><!-- Was reloading for a valid reason ? --></label>
+        <name>Was_reloading_for_a_valid_reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- 10.Comments --></label>
+        <name>X10_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 11.Comments --></label>
+        <name>X11_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 12.Comments --></label>
+        <name>X12_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 13.Comments --></label>
+        <name>X13_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 14.Comments --></label>
+        <name>X14_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 15.Comments --></label>
+        <name>X15_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 2.Comments --></label>
+        <name>X2_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 3.Comments --></label>
+        <name>X3_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 4.Comments --></label>
+        <name>X4_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 5.Comments --></label>
+        <name>X5_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 6.Comments --></label>
+        <name>X6_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 7.Comments --></label>
+        <name>X7_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 8.Comments --></label>
+        <name>X8_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- 9.Comments --></label>
+        <name>X9_Comments__c</name>
+    </fields>
+    <layouts>
+        <layout>Approval Check Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Cancellation Check Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Cifas check Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Decline Check Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>UW Calls Check</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Approval check --></label>
+        <name>Approval_check</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Cancellation check --></label>
+        <name>Cancellation_check</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Cifas check --></label>
+        <name>Cifas_check</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Decline Check --></label>
+        <name>Decline_Check</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Telephone call check --></label>
+        <name>Telephone_call_check</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You must associate a report with a case --></errorMessage>
+        <name>Case_Number_Missing</name>
+    </validationRules>
+</CustomObjectTranslation>

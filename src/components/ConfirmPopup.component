@@ -1,0 +1,51 @@
+<apex:component >
+    <style type="text/css">
+        .popupBackground {
+            background-color: black;
+            opacity: 0.20;
+            filter: alpha(opacity = 20);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+        }
+
+        .custPopup {
+            background-color: white;
+            border-color: #00c8b4;
+            border-style: solid;
+            border-width: 3px;
+            border-radius: 5px;
+            text-align: center;
+            font-family: Arial,Helvetica,sans-serif;
+            font-size: 13px;
+            z-index: 9999;
+            left: 50%;
+            width: 700px;
+            top: 50%;
+            padding-bottom: 10px;
+            position: fixed;
+            margin-top: -200px;
+            margin-left: -350px;
+        }
+
+        .popupHeader {
+            font-size: 12pt;
+            font-weight: bold;
+            display: block;
+            padding: 10px 0px;
+            background-color: #00c8b4;
+            color: #FFF;
+            margin-bottom: 10px;
+        }
+    </style>
+    <apex:attribute name="Visible" type="Boolean" description="Should this component be shown" default="false"/>
+    <apex:attribute name="HeaderMessage" type="String" description="HeaderMessage"/>
+    <apex:outputpanel styleclass="popupBackground" layout="block" rendered="{!Visible}" />
+    <apex:outputpanel styleClass="custPopup" layout="block" rendered="{!Visible}">
+        <apex:outputtext styleClass="popupHeader" value="{!HeaderMessage}" />
+            <apex:componentBody />
+    </apex:outputpanel>
+</apex:component>

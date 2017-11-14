@@ -1,0 +1,22 @@
+<apex:component >
+    <apex:attribute name="LoanApplicationRecordId" type="String" required="true" description="Record id of related Loan Application"/>
+    <apex:attribute name="LoanApplicationName" type="String" required="true" description="Name of related Loan Application"/>
+    <apex:pageBlock title="Credit Bureau Data">
+        <apex:form >
+            <apex:pageblocksection columns="2" collapsible="false">
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel />
+                    <apex:commandlink value="Call Credit" action="{!$Page.CallCreditDetailsView}?id={!LoanApplicationRecordId}" immediate="true" styleClass="bigCommandLink"
+                                      target="_blank" />
+
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel />
+                    <apex:commandlink value="Equifax" action="{!$Page.EquifaxDetailsView}?id={!LoanApplicationRecordId}" immediate="true" styleClass="bigCommandLink"
+                                      target="_blank" />
+
+                </apex:pageblocksectionitem>
+            </apex:pageblocksection>
+        </apex:form>
+    </apex:pageBlock>
+</apex:component>

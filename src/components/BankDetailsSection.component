@@ -1,0 +1,33 @@
+<apex:component controller="BankDetailsSectionController">
+    <apex:attribute name="LoanApplicationId" type="String" required="true" assignTo="{!LoanAppId}" description="Id of related Loan Application"/>
+    <apex:form id="form" rendered="{!$Permission.Loan_View_Bank_Details && IsZopa57IsEnabled}">
+        <apex:pageBlock title="Bank Details">
+            <apex:pageBlockButtons location="top">
+                <apex:commandbutton id="ValidateBankDetailsButton" action="{!showValidateBankDetailsPopup}" value="Validate Bank Details" rendered="{!IsZopa156IsEnabled  && $Permission.Loan_Validate_Blank_Details }" rerender="popup" />
+            </apex:pageBlockButtons>
+            <c:LazyLoadSpinner ActionToPerform="{!getBankDetailsInformation}">
+                <apex:pageMessage summary="{!ErrorOnLoad}" severity="FATAL" strength="2" rendered="{!ErrorOnLoad != null}" title="Error:"/>
+                <apex:pageBlockTable value="{!BankDetailsList}" var="detail" rendered="{!BankDetailsList != null && BankDetailsList.size > 0}">
+                    <apex:column headerValue="Detail" value="{!detail.DetailLabel}"/>
+                    <apex:column headerValue="Customer Direct Debit Mandate (Latest)">
+                        <apex:outputText value="{!detail.CustomerDirectDebitMandate}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </c:LazyLoadSpinner>
+        </apex:pageBlock>
+        <c:ConfirmPopup id="popup" Visible="{!IsShownValidateBankDetailsPopUp}" HeaderMessage="Validate Bank Details">
+            <apex:actionStatus id="spinner">
+                <apex:facet name="stop">
+                    <apex:outputPanel >
+                        <apex:pageMessage summary="{!ErrorOnLoadValidateDetails}" severity="FATAL" strength="2" rendered="{!ErrorOnLoadValidateDetails != null}" title="Error:"/>
+                        <apex:outputText value="{!ValidateBankDetails.Result}" style="display:block;margin: 0 auto;margin-bottom: 5px;"/>
+                        <apex:commandbutton value="OK" action="{!endActionValidateBankDetails}" rerender="popup, form" status="spinner" style="border-color: #8A9EBE; border-style: solid;border-width: 2px; width: 80px;" />
+                    </apex:outputPanel>
+                </apex:facet>
+                <apex:facet name="start">
+                    <apex:image value="/img/loading32.gif" style="height: 15px"/>
+                </apex:facet>
+            </apex:actionStatus>
+        </c:ConfirmPopup>
+    </apex:form>
+</apex:component>

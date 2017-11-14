@@ -1,0 +1,16 @@
+<apex:component controller="AddressDetailsViewController">
+    <apex:attribute name="LoanApplicationId" type="String" required="true" assignTo="{!LoanAppId}" description="Id of related Loan Application"/>
+    <apex:form id="form" rendered="{!$Permission.Loan_View_Address_Details && IsZopa83IsEnabled}">
+        <apex:pageBlock title="Address History">
+            <c:LazyLoadSpinner ActionToPerform="{!getAddressHistoryInformation}">
+                <apex:pageMessage summary="{!ErrorOnLoad}" severity="FATAL" strength="2" rendered="{!ErrorOnLoad != null}" title="Error:"/>
+                <apex:pageBlockTable value="{!AddressHistoryList}" var="detail" rendered="{!AddressHistoryList != null && AddressHistoryList.size > 0}">
+                    <apex:column headerValue="Address" value="{!detail.Address}"/>
+                    <apex:column headerValue="Arrived Date" value="{!detail.ArrivedDate}"/>
+                    <apex:column headerValue="Time at Address" value="{!detail.TimeAtAddress}"/>
+                </apex:pageBlockTable>
+                <apex:outputText value="No records to display" rendered="{!noRecordToDisplay}"/>
+            </c:LazyLoadSpinner>
+        </apex:pageBlock>
+    </apex:form>
+</apex:component>

@@ -1,0 +1,30 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+<div id="remove-shortcut-id">
+Click "Show HTML" to see hidden javascript code.<br/>
+<b>DO NOT SAVE UNLESS JAVASCRIPT IS VISIBLE</b> or else that code will be erased.
+</div>
+
+<script type="text/javascript"><!--
+function changeNewEmailQuery() {
+    var PARAMETERS_TO_ADD = 'p26=0D220000000GqeO:contact-us@zopa.com:Zopa Customer Services';
+    var cid = window.location.pathname.replace('\/', '');
+    if (cid.indexOf('500') != 0) return;
+    var newEmailBtn = document.getElementsByName("newEmail");
+    if (newEmailBtn[0] && newEmailBtn[0].query_fixed == false) {
+        var btn = newEmailBtn[0];
+        var fn = btn.onclick.toString()
+        var navUrl = fn.match(/navigateToUrl\('([^']*)'.*/)[1];
+        navUrl = navUrl + "&" + PARAMETERS_TO_ADD;
+        btn.onclick = function (event) { navigateToUrl(navUrl, null, 'newEmail'); };
+        btn.query_fixed = true;
+    }
+}
+/* Run immediately on page load and queue for second run after related lists load */
+changeNewEmailQuery();
+setTimeout('changeNewEmailQuery();', 100);
+/* hide this component */
+document.getElementById('remove-shortcut-id').parentElement.style.display = 'none';
+--></script>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

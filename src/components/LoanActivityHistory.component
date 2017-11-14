@@ -1,0 +1,60 @@
+<apex:component controller="LoanActivityHistoryController" allowDML="true">
+    <apex:attribute assignTo="{!LoanApplicationId}" type="Id" name="LoanId" description="Shows all tasks related to this loan and loan cases"/>
+    <apex:attribute type="Loan_Application__c" name="LoanApplication" description=""/>
+    <script type="text/javascript">
+        function openPageInSubtab(url, tab_name) {
+            if (sforce.console.isInConsole()) {
+                var openConcreteSubTab = function (primaryTab, url, tab_name) {
+                    sforce.console.openSubtab(primaryTab.id, url, true, tab_name);
+                }
+                sforce.console.getEnclosingPrimaryTabId(function (primaryTab) {
+                    openConcreteSubTab(primaryTab, url, tab_name)
+                });
+            } else {
+                window.top.location = url;
+            }
+        }
+        function mailMerge() {
+            var loan_id = '{!LoanId}'.substring(0,15);
+            var metge_page = '{!URLFOR("/mail/mmchoose.jsp")}&id=' + loan_id + '{!"&1=" + LoanApplication.Name + "&retURL=%2Fapex%2FLoanApplicationView%3Fid%3D' + loan_id + '%26sfdc"}';
+            openPageInSubtab(metge_page, "Send a Reminder");
+        }
+    </script>
+    <apex:form id="component">
+        <apex:outputPanel id="ClosedTasksPanel">
+            <apex:pageBlock title="Activity History" id="ClosedTaskBlock">
+                <apex:pageBlockButtons location="Top">
+                    <apex:commandbutton value="Mail Merge" oncomplete="mailMerge()"/>
+                    <apex:commandbutton value="Send an Email" oncomplete="openPageInSubtab('{!URLFOR($Action.Activity.SendEmail, LoanId)}', 'Send an Email')"/>
+                </apex:pageBlockButtons>
+                <apex:pageBlockTable value="{!ClosedTasks}" var="closed_wrapped_activity" align="center" rendered="{!LoanCases.size>0}" rows="{!ShowElementsInPage}" id="table">
+                    <apex:column headerValue="Action" style="width:55px;">
+                        <apex:outputLink title="" value="/{!closed_wrapped_activity.id}/e?retURL=/apex/{!$CurrentPage.Name}" style="color: #006bb3">Edit</apex:outputLink>&nbsp;|&nbsp;
+                        <a href="javascript:if (window.confirm('To delete this activity completely, click OK. You\'ll remove the activity from this record and any related records such as Contacts. Or, if you simply want to take yourself off the list of people related to this activity, click Cancel. Then go to the record for the activity and remove yourself from the Name field')) DeleteTask('{!closed_wrapped_activity.Id}');" style="color: #006bb3">Del</a>
+                    </apex:column>
+                    <apex:column headerValue="Subject">
+                        <apex:outputLink value="/{!closed_wrapped_activity.Id}" title="{!closed_wrapped_activity.Description}">{!closed_wrapped_activity.Subject}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Name">
+                        <apex:outputLink value="/{!closed_wrapped_activity.Name}">{!closed_wrapped_activity.Name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Task">
+                        <apex:image value="/img/checkbox_checked.gif" rendered="{!closed_wrapped_activity.IsTask}"/>
+                        <apex:image value="/img/checkbox_unchecked.gif" rendered="{!!closed_wrapped_activity.IsTask}"/>
+                    </apex:column>
+                    <apex:column value="{!closed_wrapped_activity.DueDate}" headerValue="Due Date"/>
+                    <apex:column headerValue="Assigned To">
+                        <apex:outputLink value="/{!closed_wrapped_activity.OwnerId}">{!closed_wrapped_activity.AgentName}</apex:outputLink>
+                    </apex:column>
+                    <apex:column value="{!closed_wrapped_activity.LastModified}" headerValue="Last Modified Date/Time"/>
+                </apex:pageBlockTable>
+                <apex:commandLink value="Show more »" action="{!showMoreElements}" reRender="table"/>&nbsp;|&nbsp;
+                <apex:commandLink value="Show All »"  action="{!showAllElements}" reRender="table"/>
+                <apex:outputText value="No records to display" rendered="{!LoanCases.size=0}"/>
+            </apex:pageBlock>
+            <apex:actionFunction action="{!deleteTask}" name="DeleteTask" reRender="table">
+                <apex:param name="taskid" value="" assignTo="{!SelectedTaskId}"/>
+            </apex:actionFunction>
+        </apex:outputPanel>
+    </apex:form>
+</apex:component>

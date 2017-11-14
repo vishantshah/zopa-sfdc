@@ -1,0 +1,31 @@
+<apex:component controller="LoanConsolidationCandidatesController">
+    <apex:attribute name="LoanApplicationId" type="String" required="true" assignTo="{!LoanAppId}" description="Id of related Loan Application"/>
+    <apex:form id="form" rendered="{!$Permission.Loan_View_Consolidation_Candidates && IsZopa81IsEnabled}">
+        <c:LazyLoadSpinner ActionToPerform="{!getLoanConsolidationCandidates}" ShowSpinner="false">
+            <apex:pageBlock title="Zopa Loan Consolidation" rendered="{!(LoanConsolidationCandidates.ConfirmedConsolidationLoans != null && LoanConsolidationCandidates.ConfirmedConsolidationLoans.size > 0) || ErrorOnLoad != null}">
+                <apex:pageMessage summary="{!ErrorOnLoad}" severity="FATAL" strength="2" rendered="{!ErrorOnLoad != null}" title="Error:"/>
+                <apex:pageBlockTable value="{!LoanConsolidationCandidates.ConfirmedConsolidationLoans}" var="detail" rendered="{!LoanConsolidationCandidates.ConfirmedConsolidationLoans != null && LoanConsolidationCandidates.ConfirmedConsolidationLoans.size > 0}">
+                    <apex:column headerValue="Borrowing Id" value="{!detail.BorrowingId}"/>
+                    <apex:column headerValue="Requested Amount">
+                        <apex:outputText value="{0, number, £###,##0.00}">
+                            <apex:param value="{!detail.RequestedAmount}" />
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Remaining Capital">
+                        <apex:outputText value="{0, number, £###,##0.00}">
+                            <apex:param value="{!detail.CapitalRemaining}" />
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Settlement Amount">
+                        <apex:outputText value="{0, number, £###,##0.00}">
+                            <apex:param value="{!detail.SettlementAmount}" />
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Repayment Pending">
+                        <apex:inputcheckbox selected="{!detail.IsRepaymentPending}" disabled="true"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </c:LazyLoadSpinner>
+    </apex:form>
+</apex:component>

@@ -1,0 +1,215 @@
+<apex:page standardController="Loan_Application__c" extensions="AffordabilityDetailsController">
+    <apex:stylesheet value="{!$Resource.ZopaCss}" />
+    <apex:includeScript value="/support/console/36.0/integration.js"/>
+    <script type="text/javascript">
+        function openPageInSubtab(url, tab_name) {
+            if (sforce.console.isInConsole()) {
+                var openConcreteSubTab = function (primaryTab, url, tab_name) {
+                    sforce.console.openSubtab(primaryTab.id, url, true, tab_name);
+                }
+
+                sforce.console.getEnclosingPrimaryTabId(function (primaryTab) {
+                    openConcreteSubTab(primaryTab, url, tab_name)
+                });
+            } else {
+                window.top.location = url;
+            }
+        }
+    </script>
+    <apex:sectionHeader title="Loan Application" subtitle="{!Loan_Application__c.Name}"/>
+    <apex:form id="form" rendered="{!$Permission.Loan_Edit_Affordability_Details && IsZopa79IsEnabled}">
+        <apex:pageBlock title="Update Affordability Details" id="UpdateAffordabilityDetails">
+            <apex:outputPanel id="PageMessages">
+                <apex:pageMessages />
+            </apex:outputPanel>
+            <apex:pageBlockButtons location="bottom">
+                <apex:actionStatus id="processDetails">
+                    <apex:facet name="stop">
+                        <apex:outputPanel >
+                            <apex:commandButton action="{!updateAffordabilityDetails}" value="Update" reRender="PageMessages" status="processDetails" rendered="{!Loan_Application__c.Loan_Application_Status__c = 'RequiresManualUnderwriting'}"/>
+                            <apex:commandButton action="{!calculateAffordabilityDetails}" value="Calculate" reRender="PageMessages,AffordabilityDetails" status="processDetails"/>
+                        </apex:outputPanel>
+                    </apex:facet>
+                    <apex:facet name="start">
+                        <apex:outputPanel >
+                            <apex:commandButton action="{!updateAffordabilityDetails}" value="Update" disabled="true" rendered="{!Loan_Application__c.Loan_Application_Status__c = 'RequiresManualUnderwriting'}"/>
+                            <apex:commandButton action="{!calculateAffordabilityDetails}" value="Calculate" disabled="true"/>
+                        </apex:outputPanel>
+                    </apex:facet>
+                </apex:actionStatus>
+            </apex:pageBlockButtons>
+            <c:LazyLoadSpinner ActionToPerform="{!getAffordabilityDetailsInformation}">
+                <apex:pageMessage summary="{!ErrorOnLoad}" severity="FATAL" strength="2" rendered="{!ErrorOnLoad != null}" title="Error:"/>
+                <apex:pageBlockSection columns="2" rendered="{!ErrorOnLoad == null}" id="AffordabilityDetails">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Income Check"/>
+                        <apex:outputPanel >
+                            <apex:outputText value="{!IncomeCheckResult}" rendered="{!NOT(IsIncomeCheckPass)}"/>
+                            <apex:inputcheckbox selected="True" disabled="true" rendered="{!IsIncomeCheckPass}"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Declared Annual Income"/>
+                        <apex:outputText value="{0, number, £###,###,##0.00}">
+                            <apex:param value="{!DeclaredAnnualIncome}" />
+                        </apex:outputText>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Additional Income"/>
+                        <apex:outputText value="{0, number, £###,###,##0.00}">
+                            <apex:param value="{!AdditionalIncome}" />
+                        </apex:outputText>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Confirmed Annual Income"/>
+                        <apex:outputPanel layout="block" styleClass="requiredInput">
+                            <apex:outputPanel layout="block" styleClass="requiredBlock"></apex:outputPanel>
+                            <apex:inputText value="{!ConfirmedAnnualIncome}"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Total Monthly Repayment Amount"/>
+                        <apex:outputText value="{0, number, £###,###,##0.00}">
+                            <apex:param value="{!TotalMonthlyRepaymentAmount}" />
+                        </apex:outputText>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Monthly Net Income"/>
+                        <apex:outputPanel layout="block" styleClass="requiredInput">
+                            <apex:outputPanel layout="block" styleClass="requiredBlock"></apex:outputPanel>
+                            <apex:inputText value="{!MonthlyNetIncome}"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Declared Rent/Mortgage"/>
+                        <apex:outputText value="{0, number, £###,###,##0.00}">
+                            <apex:param value="{!RentMortgage}" />
+                        </apex:outputText>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Total Unsecured Debt Amount"/>
+                        <apex:outputText value="{0, number, £###,###,##0.00}">
+                            <apex:param value="{!TotalUnsecuredDebtAmount}" />
+                        </apex:outputText>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Bureau Mortgage"/>
+                        <apex:outputText value="{0, number, £###,###,##0.00}">
+                            <apex:param value="{!BureauMortgage}" />
+                        </apex:outputText>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Debt To Income Ratio"/>
+                        <apex:outputPanel >
+                            <apex:outputText value="{!DebtToIncome}%"/><a>&emsp;</a>
+                            <apex:image value="/img/func_icons/util/alert16.gif" rendered="{!IsWarningDTI}"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Confirmed Rent/Mortgage"/>
+                        <apex:outputPanel layout="block" styleClass="requiredInput">
+                            <apex:outputPanel layout="block" styleClass="requiredBlock"></apex:outputPanel>
+                            <apex:inputText value="{!ConfirmedRentMortgage}"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Low Debt To Income"/>
+                        <apex:outputPanel >
+                            <apex:outputText value="{!LowDebtToIncome}%"/><a>&emsp;</a>
+                            <apex:image value="/img/func_icons/util/alert16.gif" rendered="{!IsWarningLDTI}"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Disposable Income"/>
+                        <apex:outputPanel >
+                            <apex:outputText value="{0, number, £###,###,##0.00}">
+                                <apex:param value="{!DisposableIncome}" />
+                            </apex:outputText>
+                            <a>&emsp;</a>
+                            <apex:image value="/img/func_icons/util/alert16.gif" rendered="{!IsWarningDI}"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection columns="1" rendered="{!ErrorOnLoad == null}" title="Rolling Credit (5% Repayments)" id="RollingCreditLinesRows" collapsible="false">
+                    <apex:pageBlockTable value="{!RollingCreditLines}" var="detail" rendered="{!RollingCreditLines != null && RollingCreditLines.size > 0}" columnsWidth="15%,15%,15%,15%,15%,10%">
+                        <apex:column headerValue="Company Class">
+                            <apex:outputText value="{!detail.CompanyClass}" rendered="{!detail.Source != 'Underwriter'}"/>
+                        </apex:column>
+                        <apex:column headerValue="Account Type">
+                            <apex:outputPanel layout="block" styleClass="requiredInput" rendered="{!detail.Source == 'Underwriter'}">
+                                <apex:outputPanel layout="block" styleClass="requiredBlock"></apex:outputPanel>
+                                <apex:selectList value="{!detail.AccountType}" size="1">
+                                    <apex:selectOptions value="{!AccountTypeOptionRollingCredit}"/>
+                                </apex:selectList>
+                            </apex:outputPanel>
+                            <apex:outputText value="{!detail.AccountType}" rendered="{!detail.Source != 'Underwriter'}"/>
+                        </apex:column>
+                        <apex:column headerValue="Source">
+                            <apex:outputText value="{!detail.Source}"/>
+                        </apex:column>
+                        <apex:column headerValue="Total">
+                            <apex:outputPanel layout="block" styleClass="requiredInput">
+                                <apex:outputPanel layout="block" styleClass="requiredBlock"></apex:outputPanel>
+                                <apex:inputText value="{!detail.Total}">
+                                    <apex:actionSupport event="onchange" rerender="RollingCreditMonthly"/>
+                                </apex:inputText>
+                            </apex:outputPanel>
+                        </apex:column>
+                        <apex:column headerValue="Monthly" id="RollingCreditMonthly">
+                             <apex:outputText value="{0, number, £###,###,##0.00}">
+                                <apex:param value="{!detail.Monthly}" />
+                            </apex:outputText>
+                        </apex:column>
+                        <apex:column headerValue="">
+                            <apex:commandLink action="{!removeRollingCreditLinesRow}" value="Remove Entry" reRender="RollingCreditLinesRows">
+                                <apex:param name="rowIndex" value="{!detail.Index}" assignTo="{!RowIndexToRemove}"/>
+                            </apex:commandLink>
+                        </apex:column>
+                    </apex:pageBlockTable>
+                    <apex:outputText value="No records to display" rendered="{!RollingCreditLines == null || RollingCreditLines.size == 0}"/>
+                    <apex:commandLink action="{!addRollingCreditLinesRow}" value="Add Entry" reRender="RollingCreditLinesRows"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection columns="1" rendered="{!ErrorOnLoad == null}" title="Unsecured Debts" id="UnsecuredDebtsRows" collapsible="false">
+                    <apex:pageBlockTable value="{!UnsecuredDebts}" var="detail" rendered="{!UnsecuredDebts != null && UnsecuredDebts.size > 0}" columnsWidth="15%,15%,15%,15%,15%,10%">
+                        <apex:column headerValue="Company Class">
+                            <apex:outputText value="{!detail.CompanyClass}" rendered="{!detail.Source != 'Underwriter'}"/>
+                        </apex:column>
+                        <apex:column headerValue="Account Type">
+                            <apex:outputPanel layout="block" styleClass="requiredInput" rendered="{!detail.Source == 'Underwriter'}">
+                                <apex:outputPanel layout="block" styleClass="requiredBlock"></apex:outputPanel>
+                                <apex:selectList value="{!detail.AccountType}" size="1">
+                                    <apex:selectOptions value="{!AccountTypeOptionUnsecuredDebts}"/>
+                                </apex:selectList>
+                            </apex:outputPanel>
+                            <apex:outputText value="{!detail.AccountType}" rendered="{!detail.Source != 'Underwriter'}"/>
+                        </apex:column>
+                        <apex:column headerValue="Source">
+                            <apex:outputText value="{!detail.Source}"/>
+                        </apex:column>
+                        <apex:column headerValue="Total">
+                            <apex:outputPanel layout="block" styleClass="requiredInput">
+                                <apex:outputPanel layout="block" styleClass="requiredBlock"></apex:outputPanel>
+                                <apex:inputText value="{!detail.Total}"/>
+                            </apex:outputPanel>
+                        </apex:column>
+                        <apex:column headerValue="Monthly">
+                            <apex:outputPanel layout="block" styleClass="requiredInput">
+                                <apex:outputPanel layout="block" styleClass="requiredBlock"></apex:outputPanel>
+                                <apex:inputText value="{!detail.Monthly}"/>
+                            </apex:outputPanel>
+                        </apex:column>
+                        <apex:column headerValue="">
+                            <apex:commandLink action="{!removeUnsecuredDebtsRow}" value="Remove Entry" reRender="UnsecuredDebtsRows">
+                                <apex:param name="rowIndex" value="{!detail.Index}" assignTo="{!RowIndexToRemove}"/>
+                            </apex:commandLink>
+                        </apex:column>
+                    </apex:pageBlockTable>
+                    <apex:outputText value="No records to display" rendered="{!UnsecuredDebts == null || UnsecuredDebts.size == 0}"/>
+                    <apex:commandLink action="{!addUnsecuredDebtsRow}" value="Add Entry" reRender="UnsecuredDebtsRows"/>
+                </apex:pageBlockSection>
+            </c:LazyLoadSpinner>
+        </apex:pageBlock>
+    </apex:form>
+    <c:SetConsoleTabTitle title="{!'Affordability Details: ' + Loan_Application__c.Name}" iconurl="{!$Resource.icon_affordability_16}"/>
+</apex:page>

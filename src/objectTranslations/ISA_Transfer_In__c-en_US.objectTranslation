@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>ISA Transfer In</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>ISAs Transfer In</value>
+    </caseValues>
+    <fields>
+        <label><!-- Acceptance Date --></label>
+        <name>Acceptance_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Creation Email Sent --></label>
+        <name>Account_Creation_Notification_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Name --></label>
+        <name>Account_Name__c</name>
+        <relationshipLabel><!-- ISAs Transfer In --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- All Information Received --></label>
+        <name>All_Information_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Name --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- ISAs Transfer In --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Current Stage --></label>
+        <name>Current_Stage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Timer --></label>
+        <name>Current_Timer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Year 1st Subscription Date --></label>
+        <name>Current_Year_1st_Subscription_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Document Scanned --></label>
+        <name>Document_Scanned__c</name>
+    </fields>
+    <fields>
+        <label><!-- Flag Image --></label>
+        <name>Flag_Image__c</name>
+    </fields>
+    <fields>
+        <label><!-- Flag --></label>
+        <name>Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Sent --></label>
+        <name>Form_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- History Transfer Form Received --></label>
+        <name>History_Transfer_Form_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- ISA Manager --></label>
+        <name>ISA_Manager__c</name>
+        <relationshipLabel><!-- ISAs Transfer In --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- ISA Type --></label>
+        <name>ISA_Type__c</name>
+        <picklistValues>
+            <masterLabel>Cash</masterLabel>
+            <translation><!-- Cash --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stocks and Shares</masterLabel>
+            <translation><!-- Stocks and Shares --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ISA Z Reference --></label>
+        <name>ISA_Z_Reference__c</name>
+    </fields>
+    <fields>
+        <label><!-- Information Missing --></label>
+        <name>Information_Missing__c</name>
+        <picklistValues>
+            <masterLabel>Account number (Cash only)</masterLabel>
+            <translation><!-- Account number (Cash only) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amount</masterLabel>
+            <translation><!-- Amount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Date of declaration</masterLabel>
+            <translation><!-- Date of declaration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ISA provider&apos;s address</masterLabel>
+            <translation><!-- ISA provider&apos;s address --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ISA provider&apos;s name</masterLabel>
+            <translation><!-- ISA provider&apos;s name --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Instructions for stocks and shares</masterLabel>
+            <translation><!-- Instructions for stocks and shares --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>National Insurance number</masterLabel>
+            <translation><!-- National Insurance number --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reference number (IF-ISA/S&amp;S)</masterLabel>
+            <translation><!-- Reference number (IF-ISA/S&amp;S) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signature</masterLabel>
+            <translation><!-- Signature --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sort code (Cash only)</masterLabel>
+            <translation><!-- Sort code (Cash only) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Type of ISA</masterLabel>
+            <translation><!-- Type of ISA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Confirm that the following details are the same as in the admin screens: First Name, Last Name, DoB, Address, Postcode, Phone Number --></help>
+        <label><!-- Member Details Correct --></label>
+        <name>Member_Details_Correct__c</name>
+    </fields>
+    <fields>
+        <label><!-- National Insurance Number --></label>
+        <name>National_Insurance_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Old Manager Additional Time Flag --></label>
+        <name>Old_Manager_Additional_Time_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Processed --></label>
+        <name>Payment_Processed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Received --></label>
+        <name>Payment_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Type Received --></label>
+        <name>Payment_Type_Received__c</name>
+        <picklistValues>
+            <masterLabel>BACs</masterLabel>
+            <translation><!-- BACs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cheque</masterLabel>
+            <translation><!-- Cheque --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Request Timer Paused --></label>
+        <name>Request_Timer_Paused__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subscription Amount --></label>
+        <name>Subscription_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Timer 1 Status --></label>
+        <name>Timer_1_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Timer 2 Status --></label>
+        <name>Timer_2_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Timer 3 Status --></label>
+        <name>Timer_3_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Timer 4 Status --></label>
+        <name>Timer_4_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transfer Received Date --></label>
+        <name>Transfer_Received_Date__c</name>
+    </fields>
+    <layouts>
+        <layout>ISA Transfer In Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Request Processing --></label>
+            <section>Request Processing</section>
+        </sections>
+        <sections>
+            <label><!-- Request Received --></label>
+            <section>Request Received</section>
+        </sections>
+        <sections>
+            <label><!-- Transfer History --></label>
+            <section>Transfer History</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Email_Sent --></label>
+        <name>Email_Sent</name>
+    </webLinks>
+</CustomObjectTranslation>

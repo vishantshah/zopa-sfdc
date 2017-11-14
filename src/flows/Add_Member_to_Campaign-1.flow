@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Takes Campaign ID and Contact ID and Creates a member record for the campaign</description>
+    <interviewLabel>Add Member to Campaign {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Add Member to Campaign</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Add_Member_to_Campaign</name>
+        <label>Add Member to Campaign</label>
+        <locationX>212</locationX>
+        <locationY>177</locationY>
+        <inputAssignments>
+            <field>CampaignId</field>
+            <value>
+                <elementReference>CampaignID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ContactId</field>
+            <value>
+                <elementReference>ContactID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Sent</stringValue>
+            </value>
+        </inputAssignments>
+        <object>CampaignMember</object>
+    </recordCreates>
+    <startElementReference>Add_Member_to_Campaign</startElementReference>
+    <variables>
+        <name>CampaignID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ContactID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>
